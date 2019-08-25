@@ -75,8 +75,36 @@ self.addEventListener('install', function (event) {
 self.addEventListener('fetch', function (event) {
     var url = new URL(event.request.url);
 
-    if (url.pathname.startsWith('/opponents/') || url.pathname.startsWith('/img/backgrounds/') || url.pathname.endsWith('.xml')) {
-        /* For data in opponents/, background images, or any data XML files:
+    if (url.pathname.startsWith('/opponents/') && (
+            url.pathname.endsWith('.png') ||
+            url.pathname.endsWith('.jpg') ||
+            url.pathname.endsWith('.jpeg') ||
+            url.pathname.endsWith('.gif')
+        )) {
+        /* For images in /opponents:
+         * Go to cache first, but re-cache a new version from network afterwards.
+         */
+
+        event.respondWith(
+            caches.open(DYNAMIC_CACHE_NAME)
+            .then(function (cache) {
+                return cache.match(event.request).then(function (response) {
+                    var fetchPromise = fetch(event.request).then(function (networkResponse) {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+
+                    return response || fetchPromise;
+                });
+            })
+        );
+    } else if (url.pathname === '/' ||
+        url.pathname.startsWith('/opponents/') ||
+        url.pathname.startsWith('/img/backgrounds/') ||
+        url.pathname.endsWith('.xml')
+    ) {
+        /* For the core page HTML, all other data in opponents/,
+         * background images, or any data XML files:
          * go to network first, but fall back to cache if offline.
          */
 

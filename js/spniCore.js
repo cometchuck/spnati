@@ -1038,6 +1038,35 @@ Player.prototype.preloadStageImages = function (stage) {
         }, this);
 };
 
+Player.prototype.cacheAllContent = function () {
+    if ('serviceWorker' in navigator) {
+        var files = ['opponents/' + this.id + '/meta.xml'];
+
+        for (var i = -1; i < this.layers + 3; i++) {
+            Array.prototype.push.apply(files, this.getImagesForStage(i));
+        }
+
+        if (this.has_collectibles) {
+            files.push('opponents/' + this.id + '/collectibles.xml');
+        }
+
+        if (this.stylesheet) {
+            files.push(this.stylesheet);
+        }
+
+        var id = this.id;
+        caches.open(DYNAMIC_CACHE_NAME).then(function (cache) {
+            return cache.addAll(files);
+        }).then(function () {
+            return cache.add('opponents/' + id + '/behaviour.xml.gz').catch(function () {
+                cache.add('opponents/' + id + '/behaviour.xml');
+            });
+        }).then(function () {
+            save.setOpponentCached(id, true);
+        });
+    }
+}
+
 /**********************************************************************
  *****              Overarching Game Flow Functions               *****
  **********************************************************************/
