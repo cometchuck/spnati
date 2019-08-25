@@ -1040,30 +1040,36 @@ Player.prototype.preloadStageImages = function (stage) {
 
 Player.prototype.cacheAllContent = function () {
     if ('serviceWorker' in navigator) {
-        var files = ['opponents/' + this.id + '/meta.xml'];
+        var files = new Set();
+        files.add('opponents/' + this.id + '/meta.xml');
 
         for (var i = -1; i < this.layers + 3; i++) {
-            Array.prototype.push.apply(files, this.getImagesForStage(i));
+            this.getImagesForStage(i).forEach(Set.prototype.add.bind(files));
         }
 
         if (this.has_collectibles) {
-            files.push('opponents/' + this.id + '/collectibles.xml');
+            files.add('opponents/' + this.id + '/collectibles.xml');
         }
 
         if (this.stylesheet) {
-            files.push(this.stylesheet);
+            files.add(this.stylesheet);
         }
 
         var id = this.id;
         caches.open(DYNAMIC_CACHE_NAME).then(function (cache) {
-            return cache.addAll(files);
-        }).then(function () {
-            return cache.add('opponents/' + id + '/behaviour.xml.gz').catch(function () {
-                cache.add('opponents/' + id + '/behaviour.xml');
+            var filesArray = [];
+            files.forEach(function (e) {
+                filesArray.push(e);
             });
-        }).then(function () {
-            save.setOpponentCached(id, true);
+
+            return cache.addAll(filesArray).then(function () {
+                return cache.add('opponents/' + id + '/behaviour.xml.gz').catch(function () {
+                    cache.add('opponents/' + id + '/behaviour.xml');
+                });
+            });
         });
+
+        save.setOpponentCached(id, true);
     }
 }
 
@@ -1113,6 +1119,26 @@ function initialSetup() {
         },
         function () {
             if (USAGE_TRACKING && !SENTRY_INITIALIZED) sentryInit();
+        },
+        function () {
+            if ('serviceWorker' in navigator) {
+                caches.open(CORE_CACHE_NAME).then(function (cache) {
+                    var bg_sources = [];
+
+                    Object.keys(backgrounds).forEach(function (id) {
+                        var bg = backgrounds[id];
+
+                        if (bg.status && !includedOpponentStatuses[bg.status]) return;
+                        bg_sources.push(bg.src);
+                    });
+
+                    cache.addAll(bg_sources);
+
+                    cache.addAll(CANDY_LIST.map(function (v) {
+                        return 'opponents/' + v;
+                    }))
+                });
+            }
         }
     );
 

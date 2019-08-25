@@ -291,6 +291,11 @@ function Save() {
         localStorage.setItem(prefix + "cache." + oppId, status.toString());
     }
 
+    this.isOpponentCached = function (oppId) {
+        val = localStorage.getItem(prefix + "cache." + oppId);
+        return val === 'true';
+    }
+
     /** Serializes the localStorage into a base64-encoded JSON string */
     this.serializeLocalStorage = function () {
         return Base64.encode(JSON.stringify(localStorage));

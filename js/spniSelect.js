@@ -11,29 +11,35 @@
 /* main select screen */
 $selectTable = $("#select-table");
 $selectBubbles = [$("#select-bubble-1"),
-                  $("#select-bubble-2"),
-                  $("#select-bubble-3"),
-                  $("#select-bubble-4")];
+    $("#select-bubble-2"),
+    $("#select-bubble-3"),
+    $("#select-bubble-4")
+];
 $selectDialogues = [$("#select-dialogue-1"),
-                    $("#select-dialogue-2"),
-                    $("#select-dialogue-3"),
-                    $("#select-dialogue-4")];
+    $("#select-dialogue-2"),
+    $("#select-dialogue-3"),
+    $("#select-dialogue-4")
+];
 $selectAdvanceButtons = [$("#select-advance-button-1"),
-                         $("#select-advance-button-2"),
-                         $("#select-advance-button-3"),
-                         $("#select-advance-button-4")];
+    $("#select-advance-button-2"),
+    $("#select-advance-button-3"),
+    $("#select-advance-button-4")
+];
 $selectImages = [$("#select-image-1"),
-                 $("#select-image-2"),
-                 $("#select-image-3"),
-                 $("#select-image-4")];
+    $("#select-image-2"),
+    $("#select-image-3"),
+    $("#select-image-4")
+];
 $selectLabels = [$("#select-name-label-1"),
-                 $("#select-name-label-2"),
-                 $("#select-name-label-3"),
-                 $("#select-name-label-4")];
+    $("#select-name-label-2"),
+    $("#select-name-label-3"),
+    $("#select-name-label-4")
+];
 $selectButtons = [$("#select-slot-button-1"),
-                  $("#select-slot-button-2"),
-                  $("#select-slot-button-3"),
-                  $("#select-slot-button-4")];
+    $("#select-slot-button-2"),
+    $("#select-slot-button-3"),
+    $("#select-slot-button-4")
+];
 $selectMainButton = $("#main-select-button");
 $selectRandomButtons = $("#select-random-button, #select-random-female-button, #select-random-male-button");
 $selectRandomTableButton = $("#select-random-group-button");
@@ -54,10 +60,10 @@ $suggestionQuads = [
 ]
 
 mainSelectDisplays = [
-	new MainSelectScreenDisplay(1),
-	new MainSelectScreenDisplay(2),
-	new MainSelectScreenDisplay(3),
-	new MainSelectScreenDisplay(4)
+    new MainSelectScreenDisplay(1),
+    new MainSelectScreenDisplay(2),
+    new MainSelectScreenDisplay(3),
+    new MainSelectScreenDisplay(4)
 ];
 
 var individualDetailDisplay = new OpponentDetailsDisplay();
@@ -104,8 +110,8 @@ $sourceList = $("#sourceList");
 $creatorList = $("#creatorList");
 $searchGenderOptions = [$("#search-gender-1"), $("#search-gender-2"), $("#search-gender-3")];
 
-$searchModal.on('shown.bs.modal', function() {
-	$searchName.focus();
+$searchModal.on('shown.bs.modal', function () {
+    $searchName.focus();
 });
 
 $sortingOptionsItems = $(".sort-dropdown-options li");
@@ -117,8 +123,8 @@ $groupSearchSource = $("#group-search-source");
 $groupSearchTag = $("#group-search-tag");
 $groupSearchGenderOptions = [$("#group-search-gender-1"), $("#group-search-gender-2"), $("#group-search-gender-3"), $("#group-search-gender-4")];
 
-$groupSearchModal.on('shown.bs.modal', function() {
-	$groupSearchGroupName.focus();
+$groupSearchModal.on('shown.bs.modal', function () {
+    $groupSearchGroupName.focus();
 });
 
 /**********************************************************************
@@ -138,7 +144,10 @@ var metaFile = "meta.xml";
 var loadedOpponents = [];
 var selectableOpponents = loadedOpponents;
 var hiddenOpponents = [];
-var loadedGroups = [[], []];
+var loadedGroups = [
+    [],
+    []
+];
 var selectableGroups = [loadedGroups[0], loadedGroups[1]];
 var tagSet = {};
 var sourceSet = {};
@@ -152,13 +161,13 @@ var chosenGender = -1;
 var chosenGroupGender = -1;
 var sortingMode = "Featured";
 var sortingOptionsMap = {
-    "Newest" : sortOpponentsByMultipleFields("-release"),
-    "Oldest" : sortOpponentsByMultipleFields("release"),
-    "Most Layers" : sortOpponentsByMultipleFields("-layers"),
-    "Fewest Layers" : sortOpponentsByMultipleFields("layers"),
-    "Name (A-Z)" : sortOpponentsByMultipleFields("first", "last"),
-    "Name (Z-A)" : sortOpponentsByMultipleFields("-first", "-last"),
-    "Targeted most by selected" : sortOpponentsByMostTargeted(),
+    "Newest": sortOpponentsByMultipleFields("-release"),
+    "Oldest": sortOpponentsByMultipleFields("release"),
+    "Most Layers": sortOpponentsByMultipleFields("-layers"),
+    "Fewest Layers": sortOpponentsByMultipleFields("layers"),
+    "Name (A-Z)": sortOpponentsByMultipleFields("first", "last"),
+    "Name (Z-A)": sortOpponentsByMultipleFields("-first", "-last"),
+    "Targeted most by selected": sortOpponentsByMostTargeted(),
 };
 var individualCreditsShown = false;
 var groupCreditsShown = false;
@@ -199,62 +208,67 @@ function Group(title, background) {
  * screen.
  ************************************************************/
 
-function loadSelectScreen () {
+function loadSelectScreen() {
     var deferred = loadListingFile();
     updateSelectionVisuals();
-    
+
     return deferred;
 }
 
-function splitCreatorField (field) {
+function splitCreatorField(field) {
     // First, remove any parenthetical info in the field.
     // Then, split on observed creator separators.
     return field
-            .replace(/\([^\)]+\)|\[[^\]]+\]/gm, '')
-            .split(/\s*(?:,|&|\:|and|\+|\/|\\|<(?:\/\\)?\s*br\s*(?:\/\\)?>)\s*/gm)
-            .map(function (s) {
-                return s.trim();
-            });
+        .replace(/\([^\)]+\)|\[[^\]]+\]/gm, '')
+        .split(/\s*(?:,|&|\:|and|\+|\/|\\|<(?:\/\\)?\s*br\s*(?:\/\\)?>)\s*/gm)
+        .map(function (s) {
+            return s.trim();
+        });
 }
 
 /************************************************************
  * Loads and parses the main opponent listing file.
  ************************************************************/
-function loadListingFile () {
-	/* clear the previous meta information */
-	var outstandingLoads = 0;
-	var opponentGroupMap = {};
-	var opponentMap = {};
-	var onComplete = function(opp, index) {
-		if (opp) {
-			if (opp.id in opponentMap) {
-				loadedOpponents[opponentMap[opp.id]] = opp;
-                opp.tags.forEach(function(tag) {
+function loadListingFile() {
+    /* clear the previous meta information */
+    var outstandingLoads = 0;
+    var opponentGroupMap = {};
+    var opponentMap = {};
+    var onComplete = function (opp, index) {
+        if (opp) {
+            if (opp.id in opponentMap) {
+                loadedOpponents[opponentMap[opp.id]] = opp;
+                opp.tags.forEach(function (tag) {
                     tagSet[canonicalizeTag(tag)] = true;
                 });
                 sourceSet[opp.source] = true;
-                
+
                 splitCreatorField(opp.artist).forEach(function (creator) {
                     creatorSet[creator] = true;
                 });
-                
+
                 splitCreatorField(opp.writer).forEach(function (creator) {
                     creatorSet[creator] = true;
                 });
-                
+
                 console.log();
-                
+
                 var disp = new OpponentSelectionCard(opp);
                 opp.selectionCard = disp;
-                disp.statusIcon.tooltip({ delay: { show: 200 }, placement: 'bottom',
-                                          container: '#individual-select-screen .selection-cards-container' });
-			}
-			if (opp.id in opponentGroupMap) {
-				opponentGroupMap[opp.id].forEach(function(groupPos) {
-					groupPos.group.opponents[groupPos.idx] = opp;
-				});
-			}
-		}
+                disp.statusIcon.tooltip({
+                    delay: {
+                        show: 200
+                    },
+                    placement: 'bottom',
+                    container: '#individual-select-screen .selection-cards-container'
+                });
+            }
+            if (opp.id in opponentGroupMap) {
+                opponentGroupMap[opp.id].forEach(function (groupPos) {
+                    groupPos.group.opponents[groupPos.idx] = opp;
+                });
+            }
+        }
         if (--outstandingLoads % 16 == 0) {
             updateSelectableOpponents();
             updateIndividualSelectScreen();
@@ -264,26 +278,32 @@ function loadListingFile () {
             updateSelectionVisuals();
         }
         if (outstandingLoads == 0) {
-            $tagList.append(Object.keys(tagSet).sort().map(function(tag) {
+            $tagList.append(Object.keys(tagSet).sort().map(function (tag) {
                 return new Option(canonicalizeTag(tag));
             }));
-            $sourceList.append(Object.keys(sourceSet).sort().map(function(source) {
+            $sourceList.append(Object.keys(sourceSet).sort().map(function (source) {
                 return new Option(source);
             }));
-            $creatorList.append(Object.keys(creatorSet).sort().map(function(source) {
+            $creatorList.append(Object.keys(creatorSet).sort().map(function (source) {
                 return new Option(source);
             }));
         }
-	}
+    }
 
-	/* grab and parse the opponent listing file */
-	return $.ajax({
+    if ('serviceWorker' in navigator) {
+        caches.open(DYNAMIC_CACHE_NAME).then(function (cache) {
+            cache.add(listingFile);
+        });
+    }
+
+    /* grab and parse the opponent listing file */
+    return $.ajax({
         type: "GET",
-		url: listingFile,
-		dataType: "text",
-		success: function(xml) {
+        url: listingFile,
+        dataType: "text",
+        success: function (xml) {
             var $xml = $(xml);
-			var available = {};
+            var available = {};
 
             /* start by checking which characters will be loaded and available */
             $xml.find('individuals>opponent').each(function () {
@@ -294,26 +314,31 @@ function loadListingFile () {
                 }
             });
 
-			$xml.find('groups>group').each(function () {
+            $xml.find('groups>group').each(function () {
                 var title = $(this).attr('title');
                 var background = $(this).attr('background') || undefined;
-				var opp1 = $(this).attr('opp1');
-				var opp2 = $(this).attr('opp2');
-				var opp3 = $(this).attr('opp3');
-				var opp4 = $(this).attr('opp4');
+                var opp1 = $(this).attr('opp1');
+                var opp2 = $(this).attr('opp2');
+                var opp3 = $(this).attr('opp3');
+                var opp4 = $(this).attr('opp4');
 
                 var ids = [opp1, opp2, opp3, opp4];
-                if (!ids.every(function(id) { return available[id]; })) return;
+                if (!ids.every(function (id) {
+                        return available[id];
+                    })) return;
 
-				var newGroup = new Group(title, background);
-				ids.forEach(function(id, idx) {
-					if (!(id in opponentGroupMap)) {
-						opponentGroupMap[id] = [];
-					}
-					opponentGroupMap[id].push({ group: newGroup, idx: idx });
-				});
-				loadedGroups[$(this).attr('testing') ? 1 : 0].push(newGroup);
-			});
+                var newGroup = new Group(title, background);
+                ids.forEach(function (id, idx) {
+                    if (!(id in opponentGroupMap)) {
+                        opponentGroupMap[id] = [];
+                    }
+                    opponentGroupMap[id].push({
+                        group: newGroup,
+                        idx: idx
+                    });
+                });
+                loadedGroups[$(this).attr('testing') ? 1 : 0].push(newGroup);
+            });
 
             /* now actually load the characters */
             var oppDefaultIndex = 0; // keep track of an opponent's default placement
@@ -326,40 +351,47 @@ function loadListingFile () {
 
                 if (available[id]) {
                     outstandingLoads++;
-					if (doInclude) {
-						opponentMap[id] = oppDefaultIndex++;
-					}
-                    loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
+                    if (doInclude) {
+                        opponentMap[id] = oppDefaultIndex++;
+                    }
+                    if ('serviceWorker' in navigator) {
+                        if (navigator.onLine || save.isOpponentCached(id)) {
+                            loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
+                        } else {
+                            onComplete();
+                        }
+                    } else {
+                        loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
+                    }
                 }
             });
-
-		}
-	});
+        }
+    });
 }
 
 /************************************************************
  * Loads and parses the meta XML file of an opponent.
  ************************************************************/
-function loadOpponentMeta (id, status, releaseNumber, onComplete) {
-	/* grab and parse the opponent meta file */
-    console.log("Loading metadata for \""+id+"\"");
-	$.ajax({
+function loadOpponentMeta(id, status, releaseNumber, onComplete) {
+    /* grab and parse the opponent meta file */
+    console.log("Loading metadata for \"" + id + "\"");
+    $.ajax({
         type: "GET",
-		url: 'opponents/' + id + '/' + metaFile,
-		dataType: "text",
-		success: function(xml) {
+        url: 'opponents/' + id + '/' + metaFile,
+        dataType: "text",
+        success: function (xml) {
             var $xml = $(xml);
 
-			var opponent = new Opponent(id, $xml, status, releaseNumber);
+            var opponent = new Opponent(id, $xml, status, releaseNumber);
 
-			/* add the opponent to the list */
+            /* add the opponent to the list */
             onComplete(opponent);
-		},
-		error: function(err) {
-			console.log("Failed reading \""+id+"\"");
-			onComplete();
-		}
-	});
+        },
+        error: function (err) {
+            console.log("Failed reading \"" + id + "\"");
+            onComplete();
+        }
+    });
 }
 
 function updateStatusIcon(elem, status) {
@@ -379,16 +411,19 @@ function updateStatusIcon(elem, status) {
  * `alt_costume` in this case has only `id` and `label` attributes.
  */
 function getCostumeOption(alt_costume, selected_costume) {
-    return $('<option>', {val: alt_costume.folder, text: 'Alternate Skin: '+alt_costume.label,
-                          selected: alt_costume.folder == selected_costume})
+    return $('<option>', {
+        val: alt_costume.folder,
+        text: 'Alternate Skin: ' + alt_costume.label,
+        selected: alt_costume.folder == selected_costume
+    })
 }
 
 /************************************************************
  * Loads opponents onto the individual select screen.
  ************************************************************/
-function updateIndividualSelectScreen () {
+function updateIndividualSelectScreen() {
     $('#individual-select-screen .selection-cards-container .selection-card').hide();
-    selectableOpponents.forEach(function(opp) {
+    selectableOpponents.forEach(function (opp) {
         $('#individual-select-screen .selection-cards-container').append(opp.selectionCard.mainElem);
         $(opp.selectionCard.mainElem).show();
     });
@@ -399,23 +434,23 @@ function updateIndividualSelectScreen () {
  * Loads opponents onto the group select screen based on the
  * currently selected page.
  ************************************************************/
-function updateGroupSelectScreen () {
-	/* safety wrap around */
-  if (groupPage[groupSelectScreen] < 0) {
-		/* wrap to last page */
-		groupPage[groupSelectScreen] = (selectableGroups[groupSelectScreen].length)-1;
-	} else if (groupPage[groupSelectScreen] > selectableGroups[groupSelectScreen].length-1) {
-		/* wrap to the first page */
-		groupPage[groupSelectScreen] = 0;
-	}
-	$groupPageIndicator.val(groupPage[groupSelectScreen]+1);
-    $groupMaxPageIndicator.html("of "+selectableGroups[groupSelectScreen].length);
+function updateGroupSelectScreen() {
+    /* safety wrap around */
+    if (groupPage[groupSelectScreen] < 0) {
+        /* wrap to last page */
+        groupPage[groupSelectScreen] = (selectableGroups[groupSelectScreen].length) - 1;
+    } else if (groupPage[groupSelectScreen] > selectableGroups[groupSelectScreen].length - 1) {
+        /* wrap to the first page */
+        groupPage[groupSelectScreen] = 0;
+    }
+    $groupPageIndicator.val(groupPage[groupSelectScreen] + 1);
+    $groupMaxPageIndicator.html("of " + selectableGroups[groupSelectScreen].length);
 
     /* create and load all of the individual opponents */
     $groupButton.attr('disabled', false);
-    
+
     var group = selectableGroups[groupSelectScreen][groupPage[groupSelectScreen]];
-    
+
     if (group) {
         $groupNameLabel.html(group.title);
 
@@ -534,11 +569,11 @@ function updateSuggestionQuad(slot, quad, opponent) {
     var tooltip = null;
 
     shownSuggestions[slot][quad] = opponent.id;
-    img_elem.attr(
-        {'src': opponent.selection_image,
-         'alt': opponent.label,
-         'data-original-title': statusTooltips[opponent.status] || null
-        }).show();
+    img_elem.attr({
+        'src': opponent.selection_image,
+        'alt': opponent.label,
+        'data-original-title': statusTooltips[opponent.status] || null
+    }).show();
     label_elem.text(opponent.label);
 }
 
@@ -549,9 +584,9 @@ function updateSuggestionQuad(slot, quad, opponent) {
  * - startIndex: the index into suggestionsArray to begin drawing suggestions from
  */
 function updateSuggestions(slot, suggestionsArray, startIndex) {
-    for(var i=0;i<4;i++) {
-        if (suggestionsArray[startIndex+i]) {
-            updateSuggestionQuad(slot, i, suggestionsArray[startIndex+i]);
+    for (var i = 0; i < 4; i++) {
+        if (suggestionsArray[startIndex + i]) {
+            updateSuggestionQuad(slot, i, suggestionsArray[startIndex + i]);
         }
     }
 }
@@ -572,12 +607,12 @@ function updateSelectableOpponents(autoclear) {
     var tag = canonicalizeTag($searchTag.val());
 
     // Array.prototype.filter automatically skips empty slots
-    selectableOpponents = loadedOpponents.filter(function(opp) {
+    selectableOpponents = loadedOpponents.filter(function (opp) {
         // filter by name
-        if (name
-            && opp.label.toLowerCase().indexOf(name) < 0
-            && opp.first.toLowerCase().indexOf(name) < 0
-            && opp.last.toLowerCase().indexOf(name) < 0) {
+        if (name &&
+            opp.label.toLowerCase().indexOf(name) < 0 &&
+            opp.first.toLowerCase().indexOf(name) < 0 &&
+            opp.last.toLowerCase().indexOf(name) < 0) {
             return false;
         }
 
@@ -590,23 +625,25 @@ function updateSelectableOpponents(autoclear) {
         if (tag && !(opp.searchTags && opp.searchTags.indexOf(canonicalizeTag(tag)) >= 0)) {
             return false;
         }
-        
+
         // filter by creator
         if (creator && opp.artist.toLowerCase().indexOf(creator) < 0 && opp.writer.toLowerCase().indexOf(creator) < 0) {
             return false;
         }
 
         // filter by gender
-        if ((chosenGender == 2 && opp.gender !== eGender.MALE)
-            || (chosenGender == 3 && opp.gender !== eGender.FEMALE)) {
+        if ((chosenGender == 2 && opp.gender !== eGender.MALE) ||
+            (chosenGender == 3 && opp.gender !== eGender.FEMALE)) {
             return false;
         }
 
         /* hide selected opponents */
-        if (players.some(function(p) { return p && p.id == opp.id; })) {
+        if (players.some(function (p) {
+                return p && p.id == opp.id;
+            })) {
             return false;
         }
-        
+
         return true;
     });
 
@@ -634,16 +671,16 @@ $('#individual-select-screen .sort-filter-field').on('input', function () {
  * The player clicked on a suggested character button.
  ************************************************************/
 function suggestionSelected(slot, quad) {
-    var selectedID = shownSuggestions[slot-1][quad-1];
+    var selectedID = shownSuggestions[slot - 1][quad - 1];
 
-    if(!selectedID) {
+    if (!selectedID) {
         /* This shouldn't happen. */
         console.error("Could not find suggested opponent ID for slot " + slot + " and quad " + quad);
         return;
     }
 
     /* Find the character they selected. */
-    for (var i=0; i<loadedOpponents.length; i++) {
+    for (var i = 0; i < loadedOpponents.length; i++) {
         if (loadedOpponents[i].id === selectedID) {
             players[slot] = loadedOpponents[i];
 
@@ -654,8 +691,8 @@ function suggestionSelected(slot, quad) {
                     level: 'info'
                 });
             }
-            
-        	updateSelectionVisuals();
+
+            updateSelectionVisuals();
 
             players[slot].loadBehaviour(slot, true);
 
@@ -670,7 +707,7 @@ function suggestionSelected(slot, quad) {
 /************************************************************
  * The player clicked on an opponent slot.
  ************************************************************/
-function selectOpponentSlot (slot) {
+function selectOpponentSlot(slot) {
     if (!(slot in players)) {
         /* add a new opponent */
         selectedSlot = slot;
@@ -683,19 +720,19 @@ function selectOpponentSlot (slot) {
             }
         }
 
-		/* update the list of selectable opponents based on those that are already selected, search, and sort options */
-		updateSelectableOpponents(true);
+        /* update the list of selectable opponents based on those that are already selected, search, and sort options */
+        updateSelectableOpponents(true);
 
-		/* reload selection screen */
-		updateIndividualSelectScreen();
+        /* reload selection screen */
+        updateIndividualSelectScreen();
 
         /* switch screens */
         if (SENTRY_INITIALIZED) Sentry.setTag("screen", "select-individual");
-		screenTransition($selectScreen, $individualSelectScreen);
+        screenTransition($selectScreen, $individualSelectScreen);
     } else {
         /* remove the opponent that's there */
-        $selectImages[slot-1].off('load');
-		
+        $selectImages[slot - 1].off('load');
+
         players[slot].unloadOpponent();
         delete players[slot];
 
@@ -706,20 +743,20 @@ function selectOpponentSlot (slot) {
 /************************************************************
  * The player clicked on the Preset Tables or Testing Tables button.
  ************************************************************/
-function clickedSelectGroupButton (screen) {
+function clickedSelectGroupButton(screen) {
     switchSelectGroupScreen(screen);
 
     if (SENTRY_INITIALIZED) Sentry.setTag("screen", "select-group");
 
-	/* switch screens */
-	screenTransition($selectScreen, $groupSelectScreen);
+    /* switch screens */
+    screenTransition($selectScreen, $groupSelectScreen);
 }
 
 /************************************************************
  * The player clicked on the Preset Tables or Testing Tables
  * button from within the table select screen.
  ************************************************************/
-function switchSelectGroupScreen (screen) {
+function switchSelectGroupScreen(screen) {
     if (screen !== undefined) {
         groupSelectScreen = screen;
     } else {
@@ -745,33 +782,39 @@ function updateSelectableGroups(screen) {
     var tag = canonicalizeTag($groupSearchTag.val());
 
     // reset filters
-    selectableGroups[screen] = loadedGroups[screen].filter(function(group) {
-        if (!group.opponents.every(function(opp) { return opp; })) return false;
+    selectableGroups[screen] = loadedGroups[screen].filter(function (group) {
+        if (!group.opponents.every(function (opp) {
+                return opp;
+            })) return false;
 
         if (groupname && group.title.toLowerCase().indexOf(groupname) < 0) return false;
 
-        if (name && !group.opponents.some(function(opp) {
-            return opp.label.toLowerCase().indexOf(name) >= 0
-                || opp.first.toLowerCase().indexOf(name) >= 0
-                || opp.last.toLowerCase().indexOf(name) >= 0;
-        })) return false;
+        if (name && !group.opponents.some(function (opp) {
+                return opp.label.toLowerCase().indexOf(name) >= 0 ||
+                    opp.first.toLowerCase().indexOf(name) >= 0 ||
+                    opp.last.toLowerCase().indexOf(name) >= 0;
+            })) return false;
 
-        if (source && !group.opponents.some(function(opp) {
-            return opp.source.toLowerCase().indexOf(source) >= 0;
-        })) return false;
+        if (source && !group.opponents.some(function (opp) {
+                return opp.source.toLowerCase().indexOf(source) >= 0;
+            })) return false;
 
-        if (tag && !group.opponents.some(function(opp) {
-            return opp.searchTags && opp.searchTags.indexOf(canonicalizeTag(tag)) >= 0;
-        })) return false;
+        if (tag && !group.opponents.some(function (opp) {
+                return opp.searchTags && opp.searchTags.indexOf(canonicalizeTag(tag)) >= 0;
+            })) return false;
 
-        if ((chosenGroupGender == 2 || chosenGroupGender == 3)
-            && !group.opponents.every(function(opp) {
+        if ((chosenGroupGender == 2 || chosenGroupGender == 3) &&
+            !group.opponents.every(function (opp) {
                 return opp.gender == (chosenGroupGender == 2 ? eGender.MALE : eGender.FEMALE);
             })) return false;
 
-        if (chosenGroupGender == 4
-            && !(group.opponents.some(function(opp) { return opp.gender == eGender.MALE; })
-                 && group.opponents.some(function(opp) { return opp.gender == eGender.FEMALE; })))
+        if (chosenGroupGender == 4 &&
+            !(group.opponents.some(function (opp) {
+                    return opp.gender == eGender.MALE;
+                }) &&
+                group.opponents.some(function (opp) {
+                    return opp.gender == eGender.FEMALE;
+                })))
             return false;
 
         return true;
@@ -782,14 +825,14 @@ function updateSelectableGroups(screen) {
  * Common function to selectGroup and clickedRandomGroupButton
  * to load the members of a group (preset table)
  ************************************************************/
-function loadGroup (chosenGroup) {
-	clickedRemoveAllButton();
+function loadGroup(chosenGroup) {
+    clickedRemoveAllButton();
     console.log(chosenGroup.title);
-    
+
     if (SENTRY_INITIALIZED) {
         Sentry.addBreadcrumb({
             category: 'select',
-            message: 'Loading group '+chosenGroup.title,
+            message: 'Loading group ' + chosenGroup.title,
             level: 'info'
         });
     }
@@ -803,10 +846,12 @@ function loadGroup (chosenGroup) {
     }
 
     /* load the group members */
-	for (var i = 1; i < 5; i++) {
-        var member = chosenGroup.opponents[i-1];
+    for (var i = 1; i < 5; i++) {
+        var member = chosenGroup.opponents[i - 1];
         if (member) {
-            if (players.some(function(p, j) { return i != j && p == member; })) {
+            if (players.some(function (p, j) {
+                    return i != j && p == member;
+                })) {
                 member = member.clone();
             }
 
@@ -821,40 +866,42 @@ function loadGroup (chosenGroup) {
             member.loadBehaviour(i);
             players[i] = member;
         }
-	}
+    }
 
-	updateSelectionVisuals();
+    updateSelectionVisuals();
 }
 
 /************************************************************
  * The player clicked on the select random group slot.
  ************************************************************/
-function clickedRandomGroupButton () {
-	selectedSlot = 1;
-	/* get a random number for the group listings */
-	var randomGroupNumber = getRandomNumber(0, loadedGroups[0].length);
-	var chosenGroup = loadedGroups[0][randomGroupNumber];
+function clickedRandomGroupButton() {
+    selectedSlot = 1;
+    /* get a random number for the group listings */
+    var randomGroupNumber = getRandomNumber(0, loadedGroups[0].length);
+    var chosenGroup = loadedGroups[0][randomGroupNumber];
 
-	loadGroup(chosenGroup);
+    loadGroup(chosenGroup);
 }
 
 /************************************************************
  * The player clicked on the all random button.
  ************************************************************/
-function clickedRandomFillButton (predicate) {
-	/* compose a copy of the loaded opponents list */
-	var loadedOpponentsCopy = loadedOpponents.filter(function(opp) {
+function clickedRandomFillButton(predicate) {
+    /* compose a copy of the loaded opponents list */
+    var loadedOpponentsCopy = loadedOpponents.filter(function (opp) {
         // Filter out already selected characters
-        return (!players.some(function(p) { return p && p.id == opp.id; })
-                && (!predicate || predicate(opp)));
+        return (!players.some(function (p) {
+                return p && p.id == opp.id;
+            }) &&
+            (!predicate || predicate(opp)));
     });
 
-	/* select random opponents */
-	for (var i = 1; i < players.length; i++) {
-		/* if slot is empty */
-		if (!(i in players)) {
-			/* select random opponent */
-			var randomOpponent = getRandomNumber(0, loadedOpponentsCopy.length);
+    /* select random opponents */
+    for (var i = 1; i < players.length; i++) {
+        /* if slot is empty */
+        if (!(i in players)) {
+            /* select random opponent */
+            var randomOpponent = getRandomNumber(0, loadedOpponentsCopy.length);
 
             if (SENTRY_INITIALIZED) {
                 Sentry.addBreadcrumb({
@@ -864,28 +911,27 @@ function clickedRandomFillButton (predicate) {
                 });
             }
 
-			/* load opponent */
-			players[i] = loadedOpponentsCopy[randomOpponent];
-			players[i].loadBehaviour(i);
+            /* load opponent */
+            players[i] = loadedOpponentsCopy[randomOpponent];
+            players[i].loadBehaviour(i);
 
-			/* remove random opponent from copy list */
-			loadedOpponentsCopy.splice(randomOpponent, 1);
-		}
-	}
+            /* remove random opponent from copy list */
+            loadedOpponentsCopy.splice(randomOpponent, 1);
+        }
+    }
 
-	updateSelectionVisuals();
+    updateSelectionVisuals();
 }
 
 /************************************************************
  * The player clicked on the remove all button.
  ************************************************************/
-function clickedRemoveAllButton ()
-{
+function clickedRemoveAllButton() {
     for (var i = 1; i < 5; i++) {
         if (players[i]) {
             players[i].unloadOpponent();
             delete players[i];
-            $selectImages[i-1].off('load');
+            $selectImages[i - 1].off('load');
         }
     }
     updateSelectionVisuals();
@@ -895,14 +941,13 @@ function clickedRemoveAllButton ()
  * The player clicked on a change stats card button on the
  * group select screen.
  ************************************************************/
-function changeGroupStats (target) {
+function changeGroupStats(target) {
     for (var i = 1; i < 5; i++) {
         for (var j = 1; j < 4; j++) {
             if (j != target) {
-                $('#group-stats-page-'+i+'-'+j).hide();
-            }
-            else {
-                $('#group-stats-page-'+i+'-'+j).show();
+                $('#group-stats-page-' + i + '-' + j).hide();
+            } else {
+                $('#group-stats-page-' + i + '-' + j).show();
             }
         }
     }
@@ -914,34 +959,34 @@ function changeGroupStats (target) {
  * The player clicked the select opponent button on the
  * group select screen.
  ************************************************************/
-function selectGroup () {
+function selectGroup() {
     loadGroup(selectableGroups[groupSelectScreen][groupPage[groupSelectScreen]]);
 
     if (SENTRY_INITIALIZED) Sentry.setTag("screen", "select-main");
 
     /* switch screens */
-	screenTransition($groupSelectScreen, $selectScreen);
+    screenTransition($groupSelectScreen, $selectScreen);
 }
 
 /************************************************************
  * The player is changing the page on the group screen.
  ************************************************************/
-function changeGroupPage (skip, page) {
-	if (skip) {
-		if (page == -1) {
-			/* go to first page */
-      groupPage[groupSelectScreen] = 0;
-		} else if (page == 1) {
-			/* go to last page */
-			groupPage[groupSelectScreen] = selectableGroups[groupSelectScreen].length-1;
-		} else {
-			/* go to selected page */
-			groupPage[groupSelectScreen] = Number($groupPageIndicator.val()) - 1;
-		}
-	} else {
-		groupPage[groupSelectScreen] += page;
-	}
-	updateGroupSelectScreen();
+function changeGroupPage(skip, page) {
+    if (skip) {
+        if (page == -1) {
+            /* go to first page */
+            groupPage[groupSelectScreen] = 0;
+        } else if (page == 1) {
+            /* go to last page */
+            groupPage[groupSelectScreen] = selectableGroups[groupSelectScreen].length - 1;
+        } else {
+            /* go to selected page */
+            groupPage[groupSelectScreen] = Number($groupPageIndicator.val()) - 1;
+        }
+    } else {
+        groupPage[groupSelectScreen] += page;
+    }
+    updateGroupSelectScreen();
     updateGroupCountStats();
 }
 
@@ -951,41 +996,38 @@ function changeGroupPage (skip, page) {
  ************************************************************/
 
 
-function groupSelectKeyToggle(e)
-{
+function groupSelectKeyToggle(e) {
     console.log(e)
     if ($('#group-select-screen:visible').length > 0) {
         if (e.keyCode == 37) { // left arrow
             changeGroupPage(false, -1);
-        }
-        else if (e.keyCode == 39) { // right arrow
+        } else if (e.keyCode == 39) { // right arrow
             changeGroupPage(false, 1);
-        }
-        else if (e.keyCode == 13) { // enter key
+        } else if (e.keyCode == 13) { // enter key
             selectGroup();
         }
     }
-} 
+}
 
 /************************************************************
  * The player clicked on the back button on the individual or
  * group select screen.
  ************************************************************/
-function backToSelect () {
+function backToSelect() {
     /* switch screens */
     if (SENTRY_INITIALIZED) Sentry.setTag("screen", "select-main");
 
     if (useGroupBackgrounds) optionsBackground.activateBackground();
 
-	screenTransition($individualSelectScreen, $selectScreen);
-	screenTransition($groupSelectScreen, $selectScreen);
+    screenTransition($individualSelectScreen, $selectScreen);
+    screenTransition($groupSelectScreen, $selectScreen);
 }
 
 /************************************************************
  * The player clicked on the start game button on the main
  * select screen.
  ************************************************************/
-function advanceSelectScreen () {
+function advanceSelectScreen() {
     console.log("Starting game...");
 
     gameID = generateRandomID();
@@ -1004,17 +1046,17 @@ function advanceSelectScreen () {
 
         var usage_tracking_report = {
             'date': (new Date()).toISOString(),
-			'commit': VERSION_COMMIT,
+            'commit': VERSION_COMMIT,
             'type': 'start_game',
             'session': sessionID,
             'game': gameID,
             'userAgent': navigator.userAgent,
             'origin': getReportedOrigin(),
             'table': {},
-			'tags': humanPlayer.tags
+            'tags': humanPlayer.tags
         };
 
-        for (let i=1;i<5;i++) {
+        for (let i = 1; i < 5; i++) {
             if (players[i]) {
                 usage_tracking_report.table[i] = players[i].id;
             }
@@ -1026,15 +1068,15 @@ function advanceSelectScreen () {
             data: JSON.stringify(usage_tracking_report),
             contentType: 'application/json',
             error: function (jqXHR, status, err) {
-                console.error("Could not send usage tracking report - error "+status+": "+err);
+                console.error("Could not send usage tracking report - error " + status + ": " + err);
             },
         });
     }
-    players.forEach(function(player) {
+    players.forEach(function (player) {
         player.preloadStageImages(0);
     });
 
-	transcriptHistory = [];
+    transcriptHistory = [];
     inGame = true;
 
     advanceToNextScreen($selectScreen);
@@ -1044,9 +1086,9 @@ function advanceSelectScreen () {
  * The player clicked on the back button on the main select
  * screen.
  ************************************************************/
-function backSelectScreen () {
+function backSelectScreen() {
     if (SENTRY_INITIALIZED) Sentry.setTag("screen", "title");
-	screenTransition($selectScreen, $titleScreen);
+    screenTransition($selectScreen, $titleScreen);
 }
 
 /* The player selected an alternate costume for an opponent.
@@ -1054,22 +1096,22 @@ function backSelectScreen () {
  * `inGroup` is true if the affected opponent is on the group selection screen.
  */
 function altCostumeSelected(slot, inGroup) {
-	var costumeSelector = (inGroup ? $groupCostumeSelectors[slot-1] : $individualCostumeSelectors[slot-1]);
-	var selectImage = (inGroup ? $groupImages[slot-1] : $individualImages[slot-1]);
-	var opponent = (inGroup ? selectableGroups[groupSelectScreen][groupPage[groupSelectScreen]].opponents[slot-1] : shownIndividuals[slot-1]);
-	
-	var selectedCostume = costumeSelector.val();
-	
-	var costumeDesc = undefined;
-	if (selectedCostume.length > 0) {
-		for (let i=0;i<opponent.alternate_costumes.length;i++) {
-			if (opponent.alternate_costumes[i].folder === selectedCostume) {
-				costumeDesc = opponent.alternate_costumes[i];
-				break;
-			}
-		}
-	}
-	
+    var costumeSelector = (inGroup ? $groupCostumeSelectors[slot - 1] : $individualCostumeSelectors[slot - 1]);
+    var selectImage = (inGroup ? $groupImages[slot - 1] : $individualImages[slot - 1]);
+    var opponent = (inGroup ? selectableGroups[groupSelectScreen][groupPage[groupSelectScreen]].opponents[slot - 1] : shownIndividuals[slot - 1]);
+
+    var selectedCostume = costumeSelector.val();
+
+    var costumeDesc = undefined;
+    if (selectedCostume.length > 0) {
+        for (let i = 0; i < opponent.alternate_costumes.length; i++) {
+            if (opponent.alternate_costumes[i].folder === selectedCostume) {
+                costumeDesc = opponent.alternate_costumes[i];
+                break;
+            }
+        }
+    }
+
     opponent.selectAlternateCostume(costumeDesc);
     selectImage.attr('src', opponent.selection_image);
 }
@@ -1083,15 +1125,16 @@ function altCostumeSelected(slot, inGroup) {
  * Displays all of the current players on the main select
  * screen.
  ************************************************************/
-function updateSelectionVisuals () {
+function updateSelectionVisuals() {
     /* update all opponents */
     for (var i = 1; i < players.length; i++) {
-		mainSelectDisplays[i-1].update(players[i]);
+        mainSelectDisplays[i - 1].update(players[i]);
     }
 
     /* Check to see if all opponents are loaded. */
-    var filled = 0, loaded = 0;
-    players.forEach(function(p, idx) {
+    var filled = 0,
+        loaded = 0;
+    players.forEach(function (p, idx) {
         if (idx > 0) {
             filled++;
             if (p.isLoaded()) {
@@ -1115,9 +1158,11 @@ function updateSelectionVisuals () {
 
     /* Update suggestions images. */
     if (players.countTrue() >= 3) {
-        var suggested_opponents = loadedOpponents.filter(function(opp) {
+        var suggested_opponents = loadedOpponents.filter(function (opp) {
             /* hide selected opponents */
-            if (players.some(function(p) { return p && p.id == opp.id; })) {
+            if (players.some(function (p) {
+                    return p && p.id == opp.id;
+                })) {
                 return false;
             }
 
@@ -1128,17 +1173,17 @@ function updateSelectionVisuals () {
         suggested_opponents.sort(sortOpponentsByMostTargeted());
 
         var suggestion_idx = 0;
-        for (var i=1;i<players.length;i++) {
+        for (var i = 1; i < players.length; i++) {
             if (players[i] === undefined) {
-                updateSuggestions(i-1, suggested_opponents, suggestion_idx);
-                $selectSuggestions[i-1].show();
+                updateSuggestions(i - 1, suggested_opponents, suggestion_idx);
+                $selectSuggestions[i - 1].show();
                 suggestion_idx += 4;
             } else {
-                $selectSuggestions[i-1].hide();
+                $selectSuggestions[i - 1].hide();
             }
         }
     } else {
-        for (var i=0;i<4;i++) {
+        for (var i = 0; i < 4; i++) {
             $selectSuggestions[i].hide();
         }
     }
@@ -1150,18 +1195,18 @@ function updateSelectionVisuals () {
  * This is the callback for the group clicked rows, it
  * updates information on the group screen.
  ************************************************************/
-function updateGroupScreen (playerObject) {
+function updateGroupScreen(playerObject) {
     /* find a spot to store this player */
     for (var i = 0; i < storedGroup.length; i++) {
         if (!storedGroup[i]) {
             storedGroup[i] = playerObject;
-            $groupLabels[i+1].html(playerObject.label);
+            $groupLabels[i + 1].html(playerObject.label);
             break;
         }
     }
 
-	/* enable the button */
-	$groupButton.attr('disabled', false);
+    /* enable the button */
+    $groupButton.attr('disabled', false);
 }
 
 /************************************************************
@@ -1171,8 +1216,7 @@ function hideSelectionTable() {
     mainSelectHidden = !mainSelectHidden;
     if (mainSelectHidden) {
         $selectTable.hide();
-    }
-    else {
+    } else {
         $selectTable.show();
     }
 }
@@ -1184,8 +1228,7 @@ function hideSingleSelectionTable() {
     singleSelectHidden = !singleSelectHidden;
     if (singleSelectHidden) {
         $individualSelectTable.hide();
-    }
-    else {
+    } else {
         $individualSelectTable.show();
     }
 }
@@ -1197,8 +1240,7 @@ function hideGroupSelectionTable() {
     groupSelectHidden = !groupSelectHidden;
     if (groupSelectHidden) {
         $groupSelectTable.hide();
-    }
-    else {
+    } else {
         $groupSelectTable.show();
     }
 }
@@ -1230,7 +1272,7 @@ function changeSearchGender(gender) {
     updateIndividualSelectScreen();
 }
 
-$('ul#search-gender').on('click', 'a', function() {
+$('ul#search-gender').on('click', 'a', function () {
     changeSearchGender(parseInt($(this).attr('data-value'), 10));
 });
 
@@ -1260,7 +1302,7 @@ function changeGroupSearchGender(gender) {
     setActiveOption("group-search-gender", gender);
 }
 
-$('ul#group-search-gender').on('click', 'a', function() {
+$('ul#group-search-gender').on('click', 'a', function () {
     changeGroupSearchGender(parseInt($(this).attr('data-value'), 10));
 });
 
@@ -1285,12 +1327,11 @@ function sortOpponentsByField(field) {
         field = field.substr(1);
     }
 
-    return function(opp1, opp2) {
+    return function (opp1, opp2) {
         var compare = 0;
         if (opp1[field] < opp2[field]) {
             compare = -1;
-        }
-        else if (opp1[field] > opp2[field]) {
+        } else if (opp1[field] > opp2[field]) {
             compare = 1;
         }
         return order * compare;
@@ -1308,7 +1349,7 @@ function sortOpponentsByField(field) {
  */
 function sortOpponentsByMultipleFields() {
     var fields = arguments; // retrieve the args passed in
-    return function(opp1, opp2) {
+    return function (opp1, opp2) {
         var i = 0;
         var compare = 0;
         // if both elements have the same field, check the next ones
@@ -1326,19 +1367,19 @@ function sortOpponentsByMultipleFields() {
  * opponents have.
  */
 function sortOpponentsByMostTargeted() {
-	return function(opp1, opp2) {
-		counts = [opp1, opp2].map(function(opp) {
-			return players.reduce(function(sum, p) {
-				if (p && p.targetedLines && opp.id in p.targetedLines) {
-					sum += p.targetedLines[opp.id].seen.size;
-				}
-				return sum;
-			}, 0);
-		});
-		if (counts[0] > counts[1]) return -1;
-		if (counts[0] < counts[1]) return 1;
-		return 0;
-	}
+    return function (opp1, opp2) {
+        counts = [opp1, opp2].map(function (opp) {
+            return players.reduce(function (sum, p) {
+                if (p && p.targetedLines && opp.id in p.targetedLines) {
+                    sum += p.targetedLines[opp.id].seen.size;
+                }
+                return sum;
+            }, 0);
+        });
+        if (counts[0] > counts[1]) return -1;
+        if (counts[0] < counts[1]) return 1;
+        return 0;
+    }
 }
 
 function setSortingMode(mode) {
@@ -1349,7 +1390,7 @@ function setSortingMode(mode) {
 }
 
 /** Event handler for the sort dropdown options. Fires when user clicks on a dropdown item. */
-$sortingOptionsItems.on("click", function(e) {
+$sortingOptionsItems.on("click", function (e) {
     setSortingMode($(this).find('a').html());
 });
 
@@ -1358,7 +1399,7 @@ $sortingOptionsItems.on("click", function(e) {
  ************************************************************/
 
 /** Event handler for the group selection screen credits button. */
-$groupCreditsButton.on('click', function(e) {
+$groupCreditsButton.on('click', function (e) {
     updateGroupCountStats();
 });
 
@@ -1368,7 +1409,7 @@ $groupCreditsButton.on('click', function(e) {
  * Only loads if the unique line count or image count is not known.
  */
 function updateOpponentCountStats(opponentArr, uiElements) {
-    opponentArr.forEach(function(opp, idx) {
+    opponentArr.forEach(function (opp, idx) {
         // load behaviour file if line/image count is not known
         if (opp && (opp.uniqueLineCount === undefined || opp.posesImageCount === undefined)) {
             uiElements.countBoxes[idx].css("visibility", "visible");
@@ -1378,31 +1419,29 @@ function updateOpponentCountStats(opponentArr, uiElements) {
                 console.log("[LineImageCount] Fetching counts for " + opp.label + " in slot " + idx);
             }
 
-            fetchCompressedURL(opp.folder + 'behaviour.xml').then(countLinesImages).then(function(response) {
+            fetchCompressedURL(opp.folder + 'behaviour.xml').then(countLinesImages).then(function (response) {
                 opp.uniqueLineCount = response.numUniqueLines;
                 opp.posesImageCount = response.numPoses;
 
                 // show line and image counts
                 if (DEBUG) {
                     console.log("[LineImageCount] Loaded " + opp.label + " from behaviour: " +
-                      opp.uniqueLineCount + " lines, " + opp.posesImageCount + " images");
+                        opp.uniqueLineCount + " lines, " + opp.posesImageCount + " images");
                 }
                 uiElements.lineLabels[idx].html(opp.uniqueLineCount);
                 uiElements.poseLabels[idx].html(opp.posesImageCount);
             });
-        }
-        else {
+        } else {
             // this character's counts were previously loaded
             if (opp) {
                 if (DEBUG) {
                     console.log("[LineImageCount] Loaded previous count for " + opp.label + ": " +
-                      opp.uniqueLineCount + " lines, " + opp.posesImageCount + " images)");
+                        opp.uniqueLineCount + " lines, " + opp.posesImageCount + " images)");
                 }
                 uiElements.countBoxes[idx].css("visibility", "visible");
                 uiElements.lineLabels[idx].html(opp.uniqueLineCount);
                 uiElements.poseLabels[idx].html(opp.posesImageCount);
-            }
-            else {
+            } else {
                 // there is no character in the slot
                 uiElements.countBoxes[idx].css("visibility", "hidden");
                 uiElements.lineLabels[idx].html("");
@@ -1416,9 +1455,9 @@ function updateOpponentCountStats(opponentArr, uiElements) {
 function updateIndividualCountStats() {
     if (individualCreditsShown) {
         var individualUIElements = {
-            countBoxes : $individualCountBoxes,
-            lineLabels : $individualLineCountLabels,
-            poseLabels : $individualPoseCountLabels
+            countBoxes: $individualCountBoxes,
+            lineLabels: $individualLineCountLabels,
+            poseLabels: $individualPoseCountLabels
         };
         updateOpponentCountStats(shownIndividuals, individualUIElements);
     }
@@ -1428,9 +1467,9 @@ function updateIndividualCountStats() {
 function updateGroupCountStats() {
     if (groupCreditsShown) {
         var groupUIElements = {
-            countBoxes : $groupCountBoxes,
-            lineLabels : $groupLineCountLabels,
-            poseLabels : $groupPoseCountLabels
+            countBoxes: $groupCountBoxes,
+            lineLabels: $groupLineCountLabels,
+            poseLabels: $groupPoseCountLabels
         };
         updateOpponentCountStats(shownGroup, groupUIElements);
     }
@@ -1443,33 +1482,33 @@ function updateGroupCountStats() {
  */
 function countLinesImages(xml) {
     // parse all lines of dialogue and all images
-	var numTotalLines = 0;
-	var numUniqueDialogueLines = 0;
-	var numUniqueUsedPoses = 0;
+    var numTotalLines = 0;
+    var numUniqueDialogueLines = 0;
+    var numUniqueUsedPoses = 0;
     var lines = {};
     var poses = {};
-    
+
     var matched = $(xml).find('state').get();
     var layers = $(xml).find('wardrobe>clothing').length;
     var deferred = $.Deferred();
-    
+
     /* Avoid blocking the UI by breaking the work into smaller chunks. */
-    function process () {
+    function process() {
         var startTs = Date.now();
-            
-        if (DEBUG) console.log("Processing: "+matched.length+" states to go");
+
+        if (DEBUG) console.log("Processing: " + matched.length + " states to go");
         do {
             data = matched.shift();
-            
+
             numTotalLines++;
-            
-        	// count only unique lines of dialogue
-        	if (lines[data.textContent.trim()] === undefined) numUniqueDialogueLines++;
+
+            // count only unique lines of dialogue
+            if (lines[data.textContent.trim()] === undefined) numUniqueDialogueLines++;
             lines[data.textContent.trim()] = 1;
-            
-        	// count unique number of poses used in dialogue
-        	// note that this number may differ from actual image count if some images
-        	// are never used, or if images that don't exist are used in the dialogue
+
+            // count unique number of poses used in dialogue
+            // note that this number may differ from actual image count if some images
+            // are never used, or if images that don't exist are used in the dialogue
             var img = $(data).attr("img");
             if (img.indexOf('#') >= 0) {
                 // Expand # to the relevant stages
@@ -1493,18 +1532,18 @@ function countLinesImages(xml) {
                 }
             }
         } while (Date.now() - startTs < 50 && matched.length > 0);
-        
+
         if (matched.length > 0) {
             setTimeout(process.bind(null), 50);
         } else {
             return deferred.resolve({
-                numTotalLines : numTotalLines,
-                numUniqueLines : numUniqueDialogueLines,
-                numPoses : numUniqueUsedPoses
+                numTotalLines: numTotalLines,
+                numUniqueLines: numUniqueDialogueLines,
+                numPoses: numUniqueUsedPoses
             });
         }
     }
-    
+
     process();
     return deferred.promise();
 }
