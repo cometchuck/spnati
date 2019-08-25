@@ -1120,26 +1120,7 @@ function initialSetup() {
         function () {
             if (USAGE_TRACKING && !SENTRY_INITIALIZED) sentryInit();
         },
-        function () {
-            if ('serviceWorker' in navigator) {
-                caches.open(CORE_CACHE_NAME).then(function (cache) {
-                    var bg_sources = [];
-
-                    Object.keys(backgrounds).forEach(function (id) {
-                        var bg = backgrounds[id];
-
-                        if (bg.status && !includedOpponentStatuses[bg.status]) return;
-                        bg_sources.push(bg.src);
-                    });
-
-                    cache.addAll(bg_sources);
-
-                    cache.addAll(CANDY_LIST.map(function (v) {
-                        return 'opponents/' + v;
-                    }))
-                });
-            }
-        }
+        cacheCoreDynamicContent
     );
 
     if (SENTRY_INITIALIZED) Sentry.setTag("screen", "warning");
@@ -1189,8 +1170,39 @@ function initialSetup() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
             console.log("ServiceWorker registered with scope: " + registration.scope);
+            cacheCoreDynamicContent();
         }, function (err) {
             console.log("ServiceWorker registration failed: ", err);
+        });
+    }
+}
+
+function cacheCoreDynamicContent() {
+    if ('serviceWorker' in navigator) {
+        caches.open(CORE_CACHE_NAME).then(function (cache) {
+            cache.addAll([
+                'opponents/listing.xml',
+                'backgrounds.xml',
+                'config.xml',
+                'version-info.xml',
+            ])
+        });
+
+        caches.open(DYNAMIC_CACHE_NAME).then(function (cache) {
+            var bg_sources = [];
+
+            Object.keys(backgrounds).forEach(function (id) {
+                var bg = backgrounds[id];
+
+                if (bg.status && !includedOpponentStatuses[bg.status]) return;
+                bg_sources.push(bg.src);
+            });
+
+            cache.addAll(bg_sources);
+
+            cache.addAll(CANDY_LIST.map(function (v) {
+                return 'opponents/' + v;
+            }));
         });
     }
 }

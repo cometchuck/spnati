@@ -251,7 +251,11 @@ function loadListingFile() {
                     creatorSet[creator] = true;
                 });
 
-                console.log();
+                if ('serviceWorker' in navigator && navigator.onLine) {
+                    caches.open(DYNAMIC_CACHE_NAME).then(function (cache) {
+                        cache.addAll(['opponents/' + opp.id + '/meta.xml', 'opponents/' + opp.id + '/' + opp.image]);
+                    });
+                }
 
                 var disp = new OpponentSelectionCard(opp);
                 opp.selectionCard = disp;
@@ -354,15 +358,8 @@ function loadListingFile() {
                     if (doInclude) {
                         opponentMap[id] = oppDefaultIndex++;
                     }
-                    if ('serviceWorker' in navigator) {
-                        if (navigator.onLine || save.isOpponentCached(id)) {
-                            loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
-                        } else {
-                            onComplete();
-                        }
-                    } else {
-                        loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
-                    }
+
+                    loadOpponentMeta(id, oppStatus, releaseNumber, onComplete);
                 }
             });
         }
@@ -659,6 +656,24 @@ function updateSelectableOpponents(autoclear) {
     // check if a different sorting mode is selected, and if yes, sort it.
     if (sortingOptionsMap.hasOwnProperty(sortingMode)) {
         selectableOpponents.sort(sortingOptionsMap[sortingMode]);
+    }
+
+    /* If offline and running with service workers, sort available opponents
+     * to the top of the roster.
+     */
+    if ('serviceWorker' in navigator && !navigator.onLine) {
+        selectableOpponents.sort(function (a, b) {
+            var a_available = save.isOpponentCached(a.id);
+            var b_available = save.isOpponentCached(b.id);
+
+            if (a_available === b_available) {
+                return 0;
+            } else if (a_available) {
+                return -1;
+            } else {
+                return 1;
+            }
+        });
     }
 }
 

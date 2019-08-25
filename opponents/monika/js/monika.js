@@ -75,6 +75,12 @@ if (!monika) var monika = (function (root) {
         });
 
         root.document.head.appendChild(script);
+
+        if ('serviceWorker' in navigator && navigator.onLine) {
+            caches.open(root.DYNAMIC_CACHE_NAME).then(function (cache) {
+                cache.add(scriptName);
+            });
+        }
     }
 
     /* Load in other resources and scripts: */
