@@ -3964,6 +3964,10 @@ ul.dropdown-menu>li {
     margin: 0 5%;
 }
 
+#deck-locked-alert {
+    color: firebrick;
+}
+
 .deck-cards-container {
     padding-bottom: 2.5rem;
 }
@@ -4006,6 +4010,19 @@ ul.dropdown-menu>li {
 
 .custom-deck-image.usable.selected, .custom-deck-image.usable:hover {
     opacity: 1.0;
+}
+
+.deck-list-item {
+    background-color: rgb(120, 120, 120);
+    padding: 0 0.5rem;
+}
+
+.deck-list-item > .gallery-pane-item-title {
+    font-size: 2rem;
+}
+
+.deck-list-item > .gallery-pane-item-subtitle {
+    font-size: 1.4rem;
 }
 
 /************************************************************

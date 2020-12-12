@@ -46,11 +46,14 @@ $collectibleImage = $('#collectible-image');
 /**********************************************************************
  *****          Card Decks Gallery Screen UI Elements             *****
  **********************************************************************/
+var $deckListPane = $('#deck-list-pane');
+
 var $deckGroupsContainer = $(".deck-cards-container");
 var $deckTitle = $("#deck-title");
 var $deckSubtitle = $("#deck-subtitle");
 var $deckCredits = $("#deck-credits");
 var $deckDescription = $("#deck-description");
+var $deckLockedAlert = $("#deck-locked-alert");
 
 function GEnding(player, ending){
 	this.player = player;
@@ -260,6 +263,7 @@ var playerCollectibles = {}; /* Indexed by player ID. */
 
 /** @type {CardDeckDisplay?} */
 var currentDeckDisplay = null;
+var deckListElems = [];
 
 function goToEpiloguesScreen() {
 	if (SENTRY_INITIALIZED) Sentry.setTag("screen", "gallery-epilogues");
@@ -310,6 +314,11 @@ function createFilterOption (opp) {
 
 function loadGalleryScreen(){
 	screenTransition($titleScreen, $galleryScreen);
+
+	if (deckListElems.length == 0) {
+		deckListElems = CARD_IMAGE_SETS.map(createDeckListElement);
+		$deckListPane.append(deckListElems);
+	}
     
     /* Set up filter lists: */
     
@@ -671,8 +680,12 @@ CardFrontSelector.prototype.isSelected = function () {
 	return ACTIVE_CARD_IMAGES.isFrontImageActive(this.imageSet, this.card);
 }
 
+CardFrontSelector.prototype.isUnlocked = function () {
+	return this.imageSet.isUnlocked();
+}
+
 CardFrontSelector.prototype.select = function () {
-	if (this.imageSet.unlocked()) {
+	if (this.isUnlocked()) {
 		if (!this.isSelected()) {
 			ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
 		} else {
@@ -711,8 +724,12 @@ CardBackSelector.prototype.isSelected = function () {
 	return ACTIVE_CARD_IMAGES.isBackImageActive(this.img);
 }
 
+CardBackSelector.prototype.isUnlocked = function () {
+	return this.imageSet.isUnlocked();
+}
+
 CardBackSelector.prototype.select = function () {
-	if (this.imageSet.unlocked()) {
+	if (this.isUnlocked()) {
 		if (!this.isSelected()) {
 			ACTIVE_CARD_IMAGES.addBackImage(this.img);
 		} else {
@@ -790,32 +807,37 @@ CardDeckDisplay.prototype.render = function () {
 	$deckSubtitle.text(this.imageSet.subtitle);
 	$deckCredits.text(this.imageSet.credits);
 	$deckDescription.text(this.imageSet.description);
+
+	if (this.imageSet.isUnlocked()) {
+		$deckLockedAlert.hide();
+	} else {
+		$deckLockedAlert.show();
+	}
 }
 
 /**
- * 
+ * Display a CardImageSet in the Card Decks view.
+ * @param {CardImageSet} imageSet 
+ */
+function displayCardDeck (imageSet) {
+	if (!currentDeckDisplay || currentDeckDisplay.imageSet !== imageSet) {
+		currentDeckDisplay = new CardDeckDisplay(imageSet);
+	}
+	currentDeckDisplay.render();
+}
+
+/**
+ * Create a list element for the left-hand panel of the Card Decks view.
  * @param {CardImageSet} imageSet 
  */
 function createDeckListElement (imageSet) {
-	var baseElem = createElementWithClass("div", "gallery-pane-list-item bordered");
+	var baseElem = createElementWithClass("div", "gallery-pane-list-item deck-list-item bordered");
 	var titleElem = createElementWithClass("div", "gallery-pane-item-title");
 	var subtitleElem = createElementWithClass("div", "gallery-pane-item-subtitle");
 	
-    titleElem.html(imageSet.title);
-	subtitleElem.html(this.subtitle);
-    
-    if (this.counter) {
-        var curCounter = this.getCounter();
-        var curSubtitle = subtitleElem.html();
-        subtitleElem.html(curSubtitle + ' ('+curCounter+' / '+this.counter+')');
-    }
-    
-    if (this.isUnlocked()) {
-    	imgElem.attr('src', this.thumbnail);
-    } else {
-        imgElem.attr('src', "img/unknown.svg");
-    }
-    
-	baseElem.append(imgElem, titleElem, subtitleElem).click(this.display.bind(this));
+    $(titleElem).html(imageSet.title);
+	$(subtitleElem).html(imageSet.subtitle);
+	$(baseElem).append(titleElem, subtitleElem).click(displayCardDeck.bind(null, imageSet));
+
 	return baseElem;
 }

@@ -222,10 +222,11 @@ function CardImageSet (frontImages, backImages, id, title, subtitle, credits, de
     this.subtitle = subtitle;
     this.credits = credits;
     this.description = description;
+    this.unlocked = false;
 }
 
-CardImageSet.prototype.unlocked = function () {
-    return true;
+CardImageSet.prototype.isUnlocked = function () {
+    return this.unlocked;
 }
 
 /**
@@ -289,7 +290,7 @@ function imageSetFromXML($xml) {
         if (!suits) {
             suits = SUIT_PREFIXES;
         } else {
-            suits = suits.split(/\s+/).map(function (val) {
+            suits = suits.split(/[\s,]+/).map(function (val) {
                 switch (val[0]) {
                     case "s": return "spade";
                     case "c": return "clubs";
@@ -306,11 +307,11 @@ function imageSetFromXML($xml) {
             var min = 2;
             var max = 14;
 
-            if (interval.min && interval.min >= 2 && interval.min <= 14) {
+            if (interval.min && interval.min >= 1 && interval.min <= 14) {
                 min = interval.min;
             }
 
-            if (interval.max && interval.max >= 2 && interval.max <= 14) {
+            if (interval.max && interval.max >= 1 && interval.max <= 14) {
                 max = interval.max;
             }
 
@@ -321,7 +322,8 @@ function imageSetFromXML($xml) {
                 max = t;
             }
 
-            for (var rank = min; rank <= max; rank++) {
+            for (var i = min; i <= max; i++) {
+                var rank = (i === 14 ? 1 : i);
                 var im = imageSrc.replace("%i", rank.toString(10));
 
                 suits.forEach(function (suit) {
@@ -349,6 +351,7 @@ function loadCustomDecks () {
     ACTIVE_CARD_IMAGES.activateSetFront(CARD_IMAGE_SETS[0]);
     ACTIVE_CARD_IMAGES.activateSetBack(CARD_IMAGE_SETS[0]);
     ACTIVE_CARD_IMAGES.preloadImages();
+    CARD_IMAGE_SETS[0].unlocked = true;
 
     return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
         $xml.children("deck").each(function () {
@@ -490,7 +493,7 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
     }
 
     var backImages = [];
-    this.backImages.forEach(Array.prototype.push.bind(backImages));
+    this.backImages.forEach(function (v) { backImages.push(v); });
     allCards.forEach(function (k, i) {
         this.backImageMap[k] = backImages[i % backImages.length];
     }.bind(this));
