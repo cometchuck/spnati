@@ -9,6 +9,7 @@
 
 $galleryEndingsScreen = $('#epilogue-gallery-screen');
 $galleryCollectiblesScreen = $('#collectible-gallery-screen');
+$galleryDecksScreen = $('#deck-gallery-screen');
 
 /**********************************************************************
  *****          Epilogues Gallery Screen UI Elements              *****
@@ -41,6 +42,15 @@ $collectibleProgressBar = $('#collectible-progress-bar');
 $collectibleProgressText = $('#collectible-progress-text');
 $collectibleText = $('#collectible-text');
 $collectibleImage = $('#collectible-image');
+
+/**********************************************************************
+ *****          Card Decks Gallery Screen UI Elements             *****
+ **********************************************************************/
+var $deckGroupsContainer = $(".deck-cards-container");
+var $deckTitle = $("#deck-title");
+var $deckSubtitle = $("#deck-subtitle");
+var $deckCredits = $("#deck-credits");
+var $deckDescription = $("#deck-description");
 
 function GEnding(player, ending){
 	this.player = player;
@@ -190,10 +200,10 @@ Collectible.prototype.listElement = function () {
         return null;
     }
     
-	var baseElem = $('<div class="collectibles-list-item bordered"></div>');
-	var imgElem = $('<img class="collectibles-item-icon">');
-	var titleElem = $('<div class="collectibles-item-title"></div>');
-	var subtitleElem = $('<div class="collectibles-item-subtitle"></div>');
+	var baseElem = $('<div class="gallery-pane-list-item bordered"></div>');
+	var imgElem = $('<img class="gallery-pane-item-icon">');
+	var titleElem = $('<div class="gallery-pane-item-title"></div>');
+	var subtitleElem = $('<div class="gallery-pane-item-subtitle"></div>');
 	
     if (!this.detailsHidden || this.isUnlocked()) {
         titleElem.html(this.title);
@@ -232,7 +242,6 @@ Collectible.prototype.displayInfoModal = function () {
     })
 }
 
-
 /**********************************************************************
  *****                   Gallery Screen UI Functions              *****
  **********************************************************************/
@@ -249,11 +258,16 @@ var GALLERY_GENDER = 'all';
 
 var playerCollectibles = {}; /* Indexed by player ID. */
 
+/** @type {CardDeckDisplay?} */
+var currentDeckDisplay = null;
+
 function goToEpiloguesScreen() {
 	if (SENTRY_INITIALIZED) Sentry.setTag("screen", "gallery-epilogues");
 
 	$galleryEndingsScreen.show();
 	$galleryCollectiblesScreen.hide();
+	$galleryDecksScreen.hide();
+
 	loadGalleryEndings();
 	updateGalleryScreen();
 }
@@ -263,10 +277,26 @@ function goToCollectiblesScreen() {
 
 	$galleryCollectiblesScreen.show();
 	$galleryEndingsScreen.hide();
+	$galleryDecksScreen.hide();
+
     loadAllCollectibles();
-    updateCollectiblesScreen();
+	updateCollectiblesScreen();
+	
     $collectibleTextPane.hide();    
     $collectibleImagePane.hide();    
+}
+
+function goToCardsScreen() {
+	if (SENTRY_INITIALIZED) Sentry.setTag("screen", "gallery-decks");
+
+	if (!currentDeckDisplay) {
+		currentDeckDisplay = new CardDeckDisplay(CARD_IMAGE_SETS[0]);
+	}
+	currentDeckDisplay.render();
+
+	$galleryDecksScreen.show();
+	$galleryCollectiblesScreen.hide();
+	$galleryEndingsScreen.hide();
 }
 
 function createFilterOption (opp) {
@@ -297,11 +327,11 @@ function loadGalleryScreen(){
     if (COLLECTIBLES_ENABLED) {
         goToCollectiblesScreen();
         if (!EPILOGUES_ENABLED) {
-            $('.gallery-switch-button').hide();
+            $('.epilogues-switch-button').hide();
         }
     } else {
         goToEpiloguesScreen();
-        $('.gallery-switch-button').hide();
+        $('.collectibles-switch-button').hide();
     }
 }
 
@@ -581,4 +611,211 @@ function doEpilogueFromGallery(){
 			screenTransition($galleryScreen, $epilogueScreen);
             $galleryStartButton.attr('disabled', false);
         });
+}
+
+/**********************************************************************
+ *****          Card Decks Gallery Screen Functions               *****
+ **********************************************************************/
+
+function CardSelector () {
+	this.elem = createElementWithClass("img", "bordered custom-deck-image");
+	$(this.elem).attr({
+		src: this.image(),
+		alt: this.altText()
+	}).click(this.select.bind(this));
+
+	this.update();
+}
+
+CardSelector.prototype.image = function () { return ""; }
+CardSelector.prototype.altText = function () { return ""; }
+CardSelector.prototype.isSelected = function () { return false; }
+CardSelector.prototype.isUnlocked = function () { return true; }
+CardSelector.prototype.select = function () {}
+
+CardSelector.prototype.update = function () {
+	var $elem = $(this.elem);
+
+	$elem.removeClass('usable selected');
+	if (this.isUnlocked()) {
+		$elem.addClass('usable');
+		if (this.isSelected()) $elem.addClass('selected');
+	}
+}
+
+/**
+ * A UI element for selecting card fronts.
+ * 
+ * @param {CardImageSet} imageSet 
+ * @param {Card} card
+ */
+function CardFrontSelector (imageSet, card) {
+	this.imageSet = imageSet;
+	this.card = card;
+
+	CardSelector.call(this);
+}
+
+CardFrontSelector.prototype = Object.create(CardSelector.prototype);
+CardFrontSelector.prototype.constructor = CardFrontSelector;
+
+CardFrontSelector.prototype.image = function () {
+	return this.imageSet.frontImages[this.card.toString()];
+}
+
+CardFrontSelector.prototype.altText = function () {
+	return this.card.altText();
+}
+
+CardFrontSelector.prototype.isSelected = function () {
+	return ACTIVE_CARD_IMAGES.isFrontImageActive(this.imageSet, this.card);
+}
+
+CardFrontSelector.prototype.select = function () {
+	if (this.imageSet.unlocked()) {
+		if (!this.isSelected()) {
+			ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
+		} else {
+			ACTIVE_CARD_IMAGES.deactivateFrontImage(this.card);
+		}
+		this.update();
+	}
+}
+
+
+/**
+ * A UI element for selecting card backs.
+ * 
+ * @param {CardImageSet} imageSet 
+ * @param {string} image
+ */
+function CardBackSelector (imageSet, image) {
+	this.imageSet = imageSet;
+	this.img = image;
+
+	CardSelector.call(this);
+}
+
+CardBackSelector.prototype = Object.create(CardSelector.prototype);
+CardBackSelector.prototype.constructor = CardBackSelector;
+
+CardBackSelector.prototype.image = function () {
+	return this.img;
+}
+
+CardBackSelector.prototype.altText = function () {
+	return "card back";
+}
+
+CardBackSelector.prototype.isSelected = function () {
+	return ACTIVE_CARD_IMAGES.isBackImageActive(this.img);
+}
+
+CardBackSelector.prototype.select = function () {
+	if (this.imageSet.unlocked()) {
+		if (!this.isSelected()) {
+			ACTIVE_CARD_IMAGES.addBackImage(this.img);
+		} else {
+			ACTIVE_CARD_IMAGES.removeBackImage(this.img);
+		}
+		this.update();
+	}
+}
+
+/**
+ * 
+ * @param {string} title
+ * @param {CardImageSet} imageSet
+ * @param {Array<Card | string>} cards 
+ * @param {boolean} cardBacks
+ */
+function CardDeckGroup (title, imageSet, cards, cardBacks) {
+	this.mainContainer = createElementWithClass("div", "deck-rank-container");
+
+	var titleElem = this.mainContainer.appendChild(createElementWithClass("h3", "deck-rank-title"));
+	$(titleElem).text(title);
+
+	this.cardContainer = this.mainContainer.appendChild(createElementWithClass("div", "rank-cards-container"));
+	this.selectors = cards.forEach(function (card) {
+		var selector = null;
+		if (!cardBacks) {
+			selector = new CardFrontSelector(imageSet, card);
+		} else {
+			selector = new CardBackSelector(imageSet, card);
+		}
+		this.cardContainer.appendChild(selector.elem);
+		return selector;
+	}.bind(this));
+}
+
+/**
+ * 
+ * @param {CardImageSet} imageSet 
+ */
+function CardDeckDisplay (imageSet) {
+	this.imageSet = imageSet;
+
+	var suits = {"spade": [], "diamo": [], "heart": [], "clubs": []};
+	imageSet.includedFrontCards.forEach(function (c) {
+		suits[c.suit].push(c);	
+	});
+
+	/** @type {Array<CardDeckGroup>} */
+	this.groups = [];
+	Object.entries(suits).forEach(function (kv) {
+		if (kv[1].length === 0) return;
+
+		kv[1].sort(function (a, b) {
+			return a.rank - b.rank;
+		});
+
+		this.groups.push(new CardDeckGroup(
+			cardSuitToString(kv[0]), imageSet, kv[1], false
+		));
+	}.bind(this));
+
+	if (imageSet.backImages.length > 0) {
+		this.groups.push(new CardDeckGroup(
+			"Card Backs", imageSet, imageSet.backImages, true
+		));
+	}
+}
+
+CardDeckDisplay.prototype.render = function () {
+	$deckGroupsContainer.empty().append(this.groups.map(function (g) {
+		return g.mainContainer;
+	}));
+
+	$deckTitle.text(this.imageSet.title);
+	$deckSubtitle.text(this.imageSet.subtitle);
+	$deckCredits.text(this.imageSet.credits);
+	$deckDescription.text(this.imageSet.description);
+}
+
+/**
+ * 
+ * @param {CardImageSet} imageSet 
+ */
+function createDeckListElement (imageSet) {
+	var baseElem = createElementWithClass("div", "gallery-pane-list-item bordered");
+	var titleElem = createElementWithClass("div", "gallery-pane-item-title");
+	var subtitleElem = createElementWithClass("div", "gallery-pane-item-subtitle");
+	
+    titleElem.html(imageSet.title);
+	subtitleElem.html(this.subtitle);
+    
+    if (this.counter) {
+        var curCounter = this.getCounter();
+        var curSubtitle = subtitleElem.html();
+        subtitleElem.html(curSubtitle + ' ('+curCounter+' / '+this.counter+')');
+    }
+    
+    if (this.isUnlocked()) {
+    	imgElem.attr('src', this.thumbnail);
+    } else {
+        imgElem.attr('src', "img/unknown.svg");
+    }
+    
+	baseElem.append(imgElem, titleElem, subtitleElem).click(this.display.bind(this));
+	return baseElem;
 }

@@ -56,7 +56,7 @@ var BLANK_CARD_IMAGE = IMG + "blank.png";
 var UNKNOWN_CARD_IMAGE = IMG + "unknown.jpg";
 var SUIT_PREFIXES = ["spade", "heart", "diamo", "clubs"];
 var ACTIVE_CARD_IMAGES = new ActiveCardImages();
-var CARD_IMAGE_SETS = [defaultImageSet()];
+var CARD_IMAGE_SETS = [];
 
 /* card decks */
 var activeDeck;	/* deck for current round */
@@ -176,25 +176,65 @@ function setupPoker () {
 
 /**
  * Get a unique string key from a card's suit and rank.
- * @param {number} suit 
+ * @param {number | string} suit 
  * @param {number} rank 
+ * @returns {string}
  */
 function cardImageKey(suit, rank) {
-    return SUIT_PREFIXES[suit] + (rank == 14 ? 1 : rank);
+    var s = null;
+    if (SUIT_PREFIXES[suit]) {
+        s = SUIT_PREFIXES[suit];
+    } else {
+        s = suit;
+    }
+    
+    return s + (rank == 14 ? 1 : rank);
 }
 
 /**
  * A collection of images for cards.
- * @param {Object.<string, string>} frontImages
+ * @param {Object.<string, [Card, string]>} frontImages
  * @param {Array<string>} backImages 
  * @param {string} id
- * @param {string} name
+ * @param {string} title
+ * @param {string} subtitle
+ * @param {string} credits
+ * @param {string} description
  */
-function CardImageSet (frontImages, backImages, id, name) {
-    this.frontImages = frontImages;
+function CardImageSet (frontImages, backImages, id, title, subtitle, credits, description) {
+    /** @type {Object.<string, string>} */
+    this.frontImages = {};
+
+    /** @type {Array<Card>} */
+    this.includedFrontCards = [];
+
+    Object.entries(frontImages).forEach(function (kv) {
+        var k = kv[0];
+        var v_pair = kv[1];
+        
+        this.includedFrontCards.push(v_pair[0]);
+        this.frontImages[k] = v_pair[1];
+    }.bind(this));
+
     this.backImages = backImages;
     this.id = id;
-    this.name = name;
+    this.title = title;
+    this.subtitle = subtitle;
+    this.credits = credits;
+    this.description = description;
+}
+
+CardImageSet.prototype.unlocked = function () {
+    return true;
+}
+
+/**
+ * Check whether this set defines a front image for a card.
+ * @param {Card} card 
+ * @returns {boolean}
+ */
+CardImageSet.prototype.hasFrontImageForCard = function (card) {
+    return !!this.frontImages[card.toString()];
 }
 
 /**
@@ -204,13 +244,24 @@ function CardImageSet (frontImages, backImages, id, name) {
 function defaultImageSet() {
     var mapping = {};
     SUIT_PREFIXES.forEach(function (suit) {
+        var c = null;
+        var s = null;
         for (var i = 2; i < 15; i++) {
-            var s = cardImageKey(suit, i);
-            mapping[s] = IMG + s + ".jpg";
+            c = new Card(suit, i);
+            s = c.toString();
+            mapping[s] = [c, IMG + s + ".jpg"];
         }
     });
 
-    return new CardImageSet(mapping, [UNKNOWN_CARD_IMAGE], "default", "Default");
+    return new CardImageSet(
+        mapping, 
+        [UNKNOWN_CARD_IMAGE],
+        "default", 
+        "Default",
+        "The standard deck of cards.",
+        "[insert here]",
+        "Enabled by default."
+    );
 }
 
 /**
@@ -224,7 +275,10 @@ function imageSetFromXML($xml) {
     var backs = [];
 
     var id = $xml.attr("id");
-    var name = $xml.attr("name");
+    var title = $xml.children("title").text();
+    var subtitle = $xml.children("subtitle").text();
+    var description = $xml.children("description").text();
+    var credits = $xml.children("credits").text();
 
     $xml.children('front').each(function () {
         var $elem = $(this);
@@ -271,8 +325,8 @@ function imageSetFromXML($xml) {
                 var im = imageSrc.replace("%i", rank.toString(10));
 
                 suits.forEach(function (suit) {
-                    var k = cardImageKey(suit, rank);
-                    mapping[k] = im.replace("%s", suit);
+                    var c = new Card(suit, rank);
+                    mapping[c.toString()] = [c, im.replace("%s", suit)];
                 });
             }
         });
@@ -282,7 +336,7 @@ function imageSetFromXML($xml) {
         backs.push($(this).attr("src"));
     });
 
-    return new CardImageSet(mapping, backs, id, name);
+    return new CardImageSet(mapping, backs, id, title, subtitle, credits, description);
 }
 
 /**
@@ -291,8 +345,10 @@ function imageSetFromXML($xml) {
 function loadCustomDecks () {
     console.log("Loading custom card decks...");
 
+    CARD_IMAGE_SETS.push(defaultImageSet());
     ACTIVE_CARD_IMAGES.activateSetFront(CARD_IMAGE_SETS[0]);
     ACTIVE_CARD_IMAGES.activateSetBack(CARD_IMAGE_SETS[0]);
+    ACTIVE_CARD_IMAGES.preloadImages();
 
     return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
         $xml.children("deck").each(function () {
@@ -320,11 +376,10 @@ function ActiveCardImages () {
  * If the given set does not define a card front image for the specified card,
  * a default card image is used instead.
  * @param {CardImageSet} imageSet 
- * @param {number} suit 
- * @param {number} rank 
+ * @param {Card} card
  */
-ActiveCardImages.prototype.activateFrontImage = function (imageSet, suit, rank) {
-    var k = cardImageKey(suit, rank);
+ActiveCardImages.prototype.activateFrontImage = function (imageSet, card) {
+    var k = card.toString();
     if (imageSet.frontImages[k]) {
         this.frontImageMap[k] = imageSet.frontImages[k];
     } else {
@@ -344,11 +399,10 @@ ActiveCardImages.prototype.activateSetFront = function (imageSet) {
 
 /**
  * Deactivate the front image for a card, replacing it with a default card image.
- * @param {number} suit 
- * @param {number} rank 
+ * @param {Card} card
  */
-ActiveCardImages.prototype.deactivateFrontImage = function (suit, rank) {
-    var k = cardImageKey(suit, rank);
+ActiveCardImages.prototype.deactivateFrontImage = function (card) {
+    var k = card.toString();
     this.frontImageMap[k] = IMG + k + ".jpg";
 }
 
@@ -360,6 +414,20 @@ ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
     Object.keys(imageSet.frontImages).forEach(function (k) {
         this.frontImageMap[k] = IMG + k + ".jpg";
     }.bind(this));
+}
+
+/**
+ * Check whether the front image defined by a set for a given card is active.
+ * If the given set does not define a front image for a card, this always returns
+ * false.
+ * 
+ * @param {CardImageSet} imageSet 
+ * @param {Card} card 
+ * @returns {boolean}
+ */
+ActiveCardImages.prototype.isFrontImageActive = function (imageSet, card) {
+    var k = card.toString();
+    return (this.frontImageMap[k] || "") === imageSet.frontImages[k];
 }
 
 /**
@@ -377,6 +445,16 @@ ActiveCardImages.prototype.addBackImage = function (img) {
 ActiveCardImages.prototype.removeBackImage = function (img) {
     this.backImages.delete(img);
 }
+
+/**
+ * Check whether a given back image is active or not.
+ * @param {string} image
+ * @returns {boolean}
+ */
+ActiveCardImages.prototype.isBackImageActive = function (image) {
+    return this.backImages.has(image);
+}
+
 
 /**
  * Add all defined card back images from a set.
@@ -699,6 +777,20 @@ function cardRankToString(rank, plural) {
         str += (rank == 6 ? 'es' : 's');
     }
     return str;
+}
+
+function cardSuitToString (suit) {
+    switch (suit) {
+        case 0:        return "Spades";
+        case 1:        return "Hearts";
+        case 2:        return "Diamonds";
+        case 3:        return "Clubs";
+        case SPADES:   return "Spades";
+        case HEARTS:   return "Hearts";
+        case DIAMONDS: return "Diamonds";
+        case CLUBS:    return "Clubs";
+        default:       return "";
+    }
 }
 
 Hand.prototype.describe = function(with_article) {

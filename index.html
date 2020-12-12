@@ -1125,30 +1125,33 @@
 
     <!-- Gallery Screen -->
     <div id="gallery-screen" class="screen-container" hidden>
+        
         <div id="collectible-gallery-screen" class="screen">
             <div class="gallery-select-block">
                 <button class="bordered gallery-back-button gallery-select-button smooth-button red"
                     onclick="backGalleryScreen()">Back</button>
-                <button class="bordered gallery-switch-button gallery-select-button smooth-button blue"
+                <button class="bordered gallery-switch-button epilogues-switch-button gallery-select-button smooth-button blue"
                     onclick="goToEpiloguesScreen()">Epilogues</button>
+                <button class="bordered gallery-switch-button deck-switch-button gallery-select-button smooth-button blue"
+                    onclick="goToCardsScreen()">Card Decks</button>
+                <select id="collectible-character-filter" class="gallery-character-filter"
+                    onchange="changeCharacterFilter(true)">
+                    <option value="" disabled selected>Filter by Character...</option>
+                    <option value="">(no filter)</option>
+                    <option value="__general">The Inventory</option>
+                </select>
             </div>
-            <select id="collectible-character-filter" class="gallery-character-filter"
-                onchange="changeCharacterFilter(true)">
-                <option value="" disabled selected>Filter by Character...</option>
-                <option value="">(no filter)</option>
-                <option value="__general">The Inventory</option>
-            </select>
-                <label style="color:black; background-color:white; padding:4px; border:double">The Collectibles feature is now in open beta testing. Please report any issues with specific collectibles via the character’s bug report function.</label>
-            <div class="collectibles-pane bordered" id="collectibles-list-pane"></div>
-            <div class="collectibles-pane bordered" id="collectibles-text-pane">
-                <h3 class="collectible-content text-center" id="collectible-title"></h3>
-                <h3 class="collectible-content collectible-subtitle-container text-center"><small
+            <label style="color:black; background-color:white; padding:4px; border:double">The Collectibles feature is now in open beta testing. Please report any issues with specific collectibles via the character’s bug report function.</label>
+            <div class="gallery-pane gallery-list-pane bordered" id="collectibles-list-pane"></div>
+            <div class="gallery-pane bordered" id="collectibles-text-pane">
+                <h3 class="pane-content text-center" id="collectible-title"></h3>
+                <h3 class="pane-content collectible-subtitle-container text-center"><small
                         id="collectible-subtitle"></small></h3>
                 <hr />
-                <div class="collectible-content text-center collectible-character-container">
+                <div class="pane-content text-center collectible-character-container">
                     From: <i id="collectible-character"></i>
                 </div>
-                <div class="collectible-content collectible-unlock-container">
+                <div class="pane-content collectible-unlock-container">
                     <div class="text-center">To Unlock:</div>
                     <div class="text-center">
                         <span id="collectible-unlock"></span>
@@ -1162,27 +1165,48 @@
                     </div>
                 </div>
                 <hr />
-                <div class="collectible-content collectible-text-container">
+                <div class="pane-content collectible-text-container">
                     <h4 class="text-center">Description:</h4>
                     <div id="collectible-text"></div>
                 </div>
             </div>
-            <div class="collectibles-pane bordered" id="collectibles-image-pane">
+            <div class="gallery-pane bordered" id="collectibles-image-pane">
                 <img id="collectible-image" src="img/blank.png" alt="">
             </div>
         </div>
+
+        <div id="deck-gallery-screen" class="screen" hidden>
+            <div class="gallery-select-block">
+                <button class="bordered gallery-back-button gallery-select-button smooth-button red"
+                    onclick="backGalleryScreen()">Back</button>
+                <button class="bordered gallery-switch-button collectibles-switch-button gallery-select-button smooth-button blue"
+                    onclick="goToCollectiblesScreen()">Collectibles</button>
+            </div>
+            <div class="gallery-pane gallery-list-pane bordered" id="deck-list-pane"></div>
+            <div class="gallery-pane bordered" id="deck-customizer-pane">
+                <h3 class="deck-content text-center" id="deck-title"></h3>
+                <h3 class="deck-content deck-subtitle-container text-center" id="deck-subtitle"></h3>
+                <div class="deck-content text-center" id="deck-credits"></div>
+                <div class="deck-content text-center deck-text-container">
+                    <h3>Description:</h3>
+                    <div id="deck-description"></div>
+                </div>
+                <div class="deck-content deck-cards-container"></div>
+            </div>
+        </div>
+
         <div id="epilogue-gallery-screen" class="screen" hidden>
             <div class="gallery-select-block">
                 <button class="bordered gallery-back-button gallery-select-button smooth-button red"
                     onclick="backGalleryScreen()">Back</button>
-                <button class="bordered gallery-switch-button gallery-select-button smooth-button blue"
+                <button class="bordered gallery-switch-button collectibles-switch-button gallery-select-button smooth-button blue"
                     onclick="goToCollectiblesScreen()">Collectibles</button>
+                <select id="epilogue-character-filter" class="gallery-character-filter"
+                    onchange="changeCharacterFilter(false)">
+                    <option value="" disabled selected>Filter by Character...</option>
+                    <option value="">(no filter)</option>
+                </select>
             </div>
-            <select id="epilogue-character-filter" class="gallery-character-filter"
-                onchange="changeCharacterFilter(false)">
-                <option value="" disabled selected>Filter by Character...</option>
-                <option value="">(no filter)</option>
-            </select>
             <div id="gallery-gender-block">
               <input type="image" id="gallery-gender-all" class="gallery-gender-button bordered"
 		    src="img/all.svg" alt="&#x26A5;&#x2640;&#x2642;" title="All epilogues" onclick="galleryGender('all')" />
