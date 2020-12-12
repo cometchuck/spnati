@@ -200,8 +200,11 @@ function cardImageKey(suit, rank) {
  * @param {string} subtitle
  * @param {string} credits
  * @param {string} description
+ * @param {string?} unlockChar
+ * @param {string?} unlockCollectible
+ * @param {string?} status
  */
-function CardImageSet (frontImages, backImages, id, title, subtitle, credits, description) {
+function CardImageSet (frontImages, backImages, id, title, subtitle, credits, description, unlockChar, unlockCollectible, status) {
     /** @type {Object.<string, string>} */
     this.frontImages = {};
 
@@ -222,11 +225,54 @@ function CardImageSet (frontImages, backImages, id, title, subtitle, credits, de
     this.subtitle = subtitle;
     this.credits = credits;
     this.description = description;
-    this.unlocked = false;
+    this.unlockChar = unlockChar;
+    this.unlockCollectible = unlockCollectible;
+    this.status = status;
 }
 
+/**
+ * Get the Collectible that is required for unlocking this deck.
+ * @returns {Promise<Collectible?>}
+ */
+CardImageSet.prototype.getCollectible = function () {
+    if (!this.unlockChar || !this.unlockCollectible) {
+        return Promise.resolve(null);
+    }
+
+    var pl = loadedOpponents.find(function (pl) {
+        return pl.id === this.unlockChar;
+    }.bind(this));
+
+    if (!pl) return Promise.resolve(null);
+
+    return pl.loadCollectibles().then(function () {
+        return pl.collectibles.find(function (c) {
+            return c.id === this.unlockCollectible;
+        }.bind(this));
+    }.bind(this));
+}
+
+/**
+ * Get whether this deck's `status` makes it available for use or not.
+ * @returns {boolean}
+ */
+CardImageSet.prototype.isAvailable = function () {
+    return !this.status || includedOpponentStatuses[this.status];
+}
+
+/**
+ * Get whether this card deck is unlocked or not.
+ * @returns {Promise<boolean>}
+ */
 CardImageSet.prototype.isUnlocked = function () {
-    return this.unlocked;
+    if (!this.isAvailable()) {
+        return Promise.resolve(false);
+    }
+
+    return this.getCollectible().then(function (collectible) {
+        if (!collectible) return true;
+        return collectible.isUnlocked();
+    });
 }
 
 /**
@@ -261,7 +307,8 @@ function defaultImageSet() {
         "Default",
         "The standard deck of cards.",
         "[insert here]",
-        "Enabled by default."
+        "Enabled by default.",
+        null, null, null
     );
 }
 
@@ -280,6 +327,9 @@ function imageSetFromXML($xml) {
     var subtitle = $xml.children("subtitle").text();
     var description = $xml.children("description").text();
     var credits = $xml.children("credits").text();
+    var unlockChar = $xml.attr("character") || null;
+    var unlockCollectible = $xml.attr("collectible") || null;
+    var status = $xml.attr("status") || null;
 
     $xml.children('front').each(function () {
         var $elem = $(this);
@@ -339,7 +389,10 @@ function imageSetFromXML($xml) {
         backs.push($(this).attr("src"));
     });
 
-    return new CardImageSet(mapping, backs, id, title, subtitle, credits, description);
+    return new CardImageSet(
+        mapping, backs, id, title, subtitle, credits, description,
+        unlockChar, unlockCollectible, status
+    );
 }
 
 /**

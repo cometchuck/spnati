@@ -3964,8 +3964,18 @@ ul.dropdown-menu>li {
     margin: 0 5%;
 }
 
-#deck-locked-alert {
+#deck-status-alert {
+    display: none;
+}
+
+#deck-status-alert.locked {
+    display: block;
     color: firebrick;
+}
+
+#deck-status-alert.loading {
+    display: block;
+    color: #777;
 }
 
 .deck-cards-container {

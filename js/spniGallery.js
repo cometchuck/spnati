@@ -53,7 +53,7 @@ var $deckTitle = $("#deck-title");
 var $deckSubtitle = $("#deck-subtitle");
 var $deckCredits = $("#deck-credits");
 var $deckDescription = $("#deck-description");
-var $deckLockedAlert = $("#deck-locked-alert");
+var $deckStatusAlert = $("#deck-status-alert");
 
 function GEnding(player, ending){
 	this.player = player;
@@ -316,7 +316,9 @@ function loadGalleryScreen(){
 	screenTransition($titleScreen, $galleryScreen);
 
 	if (deckListElems.length == 0) {
-		deckListElems = CARD_IMAGE_SETS.map(createDeckListElement);
+		deckListElems = CARD_IMAGE_SETS.filter(function (set) {
+			return set.isAvailable();
+		}).map(createDeckListElement);
 		$deckListPane.append(deckListElems);
 	}
     
@@ -626,7 +628,12 @@ function doEpilogueFromGallery(){
  *****          Card Decks Gallery Screen Functions               *****
  **********************************************************************/
 
-function CardSelector () {
+ /**
+  * Base class for custom card deck selectors.
+  * @param {CardImageSet} imageSet 
+  */
+function CardSelector (imageSet) {
+	this.imageSet = imageSet;
 	this.elem = createElementWithClass("img", "bordered custom-deck-image");
 	$(this.elem).attr({
 		src: this.image(),
@@ -639,17 +646,19 @@ function CardSelector () {
 CardSelector.prototype.image = function () { return ""; }
 CardSelector.prototype.altText = function () { return ""; }
 CardSelector.prototype.isSelected = function () { return false; }
-CardSelector.prototype.isUnlocked = function () { return true; }
+CardSelector.prototype.isUnlocked = function () { return this.imageSet.isUnlocked(); }
 CardSelector.prototype.select = function () {}
 
 CardSelector.prototype.update = function () {
 	var $elem = $(this.elem);
 
 	$elem.removeClass('usable selected');
-	if (this.isUnlocked()) {
-		$elem.addClass('usable');
-		if (this.isSelected()) $elem.addClass('selected');
-	}
+	this.isUnlocked().then(function (unlocked) {
+		if (unlocked) {
+			$elem.addClass('usable');
+			if (this.isSelected()) $elem.addClass('selected');
+		}
+	}.bind(this));
 }
 
 /**
@@ -659,10 +668,8 @@ CardSelector.prototype.update = function () {
  * @param {Card} card
  */
 function CardFrontSelector (imageSet, card) {
-	this.imageSet = imageSet;
 	this.card = card;
-
-	CardSelector.call(this);
+	CardSelector.call(this, imageSet);
 }
 
 CardFrontSelector.prototype = Object.create(CardSelector.prototype);
@@ -680,19 +687,17 @@ CardFrontSelector.prototype.isSelected = function () {
 	return ACTIVE_CARD_IMAGES.isFrontImageActive(this.imageSet, this.card);
 }
 
-CardFrontSelector.prototype.isUnlocked = function () {
-	return this.imageSet.isUnlocked();
-}
-
 CardFrontSelector.prototype.select = function () {
-	if (this.isUnlocked()) {
-		if (!this.isSelected()) {
-			ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
-		} else {
-			ACTIVE_CARD_IMAGES.deactivateFrontImage(this.card);
+	this.isUnlocked().then(function (unlocked) {
+		if (unlocked) {
+			if (!this.isSelected()) {
+				ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
+			} else {
+				ACTIVE_CARD_IMAGES.deactivateFrontImage(this.card);
+			}
+			this.update();
 		}
-		this.update();
-	}
+	}.bind(this));
 }
 
 
@@ -703,10 +708,8 @@ CardFrontSelector.prototype.select = function () {
  * @param {string} image
  */
 function CardBackSelector (imageSet, image) {
-	this.imageSet = imageSet;
 	this.img = image;
-
-	CardSelector.call(this);
+	CardSelector.call(this, imageSet);
 }
 
 CardBackSelector.prototype = Object.create(CardSelector.prototype);
@@ -724,19 +727,17 @@ CardBackSelector.prototype.isSelected = function () {
 	return ACTIVE_CARD_IMAGES.isBackImageActive(this.img);
 }
 
-CardBackSelector.prototype.isUnlocked = function () {
-	return this.imageSet.isUnlocked();
-}
-
 CardBackSelector.prototype.select = function () {
-	if (this.isUnlocked()) {
-		if (!this.isSelected()) {
-			ACTIVE_CARD_IMAGES.addBackImage(this.img);
-		} else {
-			ACTIVE_CARD_IMAGES.removeBackImage(this.img);
+	this.isUnlocked().then(function (unlocked) {
+		if (unlocked) {
+			if (!this.isSelected()) {
+				ACTIVE_CARD_IMAGES.addBackImage(this.img);
+			} else {
+				ACTIVE_CARD_IMAGES.removeBackImage(this.img);
+			}
+			this.update();
 		}
-		this.update();
-	}
+	}.bind(this));
 }
 
 /**
@@ -753,7 +754,9 @@ function CardDeckGroup (title, imageSet, cards, cardBacks) {
 	$(titleElem).text(title);
 
 	this.cardContainer = this.mainContainer.appendChild(createElementWithClass("div", "rank-cards-container"));
-	this.selectors = cards.forEach(function (card) {
+
+	/** @type {Array<CardSelector>} */
+	this.selectors = cards.map(function (card) {
 		var selector = null;
 		if (!cardBacks) {
 			selector = new CardFrontSelector(imageSet, card);
@@ -808,11 +811,27 @@ CardDeckDisplay.prototype.render = function () {
 	$deckCredits.text(this.imageSet.credits);
 	$deckDescription.text(this.imageSet.description);
 
-	if (this.imageSet.isUnlocked()) {
-		$deckLockedAlert.hide();
-	} else {
-		$deckLockedAlert.show();
-	}
+	$deckStatusAlert.removeClass('locked').addClass('loading').text("(Loading...)").show();
+
+	this.groups.forEach(function (group) {
+		group.selectors.forEach(function (selector) {
+			selector.update();
+		});
+	});
+
+	this.imageSet.isUnlocked().then(function (unlocked) {
+		if (unlocked) {
+			$deckStatusAlert.hide();
+		} else {
+			$deckStatusAlert.addClass("locked").removeClass("loading");
+
+			if (!this.imageSet.isAvailable()) {
+				$deckStatusAlert.text("(This deck is not available for use.)").show();
+			} else {
+				$deckStatusAlert.text("(You haven't unlocked this deck yet.)").show();
+			}
+		}
+	}.bind(this));	
 }
 
 /**
