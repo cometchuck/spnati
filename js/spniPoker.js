@@ -323,8 +323,9 @@ function imageSetFromXML($xml) {
             }
 
             for (var i = min; i <= max; i++) {
-                var rank = (i === 14 ? 1 : i);
-                var im = imageSrc.replace("%i", rank.toString(10));
+                var rank = (i === 1 ? 14 : i);
+                var imgIdx = (i === 14 ? 1 : i);
+                var im = imageSrc.replace("%i", imgIdx.toString(10));
 
                 suits.forEach(function (suit) {
                     var c = new Card(suit, rank);
