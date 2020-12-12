@@ -303,7 +303,7 @@ function imageSetFromXML($xml) {
             });
         }
 
-        ranks.split(/\s+/).map(parseInterval).forEach(function (interval) {
+        ranks.split(/[\s,]+/).map(parseInterval).forEach(function (interval) {
             var min = 2;
             var max = 14;
 
