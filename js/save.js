@@ -244,6 +244,7 @@ Save.prototype.load = function() {
     this.loadOptions();
     this.loadPlayer();
     this.loadEndings();
+    ACTIVE_CARD_IMAGES.load();
 };
 
 Save.prototype.loadPlayer = function() {

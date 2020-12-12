@@ -402,10 +402,6 @@ function loadCustomDecks () {
     console.log("Loading custom card decks...");
 
     CARD_IMAGE_SETS.push(defaultImageSet());
-    ACTIVE_CARD_IMAGES.activateSetFront(CARD_IMAGE_SETS[0]);
-    ACTIVE_CARD_IMAGES.activateSetBack(CARD_IMAGE_SETS[0]);
-    ACTIVE_CARD_IMAGES.preloadImages();
-    CARD_IMAGE_SETS[0].unlocked = true;
 
     return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
         $xml.children("deck").each(function () {
@@ -426,6 +422,55 @@ function ActiveCardImages () {
 
     /** @type {Set<string>} */
     this.backImages = new Set();
+}
+
+ActiveCardImages.prototype.save = function () {
+    var frontOverlay = {};
+    Object.entries(this.frontImageMap).filter(function (kv) {
+        return kv[1] !== (IMG + kv[0] + ".jpg");
+    }).forEach(function (kv) {
+        frontOverlay[kv[0]] = kv[1];
+    });
+
+    var saveObj = {
+        "front": frontOverlay,
+        "back": Array.from(this.backImages)
+    };
+
+    save.setItem("cardDeck", saveObj);
+}
+
+ActiveCardImages.prototype.load = function () {
+    this.activateSetFront(CARD_IMAGE_SETS[0]);
+    this.activateSetBack(CARD_IMAGE_SETS[0]);
+
+    var saveObj = save.getItem("cardDeck", false) || {};
+
+    if (saveObj.front) {
+        Object.entries(saveObj.front).forEach(function (kv) {
+            this.frontImageMap[kv[0]] = kv[1];
+        }.bind(this));
+    }
+
+    if (saveObj.back) {
+        saveObj.back.forEach(function (v) {
+            this.backImages.add(v);
+        }.bind(this));
+
+        CARD_IMAGE_SETS[0].backImages.forEach(function (img) {
+            if (saveObj.back.indexOf(img) < 0) {
+                this.backImages.delete(img);
+            }
+        }.bind(this));
+    }
+
+    /*
+     * NOTE: if card deck image files get renamed, we may need to apply corrections
+     * here for a while, at least until we can reasonably assume that most client-side
+     * save data has updated to store the new image paths.
+     */
+
+    this.preloadImages();
 }
 
 /**
@@ -548,6 +593,8 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
 
     var backImages = [];
     this.backImages.forEach(function (v) { backImages.push(v); });
+    if (backImages.length === 0) backImages.push(UNKNOWN_CARD_IMAGE);
+
     allCards.forEach(function (k, i) {
         this.backImageMap[k] = backImages[i % backImages.length];
     }.bind(this));
@@ -589,7 +636,7 @@ ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
 ActiveCardImages.prototype.preloadImages = function () {
     Object.values(this.frontImageMap).forEach(function (src) {
         new Image().src = src;
-    }.bind(this));
+    });
     
     this.backImages.forEach(function (src) { new Image().src = src; });
 
