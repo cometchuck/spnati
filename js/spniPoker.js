@@ -51,9 +51,13 @@ var ANIM_TIME = 500;
 var CARDS_PER_HAND = 5;
  
 /* image constants */
+var CARD_CONFIG_FILE = "cards.xml";
 var BLANK_CARD_IMAGE = IMG + "blank.png";
 var UNKNOWN_CARD_IMAGE = IMG + "unknown.jpg";
- 
+var SUIT_PREFIXES = ["spade", "heart", "diamo", "clubs"];
+var ACTIVE_CARD_IMAGES = new ActiveCardImages();
+var CARD_IMAGE_SETS = [defaultImageSet()];
+
 /* card decks */
 var activeDeck;	/* deck for current round */
 
@@ -63,7 +67,10 @@ var dealLock = 0;
 /************************************************************
  * Card class
  * (Ace represented as the number 14 so that the hand value 
- * array can be used to determine the cards to discard.)
+ * array can be used to determine the cards to discard.)\
+ * 
+ * @param {number} suit
+ * @param {number} rank
  ************************************************************/
 function Card(suit, rank) {
 	this.suit = suit;
@@ -73,7 +80,7 @@ function Card(suit, rank) {
 /* This toString() method means that using a card object in a URL
  * yields the same filename as before */
 Card.prototype.toString = function() {
-	return ["spade", "heart", "diamo", "clubs"][this.suit] + (this.rank == 14 ? 1 : this.rank);
+    return cardImageKey(this.suit, this.rank);
 };
 
 Card.prototype.altText = function() {
@@ -153,29 +160,307 @@ function Deck() {
  * Sets up all of the information needed to start playing poker.
  ************************************************************/
 function setupPoker () {
+    ACTIVE_CARD_IMAGES.generateCardBackMapping();
+    ACTIVE_CARD_IMAGES.preloadImages();
+
     /* set up the player hands */
     players.forEach(function(player) {
         player.hand = new Hand()
     });
 }
 
-/************************************************************
- * Prefetches all card images
- ************************************************************/
-function preloadCardImages () {
-	[SPADES, HEARTS, CLUBS, DIAMONDS].forEach(function(suit) {
-		for (var r = 1; r < 14; r++) {
-			new Image().src = IMG + suit + r + '.jpg';
-		}
-	});
-	new Image().src = BLANK_CARD_IMAGE;
-	new Image().src = UNKNOWN_CARD_IMAGE;
-}
-
 /**********************************************************************
  *****                       UI Functions                         *****
  **********************************************************************/
  
+
+/**
+ * Get a unique string key from a card's suit and rank.
+ * @param {number} suit 
+ * @param {number} rank 
+ */
+function cardImageKey(suit, rank) {
+    return SUIT_PREFIXES[suit] + (rank == 14 ? 1 : rank);
+}
+
+/**
+ * A collection of images for cards.
+ * @param {Object.<string, string>} frontImages
+ * @param {Array<string>} backImages 
+ * @param {string} id
+ * @param {string} name
+ */
+function CardImageSet (frontImages, backImages, id, name) {
+    this.frontImages = frontImages;
+    this.backImages = backImages;
+    this.id = id;
+    this.name = name;
+}
+
+/**
+ * Generate a card set with default images.
+ * @returns {CardImageSet}
+ */
+function defaultImageSet() {
+    var mapping = {};
+    SUIT_PREFIXES.forEach(function (suit) {
+        for (var i = 2; i < 15; i++) {
+            var s = cardImageKey(suit, i);
+            mapping[s] = IMG + s + ".jpg";
+        }
+    });
+
+    return new CardImageSet(mapping, [UNKNOWN_CARD_IMAGE], "default", "Default");
+}
+
+/**
+ * Load a CardImageSet from an XML description.
+ * 
+ * @param {*} $xml
+ * @returns {CardImageSet} 
+ */
+function imageSetFromXML($xml) {
+    var mapping = {};
+    var backs = [];
+
+    var id = $xml.attr("id");
+    var name = $xml.attr("name");
+
+    $xml.children('front').each(function () {
+        var $elem = $(this);
+        var imageSrc = $elem.attr("src") || "";
+        var ranks = $elem.attr("rank") || "2-14";
+        var suits = $elem.attr("suit");
+
+        if (!suits) {
+            suits = SUIT_PREFIXES;
+        } else {
+            suits = suits.split(/\s+/).map(function (val) {
+                switch (val[0]) {
+                    case "s": return "spade";
+                    case "c": return "clubs";
+                    case "d": return "diamo";
+                    case "h": return "heart";
+                    default: return null;
+                }
+            }).filter(function (v) {
+                return !!v
+            });
+        }
+
+        ranks.split(/\s+/).map(parseInterval).forEach(function (interval) {
+            var min = 2;
+            var max = 14;
+
+            if (interval.min && interval.min >= 2 && interval.min <= 14) {
+                min = interval.min;
+            }
+
+            if (interval.max && interval.max >= 2 && interval.max <= 14) {
+                max = interval.max;
+            }
+
+            if (min > max) {
+                // swap min, max
+                var t = min;
+                min = max;
+                max = t;
+            }
+
+            for (var rank = min; rank <= max; rank++) {
+                var im = imageSrc.replace("%i", rank.toString(10));
+
+                suits.forEach(function (suit) {
+                    var k = cardImageKey(suit, rank);
+                    mapping[k] = im.replace("%s", suit);
+                });
+            }
+        });
+    });
+
+    $xml.children('back').each(function () {
+        backs.push($(this).attr("src"));
+    });
+
+    return new CardImageSet(mapping, backs, id, name);
+}
+
+/**
+ * Load metadata for all custom card decks / image sets.
+ */
+function loadCustomDecks () {
+    console.log("Loading custom card decks...");
+
+    ACTIVE_CARD_IMAGES.activateSetFront(CARD_IMAGE_SETS[0]);
+    ACTIVE_CARD_IMAGES.activateSetBack(CARD_IMAGE_SETS[0]);
+
+    return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
+        $xml.children("deck").each(function () {
+            CARD_IMAGE_SETS.push(imageSetFromXML($(this)));
+        });
+    }).catch(function (err) {
+        console.error("Could not load card decks:");
+        captureError(err);
+    });
+}
+
+function ActiveCardImages () {
+    /** @type {Object.<string, string>} */
+    this.frontImageMap = {};
+
+    /** @type {Object.<string, string>} */
+    this.backImageMap = {};
+
+    /** @type {Set<string>} */
+    this.backImages = new Set();
+}
+
+/**
+ * Activate a front image from a set.
+ * If the given set does not define a card front image for the specified card,
+ * a default card image is used instead.
+ * @param {CardImageSet} imageSet 
+ * @param {number} suit 
+ * @param {number} rank 
+ */
+ActiveCardImages.prototype.activateFrontImage = function (imageSet, suit, rank) {
+    var k = cardImageKey(suit, rank);
+    if (imageSet.frontImages[k]) {
+        this.frontImageMap[k] = imageSet.frontImages[k];
+    } else {
+        this.frontImageMap[k] = IMG + k + ".jpg";
+    }
+}
+
+/**
+ * Activate all defined card front images from a set.
+ * @param {CardImageSet} imageSet 
+ */
+ActiveCardImages.prototype.activateSetFront = function (imageSet) {
+    Object.keys(imageSet.frontImages).forEach(function (k) {
+        this.frontImageMap[k] = imageSet.frontImages[k];
+    }.bind(this));
+}
+
+/**
+ * Deactivate the front image for a card, replacing it with a default card image.
+ * @param {number} suit 
+ * @param {number} rank 
+ */
+ActiveCardImages.prototype.deactivateFrontImage = function (suit, rank) {
+    var k = cardImageKey(suit, rank);
+    this.frontImageMap[k] = IMG + k + ".jpg";
+}
+
+/**
+ * Deactivate all defined card front images from a set.
+ * @param {CardImageSet} imageSet 
+ */
+ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
+    Object.keys(imageSet.frontImages).forEach(function (k) {
+        this.frontImageMap[k] = IMG + k + ".jpg";
+    }.bind(this));
+}
+
+/**
+ * Add a card back image to the active set.
+ * @param {string} img 
+ */
+ActiveCardImages.prototype.addBackImage = function (img) {
+    this.backImages.add(img);
+}
+
+/**
+ * Remove a card back image from the active set.
+ * @param {string} img 
+ */
+ActiveCardImages.prototype.removeBackImage = function (img) {
+    this.backImages.delete(img);
+}
+
+/**
+ * Add all defined card back images from a set.
+ * @param {CardImageSet} imageSet 
+ */
+ActiveCardImages.prototype.activateSetBack = function (imageSet) {
+    imageSet.backImages.forEach(Set.prototype.add.bind(this.backImages));
+}
+
+/**
+ * Remove all defined card back images from a set.
+ * @param {CardImageSet} imageSet 
+ */
+ActiveCardImages.prototype.deactivateSetBack = function (imageSet) {
+    imageSet.backImages.forEach(Set.prototype.delete.bind(this.backImages));
+}
+
+/**
+ * Generate a random mapping between cards in a deck and active card back images.
+ */
+ActiveCardImages.prototype.generateCardBackMapping = function () {
+    var allCards = [];
+    SUIT_PREFIXES.forEach(function (suit) {
+        for (var i = 2; i < 15; i++) allCards.push(cardImageKey(suit, i));
+    });
+
+    /* Shuffle card sequence. */
+    for (var i = 0; i < allCards.length - 1; i++) {
+        swapIndex = getRandomNumber(i, allCards.length);
+        var c = allCards[i];
+        allCards[i] = allCards[swapIndex];
+        allCards[swapIndex] = c;
+    }
+
+    var backImages = [];
+    this.backImages.forEach(Array.prototype.push.bind(backImages));
+    allCards.forEach(function (k, i) {
+        this.backImageMap[k] = backImages[i % backImages.length];
+    }.bind(this));
+}
+
+/**
+ * Displays a card, face up or face down, or an empty space if the card is missing.
+ * @param {number} player
+ * @param {number} slot 
+ * @param {boolean} visible
+ */
+ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
+    var card = players[player].hand.cards[slot];
+
+    if (card) {
+        detectCheat();
+        var k = cardImageKey(card.suit, card.rank);
+        if (visible) {
+            $cardCells[player][slot].attr({
+                src: this.frontImageMap[k] || (IMG + k + ".jpg"),
+                alt: card.altText()
+            });
+        } else {
+            $cardCells[player][slot].attr({
+                src: this.backImageMap[k] || UNKNOWN_CARD_IMAGE,
+                alt: '?'
+            });
+        }
+        fillCard(player, slot);
+        $cardCells[player][slot].css('visibility', '');
+    } else {
+        clearCard(player, slot);
+    }
+}
+
+/**
+ * Prefetch all active card images.
+ */
+ActiveCardImages.prototype.preloadImages = function () {
+    Object.values(this.frontImageMap).forEach(function (src) {
+        new Image().src = src;
+    }.bind(this));
+    
+    this.backImages.forEach(function (src) { new Image().src = src; });
+
+    new Image().src = BLANK_CARD_IMAGE;
+}
+
 /************************************************************
  * Sets the given card to full opacity.
  ************************************************************/
@@ -199,27 +484,6 @@ function clearCard (player, i) {
 }
 
 /************************************************************
- * Displays a card, face up or face down, or an empty space
- * if the card is missing.
- ************************************************************/
-function displayCard (player, i, visible) {
-    if (players[player].hand.cards[i]) {
-        detectCheat();
-        if (visible) {
-            $cardCells[player][i].attr({ src: IMG + players[player].hand.cards[i].toString() + ".jpg",
-                                         alt: players[player].hand.cards[i].altText() });
-        } else {
-            $cardCells[player][i].attr({ src: UNKNOWN_CARD_IMAGE,
-                                         alt: '?'});
-        }
-        fillCard(player, i);
-        $cardCells[player][i].css('visibility', '');
-    } else {
-        clearCard(player, i);
-    }
-}
-
-/************************************************************
  * Shows the given player's hand at full opacity.
  ************************************************************/
 function showHand (player) {
@@ -238,7 +502,7 @@ function showHand (player) {
  ************************************************************/
 function displayHand (player, visible) {
     for (var i = 0; i < CARDS_PER_HAND; i++) {
-        displayCard(player, i, visible);
+        ACTIVE_CARD_IMAGES.displayCard(player, i, visible);
     }
 }
 
@@ -354,7 +618,7 @@ function animateDealtCard (player, card, n) {
 
 	$clonedCard.delay(n * ANIM_DELAY).animate({top: top, left: left}, animTime, function() {
 		$clonedCard.remove();
-		displayCard(player, card, player == HUMAN_PLAYER);
+		ACTIVE_CARD_IMAGES.displayCard(player, card, player == HUMAN_PLAYER);
 		dealLock--;
         if (dealLock <= 0) {
             $gameScreen.removeClass('prompt-exchange');

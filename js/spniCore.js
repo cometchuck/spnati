@@ -140,7 +140,9 @@ function initialSetup () {
      * Also ensure that the config file is loaded before initializing Sentry,
      * which requires the commit SHA.
      */
-    loadConfigFile().then(loadBackgrounds).then(function () {
+    loadConfigFile().then(Promise.all([
+        loadBackgrounds(), loadCustomDecks()
+    ])).then(function () {
         FILL_DISABLED = false;
         
         loadVersionInfo();

@@ -190,7 +190,6 @@ function loadGameScreen () {
 
     /* set up the poker library */
     setupPoker();
-    preloadCardImages();
 
     /* disable player cards */
     for (var i = 0; i < $cardButtons.length; i++) {
@@ -694,7 +693,7 @@ function endRound () {
 	} else {
         updateBiggestLead();
 		allowProgression(eGamePhase.DEAL);
-		preloadCardImages();
+		ACTIVE_CARD_IMAGES.preloadImages();
 	}
 }
 
