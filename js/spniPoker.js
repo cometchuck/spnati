@@ -600,6 +600,17 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
     }.bind(this));
 }
 
+ActiveCardImages.prototype.getCardImage = function (player, slot, visible) {
+    var card = players[player].hand.cards[slot];
+    var k = cardImageKey(card.suit, card.rank);
+
+    if (visible) {
+        return this.frontImageMap[k] || (IMG + k + ".jpg");
+    } else {
+        return this.backImageMap[k] || UNKNOWN_CARD_IMAGE;
+    }
+}
+
 /**
  * Displays a card, face up or face down, or an empty space if the card is missing.
  * @param {number} player
@@ -776,14 +787,15 @@ function exchangeCards (player) {
  * in the order dealt, used to calculate the initial delay.
  ************************************************************/
 function animateDealtCard (player, card, n) {
+    $('#deck').attr('src', ACTIVE_CARD_IMAGES.getCardImage(player, card, false));
 	var $clonedCard = $('#deck').clone().attr('id', '').addClass('shown-card').prependTo($gameHiddenArea);
 	
 	if (player == HUMAN_PLAYER) {
         $clonedCard.addClass("large-card-image");
     } else {
         $clonedCard.addClass('small-card-image');
-	}
-	
+    }
+
 	var offset = $cardCells[player][card].offset();
 	var top = offset.top - $gameHiddenArea.offset().top;
 	var left = offset.left - $gameHiddenArea.offset().left - 6;
