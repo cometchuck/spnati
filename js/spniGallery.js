@@ -315,12 +315,14 @@ function createFilterOption (opp) {
 function loadGalleryScreen(){
 	screenTransition($titleScreen, $galleryScreen);
 
-	if (deckListElems.length == 0) {
-		deckListElems = Object.values(CARD_IMAGE_SETS).filter(function (set) {
-			return set.isAvailable();
-		}).map(createDeckListElement);
-		$deckListPane.append(deckListElems);
-	}
+    if (!CARD_DECKS_ENABLED) {
+        $(".deck-switch-button").hide();
+    } else if (deckListElems.length == 0) {
+        deckListElems = Object.values(CARD_IMAGE_SETS).filter(function (set) {
+            return set.isAvailable();
+        }).map(createDeckListElement);
+        $deckListPane.append(deckListElems);
+    }
     
     /* Set up filter lists: */
     

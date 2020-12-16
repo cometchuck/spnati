@@ -13,6 +13,7 @@ var EPILOGUES_ENABLED = true;
 var EPILOGUES_UNLOCKED = false;
 var COLLECTIBLES_ENABLED = true;
 var COLLECTIBLES_UNLOCKED = false;
+var CARD_DECKS_ENABLED = false;
 var ALT_COSTUMES_ENABLED = true;
 var DEFAULT_COSTUME_SET = null;
 var USAGE_TRACKING = undefined;
@@ -370,6 +371,16 @@ function loadConfigFile () {
             }
         } else {
             console.log("Collectibles disabled");
+        }
+        
+        CARD_DECKS_ENABLED = false;
+        var _card_decks_enabled = $xml.children('custom-cards').text();
+        if (_card_decks_enabled.toLowerCase() === 'true') {
+            console.log("Custom card decks active.");
+            CARD_DECKS_ENABLED = true;
+        } else {
+            CARD_DECKS_ENABLED = false;
+            console.log("Custom card decks disabled.");
         }
         
         var _resort_mode = $xml.children('resort').text();

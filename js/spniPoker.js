@@ -484,6 +484,13 @@ ActiveCardImages.prototype.load = function () {
     this.preloadImages();
 }
 
+ActiveCardImages.prototype.reset = function () {
+    this.activateSetFront(CARD_IMAGE_SETS.default);
+    this.activateSetBack(CARD_IMAGE_SETS.default);
+
+    this.preloadImages();
+}
+
 /**
  * Activate a front image from a set.
  * If the given set does not define a card front image for the specified card,

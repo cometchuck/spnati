@@ -34,6 +34,9 @@
     <!-- Set to false to disable alternate costume functionality.  -->
     <alternate-costumes>true</alternate-costumes>
 
+    <!-- Set to true to enable user customization of card decks.  -->
+    <custom-cards>true</custom-cards>
+
     <!--
         Each <alternate-costume-sets> element specifies one costume set
         to enable in-game.

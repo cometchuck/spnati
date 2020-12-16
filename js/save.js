@@ -244,7 +244,12 @@ Save.prototype.load = function() {
     this.loadOptions();
     this.loadPlayer();
     this.loadEndings();
-    ACTIVE_CARD_IMAGES.load();
+
+    if (CARD_DECKS_ENABLED) {
+        ACTIVE_CARD_IMAGES.load();
+    } else {
+        ACTIVE_CARD_IMAGES.reset();
+    }
 };
 
 Save.prototype.loadPlayer = function() {
