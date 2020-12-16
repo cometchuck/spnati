@@ -11,6 +11,6 @@
         <credits>Arndress</credits>
 
         <front src="img/xmascards/%s%i.png" />
-        <back src="img/xmascards/unknown.png" />
+        <back id="1" src="img/xmascards/unknown.png" />
     </deck>
 </card-decks>

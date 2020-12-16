@@ -56,7 +56,7 @@ var BLANK_CARD_IMAGE = IMG + "blank.png";
 var UNKNOWN_CARD_IMAGE = IMG + "unknown.jpg";
 var SUIT_PREFIXES = ["spade", "heart", "diamo", "clubs"];
 var ACTIVE_CARD_IMAGES = new ActiveCardImages();
-var CARD_IMAGE_SETS = [];
+var CARD_IMAGE_SETS = {};
 
 /* card decks */
 var activeDeck;	/* deck for current round */
@@ -194,7 +194,7 @@ function cardImageKey(suit, rank) {
 /**
  * A collection of images for cards.
  * @param {Object.<string, [Card, string]>} frontImages
- * @param {Array<string>} backImages 
+ * @param {Object.<string, string>} backImages 
  * @param {string} id
  * @param {string} title
  * @param {string} subtitle
@@ -220,6 +220,7 @@ function CardImageSet (frontImages, backImages, id, title, subtitle, credits, de
     }.bind(this));
 
     this.backImages = backImages;
+
     this.id = id;
     this.title = title;
     this.subtitle = subtitle;
@@ -302,7 +303,7 @@ function defaultImageSet() {
 
     return new CardImageSet(
         mapping, 
-        [UNKNOWN_CARD_IMAGE],
+        {"default": UNKNOWN_CARD_IMAGE},
         "default", 
         "Default",
         "The standard deck of cards.",
@@ -320,7 +321,7 @@ function defaultImageSet() {
  */
 function imageSetFromXML($xml) {
     var mapping = {};
-    var backs = [];
+    var backs = {};
 
     var id = $xml.attr("id");
     var title = $xml.children("title").text();
@@ -386,7 +387,7 @@ function imageSetFromXML($xml) {
     });
 
     $xml.children('back').each(function () {
-        backs.push($(this).attr("src"));
+        backs[$(this).attr("id")] = $(this).attr("src");
     });
 
     return new CardImageSet(
@@ -401,16 +402,32 @@ function imageSetFromXML($xml) {
 function loadCustomDecks () {
     console.log("Loading custom card decks...");
 
-    CARD_IMAGE_SETS.push(defaultImageSet());
+    var defaultImages = defaultImageSet();
+    CARD_IMAGE_SETS[defaultImages.id] = defaultImages;
 
     return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
         $xml.children("deck").each(function () {
-            CARD_IMAGE_SETS.push(imageSetFromXML($(this)));
+            var imageSet = imageSetFromXML($(this));
+            CARD_IMAGE_SETS[imageSet.id] = imageSet;
         });
     }).catch(function (err) {
         console.error("Could not load card decks:");
         captureError(err);
     });
+}
+
+/**
+ * 
+ * @param {string} dotPair
+ * @returns {string} 
+ */
+function resolveBackImageRef(dotPair) {
+    var sp = dotPair.split(".", 2);
+    if (!sp || sp.length !== 2) return "";
+
+    var set = CARD_IMAGE_SETS[sp[0]];
+    if (set) return set.backImages[sp[1]] || "";
+    return "";
 }
 
 function ActiveCardImages () {
@@ -427,48 +444,42 @@ function ActiveCardImages () {
 ActiveCardImages.prototype.save = function () {
     var frontOverlay = {};
     Object.entries(this.frontImageMap).filter(function (kv) {
-        return kv[1] !== (IMG + kv[0] + ".jpg");
+        if (!kv[1] || kv[1] === 'default') return false;
+        var set = CARD_IMAGE_SETS[kv[1]];
+        return set && set.frontImages[kv[0]];
     }).forEach(function (kv) {
         frontOverlay[kv[0]] = kv[1];
     });
 
+    var backArray = Array.from(this.backImages).filter(resolveBackImageRef);
+
     var saveObj = {
         "front": frontOverlay,
-        "back": Array.from(this.backImages)
+        "back": backArray
     };
 
     save.setItem("cardDeck", saveObj);
 }
 
 ActiveCardImages.prototype.load = function () {
-    this.activateSetFront(CARD_IMAGE_SETS[0]);
-    this.activateSetBack(CARD_IMAGE_SETS[0]);
+    this.activateSetFront(CARD_IMAGE_SETS.default);
+    this.activateSetBack(CARD_IMAGE_SETS.default);
 
     var saveObj = save.getItem("cardDeck", false) || {};
 
     if (saveObj.front) {
-        Object.entries(saveObj.front).forEach(function (kv) {
+        Object.entries(saveObj.front).filter(function (kv) {
+            if (!kv[1] || kv[1] === 'default') return false;
+            var set = CARD_IMAGE_SETS[kv[1]];
+            return set && set.frontImages[kv[0]];
+        }).forEach(function (kv) {
             this.frontImageMap[kv[0]] = kv[1];
         }.bind(this));
     }
 
     if (saveObj.back) {
-        saveObj.back.forEach(function (v) {
-            this.backImages.add(v);
-        }.bind(this));
-
-        CARD_IMAGE_SETS[0].backImages.forEach(function (img) {
-            if (saveObj.back.indexOf(img) < 0) {
-                this.backImages.delete(img);
-            }
-        }.bind(this));
+        this.backImages = new Set(saveObj.back.filter(resolveBackImageRef));
     }
-
-    /*
-     * NOTE: if card deck image files get renamed, we may need to apply corrections
-     * here for a while, at least until we can reasonably assume that most client-side
-     * save data has updated to store the new image paths.
-     */
 
     this.preloadImages();
 }
@@ -483,9 +494,9 @@ ActiveCardImages.prototype.load = function () {
 ActiveCardImages.prototype.activateFrontImage = function (imageSet, card) {
     var k = card.toString();
     if (imageSet.frontImages[k]) {
-        this.frontImageMap[k] = imageSet.frontImages[k];
+        this.frontImageMap[k] = imageSet.id;
     } else {
-        this.frontImageMap[k] = IMG + k + ".jpg";
+        this.frontImageMap[k] = 'default';
     }
 }
 
@@ -495,7 +506,7 @@ ActiveCardImages.prototype.activateFrontImage = function (imageSet, card) {
  */
 ActiveCardImages.prototype.activateSetFront = function (imageSet) {
     Object.keys(imageSet.frontImages).forEach(function (k) {
-        this.frontImageMap[k] = imageSet.frontImages[k];
+        this.frontImageMap[k] = imageSet.id;
     }.bind(this));
 }
 
@@ -504,8 +515,7 @@ ActiveCardImages.prototype.activateSetFront = function (imageSet) {
  * @param {Card} card
  */
 ActiveCardImages.prototype.deactivateFrontImage = function (card) {
-    var k = card.toString();
-    this.frontImageMap[k] = IMG + k + ".jpg";
+    this.frontImageMap[card.toString()] = 'default';
 }
 
 /**
@@ -514,7 +524,9 @@ ActiveCardImages.prototype.deactivateFrontImage = function (card) {
  */
 ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
     Object.keys(imageSet.frontImages).forEach(function (k) {
-        this.frontImageMap[k] = IMG + k + ".jpg";
+        if (this.frontImageMap[k] === imageSet.id) {
+            this.frontImageMap[k] = 'default';
+        }
     }.bind(this));
 }
 
@@ -528,42 +540,48 @@ ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
  * @returns {boolean}
  */
 ActiveCardImages.prototype.isFrontImageActive = function (imageSet, card) {
-    var k = card.toString();
-    return (this.frontImageMap[k] || "") === imageSet.frontImages[k];
+    return (this.frontImageMap[card.toString()] || "default") === imageSet.id;
 }
 
 /**
  * Add a card back image to the active set.
- * @param {string} img 
+ * 
+ * @param {CardImageSet} imageSet 
+ * @param {string} imgID 
  */
-ActiveCardImages.prototype.addBackImage = function (img) {
-    this.backImages.add(img);
+ActiveCardImages.prototype.addBackImage = function (imageSet, imgID) {
+    this.backImages.add(imageSet.id + "." + imgID);
 }
 
 /**
  * Remove a card back image from the active set.
+ * 
+ * @param {CardImageSet} imageSet 
  * @param {string} img 
  */
-ActiveCardImages.prototype.removeBackImage = function (img) {
-    this.backImages.delete(img);
+ActiveCardImages.prototype.removeBackImage = function (imageSet, imgID) {
+    this.backImages.delete(imageSet.id + "." + imgID);
 }
 
 /**
  * Check whether a given back image is active or not.
- * @param {string} image
+ * 
+ * @param {CardImageSet} imageSet 
+ * @param {string} imgID
  * @returns {boolean}
  */
-ActiveCardImages.prototype.isBackImageActive = function (image) {
-    return this.backImages.has(image);
+ActiveCardImages.prototype.isBackImageActive = function (imageSet, imgID) {
+    return this.backImages.has(imageSet.id + "." + imgID);
 }
-
 
 /**
  * Add all defined card back images from a set.
  * @param {CardImageSet} imageSet 
  */
 ActiveCardImages.prototype.activateSetBack = function (imageSet) {
-    imageSet.backImages.forEach(Set.prototype.add.bind(this.backImages));
+    Object.keys(imageSet.backImages).forEach(function (imgID) {
+        this.backImages.add(imageSet.id + "." + imgID);
+    }.bind(this));
 }
 
 /**
@@ -571,7 +589,9 @@ ActiveCardImages.prototype.activateSetBack = function (imageSet) {
  * @param {CardImageSet} imageSet 
  */
 ActiveCardImages.prototype.deactivateSetBack = function (imageSet) {
-    imageSet.backImages.forEach(Set.prototype.delete.bind(this.backImages));
+    Object.keys(imageSet.backImages).forEach(function (imgID) {
+        this.backImages.delete(imageSet.id + "." + imgID);
+    }.bind(this));
 }
 
 /**
@@ -591,8 +611,9 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
         allCards[swapIndex] = c;
     }
 
-    var backImages = [];
-    this.backImages.forEach(function (v) { backImages.push(v); });
+    var backImages = Array.from(this.backImages).map(resolveBackImageRef).filter(function (v) {
+        return !!v;
+    });
     if (backImages.length === 0) backImages.push(UNKNOWN_CARD_IMAGE);
 
     allCards.forEach(function (k, i) {
@@ -602,10 +623,17 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
 
 ActiveCardImages.prototype.getCardImage = function (player, slot, visible) {
     var card = players[player].hand.cards[slot];
-    var k = cardImageKey(card.suit, card.rank);
+    var k = card.toString();
 
     if (visible) {
-        return this.frontImageMap[k] || (IMG + k + ".jpg");
+        var set = this.frontImageMap[k];
+        var ret = IMG + k + ".jpg";
+
+        if (CARD_IMAGE_SETS[set]) {
+            ret = CARD_IMAGE_SETS[set].frontImages[k] || ret;
+        }
+
+        return ret;
     } else {
         return this.backImageMap[k] || UNKNOWN_CARD_IMAGE;
     }
@@ -622,18 +650,15 @@ ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
 
     if (card) {
         detectCheat();
-        var k = cardImageKey(card.suit, card.rank);
-        if (visible) {
-            $cardCells[player][slot].attr({
-                src: this.frontImageMap[k] || (IMG + k + ".jpg"),
-                alt: card.altText()
-            });
-        } else {
-            $cardCells[player][slot].attr({
-                src: this.backImageMap[k] || UNKNOWN_CARD_IMAGE,
-                alt: '?'
-            });
-        }
+        var img = this.getCardImage(player, slot, visible);
+        var altText = card.altText();
+
+        if (!visible) altText = '?';
+        $cardCells[player][slot].attr({
+            src: img,
+            alt: altText
+        });
+
         fillCard(player, slot);
         $cardCells[player][slot].css('visibility', '');
     } else {
@@ -645,11 +670,24 @@ ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
  * Prefetch all active card images.
  */
 ActiveCardImages.prototype.preloadImages = function () {
-    Object.values(this.frontImageMap).forEach(function (src) {
+    Object.entries(this.frontImageMap).forEach(function (kv) {
+        var key = kv[0];
+        var set = CARD_IMAGE_SETS[kv[1]];
+        var src = IMG + key + ".jpg";
+
+        if (set) {
+            src = set.frontImages[key] || src;
+        }
+        
         new Image().src = src;
     });
     
-    this.backImages.forEach(function (src) { new Image().src = src; });
+    this.backImages.forEach(function (dotPair) {
+        var src = resolveBackImageRef(dotPair);
+        if (src) {
+            new Image().src = src;
+        }
+    });
 
     new Image().src = BLANK_CARD_IMAGE;
 }
