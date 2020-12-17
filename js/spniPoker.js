@@ -278,15 +278,6 @@ CardImageSet.prototype.isUnlocked = function () {
 }
 
 /**
- * Check whether this set defines a front image for a card.
- * @param {Card} card 
- * @returns {boolean}
- */
-CardImageSet.prototype.hasFrontImageForCard = function (card) {
-    return !!this.frontImages[card.toString()];
-}
-
-/**
  * Generate a card set with default images.
  * @returns {CardImageSet}
  */
@@ -549,18 +540,6 @@ ActiveCardImages.prototype.deactivateFrontImage = function (card) {
 }
 
 /**
- * Deactivate all defined card front images from a set.
- * @param {CardImageSet} imageSet 
- */
-ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
-    Object.keys(imageSet.frontImages).forEach(function (k) {
-        if (this.frontImageMap[k] === imageSet.id) {
-            this.frontImageMap[k] = DEFAULT_CARD_DECK;
-        }
-    }.bind(this));
-}
-
-/**
  * Check whether the front image defined by a set for a given card is active.
  * 
  * @param {CardImageSet} imageSet 
@@ -610,35 +589,6 @@ ActiveCardImages.prototype.removeBackImage = function (imageSet, imgID) {
 ActiveCardImages.prototype.isBackImageActive = function (imageSet, imgID) {
     if (!this.backImages) return (imageSet.id === DEFAULT_CARD_DECK);
     return this.backImages.has(imageSet.id + "." + imgID);
-}
-
-/**
- * Add all defined card back images from a set.
- * @param {CardImageSet} imageSet 
- */
-ActiveCardImages.prototype.activateSetBack = function (imageSet) {
-    if (!this.backImages) this.backImages = new Set();
-    Object.keys(imageSet.backImages).forEach(function (imgID) {
-        this.backImages.add(imageSet.id + "." + imgID);
-    }.bind(this));
-}
-
-/**
- * Remove all defined card back images from a set.
- * @param {CardImageSet} imageSet 
- */
-ActiveCardImages.prototype.deactivateSetBack = function (imageSet) {
-    if (!this.backImages) return;
-
-    Object.keys(imageSet.backImages).forEach(function (imgID) {
-        this.backImages.delete(imageSet.id + "." + imgID);
-    }.bind(this));
-
-    if (Array.from(this.backImages).every(function (dotPair) {
-        return dotPair.startsWith(DEFAULT_CARD_DECK + ".");
-    })) {
-        this.backImages = null;
-    }
 }
 
 /**
