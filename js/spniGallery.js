@@ -297,7 +297,7 @@ function goToCardsScreen() {
 	if (SENTRY_INITIALIZED) Sentry.setTag("screen", "gallery-decks");
 
 	if (!currentDeckDisplay) {
-		currentDeckDisplay = new CardDeckDisplay(CARD_IMAGE_SETS.default);
+		currentDeckDisplay = new CardDeckDisplay(CARD_IMAGE_SETS[DEFAULT_CARD_DECK]);
 	}
 	currentDeckDisplay.render();
 

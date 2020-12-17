@@ -278,34 +278,6 @@ CardImageSet.prototype.isUnlocked = function () {
 }
 
 /**
- * Generate a card set with default images.
- * @returns {CardImageSet}
- */
-function defaultImageSet() {
-    var mapping = {};
-    SUIT_PREFIXES.forEach(function (suit) {
-        var c = null;
-        var s = null;
-        for (var i = 2; i < 15; i++) {
-            c = new Card(suit, i);
-            s = c.toString();
-            mapping[s] = [c, IMG + s + ".jpg"];
-        }
-    });
-
-    return new CardImageSet(
-        mapping, 
-        {"default": UNKNOWN_CARD_IMAGE},
-        "default", 
-        "Default",
-        "The standard deck of cards.",
-        "[insert here]",
-        "Enabled by default.",
-        null, null, null
-    );
-}
-
-/**
  * Load a CardImageSet from an XML description.
  * 
  * @param {*} $xml
@@ -393,9 +365,6 @@ function imageSetFromXML($xml) {
  */
 function loadCustomDecks () {
     console.log("Loading custom card decks...");
-
-    var defaultImages = defaultImageSet();
-    CARD_IMAGE_SETS[defaultImages.id] = defaultImages;
 
     return fetchXML(CARD_CONFIG_FILE).then(function ($xml) {
         $xml.children("deck").each(function () {

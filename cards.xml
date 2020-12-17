@@ -4,6 +4,15 @@
  -->
 
 <card-decks>
+    <deck id="default">
+        <title>Default</title>
+        <subtitle>The standard deck of cards.</subtitle>
+        <description>Enabled by default.</description>
+        <credits>[insert here]</credits>
+
+        <front src="img/%s%i.jpg" />
+        <back id="default" src="img/unknown.jpg" />
+    </deck>
     <deck id="xmas">
         <title>Christmas Cards</title>
         <subtitle>A festive card deck for the holidays.</subtitle>
