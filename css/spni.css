@@ -3978,6 +3978,16 @@ ul.dropdown-menu>li {
     color: #777;
 }
 
+.deck-activation-btn {
+    font-size: 1.75rem;
+    margin: 2rem 1rem 0 1rem;
+    padding: 0.5rem 2rem;
+}
+
+.deck-activation-btn:active:not(:disabled) {
+    padding: 0.5rem 2rem;
+}
+
 .deck-cards-container {
     padding-bottom: 2.5rem;
 }
@@ -3986,8 +3996,31 @@ ul.dropdown-menu>li {
     margin: 0 2.5%;
 }
 
+.rank-title-container {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
 .deck-rank-title {
     font-size: 2rem;
+    margin-right: auto;
+}
+
+.rank-activate-btn {
+    margin-left: 2rem;
+}
+
+.rank-activation-btn {
+    font-size: 1.75rem;
+    padding: 0.25rem 2rem;
+}
+
+.rank-activation-btn:active:not(:disabled) {
+    padding: 0.25rem 2rem;
 }
 
 .deck-rank-title::after {
@@ -4016,9 +4049,14 @@ ul.dropdown-menu>li {
 
 .custom-deck-image.usable {
     filter: none;
+    cursor: pointer;
 }
 
-.custom-deck-image.usable.selected, .custom-deck-image.usable:hover {
+.custom-deck-image.usable:hover {
+    opacity: 0.8;
+}
+
+.custom-deck-image.usable.selected {
     opacity: 1.0;
 }
 

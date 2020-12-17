@@ -55,6 +55,9 @@ var $deckCredits = $("#deck-credits");
 var $deckDescription = $("#deck-description");
 var $deckStatusAlert = $("#deck-status-alert");
 
+var $deckEnableAllBtn = $("#deck-activate-btn");
+var $deckDisableAllBtn = $("#deck-deactivate-btn");
+
 function GEnding(player, ending){
 	this.player = player;
 	this.gender = $(ending).attr('gender');
@@ -632,15 +635,17 @@ function doEpilogueFromGallery(){
 
  /**
   * Base class for custom card deck selectors.
+  * @param {CardDeckGroup} parent
   * @param {CardImageSet} imageSet 
   */
-function CardSelector (imageSet) {
+function CardSelector (parent, imageSet) {
+    this.parent = parent;
 	this.imageSet = imageSet;
 	this.elem = createElementWithClass("img", "bordered custom-deck-image");
 	$(this.elem).attr({
 		src: this.image(),
 		alt: this.altText()
-	}).click(this.select.bind(this));
+	}).click(this.onClick.bind(this));
 
 	this.update();
 }
@@ -650,6 +655,7 @@ CardSelector.prototype.altText = function () { return ""; }
 CardSelector.prototype.isSelected = function () { return false; }
 CardSelector.prototype.isUnlocked = function () { return this.imageSet.isUnlocked(); }
 CardSelector.prototype.select = function () {}
+CardSelector.prototype.deselect = function () {}
 
 CardSelector.prototype.update = function () {
 	var $elem = $(this.elem);
@@ -663,15 +669,30 @@ CardSelector.prototype.update = function () {
 	}.bind(this));
 }
 
+CardSelector.prototype.onClick = function () {
+	this.isUnlocked().then(function (unlocked) {
+		if (unlocked) {
+			if (!this.isSelected()) {
+                this.select();
+			} else {
+                this.deselect();
+            }
+            this.parent.updateEnableDisableButtons();
+			ACTIVE_CARD_IMAGES.save();
+		}
+	}.bind(this));
+}
+
 /**
  * A UI element for selecting card fronts.
  * 
+ * @param {CardDeckGroup} parent
  * @param {CardImageSet} imageSet 
  * @param {Card} card
  */
-function CardFrontSelector (imageSet, card) {
+function CardFrontSelector (parent, imageSet, card) {
 	this.card = card;
-	CardSelector.call(this, imageSet);
+	CardSelector.call(this, parent, imageSet);
 }
 
 CardFrontSelector.prototype = Object.create(CardSelector.prototype);
@@ -690,29 +711,25 @@ CardFrontSelector.prototype.isSelected = function () {
 }
 
 CardFrontSelector.prototype.select = function () {
-	this.isUnlocked().then(function (unlocked) {
-		if (unlocked) {
-			if (!this.isSelected()) {
-				ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
-			} else {
-				ACTIVE_CARD_IMAGES.deactivateFrontImage(this.card);
-			}
-			ACTIVE_CARD_IMAGES.save();
-			this.update();
-		}
-	}.bind(this));
+    ACTIVE_CARD_IMAGES.activateFrontImage(this.imageSet, this.card);
+    this.update();
 }
 
+CardFrontSelector.prototype.deselect = function () {
+    ACTIVE_CARD_IMAGES.deactivateFrontImage(this.card);
+    this.update();
+}
 
 /**
  * A UI element for selecting card backs.
  * 
+ * @param {CardDeckGroup} parent
  * @param {CardImageSet} imageSet 
  * @param {string} image
  */
-function CardBackSelector (imageSet, image) {
+function CardBackSelector (parent, imageSet, image) {
 	this.imgID = image;
-	CardSelector.call(this, imageSet);
+	CardSelector.call(this, parent, imageSet);
 }
 
 CardBackSelector.prototype = Object.create(CardSelector.prototype);
@@ -731,31 +748,50 @@ CardBackSelector.prototype.isSelected = function () {
 }
 
 CardBackSelector.prototype.select = function () {
-	this.isUnlocked().then(function (unlocked) {
-		if (unlocked) {
-			if (!this.isSelected()) {
-				ACTIVE_CARD_IMAGES.addBackImage(this.imageSet, this.imgID);
-			} else {
-				ACTIVE_CARD_IMAGES.removeBackImage(this.imageSet, this.imgID);
-			}
-			ACTIVE_CARD_IMAGES.save();
-			this.update();
-		}
-	}.bind(this));
+    ACTIVE_CARD_IMAGES.addBackImage(this.imageSet, this.imgID);
+    this.update();
+}
+
+CardBackSelector.prototype.deselect = function () {
+    ACTIVE_CARD_IMAGES.removeBackImage(this.imageSet, this.imgID);
+    this.update();
 }
 
 /**
+ * An element containing multiple cards, used for grouping together cards of
+ * a given suit or for grouping together card back images.
  * 
+ * @param {CardDeckDisplay} parent
  * @param {string} title
  * @param {CardImageSet} imageSet
  * @param {Array<Card | string>} cards 
  * @param {boolean} cardBacks
  */
-function CardDeckGroup (title, imageSet, cards, cardBacks) {
+function CardDeckGroup (parent, title, imageSet, cards, cardBacks) {
+    this.parent = parent;
+    this.imageSet = imageSet;
+    this.cardBacks = cardBacks;
+
 	this.mainContainer = createElementWithClass("div", "deck-rank-container");
 
-	var titleElem = this.mainContainer.appendChild(createElementWithClass("h3", "deck-rank-title"));
-	$(titleElem).text(title);
+    var titleContainer = this.mainContainer.appendChild(createElementWithClass("div", "rank-title-container"));
+
+	var titleElem = titleContainer.appendChild(createElementWithClass("span", "deck-rank-title"));
+    $(titleElem).text(title);
+    
+    this.disableAllButton = $(titleContainer.appendChild(createElementWithClass(
+        "button",
+        "rank-deactivate-btn rank-activation-btn bordered smooth-button red"
+    )));
+    this.disableAllButton.text("Disable All").click(this.disableAll.bind(this));
+    this.disableBtnShown = false;
+
+    this.enableAllButton = $(titleContainer.appendChild(createElementWithClass(
+        "button",
+        "rank-activate-btn rank-activation-btn bordered smooth-button green"
+    )));
+    this.enableAllButton.text("Enable All").click(this.enableAll.bind(this));
+    this.enableBtnShown = false;
 
 	this.cardContainer = this.mainContainer.appendChild(createElementWithClass("div", "rank-cards-container"));
 
@@ -763,13 +799,85 @@ function CardDeckGroup (title, imageSet, cards, cardBacks) {
 	this.selectors = cards.map(function (card) {
 		var selector = null;
 		if (!cardBacks) {
-			selector = new CardFrontSelector(imageSet, card);
+			selector = new CardFrontSelector(this, imageSet, card);
 		} else {
-			selector = new CardBackSelector(imageSet, card);
+			selector = new CardBackSelector(this, imageSet, card);
 		}
 		this.cardContainer.appendChild(selector.elem);
 		return selector;
 	}.bind(this));
+}
+
+CardDeckGroup.prototype.update = function () {
+    this.selectors.forEach(function (selector) {
+        selector.update();
+    });
+
+    this.updateEnableDisableButtons();
+}
+
+CardDeckGroup.prototype.updateEnableDisableButtons = function () {
+    var allSelected = true;
+    var allDeselected = true;
+    this.selectors.forEach(function (selector) {
+        var s = selector.isSelected();
+        allSelected = allSelected && s;
+        allDeselected = allDeselected && !s;
+    });
+
+    var prevEnableState = this.enableBtnShown;
+    var prevDisableState = this.disableBtnShown;
+
+    if (allSelected) {
+        this.enableAllButton.hide();
+        this.enableBtnShown = false;
+    } else {
+        this.enableAllButton.show();
+        this.enableBtnShown = true;
+    }
+
+    /* Regarding the second part of this conditional:
+     * - The front images for the default set can only be deactivated by activating
+     * front images from other sets.
+     * - However, the back images for the default set can be deactivated like
+     * images from any other set, UNLESS the default back images are the only
+     * ones activated.
+     */
+    if (
+        allDeselected || 
+        (this.imageSet.id === DEFAULT_CARD_DECK && (!this.cardBacks || !ACTIVE_CARD_IMAGES.backImages))
+    ) {
+        this.disableAllButton.hide();
+        this.disableBtnShown = false;
+    } else {
+        this.disableAllButton.show();
+        this.disableBtnShown = true;
+    }
+
+    if (
+        (this.enableBtnShown !== prevEnableState) ||
+        (this.disableBtnShown !== prevDisableState)
+    ) {
+        this.parent.updateEnableDisableButtons();
+    }
+}
+
+CardDeckGroup.prototype.enableAll = function () {
+    this.selectors.forEach(function (selector) {
+        selector.select();
+    });
+
+    this.updateEnableDisableButtons();
+    ACTIVE_CARD_IMAGES.save();
+}
+
+CardDeckGroup.prototype.disableAll = function () {
+    this.selectors.forEach(function (selector) {
+        selector.deselect();
+    });
+
+    this.updateEnableDisableButtons();
+    ACTIVE_CARD_IMAGES.save();
 }
 
 /**
@@ -794,14 +902,14 @@ function CardDeckDisplay (imageSet) {
 		});
 
 		this.groups.push(new CardDeckGroup(
-			cardSuitToString(kv[0]), imageSet, kv[1], false
+			this, cardSuitToString(kv[0]), imageSet, kv[1], false
 		));
 	}.bind(this));
 
 	var backKeys = Object.keys(imageSet.backImages);
 	if (backKeys.length > 0) {
 		this.groups.push(new CardDeckGroup(
-			"Card Backs", imageSet, backKeys, true
+			this, "Card Backs", imageSet, backKeys, true
 		));
 	}
 }
@@ -819,9 +927,7 @@ CardDeckDisplay.prototype.render = function () {
 	$deckStatusAlert.removeClass('locked').addClass('loading').text("(Loading...)").show();
 
 	this.groups.forEach(function (group) {
-		group.selectors.forEach(function (selector) {
-			selector.update();
-		});
+        group.update();
 	});
 
 	this.imageSet.isUnlocked().then(function (unlocked) {
@@ -836,7 +942,48 @@ CardDeckDisplay.prototype.render = function () {
 				$deckStatusAlert.text("(You haven't unlocked this deck yet.)").show();
 			}
 		}
-	}.bind(this));	
+    }.bind(this));
+    
+    $deckEnableAllBtn.off("click").click(this.enableAll.bind(this));
+    $deckDisableAllBtn.off("click").click(this.disableAll.bind(this));
+    this.updateEnableDisableButtons();
+}
+
+CardDeckDisplay.prototype.updateEnableDisableButtons = function () {
+    var anyEnableShown = false;
+    var anyDisableShown = false;
+    this.groups.forEach(function (group) {
+        anyEnableShown = anyEnableShown || group.enableBtnShown;
+        anyDisableShown = anyDisableShown || group.disableBtnShown;
+    });
+
+    if (anyEnableShown) {
+        $deckEnableAllBtn.show();
+    } else {
+        $deckEnableAllBtn.hide();
+    }
+
+    if (anyDisableShown) {
+        $deckDisableAllBtn.show();
+    } else {
+        $deckDisableAllBtn.hide();
+    }
+}
+
+CardDeckDisplay.prototype.enableAll = function () {
+    this.groups.forEach(function (group) {
+        group.enableAll();
+    });
+
+    this.updateEnableDisableButtons();
+}
+
+CardDeckDisplay.prototype.disableAll = function () {
+    this.groups.forEach(function (group) {
+        group.disableAll();
+    });
+
+    this.updateEnableDisableButtons();
 }
 
 /**
