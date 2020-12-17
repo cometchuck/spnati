@@ -57,6 +57,7 @@ var UNKNOWN_CARD_IMAGE = IMG + "unknown.jpg";
 var SUIT_PREFIXES = ["spade", "heart", "diamo", "clubs"];
 var ACTIVE_CARD_IMAGES = new ActiveCardImages();
 var CARD_IMAGE_SETS = {};
+var DEFAULT_CARD_DECK = 'default';
 
 /* card decks */
 var activeDeck;	/* deck for current round */
@@ -437,21 +438,35 @@ function ActiveCardImages () {
     /** @type {Object.<string, string>} */
     this.backImageMap = {};
 
-    /** @type {Set<string>} */
-    this.backImages = new Set();
+    /*
+     * Note: backImages = null indicates that only default card back images are
+     * in use.
+     */
+
+    /** @type {Set<string>?} */
+    this.backImages = null;
 }
 
 ActiveCardImages.prototype.save = function () {
     var frontOverlay = {};
     Object.entries(this.frontImageMap).filter(function (kv) {
-        if (!kv[1] || kv[1] === 'default') return false;
+        if (!kv[1] || kv[1] === DEFAULT_CARD_DECK) return false;
         var set = CARD_IMAGE_SETS[kv[1]];
         return set && set.frontImages[kv[0]];
     }).forEach(function (kv) {
         frontOverlay[kv[0]] = kv[1];
     });
 
-    var backArray = Array.from(this.backImages).filter(resolveBackImageRef);
+    var backArray = null;
+    if (this.backImages) {
+        backArray = Array.from(this.backImages).filter(resolveBackImageRef);
+
+        if (backArray.every(function (dotPair) {
+            return dotPair.startsWith(DEFAULT_CARD_DECK + ".");
+        })) {
+            backArray = null;
+        }
+    }
 
     var saveObj = {
         "front": frontOverlay,
@@ -462,14 +477,15 @@ ActiveCardImages.prototype.save = function () {
 }
 
 ActiveCardImages.prototype.load = function () {
-    this.activateSetFront(CARD_IMAGE_SETS.default);
-    this.activateSetBack(CARD_IMAGE_SETS.default);
-
     var saveObj = save.getItem("cardDeck", false) || {};
+
+    this.frontImageMap = {};
+    this.backImages = null;
+    this.activateSetFront(CARD_IMAGE_SETS[DEFAULT_CARD_DECK]);
 
     if (saveObj.front) {
         Object.entries(saveObj.front).filter(function (kv) {
-            if (!kv[1] || kv[1] === 'default') return false;
+            if (!kv[1] || kv[1] === DEFAULT_CARD_DECK) return false;
             var set = CARD_IMAGE_SETS[kv[1]];
             return set && set.frontImages[kv[0]];
         }).forEach(function (kv) {
@@ -478,16 +494,23 @@ ActiveCardImages.prototype.load = function () {
     }
 
     if (saveObj.back) {
-        this.backImages = new Set(saveObj.back.filter(resolveBackImageRef));
+        var filtered = saveObj.back.filter(resolveBackImageRef);
+
+        if (filtered.some(function (dotPair) {
+            return !dotPair.startsWith(DEFAULT_CARD_DECK + ".");
+        })) {
+            this.backImages = new Set(filtered);
+        }
     }
 
     this.preloadImages();
 }
 
 ActiveCardImages.prototype.reset = function () {
-    this.activateSetFront(CARD_IMAGE_SETS.default);
-    this.activateSetBack(CARD_IMAGE_SETS.default);
+    this.frontImageMap = {};
+    this.backImages = null;
 
+    this.activateSetFront(CARD_IMAGE_SETS[DEFAULT_CARD_DECK]);
     this.preloadImages();
 }
 
@@ -503,7 +526,7 @@ ActiveCardImages.prototype.activateFrontImage = function (imageSet, card) {
     if (imageSet.frontImages[k]) {
         this.frontImageMap[k] = imageSet.id;
     } else {
-        this.frontImageMap[k] = 'default';
+        this.frontImageMap[k] = DEFAULT_CARD_DECK;
     }
 }
 
@@ -522,7 +545,7 @@ ActiveCardImages.prototype.activateSetFront = function (imageSet) {
  * @param {Card} card
  */
 ActiveCardImages.prototype.deactivateFrontImage = function (card) {
-    this.frontImageMap[card.toString()] = 'default';
+    this.frontImageMap[card.toString()] = DEFAULT_CARD_DECK;
 }
 
 /**
@@ -532,22 +555,20 @@ ActiveCardImages.prototype.deactivateFrontImage = function (card) {
 ActiveCardImages.prototype.deactivateSetFront = function (imageSet) {
     Object.keys(imageSet.frontImages).forEach(function (k) {
         if (this.frontImageMap[k] === imageSet.id) {
-            this.frontImageMap[k] = 'default';
+            this.frontImageMap[k] = DEFAULT_CARD_DECK;
         }
     }.bind(this));
 }
 
 /**
  * Check whether the front image defined by a set for a given card is active.
- * If the given set does not define a front image for a card, this always returns
- * false.
  * 
  * @param {CardImageSet} imageSet 
  * @param {Card} card 
  * @returns {boolean}
  */
 ActiveCardImages.prototype.isFrontImageActive = function (imageSet, card) {
-    return (this.frontImageMap[card.toString()] || "default") === imageSet.id;
+    return (this.frontImageMap[card.toString()] || DEFAULT_CARD_DECK) === imageSet.id;
 }
 
 /**
@@ -557,6 +578,7 @@ ActiveCardImages.prototype.isFrontImageActive = function (imageSet, card) {
  * @param {string} imgID 
  */
 ActiveCardImages.prototype.addBackImage = function (imageSet, imgID) {
+    if (!this.backImages) this.backImages = new Set();
     this.backImages.add(imageSet.id + "." + imgID);
 }
 
@@ -567,7 +589,15 @@ ActiveCardImages.prototype.addBackImage = function (imageSet, imgID) {
  * @param {string} img 
  */
 ActiveCardImages.prototype.removeBackImage = function (imageSet, imgID) {
+    if (!this.backImages) return;
+
     this.backImages.delete(imageSet.id + "." + imgID);
+
+    if (Array.from(this.backImages).every(function (dotPair) {
+        return dotPair.startsWith(DEFAULT_CARD_DECK + ".");
+    })) {
+        this.backImages = null;
+    }
 }
 
 /**
@@ -578,6 +608,7 @@ ActiveCardImages.prototype.removeBackImage = function (imageSet, imgID) {
  * @returns {boolean}
  */
 ActiveCardImages.prototype.isBackImageActive = function (imageSet, imgID) {
+    if (!this.backImages) return (imageSet.id === DEFAULT_CARD_DECK);
     return this.backImages.has(imageSet.id + "." + imgID);
 }
 
@@ -586,6 +617,7 @@ ActiveCardImages.prototype.isBackImageActive = function (imageSet, imgID) {
  * @param {CardImageSet} imageSet 
  */
 ActiveCardImages.prototype.activateSetBack = function (imageSet) {
+    if (!this.backImages) this.backImages = new Set();
     Object.keys(imageSet.backImages).forEach(function (imgID) {
         this.backImages.add(imageSet.id + "." + imgID);
     }.bind(this));
@@ -596,13 +628,21 @@ ActiveCardImages.prototype.activateSetBack = function (imageSet) {
  * @param {CardImageSet} imageSet 
  */
 ActiveCardImages.prototype.deactivateSetBack = function (imageSet) {
+    if (!this.backImages) return;
+
     Object.keys(imageSet.backImages).forEach(function (imgID) {
         this.backImages.delete(imageSet.id + "." + imgID);
     }.bind(this));
+
+    if (Array.from(this.backImages).every(function (dotPair) {
+        return dotPair.startsWith(DEFAULT_CARD_DECK + ".");
+    })) {
+        this.backImages = null;
+    }
 }
 
 /**
- * Generate a random mapping between cards in a deck and active card back images.
+ * Generate a random mapping between all 52 cards and active card back images.
  */
 ActiveCardImages.prototype.generateCardBackMapping = function () {
     var allCards = [];
@@ -618,25 +658,49 @@ ActiveCardImages.prototype.generateCardBackMapping = function () {
         allCards[swapIndex] = c;
     }
 
-    var backImages = Array.from(this.backImages).map(resolveBackImageRef).filter(function (v) {
-        return !!v;
-    });
-    if (backImages.length === 0) backImages.push(UNKNOWN_CARD_IMAGE);
+    var backImages = null;
+    if (this.backImages) {
+        backImages = Array.from(this.backImages).map(resolveBackImageRef).filter(function (v) {
+            return !!v;
+        });
+    }
+
+    if (!backImages || backImages.length === 0) {
+        backImages = Object.values(CARD_IMAGE_SETS[DEFAULT_CARD_DECK].backImages);
+    }
 
     allCards.forEach(function (k, i) {
         this.backImageMap[k] = backImages[i % backImages.length];
     }.bind(this));
+
+    /* Pre-set the "deck" image underneath the main button to an arbitrary
+     * selected card back image.
+     */
+    $('#deck').attr('src', backImages[0]);
 }
 
-ActiveCardImages.prototype.getCardImage = function (player, slot, visible) {
-    var card = players[player].hand.cards[slot];
-    var k = card.toString();
+/**
+ * Get the appropriate front or back image to display for a given card.
+ * 
+ * @param {boolean} visible
+ * @param {Card | number | string} card_or_suit
+ * @param {number?} rank
+ * @returns {string}
+ */
+ActiveCardImages.prototype.getCardImage = function (visible, card_or_suit, rank) {
+    var k = "";
+    if (card_or_suit instanceof Card) {
+        k = card_or_suit.toString();
+    } else {
+        k = cardImageKey(card_or_suit, rank);
+    }
+
 
     if (visible) {
         var set = this.frontImageMap[k];
-        var ret = IMG + k + ".jpg";
+        var ret = CARD_IMAGE_SETS[DEFAULT_CARD_DECK].frontImages[k] || (IMG + k + ".jpg");
 
-        if (CARD_IMAGE_SETS[set]) {
+        if (set && CARD_IMAGE_SETS[set]) {
             ret = CARD_IMAGE_SETS[set].frontImages[k] || ret;
         }
 
@@ -657,7 +721,7 @@ ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
 
     if (card) {
         detectCheat();
-        var img = this.getCardImage(player, slot, visible);
+        var img = this.getCardImage(visible, card);
         var altText = card.altText();
 
         if (!visible) altText = '?';
@@ -677,23 +741,33 @@ ActiveCardImages.prototype.displayCard = function (player, slot, visible) {
  * Prefetch all active card images.
  */
 ActiveCardImages.prototype.preloadImages = function () {
-    Object.entries(this.frontImageMap).forEach(function (kv) {
-        var key = kv[0];
-        var set = CARD_IMAGE_SETS[kv[1]];
-        var src = IMG + key + ".jpg";
+    SUIT_PREFIXES.forEach(function (suit) {
+        for (var i = 2; i < 15; i++) {
+            var key = cardImageKey(suit, i);
+            var src = CARD_IMAGE_SETS[DEFAULT_CARD_DECK].frontImages[key] || (IMG + k + ".jpg");
+            var set_id = this.frontImageMap[key];
 
-        if (set) {
-            src = set.frontImages[key] || src;
-        }
-        
-        new Image().src = src;
-    });
-    
-    this.backImages.forEach(function (dotPair) {
-        var src = resolveBackImageRef(dotPair);
-        if (src) {
+            if (set_id && CARD_IMAGE_SETS[set_id]) {
+                src = CARD_IMAGE_SETS[set_id].frontImages[key] || src;
+            }
+            
             new Image().src = src;
         }
+    }.bind(this));
+    
+    var backImages = null;
+    if (this.backImages) {
+        backImages = Array.from(this.backImages).map(resolveBackImageRef).filter(function (v) {
+            return !!v;
+        });
+    }
+
+    if (!backImages || backImages.length === 0) {
+        backImages = Object.values(CARD_IMAGE_SETS[DEFAULT_CARD_DECK].backImages);
+    }
+
+    backImages.forEach(function (src) {
+        if (src) new Image().src = src;
     });
 
     new Image().src = BLANK_CARD_IMAGE;
@@ -832,7 +906,10 @@ function exchangeCards (player) {
  * in the order dealt, used to calculate the initial delay.
  ************************************************************/
 function animateDealtCard (player, card, n) {
-    $('#deck').attr('src', ACTIVE_CARD_IMAGES.getCardImage(player, card, false));
+    $('#deck').attr('src', ACTIVE_CARD_IMAGES.getCardImage(
+        false, players[player].hand.cards[card]
+    ));
+
 	var $clonedCard = $('#deck').clone().attr('id', '').addClass('shown-card').prependTo($gameHiddenArea);
 	
 	if (player == HUMAN_PLAYER) {

@@ -376,12 +376,15 @@ function loadConfigFile () {
         CARD_DECKS_ENABLED = false;
         var _card_decks_enabled = $xml.children('custom-cards').text();
         if (_card_decks_enabled.toLowerCase() === 'true') {
-            console.log("Custom card decks active.");
+            console.log("Card deck customization active.");
             CARD_DECKS_ENABLED = true;
         } else {
             CARD_DECKS_ENABLED = false;
-            console.log("Custom card decks disabled.");
+            console.log("Card deck customization disabled.");
         }
+
+        DEFAULT_CARD_DECK = $xml.children('default-card-deck').text() || 'default';
+        console.log("Using default card deck: " + DEFAULT_CARD_DECK);
         
         var _resort_mode = $xml.children('resort').text();
         if (_resort_mode.toLowerCase() === 'true') {
