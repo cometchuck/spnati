@@ -392,7 +392,7 @@
 		<group title="Insult Masters" opp1="chazz" opp2="ryuko" opp3="franziska" opp4="guzma" background="tiki bar" />
 		<group title="Pokémon World Tournament" opp1="n" opp2="elesa" opp3="misty_hgss" opp4="guzma" background="roof" />
 		<group title="So They Walk Into a Bar..." opp1="futaba" opp2="pit" opp3="nami" opp4="jessie" background="tiki bar" />
-		<group title="Two Worlds One Classroom" opp1="rin" opp2="emi" opp3="monika" opp4="sayori" background="classroom" />
+		<group title="Two Worlds One Classroom" opp1="rin" opp2="emi" opp3="yuri" opp4="sayori" background="classroom" />
 		<group title="One Track Mind" opp1="guzma" opp2="megumin" opp3="miko" opp4="kamina" background="inventory" />
 		<group title="Elevator Girls" opp1="ribbon_girl" opp2="pinkie_pie" opp3="sakura" opp4="ini" background="office" />
 		<group title="Magical Stripping" opp1="kazuma" opp2="kyu" opp3="akko" opp4="zizou" background="purple room" />
@@ -428,7 +428,7 @@
 		<group title="Gamers" opp1="kizuna" opp2="futaba" opp3="wiifitfemale" opp4="chiaki" />
 		<group title="Piety" opp1="palutena" opp2="pit" opp3="zizou" opp4="kyu" background="romantic" />
 		<group title="Release the Kraken!" opp1="nami" opp2="zone-tan" opp3="amalia" opp4="kizuna" background="beach" />
-		<group title="DDLC" opp1="monika" opp2="sayori" opp3="natsuki" opp4="amy" background="classroom" />
+		<group title="DDLC" opp1="yuri" opp2="sayori" opp3="natsuki" opp4="amy" background="classroom" />
 		<group title="Street Fighters" opp1="juri" opp2="cammy_white" opp3="chun-li" opp4="rainbow_mika" background="street" />
 		<group title="Personae" opp1="futaba" opp2="haru" opp3="ryuji" opp4="jolyne" background="roof" />
 		<group title="Watersports" opp1="shimakaze" opp2="nami" opp3="misty_hgss" opp4="cynthia" background="tiki bar" />
@@ -436,7 +436,7 @@
 		<group title="Combo Couples" opp1="natsuki" opp2="pit" opp3="sei" opp4="meia" />
 		<group title="SPH" opp1="misato" opp2="rinkah" opp3="nugi-chan" opp4="mahiru" />
 		<group title="Danganronpa" opp1="mahiru" opp2="chiaki" opp3="ini" opp4="chihiro" background="library" />
-		<group title="Sordid Art Online" opp1="streaming-chan" opp2="kizuna" opp3="futaba" opp4="monika" background="classic" />
+		<group title="Sordid Art Online" opp1="streaming-chan" opp2="kizuna" opp3="futaba" opp4="chiaki" background="classic" />
 		<group title="Dragon Ball" opp1="videl" opp2="launch" opp3="caulifla" opp4="ryuko" />
 		<group title="Beep Beep" opp1="leggy" opp2="navi" opp3="pinkie_pie" opp4="joey" />
 		<group title="Esteemed Guests" opp1="larachel" opp2="remilia" opp3="miko" opp4="palutena" background="mansion" />
@@ -463,7 +463,7 @@
 		<group title="Doomed" opp1="saki" opp2="chiaki" opp3="chihiro" opp4="9s" />
 		<group title="Doubledown" opp1="elizabeth" opp2="morrigan" opp3="jotaro" opp4="miko" />
 		<group title="Poor Planning" opp1="raven" opp2="aimee" opp3="jolyne" opp4="rin" />
-		<group title="Hands Are Overrated" opp1="monika" opp2="zizou" opp3="shimakaze" opp4="morrigan" />
+		<group title="Hands Are Overrated" opp1="rin" opp2="zizou" opp3="shimakaze" opp4="morrigan" />
 		<group title="Bullet Heck" opp1="miko" opp2="shimakaze" opp3="9s" opp4="aimee" />
 		<group title="Blue Belles" opp1="meia" opp2="sei" opp3="lucina" opp4="rainbow_dash" />
 		<group title="Epic Epilogues" opp1="cammy_white" opp2="remilia" opp3="mae" opp4="nami" />
