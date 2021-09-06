@@ -337,7 +337,7 @@ function loadListingFile () {
             var ids = [opp1, opp2, opp3, opp4];
             var costumes = [costume1, costume2, costume3, costume4];
 
-            if (includedOpponentStatuses['offline']) {
+            if (isLocal) {
                 if (!ids.every(function(id) { return available[id]; })) return;
             } else {
                 if (!ids.every(function(id) { return available[id] && !onTesting[id]; })) return;
