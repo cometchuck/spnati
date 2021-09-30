@@ -849,18 +849,18 @@
         <trigger id="hand">
             <case stage="8" priority="10000">
                 <condition role="self" timeInStage="3" />
-                <condition count="0-" status="masturbating" />
+                <condition count="0" status="masturbating" />
                 <state img="#-turNt.png" marker="back_that_ass_up=11">I need a moment. It's... difficult making eye contact in this state.</state>
             </case>
             <case stage="8" priority="10000">
                 <condition role="self" timeInStage="3" />
-                <condition count="0-" status="masturbating" />
+                <condition count="0" status="masturbating" />
                 <test expr="~background~" value="bedroom" />
                 <state img="#-turNt.png" marker="back_that_ass_up">...The moon looks lovely tonight.</state>
             </case>
             <case stage="8" priority="10000">
                 <condition role="self" timeInStage="3" />
-                <condition count="0-" status="finished" />
+                <condition count="0" status="finished" />
                 <test expr="~background~" value="office" />
                 <state img="#-turNt.png" marker="back_that_ass_up">...Why are we playing in front of a window?</state>
             </case>
@@ -2615,10 +2615,6 @@
                 <state img="#-coNsider.png">The... swag? Is this slang for jewelry?</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="cynthia" stage="1" />
-                <state img="#-coNfused.png">Your scarf reminds me of a Zoroark's mane... Say, what &lt;i&gt;is&lt;/i&gt; that scarf made of?</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="brock" />
                 <state img="#-astoNished.png">So what will you be removin--HEY, BE CAREFUL!</state>
             </case>
@@ -2712,10 +2708,6 @@
                 <condition role="target" character="guzma" stage="1" />
                 <state img="#-NoNplussed.png">I should probably catch up on modern slang. To think learning the ancient Unovian language would actually help me in the real world.</state>
             </case>
-            <case stage="0">
-                <condition role="target" character="cynthia" stage="2" />
-                <state img="#-iNceNsed.png">Don't tell me you weren't taking this seriously. If I'm going to beat you, at least play at your hardest, damn it!</state>
-            </case>
             <case stage="0-10">
                 <condition role="target" character="brock" />
                 <state img="#-wiNce.png">Oh no... I hope that doesn't hurt an innocent. I'll have to check later. If one of my friends got hurt, I wouldn't forgive myself.</state>
@@ -2798,6 +2790,10 @@
             <case stage="0-10">
                 <condition role="target" character="mae" stage="0" sayingMarker="sexy_strip" />
                 <state img="#-coNfused.png">I don't find the sex appeal in watching a woman remove her boots, if I had to be honest...</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="cynthia" stage="1" />
+                <state img="#-coNfused.png">Your scarf reminds me of a Zoroark's mane... Say, what &lt;i&gt;is&lt;/i&gt; that scarf made of?</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="ryuko" stage="3" />
@@ -2901,6 +2897,10 @@
             <case stage="0-10">
                 <condition role="target" character="shimakaze" stage="4" sayingMarker="dizzy" />
                 <state img="#-astoNished.png">Oh no! Lie down Shimakaze, you might have a concussion.</state>
+            </case>
+            <case stage="0">
+                <condition role="target" character="cynthia" stage="2" />
+                <state img="#-iNceNsed.png">Don't tell me you weren't taking this seriously. If I'm going to beat you, at least play at your hardest, damn it!</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="ryuko" stage="4" />
@@ -3227,10 +3227,6 @@
         </trigger>
 
         <trigger id="male_removing_major">
-            <case stage="0-10">
-                <condition role="target" character="chazz" stage="5" />
-                <state img="#-astoNished.png">What the---Zoroark, is this another one of your illusions!?</state>
-            </case>
             <case stage="5-8" priority="55">
                 <state img="#-coNfideNt.png">Oho! I see ~name~ is running out of options. Looks like we're nearly even here.</state>
                 <state img="#-Naturally.png">Victory looms closer! Ah, the exhilaration of it. Looks like I've been playing very well here.</state>
@@ -3565,6 +3561,10 @@
                 <condition role="target" character="human" />
                 <state img="#-astoNished.png">W-Wait, do you really have nothing else to remove---?</state>
             </case>
+            <case stage="0-10">
+                <condition role="target" character="chazz" />
+                <state img="#-astoNished.png">What the---Zoroark, is this another one of your illusions!?</state>
+            </case>
             <case stage="0-6">
                 <state img="#-coNsider.png">I'm sure it's alright. I've seen males forgo their shirts entirely in public after all. They were... &lt;i&gt;very&lt;/i&gt; shameless too.</state>
                 <state img="#-iNform.png" marker="doublestandards">This shouldn't be a problem. A man's bare chest technically isn't nudity.</state>
@@ -3591,7 +3591,7 @@
             </case>
             <case stage="4-5">
                 <condition role="target" character="human" />
-                <state img="#-Nnnnnnnnn!.png"></state>
+                <state img="#-Nnnnnnnnn!.png">~blank~</state>
             </case>
             <case stage="0-3 6-8 10">
                 <condition role="target" character="human" />
@@ -3704,7 +3704,7 @@
             </case>
             <case stage="4-5">
                 <condition role="target" character="human" />
-                <state img="#-Nnnnnnnnn!.png"></state>
+                <state img="#-Nnnnnnnnn!.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition role="target" character="human" />
@@ -3807,7 +3807,7 @@
         <trigger id="female_chest_is_visible">
             <case stage="4-5">
                 <condition role="target" character="human" />
-                <state img="#-Nnnnnnnnn!.png"></state>
+                <state img="#-Nnnnnnnnn!.png">~blank~</state>
             </case>
             <case stage="0-3 6-8 10">
                 <condition role="target" character="human" />
@@ -3874,7 +3874,7 @@
             </case>
             <case stage="4-5">
                 <condition role="target" character="human" />
-                <state img="#-Nnnnnnnnn!.png"></state>
+                <state img="#-Nnnnnnnnn!.png">~blank~</state>
             </case>
             <case stage="0-3 6-8 10">
                 <condition role="target" character="human" />
@@ -4931,15 +4931,15 @@
                 <condition role="target" character="leggy" />
                 <state img="#-coNfused.png">Do you know what you have to do here?</state>
             </case>
+            <case stage="9" oneShotId="25">
+                <condition role="opp" character="hilda_bw" />
+                <state img="#-Naturally.png">Erm... Sorry. I should've gotten you a chair too, Hilda. I-Is it too late now?</state>
+            </case>
             <case stage="0-8">
                 <condition count="0" status="masturbating" />
                 <condition count="0" status="finished" />
                 <state img="#-astoNished.png">I start to question the ethics of this rule. Did anyone know about this?</state>
                 <state img="#-astoNished.png">Masturbation? As in... stimulating yourself in a sexual matter? Isn't this supposed to be done in private!?</state>
-            </case>
-            <case stage="9" oneShotId="25">
-                <condition count="1" filter="hilda" />
-                <state img="#-Naturally.png">Erm... Sorry. I should've gotten you a chair too, Hilda. I-Is it too late now?</state>
             </case>
             <case stage="0-8">
                 <state img="#-NoNplussed.png">I start to question the ethics of this rule. Is she really okay with this?</state>
@@ -5276,7 +5276,7 @@
             <case stage="9" priority="9999">
                 <condition role="self" timeInStage="1-" saidMarker="Refusal" />
                 <condition role="other" character="moon" stage="8-9" />
-                <state img="#-refusal.png"></state>
+                <state img="#-refusal.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition status="masturbating" role="other" character="human" />
@@ -5339,7 +5339,7 @@
         <trigger id="heavy_masturbating">
             <case stage="9" priority="9999">
                 <condition role="other" character="moon" stage="8-9" />
-                <state img="#-refusal.png"></state>
+                <state img="#-refusal.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition gender="male" role="other" character="human" layers="0-4" />
@@ -5379,7 +5379,7 @@
         <trigger id="finishing_masturbating">
             <case stage="9" priority="9999">
                 <condition role="other" character="moon" stage="8-9" />
-                <state img="#-refusal.png"></state>
+                <state img="#-refusal.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition status="not_alive" role="other" character="human" />
@@ -5518,7 +5518,7 @@
         <trigger id="global">
             <case stage="0-10" priority="10000">
                 <test expr="~player~" value="Ghetsis" />
-                <state img="in this world its yeet or be yeeted.png"></state>
+                <state img="in this world its yeet or be yeeted.png">~blank~</state>
             </case>
             <case stage="10" priority="9999">
                 <condition role="self" saidMarker="sleep" />

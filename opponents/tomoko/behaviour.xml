@@ -505,6 +505,11 @@
                 <state img="#-YueliaHug.png">&lt;i&gt;(Don’t think about the boobs touching your back. Don’t think about the boobs!)&lt;/i&gt;</state>
                 <state img="#-YueliaHug.png">I-I’m n-not so tired anymore…</state>
             </case>
+            <case stage="0-8" id="40">
+                <condition role="other" character="emi" stage="1" saidMarker="lemon" sayingMarker="lemon2" />
+                <condition role="other" character="akko" />
+                <state img="#-thinking.png" oneShotId="356">&lt;i&gt;(Am I missing something here?)&lt;/i&gt;</state>
+            </case>
             <case stage="0-8" id="13" priority="206">
                 <condition role="other" character="nami" stage="6" timeInStage="0-" sayingMarker="butt1" />
                 <test expr="~human.stage~" cmp="&gt;=" value="1" />
@@ -563,11 +568,6 @@
             <case stage="0-8" id="39" totalRounds="2-">
                 <condition role="other" character="emi" stage="0-3" sayingMarker="800m=1" notSaidMarker="800m" />
                 <state img="#-angery.png" oneShotId="92">&lt;i&gt;(I'll steal your legs. Try and race me then, slut!)&lt;/i&gt;</state>
-            </case>
-            <case stage="0-8" id="40">
-                <condition count="1" filter="akko" role="other" />
-                <condition role="other" character="emi" stage="1" saidMarker="lemon" sayingMarker="lemon2" />
-                <state img="#-thinking.png" oneShotId="356">&lt;i&gt;(Am I missing something here?)&lt;/i&gt;</state>
             </case>
             <case stage="0-8" id="36" totalRounds="2-">
                 <condition role="other" character="jessie" stage="0-2" sayingMarker="JessieQA_Smokers" />
@@ -3283,7 +3283,7 @@
                 <state img="#-woe.png">That was a joke, {b}okay?!{!reset}</state>
             </case>
             <case stage="8">
-                <condition count="0-" gender="male" />
+                <condition count="0" gender="male" />
                 <alternative>
                     <condition count="2-" status="not_crotch_visible" />
                 </alternative>
@@ -3837,6 +3837,10 @@
                 <condition role="self" saidMarker="megumin_sexualguru" />
                 <state img="#-excited.png" marker="megumin_advice">Uh... if you want Megumin I can give you some real advice... stuff people would normally hide from you!</state>
             </case>
+            <case stage="0-8">
+                <condition role="target" character="palutena" stage="3" sayingMarker="palutena_smell" />
+                <state img="#-angery.png">I wouldn’t do anything like that! What kind of pervert do you think I am?!... &lt;i&gt;(Now I can’t stop thinking about it! Fuck you Divine Whore!)&lt;/i&gt;</state>
+            </case>
             <case stage="0">
                 <condition role="target" character="mahiru" stage="0" />
                 <state img="#-shy.png">&lt;i&gt;(Mahiru took her tie off first... That's a pretty good idea...)&lt;/i&gt;</state>
@@ -4227,6 +4231,10 @@
         </trigger>
 
         <trigger id="male_removed_minor">
+            <case stage="0-8 10">
+                <condition role="target" character="dust" stage="6" />
+                <state img="#-surprised.png">&lt;i&gt;I'm still not a furry!&lt;/i&gt;</state>
+            </case>
             <case stage="0-8" oneShotId="20" priority="300">
                 <condition role="target" character="chazz" stage="2" />
                 <state img="#-shy.png">U-uh... C-Chazz? Would y-you ever think about t-teaching someone like me how to d-duel like y-you?!</state>
@@ -4277,10 +4285,6 @@
         </trigger>
 
         <trigger id="female_removing_minor">
-            <case stage="0-8">
-                <condition role="target" character="palutena" stage="3" sayingMarker="palutena_smell" />
-                <state img="#-angery.png">I wouldn’t do anything like that! What kind of pervert do you think I am?!... &lt;i&gt;(Now I can’t stop thinking about it! Fuck you Divine Whore!)&lt;/i&gt;</state>
-            </case>
             <case stage="0-2">
                 <condition role="target" character="sayori" stage="0" />
                 <state img="#-thinking.png">&lt;i&gt;(I get so exhausted of being around energetic people like Sayori...)&lt;/i&gt;</state>
@@ -4529,14 +4533,6 @@
         </trigger>
 
         <trigger id="male_removing_major">
-            <case stage="0-8 10">
-                <condition role="target" character="dust" stage="2" />
-                <state img="#-surprised.png">Sorry Dust... I'm not a furry!</state>
-            </case>
-            <case stage="9">
-                <condition role="target" character="dust" stage="2" />
-                <state img="#-surprised.png">&lt;i&gt;I'm a furry now!&lt;/i&gt;</state>
-            </case>
             <case stage="0-8">
                 <condition role="target" character="chazz" stage="4" />
                 <state img="#-thinking.png">&lt;i&gt;(Wow... even the Gods are jealous of how sexy Chazz is...)&lt;/i&gt;</state>
@@ -4594,10 +4590,6 @@
         </trigger>
 
         <trigger id="male_removed_major">
-            <case stage="0-8 10">
-                <condition role="target" character="dust" stage="6" />
-                <state img="#-surprised.png">&lt;i&gt;I'm still not a furry!&lt;/i&gt;</state>
-            </case>
             <case stage="0-8">
                 <condition role="target" character="chazz" stage="5" />
                 <state img="#-surprised.png" marker="chazz_neveranything">I didn't do it! I've never done anything!</state>
@@ -4694,11 +4686,6 @@
                 <condition role="target" character="tharja" stage="1" />
                 <state img="#-smug.png">&lt;i&gt;(Slutty stripping magic? I like it!)&lt;/i&gt;</state>
             </case>
-            <case stage="0-8">
-                <condition role="target" character="megumin" stage="6" />
-                <state img="#-thinking.png" oneShotId="117">&lt;i&gt;(Is it wrong if I find watching my new friend stripping super sexy?!)&lt;/i&gt;</state>
-                <state img="#-shy.png" oneShotId="118">&lt;i&gt;(Don't be weird Tomoko! She is your friend now!)&lt;/i&gt;</state>
-            </case>
             <case stage="0">
                 <state img="#-smug.png">&lt;i&gt;(Take that! And I haven't even lost yet!..)&lt;/i&gt;</state>
                 <state img="#-smug.png">&lt;i&gt;(Guess I'm staying ahead!..)&lt;/i&gt;</state>
@@ -4794,11 +4781,6 @@
                 <condition role="target" character="saki" stage="5" />
                 <state img="#-horny.png">&lt;i&gt;(Saki is so pure! That makes it all more erotic when she's stripping!)&lt;/i&gt;</state>
             </case>
-            <case stage="0-8 10" id="33">
-                <condition role="target" character="megumin" stage="7" />
-                <state img="#-smug.png">I-I d-don't always w-wear a bra either… it just means we’re not ashamed!</state>
-                <state img="#-smug.png">D-don’t worry! H-Having small tits just means your not a slut!</state>
-            </case>
             <case stage="0-8 10">
                 <condition role="target" character="natsuki" stage="5" />
                 <state img="#-idle.png">Strawberries? &lt;i&gt;(I’ve never even considered getting underwear like that, is cute secretly sexy?!)&lt;/i&gt;</state>
@@ -4854,6 +4836,14 @@
                 <condition role="target" character="brock" stage="4" />
                 <state img="#-surprised.png">{b}Shit!{!reset} He's fucking dead!</state>
             </case>
+            <case stage="0-8 10">
+                <condition role="target" character="dust" />
+                <state img="#-surprised.png">Sorry Dust... I'm not a furry!</state>
+            </case>
+            <case stage="9">
+                <condition role="target" character="dust" />
+                <state img="#-surprised.png">&lt;i&gt;I'm a furry now!&lt;/i&gt;</state>
+            </case>
             <case stage="3-6">
                 <condition role="target" character="n" />
                 <state img="#-surprised.png">&lt;i&gt;(Fuck! He might not shut up about Pokémon rights or whatever but he's still hot!)&lt;/i&gt;</state>
@@ -4908,7 +4898,7 @@
                 <state img="#-victorious.png">I feel incredibly inadequate. &lt;i&gt;(But that's fine for once...)&lt;/i&gt;</state>
             </case>
             <case stage="0-8" priority="1">
-                <condition filter="pale_skinned" role="target" />
+                <condition filter="pale-skinned" role="target" />
                 <state img="#-serene.png">&lt;i&gt;(~name~ is so pale! He must be an introvert like me... I like it! ♥)&lt;/i&gt;</state>
             </case>
             <case stage="0-2">
@@ -5153,6 +5143,11 @@
                 <condition role="target" character="florina" saidMarker="bee2" sayingMarker="bee3" />
                 <state img="#-horny.png">&lt;i&gt;(Do it bug! Force the pretty innocent girl to strip!)&lt;/i&gt;</state>
             </case>
+            <case stage="0-8">
+                <condition role="target" character="megumin" />
+                <state img="#-thinking.png" oneShotId="117">&lt;i&gt;(Is it wrong if I find watching my new friend stripping super sexy?!)&lt;/i&gt;</state>
+                <state img="#-shy.png" oneShotId="118">&lt;i&gt;(Don't be weird Tomoko! She is your friend now!)&lt;/i&gt;</state>
+            </case>
             <case stage="0-8 10" id="45">
                 <condition role="target" character="saki_zls" />
                 <state img="#-woe.png">Woah! &lt;i&gt;(Maybe being a zombie isn't cool and it's just gross!)&lt;/i&gt;</state>
@@ -5233,8 +5228,13 @@
                 <condition role="target" character="weiss_schnee" stage="6" />
                 <state img="#-idle.png" oneShotId="169" marker="weiss_plasticsurgery">Weiss! Why didn’t you get plastic surgery to get big boobs?! You have the money for it!</state>
             </case>
+            <case stage="0-8 10" id="33">
+                <condition role="target" character="megumin" />
+                <state img="#-smug.png">I-I d-don't always w-wear a bra either… it just means we’re not ashamed!</state>
+                <state img="#-smug.png">D-don’t worry! H-Having small tits just means your not a slut!</state>
+            </case>
             <case stage="0-8" oneShotId="66" priority="300">
-                <condition filter="rainbow_dash" role="target" stage="7" />
+                <condition role="target" character="rainbow_dash" />
                 <state img="#-woe.png">&lt;i&gt;(Wait... she's not a slut after all! And I've been being so mean to her...)&lt;/i&gt;</state>
                 <state img="#-woe.png">&lt;i&gt;(I'm actually feeling pity now... fuck.)&lt;/i&gt;</state>
                 <state img="#-woe.png">&lt;i&gt;(Why have I been so cruel to her?! She's just like me!)&lt;/i&gt;</state>
@@ -7481,7 +7481,7 @@
                 <condition role="self" timeInStage="2" />
                 <state img="#-victorious.png" oneShotId="683" marker="miko_dirtytalk">Yeah. That kind of dirty talk is considered sexy I think. You should &lt;i&gt;totally&lt;/i&gt; try it Miko.</state>
             </case>
-            <case stage="9-10" id="100" priority="102">
+            <case stage="10" id="100" priority="102">
                 <condition role="other" character="komi-san" saidMarker="finish_manbagi" />
                 <state img="#-shy.png" oneShotId="715" marker="komi_tomokogay">&lt;i&gt;(She has such a cute voice... Wait, isn't that a g-girls name?!)&lt;/i&gt;</state>
             </case>
@@ -7856,7 +7856,7 @@
             </case>
             <case stage="10" priority="999">
                 <condition role="opp" character="megumin" saidMarker="TomomegStart" notSaidMarker="TomomegFinished" />
-                <state img="custom:new_pose"></state>
+                <state img="custom:new_pose">~blank~</state>
             </case>
             <case stage="10" priority="999">
                 <condition role="opp" character="megumin" sayingMarker="TomomegStart" />

@@ -220,18 +220,11 @@
                 <state img="#-angry.png">I was promised casual nudity... I just expected that to mean 'boobs'. Silly me.</state>
             </case>
             <case stage="0-4">
-                <alternative />
-                <alternative>
-                    <condition count="1" gender="male" />
-                </alternative>
                 <state img="#-calm.png">Very nice cards. Very not pathetic.</state>
                 <state img="#-calm.png">Poker is a game of psychology, you know.</state>
                 <state img="#-calm.png">Don't rush me... there's a lot of strategy going on here.</state>
                 <state img="#-calm.png">I won't cheat if you don't!</state>
                 <state img="#-calm.png">What's the chance of me winning with this hand? I shoulda paid more attention in math class.</state>
-            </case>
-            <case stage="0-2 4">
-                <state img="#-calm.png">I've got an okay hand.</state>
             </case>
             <case stage="3">
                 <state img="#-interested.png">Come on, Daddy needs a new pair of shoes! ...No, really, I want to win mine back.</state>
@@ -375,10 +368,6 @@
                 <state img="#-embarrassed.png">What? I... Well, yes, I do want to do all of those things, Zone-tan.</state>
             </case>
             <case stage="7">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="buffy" />
-                </alternative>
                 <state img="#-embarrassed.png">Go ahead, mock me.</state>
             </case>
             <case stage="1">
@@ -783,10 +772,6 @@
                 <condition role="target" character="hermione" stage="4" />
                 <state img="#-embarrassed.png">...Is it wrong if I'm turned on by your begging? It is, isn't it? Bad, &lt;i&gt;bad&lt;/i&gt; Xander.</state>
             </case>
-            <case stage="0-7">
-                <condition role="target" character="korra" stage="2" />
-                <state img="#-sassy.png">I'd pay good money to see you bend! Wait... you're talking about magic, aren't you, Korra? Darn it.</state>
-            </case>
             <case stage="0-9">
                 <condition role="target" character="leela" stage="1" />
                 <state img="#-shocked.png">I, for one, would just like to say 'thank you' for putting your gun away, Leela.</state>
@@ -1014,6 +999,10 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-7">
+                <condition role="target" character="korra" stage="2" />
+                <state img="#-sassy.png">I'd pay good money to see you bend! Wait... you're talking about magic, aren't you, Korra? Darn it.</state>
+            </case>
             <case stage="0-3">
                 <condition role="target" character="blackrose" stage="3" />
                 <state img="#-interested.png">Well, okay, I will! But only because you asked so nicely, BlackRose.</state>
@@ -1379,10 +1368,6 @@
                 <state img="#-shocked.png">Why couldn't I have met you when you were single? And I wasn't a dork? ...Actually, nevermind. I think I just answered my own question.</state>
             </case>
             <case stage="2 9">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="buffy" />
-                </alternative>
                 <state img="#-interested.png">You have &lt;i&gt;no&lt;/i&gt; idea how crazy you make me.</state>
             </case>
             <case stage="0">

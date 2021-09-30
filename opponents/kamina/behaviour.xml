@@ -2921,10 +2921,6 @@
                 <state img="#-heavyA.png" marker="part1">Here it comes! Heaven Piercing...</state>
             </case>
             <case stage="0-9">
-                <condition role="target" character="9s" stage="2" />
-                <state img="#-excited.png">When we could just cut the middle man and try and combine &lt;i&gt;you&lt;/i&gt; with Gurren!</state>
-            </case>
-            <case stage="0-9">
                 <condition role="target" character="9s" stage="3" />
                 <state img="#-sad.png">But, seriously, if I had known that we could bring robots to help us, I would've brought Gurren.</state>
             </case>
@@ -2997,10 +2993,6 @@
             <case stage="8" priority="999">
                 <condition role="self" timeInStage="6" notSaidMarker="part1" />
                 <state img="#-heavyA.png" marker="part1">Here it comes! Heaven Piercing...</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="9s" stage="3" />
-                <state img="#-sad.png">You don't seem as hyped as I am for this.</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="9s" stage="4" />
@@ -3425,6 +3417,10 @@
                 <state img="#-heavyA.png" marker="part1">Here it comes! Heaven Piercing...</state>
             </case>
             <case stage="0-9">
+                <condition role="target" character="9s" />
+                <state img="#-excited.png">When we could just cut the middle man and try and combine &lt;i&gt;you&lt;/i&gt; with Gurren!</state>
+            </case>
+            <case stage="0-9">
                 <condition role="target" character="jin" />
                 <state img="#-angry.png">Why would I ever wanna hide my manly muscles!?</state>
             </case>
@@ -3484,6 +3480,10 @@
             <case stage="8" priority="999">
                 <condition role="self" timeInStage="6" notSaidMarker="part1" />
                 <state img="#-heavyA.png" marker="part1">Here it comes! Heaven Piercing...</state>
+            </case>
+            <case stage="0-9">
+                <condition role="target" character="9s" />
+                <state img="#-sad.png">You don't seem as hyped as I am for this.</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="jin" />

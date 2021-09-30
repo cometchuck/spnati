@@ -1493,14 +1493,14 @@
 
         <trigger id="female_removing_minor">
             <case stage="0-10" priority="500">
-                <condition count="1" filter="lyndress" />
+                <condition count="1" filter="lynbride" />
                 <condition role="target" character="florina" stage="4" />
                 <state img="#-excited.png">So, Mr. dealer. I've seen the way you look at Florina. Would you like to accompany her to my wedding. I know she likes Hector, but she doesn't have the courage to invite him.</state>
             </case>
             <case stage="1-10">
                 <condition count="0" filter="lynbride" />
                 <condition role="target" character="florina" stage="4" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0">
                 <condition role="target" character="florina" stage="4" />
@@ -1570,7 +1570,7 @@
 
         <trigger id="female_removed_minor">
             <case stage="0-10" priority="500">
-                <condition count="1" filter="lyndress" />
+                <condition count="1" filter="lynbride" />
                 <condition role="target" character="florina" stage="5" />
                 <state img="#-calm.png">I think he might've asked your sister to go with him already...</state>
             </case>

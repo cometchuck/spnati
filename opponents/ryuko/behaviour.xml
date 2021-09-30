@@ -1663,7 +1663,7 @@
                 <state img="#-losing-socks.png">(&lt;i&gt;...Your blood is boiling, Ryuko.  I can tell you want to finish this already.&lt;/i&gt;)  I don't like stupid games, Senketsu.  You know that...</state>
             </case>
             <case stage="2">
-                <state img="#-transforming.gif"></state>
+                <state img="#-transforming.gif">~blank~</state>
             </case>
             <case stage="3">
                 <state img="#-losing-sword.png">Fine--take my Scissor Blade, why don't ya?  Cheating bastards...!  (&lt;i&gt;I'll take it, Ryuk&lt;/i&gt;--)</state>
@@ -1704,7 +1704,7 @@
                 <alternative priority="500">
                     <condition role="other" character="mahiru" stage="9" />
                 </alternative>
-                <state img="#-selfieblank.png"></state>
+                <state img="#-selfieblank.png">~blank~</state>
             </case>
             <case stage="1">
                 <condition role="other" character="jura" stage="0-8" />

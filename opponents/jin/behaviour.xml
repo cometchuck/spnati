@@ -30,7 +30,7 @@
     <wardrobe>
         <clothing name="briefs" generic="underwear" position="lower" type="important" plural="true" />
         <clothing name="pants" generic="pants" position="lower" type="major" plural="true" />
-        <clothing name="shirt" generic="shirt" position="upper" type="important" />
+        <clothing name="shirt" generic="shirt" position="upper" type="major" />
         <clothing name="boots" generic="shoes" position="lower" type="minor" plural="true" />
         <clothing name="jacket" generic="jacket" position="upper" type="minor" />
         <clothing name="holster" generic="weapon" position="other" type="extra" />
@@ -1374,6 +1374,11 @@
 
         <trigger id="female_removing_accessory">
             <case stage="0-9">
+                <condition role="target" character="aiyana" stage="0" />
+                <condition role="other" character="nagisa" />
+                <state img="#-Shocked.png">How can you say there's no sunshine when Nagisa is here! She's a ball of sunshine!</state>
+            </case>
+            <case stage="0-9">
                 <condition role="target" character="calisto" stage="0" />
                 <condition count="1" gender="female" />
                 <condition count="4" gender="male" />
@@ -1390,10 +1395,6 @@
             <case stage="0">
                 <condition role="target" character="aiyana" stage="7" />
                 <state img="#-Pensive.png">I knew Australia was evil.</state>
-            </case>
-            <case stage="0">
-                <condition role="target" character="calisto" stage="2" />
-                <state img="#-Excited.png">Jokes on you, Calisto! I can find &lt;i&gt;anything&lt;/i&gt; arousing if I put my mind to it!</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="daria" stage="1" />
@@ -1501,6 +1502,18 @@
             <case stage="0-9">
                 <condition role="target" character="meg" stage="2" />
                 <state img="#-Smug.png">It may only be the shoes...</state>
+            </case>
+            <case stage="0-9">
+                <condition role="target" character="ciri" stage="2" />
+                <state img="#-Shrug.png">Perhaps.</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="daria" stage="1" />
+                <state img="#-Shocked.png">Are you kinkshaming me?</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="korra" stage="2" />
+                <state img="#-Shrug.png">It's actually really easy to bend a card. You just take it and...bend it.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="elaine" />
@@ -1802,31 +1815,18 @@
         </trigger>
 
         <trigger id="female_removing_minor">
-            <case stage="0-9">
-                <condition role="target" character="aiyana" stage="0" />
-                <condition role="other" character="nagisa" />
-                <state img="#-Shocked.png">How can you say there's no sunshine when Nagisa is here! She's a ball of sunshine!</state>
-            </case>
             <case stage="0">
                 <condition role="target" character="florina" stage="4" />
                 <condition role="other" character="lyn" />
                 <state img="#-Salute.png">Way to go, Lyn!</state>
             </case>
+            <case stage="0">
+                <condition role="target" character="calisto" stage="2" />
+                <state img="#-Excited.png">Jokes on you, Calisto! I can find &lt;i&gt;anything&lt;/i&gt; arousing if I put my mind to it!</state>
+            </case>
             <case stage="0-9">
                 <condition role="target" character="meg" stage="3" />
                 <state img="#-Smug.png">See? Now you might be appealing to foot fetishes.</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="ciri" stage="2" />
-                <state img="#-Shrug.png">Perhaps.</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="daria" stage="1" />
-                <state img="#-Shocked.png">Are you kinkshaming me?</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="korra" stage="2" />
-                <state img="#-Shrug.png">It's actually really easy to bend a card. You just take it and...bend it.</state>
             </case>
             <case stage="0-8">
                 <condition role="target" character="aimee" stage="1-2" />

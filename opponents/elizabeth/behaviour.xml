@@ -6890,6 +6890,18 @@
                 <state img="#-shocked.png">Oh, dear! There's two of them! Quick, somebody help her!</state>
             </case>
             <case stage="0-10">
+                <condition role="opp" character="blake" />
+                <condition role="target" character="pyrrha" stage="0" />
+                <condition role="other" character="yang" />
+                <state img="#-interested.png">Blake and Yang seem pretty close, Wouldn't you agree Pyrrha?</state>
+            </case>
+            <case stage="0-10">
+                <condition role="opp" character="ruby" />
+                <condition role="target" character="pyrrha" stage="0" />
+                <condition role="other" character="yang" />
+                <state img="#-interested.png">Pyrrha, did you know Ruby and Yang were sisters? Do you have any siblings playing here?</state>
+            </case>
+            <case stage="0-10">
                 <condition count="3" filter="ddlc" />
                 <condition role="target" character="natsuki" stage="0" />
                 <condition role="other" character="monika" />
@@ -7294,6 +7306,10 @@
             <case stage="10">
                 <condition role="target" character="launch" stage="1" />
                 <state img="#-interested.png">Bless you! Hold on, I think I have a tissue in my jacket. Can I go and get it? I could use on too, to be honest.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="pyrrha" stage="0" />
+                <state img="#-calm.png">Hmm... That's a pretty belt.</state>
             </case>
             <case stage="0">
                 <condition count="5" gender="female" />
@@ -7717,10 +7733,6 @@
                 <state img="#-happy.png">I sure did. Your earrings are beautiful, and they look very good on you!</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="pyrrha" stage="2" />
-                <state img="#-calm.png">That's so considerate of you. I hope you don't need them lately.</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="remilia" stage="1" />
                 <state img="#-interested.png">Gensokyo you say? That name rings a bell, but I'm not sure why? Is it a beautiful place?</state>
             </case>
@@ -8134,12 +8146,6 @@
                 <state img="#-awkward.png">Is it me, or your blazers are slightly different colored?</state>
             </case>
             <case stage="0-10">
-                <condition role="opp" character="blake" />
-                <condition role="target" character="pyrrha" stage="0" />
-                <condition role="other" character="yang" />
-                <state img="#-interested.png">Blake and Yang seem pretty close, Wouldn't you agree Pyrrha?</state>
-            </case>
-            <case stage="0-10">
                 <condition role="opp" character="chun-li" />
                 <condition role="target" character="juri" stage="1" />
                 <condition role="other" character="cammy" />
@@ -8150,12 +8156,6 @@
                 <condition role="target" character="meia" stage="1" />
                 <condition role="other" character="elaine" />
                 <state img="#-interested.png">So, are the two of you pirates, then? Are either of you the Captain of your ship? I'm sure you and Miss Elaine have thousands of stories from the sea. I'd love to hear them, if you have the time.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="opp" character="ruby" />
-                <condition role="target" character="pyrrha" stage="0" />
-                <condition role="other" character="yang" />
-                <state img="#-interested.png">Pyrrha, did you know Ruby and Yang were sisters? Do you have any siblings playing here?</state>
             </case>
             <case stage="0-10">
                 <condition count="2" filter="ddlc" />
@@ -8458,10 +8458,6 @@
                 <state img="#-awkward.png">Er... sure?</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="pyrrha" stage="0" />
-                <state img="#-calm.png">Hmm... That's a pretty belt.</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="rainbow_mika" stage="0" />
                 <state img="#-calm.png">Hey! It's your friend again!</state>
                 <state img="#-calm.png">Hey! It's Nadeshiko again! Hello, Nadeshiko!</state>
@@ -8734,6 +8730,10 @@
                 <state img="#-calm.png">Those shoulder pads sound very futuristic.</state>
             </case>
             <case stage="0-10">
+                <condition role="target" character="pyrrha" stage="2" />
+                <state img="#-calm.png">That's so considerate of you. I hope you don't need them lately.</state>
+            </case>
+            <case stage="0-10">
                 <condition role="target" character="aella" stage="3" />
                 <state img="#-happy.png">Even if you removed your dress, you still look very modest. I approve.</state>
             </case>
@@ -8858,10 +8858,6 @@
             <case stage="0-10">
                 <condition role="target" character="nugi-chan" stage="3" />
                 <state img="#-sad.png">Okay. I'm sorry, Miss Nugi.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="pyrrha" stage="4" />
-                <state img="#-calm.png">I- I won't look, Pyrrha. I promise.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="rainbow_mika" stage="1" />
@@ -9595,6 +9591,10 @@
             <case stage="0-10">
                 <condition role="target" character="wiifitfemale" stage="2" saidMarker="showoffglutes" />
                 <state img="#-awkward.png">Er... I don't want to show off my... &lt;i&gt;glutes&lt;/i&gt;.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="pyrrha" stage="4" />
+                <state img="#-calm.png">I- I won't look, Pyrrha. I promise.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="aimee" stage="1" />

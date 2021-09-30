@@ -18,6 +18,6 @@
         <costume folder="opponents/reskins/normal_girl_tharja/" img="0-normal.png" set="xmas" label="Tharja">Normal Girl Tharja</costume>
     </alternates>
     <has_collectibles>true</has_collectibles>
-    <lines>1623</lines>
+    <lines>1622</lines>
     <poses>113</poses>
 </opponent>

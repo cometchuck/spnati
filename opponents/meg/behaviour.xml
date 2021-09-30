@@ -1755,10 +1755,6 @@
                 <state img="#-horny.png">Us watching is &lt;i&gt;helping&lt;/i&gt;, isn't it?  Damn, squirted just a bit.</state>
             </case>
             <case stage="2-3">
-                <alternative />
-                <alternative>
-                    <condition filter="exhibitionist" role="target" />
-                </alternative>
                 <state img="#-awkward.png">You're just ... going at it, aren't you?</state>
                 <state img="#-horny.png">God, I'm almost going to join you, ~name~.</state>
             </case>

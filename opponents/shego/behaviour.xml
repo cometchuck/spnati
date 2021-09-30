@@ -471,6 +471,11 @@
         </trigger>
 
         <trigger id="male_removing_accessory">
+            <case stage="0-3">
+                <condition role="target" character="xander" stage="2" />
+                <state img="#-sarcastic.png">Yeah, because if there's anything we don't want, it's to make it hot around here...</state>
+                <state img="#-challenging.png">What happened to Mr. Big Shot? Did he have to go home?</state>
+            </case>
             <case stage="0-1">
                 <state img="#-annoyed.png">Whoa there, ~name~...If you wanna play strip poker, you've got to release your inhibitions.</state>
                 <state img="#-annoyed.png">OK, this just got dumb. Since when do men wear those?</state>
@@ -495,6 +500,11 @@
         </trigger>
 
         <trigger id="male_removed_accessory">
+            <case stage="0-3">
+                <condition role="target" character="xander" stage="3" />
+                <state img="#-bored.png">Is that supposed to be trash talk? You can do better than that.</state>
+                <state img="#-sarcastic.png">Suuuure you weren't, Champ.</state>
+            </case>
             <case stage="0-1">
                 <state img="#-annoyed.png">Ever considered playing normally? Like, by taking off actual clothes?</state>
                 <state img="#-bored.png">Have it your way, Pops.</state>
@@ -583,6 +593,11 @@
                 <state img="#-sarcastic.png">Glad to be of assistance, Pumpkin.</state>
                 <state img="#-annoyed.png">I can't tell if you're making excuses or really that cheerful.</state>
             </case>
+            <case stage="0-4">
+                <condition role="target" character="buffy" stage="1" />
+                <state img="#-annoyed.png">My standards are low on vacation, but not &lt;i&gt;that&lt;/i&gt; low.</state>
+                <state img="#-annoyed.png">Whatever floats your boat, I guess.</state>
+            </case>
             <case stage="7">
                 <condition role="target" character="kim" />
                 <state img="#-angry.gif">Playing hard to get, Kimmie? I don't mind playing the bad guy...</state>
@@ -643,7 +658,7 @@
                 <state img="#-challenging.png">That's not even the strangest thing I've seen since breakfast.</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="elena" stage="0" />
+                <condition role="target" character="elena" stage="1" />
                 <state img="#-happy.png">That thing with the jewel on it? Absolutely! In fact, why don't you let me hang onto it for safekeeping?</state>
             </case>
             <case stage="0-6">
@@ -723,6 +738,11 @@
                 <state img="#-annoyed.png">You think you're &lt;i&gt;so&lt;/i&gt; funny, don't you?</state>
                 <state img="#-annoyed.png">Don't give up your day job, Pumpkin.</state>
             </case>
+            <case stage="0-6">
+                <condition role="target" character="harley" stage="3" />
+                <state img="#-annoyed.png">Your whole costume is a joke.</state>
+                <state img="#-challenging.png">If it helps, I've never taken you seriously.</state>
+            </case>
             <case stage="7">
                 <condition role="target" character="kim" />
                 <state img="#-confident.png">Ready or not, here I come, Kimmie!</state>
@@ -771,11 +791,6 @@
                 <state img="#-sarcastic.png">To show how much I don't care, I'm going to yawn.</state>
                 <state img="#-challenging.png">Ooh, we got a big shot here. Go on, then. Put your money where your mouth is!</state>
             </case>
-            <case stage="0-3">
-                <condition role="target" character="xander" stage="2" />
-                <state img="#-sarcastic.png">Yeah, because if there's anything we don't want, it's to make it hot around here...</state>
-                <state img="#-challenging.png">What happened to Mr. Big Shot? Did he have to go home?</state>
-            </case>
             <case stage="0-1">
                 <condition filter="silent" role="target" />
                 <state img="#-sarcastic.png">Good to know I can leave a man speechless! Now if only that would work on Dr. D!</state>
@@ -822,11 +837,6 @@
                 <state img="#-bored.png">It certainly isn't for your witty remarks, that's for sure.</state>
                 <state img="#-sarcastic.png">News flash: it isn't your sparkling personality I'm interested in.</state>
             </case>
-            <case stage="0-3">
-                <condition role="target" character="xander" stage="3" />
-                <state img="#-bored.png">Is that supposed to be trash talk? You can do better than that.</state>
-                <state img="#-sarcastic.png">Suuuure you weren't, Champ.</state>
-            </case>
             <case stage="0-5">
                 <condition role="target" character="xander" stage="4" />
                 <state img="#-bored.png">For your sake, I hope your 'package' is as large as your ego.</state>
@@ -870,16 +880,6 @@
                 <state img="#-challenging.png">Too late now, Pumpkin!</state>
                 <state img="#-happy.png">The look on your face right now makes this game worth it...</state>
             </case>
-            <case stage="0-4">
-                <condition role="target" character="buffy" stage="1" />
-                <state img="#-annoyed.png">My standards are low on vacation, but not &lt;i&gt;that&lt;/i&gt; low.</state>
-                <state img="#-annoyed.png">Whatever floats your boat, I guess.</state>
-            </case>
-            <case stage="0-6">
-                <condition role="target" character="harley" stage="3" />
-                <state img="#-annoyed.png">Your whole costume is a joke.</state>
-                <state img="#-challenging.png">If it helps, I've never taken you seriously.</state>
-            </case>
             <case stage="0-1">
                 <condition role="target" character="kim" stage="1" />
                 <state img="#-sarcastic.png">Ooh, is that a threat? I'm shaking in my boots. You know, the ones I'm still wearing?</state>
@@ -902,10 +902,6 @@
                 <condition role="target" character="weiss" stage="2" />
                 <state img="#-challenging.png">You'll find out soon enough, Cupcake.</state>
                 <state img="#-sarcastic.png">Apparently not the kind you're good at, Pumpkin.</state>
-            </case>
-            <case stage="0-6 8">
-                <condition role="target" character="zelda" stage="5" />
-                <state img="#-sarcastic.png">"Breeze." Uh-huh.</state>
             </case>
             <case stage="0-5">
                 <condition role="target" character="zoey" stage="2" />
@@ -1098,6 +1094,10 @@
         </trigger>
 
         <trigger id="female_removing_major">
+            <case stage="0-6 8">
+                <condition role="target" character="zelda" stage="5" />
+                <state img="#-sarcastic.png">"Breeze." Uh-huh.</state>
+            </case>
             <case stage="0-5">
                 <condition role="target" character="alice" stage="2" />
                 <state img="#-sarcastic.png">Be honest with yourself, Cupcake: you're gonna lose both tonight.</state>

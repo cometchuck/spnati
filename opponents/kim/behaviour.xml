@@ -575,6 +575,10 @@
                 <condition role="target" character="jasmine" stage="3" />
                 <state img="#-sad.png">Sure that counts, but don't you want to... live a little?</state>
             </case>
+            <case stage="0-2">
+                <condition role="target" character="lara" stage="0" />
+                <state img="#-awkward.png">M-Miss Croft? Kim Possible. Big fan.</state>
+            </case>
             <case stage="0">
                 <condition filter="ginger" role="target" />
                 <state img="#-happy.png">Nice one, ~name~!</state>
@@ -646,6 +650,10 @@
             <case stage="8">
                 <condition role="target" character="hermione" stage="1" />
                 <state img="#-starting.png">I bet it's not half as good as how I'm feeling right now!</state>
+            </case>
+            <case stage="0-2">
+                <condition role="target" character="lara" stage="1" />
+                <state img="#-awkward.png">I, um, I wonder if you'd autograph something for me after the game?</state>
             </case>
             <case stage="0">
                 <condition role="target" character="mercy" />
@@ -812,10 +820,6 @@
         </trigger>
 
         <trigger id="female_removing_minor">
-            <case stage="0-2">
-                <condition role="target" character="lara" stage="0" />
-                <state img="#-awkward.png">M-Miss Croft? Kim Possible. Big fan.</state>
-            </case>
             <case stage="0-6">
                 <condition role="target" character="kyoko" stage="2" />
                 <state img="#-interested.png">Really? 'Cause you look &lt;i&gt;hotter&lt;/i&gt; this way to me.</state>
@@ -886,10 +890,6 @@
             <case stage="0-9">
                 <condition role="target" character="kyoko" stage="6" />
                 <state img="#-sad.png">They're not ugly, Kyoko. &lt;i&gt;Nothing&lt;/i&gt; about you could be.</state>
-            </case>
-            <case stage="0-2">
-                <condition role="target" character="lara" stage="1" />
-                <state img="#-awkward.png">I, um, I wonder if you'd autograph something for me after the game?</state>
             </case>
             <case stage="0-7 9">
                 <condition role="target" character="shego" stage="2" />

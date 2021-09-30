@@ -1893,8 +1893,8 @@
                 <state img="#-embarrassed.png">You're making me blush, Cammy. You rarely talk like that.</state>
             </case>
             <case stage="3" priority="150">
-                <condition count="1" filter="r_mika" />
                 <condition role="other" character="juri" />
+                <condition role="opp" character="rainbow_mika" />
                 <state img="#-stripped.png">Thank you, Mika. It's a good thing you're here too.</state>
                 <state img="#-stripped.png">Thank you, Mika. I was worried for a second.</state>
             </case>
@@ -5574,7 +5574,7 @@
             </case>
             <case stage="0-10">
                 <condition role="target" character="cammy_white" saidMarker="chunli_help" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="ini" sayingMarker="butt" />
@@ -5696,7 +5696,7 @@
             </case>
             <case stage="0-10">
                 <condition role="target" character="cammy_white" saidMarker="chunli_help" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="aimee" />

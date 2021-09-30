@@ -14,14 +14,14 @@
 
 
     <wardrobe>
-        <clothing name="panties" generic="underwear" position="lower" type="important" />
-        <clothing name="top" generic="shirt" position="upper" type="important" />
-        <clothing name="shorts" generic="shorts" position="lower" type="major" />
-        <clothing name="socks" generic="socks" position="feet" type="minor" />
-        <clothing name="shoes" generic="shoes" position="feet" type="extra" />
+        <clothing name="panties" generic="underwear" position="lower" type="important" plural="true" />
+        <clothing name="top" generic="shirt" position="upper" type="major" />
+        <clothing name="shorts" generic="shorts" position="lower" type="major" plural="true" />
+        <clothing name="socks" generic="socks" position="feet" type="minor" plural="true" />
+        <clothing name="shoes" generic="shoes" position="feet" type="extra" plural="true" />
         <clothing name="hair band" generic="ribbon" position="head" type="extra" />
         <clothing name="gun" generic="weapon" position="other" type="extra" />
-        <clothing name="gloves" generic="gloves" position="hands" type="extra" />
+        <clothing name="gloves" generic="gloves" position="hands" type="extra" plural="true" />
     </wardrobe>
 
 

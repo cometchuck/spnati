@@ -2313,7 +2313,7 @@
                 <state img="#-thinking.png">If you take your mask off, won't you die or something?</state>
             </case>
             <case stage="0-6">
-                <condition filter="blake" role="target" />
+                <condition role="target" character="blake" />
                 <state img="#-thinking.png">Y'know, Blake, you remind me of someone. I just can't quite place it yet.</state>
             </case>
             <case stage="0-6 8">
@@ -2377,7 +2377,7 @@
                 <state img="#-pissed.png">&lt;i&gt;~player~!&lt;/i&gt; You were supposed to bring &lt;i&gt;balance&lt;/i&gt; to the strip poker!</state>
             </case>
             <case stage="0-6">
-                <condition filter="blake" role="target" />
+                <condition role="target" character="blake" />
                 <state img="#-derisive.png">Oh! That makes total sense.</state>
                 <state img="#-excited.png">Oh, of course!</state>
             </case>
@@ -2618,10 +2618,6 @@
                 <condition role="target" character="misato" stage="3" />
                 <state img="#-derisive.png">Drinks, I mean. I'm flagging it hardcore right now and would literally &lt;i&gt;stab&lt;/i&gt; a bitch for a cold one.</state>
             </case>
-            <case stage="6-8">
-                <condition role="target" character="nikki" stage="1" />
-                <state></state>
-            </case>
             <case stage="0-6 8">
                 <condition role="target" character="aimee" />
                 <state img="#-happy-neutral.png">Seriously, it was scary. If I wasn't basically completely emotionally numb save for apopleptic rage and constant burning lust, I'd probably be freaking out right now.</state>
@@ -2632,7 +2628,7 @@
                 <state img="#-excited.png">Eeeeee, you're adorable, Moon! And so squishy too!</state>
             </case>
             <case stage="0-6">
-                <condition filter="blake" role="target" />
+                <condition role="target" character="blake" />
                 <state img="#-thinking.png">Seriously, though. The name is on the tip of my tongue.</state>
             </case>
             <case stage="0-6 8">
@@ -3373,11 +3369,11 @@
                 <state img="#-mischievous.png">There's no 'I' in 'team', but there &lt;i&gt;could&lt;/i&gt; be a 'u' in 'double-team'.</state>
             </case>
             <case stage="0-6 8" priority="0">
-                <condition filter="blake" role="target" />
+                <condition role="target" character="blake" />
                 <state img="#-thinking.png">Hey, so, just out of interest - Blake, are you able to lick yourself &lt;i&gt;down there&lt;/i&gt;?</state>
             </case>
             <case stage="0-6 8" priority="0">
-                <condition filter="weiss" role="target" />
+                <condition role="target" character="weiss" />
                 <state img="#-thinking.png">What's that Christmas movie where the kid gets his tongue stuck licking something cold? Asking for a friend.</state>
                 <state img="#-mischievous.png">It's nice to see the Ice Princess finally thawing.</state>
             </case>

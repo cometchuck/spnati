@@ -1188,7 +1188,6 @@
                 <state img="#-happy.png">Listen, Anna, I'm still on board with the bar trick idea. Making a few crafty bets with some bar patrons sounds fun.</state>
             </case>
             <case stage="0-10" id="429">
-                <condition role="self" sayingMarker="TharjaStripsShamirReacts10" />
                 <condition role="target" character="tharja" stage="3" sayingMarker="TharjaStripsShamirReacts10" />
                 <state img="#-disinterested2.png" marker="TharjaStripsShamirReacts10">It's not about lowering your walls around &lt;i&gt;me&lt;/i&gt;, Shamir. My aim here isn't to personally deepen my bond with you.</state>
             </case>
@@ -1351,6 +1350,11 @@
                 <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirTharjaReact8" />
                 <state img="#-disappointed.png">That's cheating, Anna. Although, I can't say I haven't done similarly dishonest ways of making coin. Still, I'm sure it's illegal. Wouldn't that fall under insider trading laws or something?</state>
             </case>
+            <case stage="0-10" id="718">
+                <condition role="other" character="tharja" />
+                <condition role="target" character="anna" stage="1" sayingMarker="AnnaStripsShamirTharjaReact5" />
+                <state img="#-disinterested.png">Sadly, I won't be able to go &lt;i&gt;treasure hunting&lt;/i&gt;, Anna. Especially if it has me traveling to Archenea. My duty lies in Fódlan; I can't stay away from mercenary work for that long.</state>
+            </case>
             <case stage="0-10" id="647">
                 <condition role="target" character="cynthia" stage="1" sayingMarker="CynthiaStripsShamirReacts5" />
                 <state img="#-smirk.png" marker="CynthiaStripsShamirReacts5">Please, Cynthia. I'm a mercenary. Employers bark orders; I follow. Being the one ordering around Pokémon might be a nice change of pace. Perhaps more profitable as well.</state>
@@ -1362,6 +1366,10 @@
             <case stage="0-10" id="728">
                 <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirReacts8" />
                 <state img="#-surprised.png">W-wait, you carry the legendary Parthia too???</state>
+            </case>
+            <case stage="0-10" id="725">
+                <condition role="target" character="anna" stage="1" sayingMarker="AnnaStripsShamirReacts5" />
+                <state img="#-surprised.png">&lt;i&gt;Legendary weapons&lt;/i&gt;? ... Okay, I need to know more. But, I doubt you'd have the ---</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="leggy" stage="0" />
@@ -1433,6 +1441,16 @@
                 <condition role="other" character="tharja" />
                 <condition role="target" character="anna" stage="3" sayingMarker="AnnaStripsShamirTharjaReact9" />
                 <state img="#-disinterested2.png">Sorry, Anna, but I'm not itching to break any laws. There's safer, honest ways of making coin than cheating the stock market.</state>
+            </case>
+            <case stage="0-10" id="719">
+                <condition role="other" character="tharja" />
+                <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirTharjaReact6" />
+                <state img="#-disinterested2.png">&lt;i&gt;Adventure&lt;/i&gt; is another word for &lt;i&gt;risk&lt;/i&gt;. And I take enough risks as it is, Anna. I'll be returning to the Garreg Mach after this, if you don't mind.</state>
+            </case>
+            <case stage="0-10" id="726">
+                <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirReacts6" />
+                <test expr="~background.time~" value="day" />
+                <state img="#-surprised.png">Yes! I'll do anything! Please, I need to at least &lt;i&gt;see it&lt;/i&gt;.</state>
             </case>
             <case stage="0-10" id="648">
                 <condition role="target" character="cynthia" stage="2" sayingMarker="CynthiaStripsShamirReacts6" />
@@ -1510,11 +1528,6 @@
         </trigger>
 
         <trigger id="female_removing_minor">
-            <case stage="0-10" id="718">
-                <condition role="other" character="tharja" />
-                <condition role="target" character="anna" stage="1" sayingMarker="AnnaStripsShamirTharjaReact5" />
-                <state img="#-disinterested.png">Sadly, I won't be able to go &lt;i&gt;treasure hunting&lt;/i&gt;, Anna. Especially if it has me traveling to Archenea. My duty lies in Fódlan; I can't stay away from mercenary work for that long.</state>
-            </case>
             <case stage="0-10" id="715">
                 <condition role="other" character="tharja" />
                 <condition role="target" character="anna" stage="0" sayingMarker="AnnaStripsShamirTharjaReact2" />
@@ -1539,10 +1552,6 @@
             <case stage="0-10" id="659">
                 <condition role="target" character="cynthia" stage="5" sayingMarker="CynthiaStripsShamirReacts17" />
                 <state img="#-disappointed.png" marker="CynthiaStripsShamirReacts17">So after all of that and you're still not ready to help the weak people of Fódlan? That's regrettable, Cynthia.</state>
-            </case>
-            <case stage="0-10" id="725">
-                <condition role="target" character="anna" stage="1" sayingMarker="AnnaStripsShamirReacts5" />
-                <state img="#-surprised.png">&lt;i&gt;Legendary weapons&lt;/i&gt;? ... Okay, I need to know more. But, I doubt you'd have the ---</state>
             </case>
             <case stage="0-10" id="722">
                 <condition role="target" character="anna" stage="0" sayingMarker="AnnaStripsShamirReacts2" />
@@ -1589,20 +1598,10 @@
         </trigger>
 
         <trigger id="female_removed_minor">
-            <case stage="0-10" id="719">
-                <condition role="other" character="tharja" />
-                <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirTharjaReact6" />
-                <state img="#-disinterested2.png">&lt;i&gt;Adventure&lt;/i&gt; is another word for &lt;i&gt;risk&lt;/i&gt;. And I take enough risks as it is, Anna. I'll be returning to the Garreg Mach after this, if you don't mind.</state>
-            </case>
             <case stage="0-10" id="716">
                 <condition role="other" character="tharja" />
                 <condition role="target" character="anna" stage="1" sayingMarker="AnnaStripsShamirTharjaReact3" />
                 <state img="#-happy.png">Then it's settled, Anna. When did you want us to meet up?</state>
-            </case>
-            <case stage="0-10" id="726">
-                <condition role="target" character="anna" stage="2" sayingMarker="AnnaStripsShamirReacts6" />
-                <test expr="~background.time~" value="day" />
-                <state img="#-surprised.png">Yes! I'll do anything! Please, I need to at least &lt;i&gt;see it&lt;/i&gt;.</state>
             </case>
             <case stage="0-10" id="413">
                 <condition role="target" character="larachel" stage="1" />
@@ -2397,7 +2396,6 @@
             </case>
             <case stage="0" id="44">
                 <test expr="~clothing~" value="virgin killer sweater" />
-                <alternative />
                 <state img="#-thinking.png">Think we have some sweaters like that back in Garreg Mach. I've seen some of the more risqué women wear them in areas the Knights of Seiros don't often patrol.</state>
                 <state img="#-thinking.png">That sweater... Yes, I think I remember seeing a few back at the monastery. Though, I can't say the women who wear those were viewed in high regard by Lady Rhea.</state>
                 <state img="#-happy.png">I've seen sweaters like that back at the monastery. You should have seen the look on Seteth's face when he saw a girl wearing one. It was hysterical!</state>

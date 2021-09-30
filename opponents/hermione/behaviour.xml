@@ -1096,10 +1096,6 @@
                 <condition role="target" character="jasmine" stage="2" />
                 <state img="#-smug.png" marker="hermione_jasmine_cloak">It was a good effort, Jasmine. But you forgot to cloak your magical signature!</state>
             </case>
-            <case stage="3-8">
-                <condition role="target" character="april" stage="4" />
-                <state img="#-shocked.png" marker="hermione_april_what_we_are_doing">Just what do you think we've been doing until now?!</state>
-            </case>
             <case stage="0-4">
                 <condition role="target" character="spooky" />
                 <state img="#-shocked.png" marker="hermione_spooky_apparate_clothes">Did you just-- did you just apparate clothes? Without a wand?</state>
@@ -1560,6 +1556,10 @@
         </trigger>
 
         <trigger id="female_large_chest_is_visible">
+            <case stage="3-8">
+                <condition role="target" character="april" stage="4" />
+                <state img="#-shocked.png" marker="hermione_april_what_we_are_doing">Just what do you think we've been doing until now?!</state>
+            </case>
             <case stage="0-8 10">
                 <condition role="target" character="nugi-chan" />
                 <state img="#-angry.png" marker="hermione_nugi-chan_rules">The rules exist for a reason, you know. If we began ignoring them they don't suit us, where would society be?</state>

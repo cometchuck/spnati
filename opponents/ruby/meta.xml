@@ -18,6 +18,6 @@
         <costume folder="opponents/reskins/ruby_v4/" img="0-calm.png" status="offline" label="Ruby">Ruby (Volume 4)</costume>
     </alternates>
     <has_collectibles>false</has_collectibles>
-    <lines>1002</lines>
+    <lines>1001</lines>
     <poses>105</poses>
 </opponent>

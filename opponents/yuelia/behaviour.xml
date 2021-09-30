@@ -355,20 +355,20 @@
             <case stage="0-8" priority="700">
                 <condition role="self" saidMarker="rin_hugSetup" />
                 <condition role="other" character="rin" sayingMarker="hugged1" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="8" priority="700">
                 <condition role="self" saidMarker="rin_hugSetup" />
                 <condition role="other" character="rin" stage="6" sayingMarker="hugged2" />
-                <state img="absent.png" marker="rin_2hugs" collectible="rin_portrait"></state>
+                <state img="absent.png" marker="rin_2hugs" collectible="rin_portrait">~blank~</state>
             </case>
             <case stage="1-5" priority="700">
                 <condition role="other" character="estelle" stage="2" sayingMarker="messyend" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0-8" priority="700">
                 <condition role="other" character="tomoko" sayingMarker="yuelia_hugging" />
-                <state img="absent.png" marker="tomoko_hugged"></state>
+                <state img="absent.png" marker="tomoko_hugged">~blank~</state>
             </case>
             <case stage="1-8" id="39" oneShotId="53" totalRounds="8-9" priority="600">
                 <state img="#-thinking.png" marker="promptLaura">(&lt;i&gt;I wonder if Laura's broken out of the castle again. I hope she's having fun.&lt;/i&gt;)</state>
@@ -1962,7 +1962,7 @@
             </case>
             <case stage="1-6">
                 <condition role="target" character="dust" stage="5" sayingMarker="yuelia_jointPose" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0">
                 <condition role="target" character="pit" stage="0" />
@@ -3289,7 +3289,7 @@
             <case stage="1-5">
                 <condition role="self" saidMarker="aella_heavyArmor" />
                 <condition role="target" character="aella" stage="1" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="meia" stage="1" />
@@ -3496,7 +3496,7 @@
         <trigger id="male_removing_minor">
             <case stage="1-6">
                 <condition role="target" character="dust" stage="5" saidMarker="yuelia_jointPose" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="dust" stage="1" saidMarker="yuelia_adventuring" />
@@ -3927,27 +3927,6 @@
         </trigger>
 
         <trigger id="male_removing_major">
-            <case stage="0-10">
-                <condition role="target" character="dust" stage="2" saidMarker="yuelia_SpareTime" />
-                <state img="#-beaming.png" marker="dust_wildLife">Ooh! Wildlife! What kind of animals do you like watching, Dust?</state>
-                <state img="#-beaming.png" marker="dust_reading">You like reading? I like reading too! What kind of books do you read, Dust?</state>
-            </case>
-            <case stage="1-10">
-                <condition role="target" character="dust" stage="2" saidMarker="yuelia_howSouls" />
-                <state img="#-scared.png" marker="dust_problems">
-                    <alt-img stage="1-10">#-scared.png</alt-img>
-                    <alt-img stage="0">#-shocked.png</alt-img>
-                    <text>They k-killed each other? And... that doesn't cause any  problems for you?</text>
-                </state>
-            </case>
-            <case stage="0">
-                <condition role="target" character="dust" stage="2" saidMarker="yuelia_howSouls" />
-                <state img="#-shocked.png" marker="dust_problems">
-                    <alt-img stage="1-10">#-scared.png</alt-img>
-                    <alt-img stage="0">#-shocked.png</alt-img>
-                    <text>They k-killed each other? And... that doesn't cause any  problems for you?</text>
-                </state>
-            </case>
             <case stage="0">
                 <state img="#-curious.png">You're not nervous about taking off your ~clothing~, are you, ~name~?</state>
                 <state img="#-idea.png">Isn't this so much fun, ~name~?</state>
@@ -4029,10 +4008,6 @@
                 <state img="#-confused.png" marker="estelle_weCanSee">But we can see your underwear right now, Estelle.</state>
                 <state img="#-confused.png" marker="estelle_weCanSee">But you &lt;i&gt;are&lt;/i&gt; showing your underwear, Estelle. I can see them right now.</state>
             </case>
-            <case stage="6-8">
-                <condition role="target" character="megumin" stage="6" saidMarker="yuelia_jointStrip" />
-                <state img="absent.png"></state>
-            </case>
             <case stage="0-10">
                 <condition role="target" character="meia" stage="2" />
                 <condition role="self" saidMarker="meia_tooSerious" />
@@ -4061,18 +4036,6 @@
                 <condition role="self" saidMarker="gaige_machines" />
                 <state img="#-curious.png" marker="gaige_movieBots">What kinds of things did you see them doing in movies, Gaige?</state>
                 <state img="#-curious.png" marker="gaige_bookBots">What exactly did you read about them that was so cool, Gaige?</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="shantae" stage="2" />
-                <condition role="self" saidMarker="shantae_danceMusic" />
-                <state img="#-beaming.png" marker="shantae_funWatch">You know, I think that would actually be pretty fun to watch, Shantae!</state>
-                <state img="#-nervous.png" marker="shantae_intenseDance">Wow... you must get pretty intense when you dance, Shantae.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="shantae" stage="2" />
-                <condition role="self" saidMarker="shantae_learnDance" />
-                <state img="#-beaming.png" marker="shantae_goodTalent">No no! It's fine, Shantae! It's great to be so talented at something!</state>
-                <state img="#-content.png" marker="shantae_dancePride">Oh, there's nothing wrong with being a little proud of something you're so good at.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="neptune" stage="2" saidMarker="nep_yuelia_nepgear1" />
@@ -4196,10 +4159,6 @@
                 <state img="#-nervous.png" marker="meia_wrongAssumption">You're making a lot of wrong assumptions, Meia...</state>
                 <state img="#-nervous.png" marker="meia_notUnderstand">Meia, I don't think you understand what's happening right now as well as you think you do.</state>
             </case>
-            <case stage="6-8">
-                <condition role="target" character="megumin" stage="7" saidMarker="yuelia_jointStrip" />
-                <state img="#-content.png">There we go, Megumin! It's safe with me. I'll make sure to give it back when the game is done.</state>
-            </case>
             <case stage="0-10">
                 <condition role="target" character="ribbon_girl" stage="6" sayingMarker="SwimwearARMS" />
                 <state img="#-nervous.png" marker="ribbon_dangerousGame">Uuh, wouldn't that be really dangerous, Ribbon Girl? Fighting without anything protecting you?</state>
@@ -4307,7 +4266,7 @@
                 <state img="#-shocked.png" marker="caulifa_flashyAndCool">Wow! That's so flashy and cool, Caulifla!</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="n" sayingMarker="bra_asking" />
+                <condition role="other" character="n" sayingMarker="bra_asking" />
                 <state img="#-nervous.png" marker="n_neverSeen">Yes, that's a bra, N. Have you really never seen one before?</state>
             </case>
             <case stage="0">
@@ -4342,6 +4301,27 @@
                 <condition role="target" character="brock" stage="4" />
                 <state img="#-thinking.png">Hey, look! That thing you shot off is coming back.</state>
                 <state img="#-thinking.png">It looks like it's coming back, Brock. Maybe you can get it back?</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="dust" saidMarker="yuelia_SpareTime" />
+                <state img="#-beaming.png" marker="dust_wildLife">Ooh! Wildlife! What kind of animals do you like watching, Dust?</state>
+                <state img="#-beaming.png" marker="dust_reading">You like reading? I like reading too! What kind of books do you read, Dust?</state>
+            </case>
+            <case stage="1-10">
+                <condition role="target" character="dust" saidMarker="yuelia_howSouls" />
+                <state img="#-scared.png" marker="dust_problems">
+                    <alt-img stage="1-10">#-scared.png</alt-img>
+                    <alt-img stage="0">#-shocked.png</alt-img>
+                    <text>They k-killed each other? And... that doesn't cause any  problems for you?</text>
+                </state>
+            </case>
+            <case stage="0">
+                <condition role="target" character="dust" saidMarker="yuelia_howSouls" />
+                <state img="#-shocked.png" marker="dust_problems">
+                    <alt-img stage="1-10">#-scared.png</alt-img>
+                    <alt-img stage="0">#-shocked.png</alt-img>
+                    <text>They k-killed each other? And... that doesn't cause any  problems for you?</text>
+                </state>
             </case>
             <case stage="0">
                 <state img="#-thinking.png">Everyone seems really eager all of a sudden.</state>
@@ -4506,7 +4486,11 @@
             </case>
             <case stage="6-8">
                 <condition role="target" character="megumin" saidMarker="yuelia_jointStrip" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
+            </case>
+            <case stage="6-8">
+                <condition role="target" character="megumin" saidMarker="yuelia_jointStrip" />
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="sayaka" />
@@ -4550,6 +4534,10 @@
         </trigger>
 
         <trigger id="female_small_chest_is_visible">
+            <case stage="6-8">
+                <condition role="target" character="megumin" saidMarker="yuelia_jointStrip" />
+                <state img="#-content.png">There we go, Megumin! It's safe with me. I'll make sure to give it back when the game is done.</state>
+            </case>
             <case stage="0-10">
                 <condition role="target" character="spooky" saying="boobjob" />
                 <state img="#-confused.png" marker="spooky_boobjob">What's a "boobjob"?</state>
@@ -4566,7 +4554,7 @@
             </case>
             <case stage="1-10">
                 <condition role="target" character="saki_zls" />
-                <state img="absent.png"></state>
+                <state img="absent.png">~blank~</state>
             </case>
             <case stage="0">
                 <state img="#-idea.png" marker="laura">Ya'know, you could probably dress up as a boy and get up to all sorts of mischief with your figure, ~name~! Just like Laura!</state>
@@ -4643,6 +4631,18 @@
                 <condition role="target" character="rin" saidMarker="flutterstriphelp" />
                 <state img="#-thinking.png" marker="rin_luckyConf">Lucky? Anyway, just hold still for a second, Rin.</state>
                 <state img="#-neutral.png">Right. Hold still for one moment, Rin.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="shantae" />
+                <condition role="self" saidMarker="shantae_danceMusic" />
+                <state img="#-beaming.png" marker="shantae_funWatch">You know, I think that would actually be pretty fun to watch, Shantae!</state>
+                <state img="#-nervous.png" marker="shantae_intenseDance">Wow... you must get pretty intense when you dance, Shantae.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="shantae" />
+                <condition role="self" saidMarker="shantae_learnDance" />
+                <state img="#-beaming.png" marker="shantae_goodTalent">No no! It's fine, Shantae! It's great to be so talented at something!</state>
+                <state img="#-content.png" marker="shantae_dancePride">Oh, there's nothing wrong with being a little proud of something you're so good at.</state>
             </case>
             <case stage="1-10">
                 <condition role="target" character="palutena" sayingMarker="palutena_undies" />

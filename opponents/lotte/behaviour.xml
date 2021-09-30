@@ -8505,15 +8505,15 @@
             </case>
             <case stage="9">
                 <condition role="other" character="estelle" stage="9" sayingMarker="bookBi" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition role="other" character="estelle" stage="9" sayingMarker="bookListing" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="9">
                 <condition role="other" character="estelle" stage="9" sayingMarker="bookTentacle" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="9">
                 <state img="#-horny.png">N-not all my stuff is that lewd either!</state>

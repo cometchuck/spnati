@@ -14,6 +14,6 @@
     <description>The Oracle of Ages, hailing from Labrynna. Her voice can not only soothe the beasts of the wilderness, but also command the flow of time itself.</description>
     <layers>7</layers>
     <has_collectibles>false</has_collectibles>
-    <lines>2082</lines>
+    <lines>2081</lines>
     <poses>196</poses>
 </opponent>

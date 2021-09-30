@@ -15,9 +15,9 @@
 
     <wardrobe>
         <clothing name="tights" generic="leggings" position="lower" type="important" plural="true" />
-        <clothing name="top" generic="shirt" position="upper" type="important" />
+        <clothing name="top" generic="shirt" position="upper" type="major" />
         <clothing name="gloves" generic="gloves" position="arms" type="minor" plural="true" />
-        <clothing name="pants" generic="pants" position="legs" type="major" plural="true" />
+        <clothing name="pants" generic="pants" position="lower" type="major" plural="true" />
     </wardrobe>
 
     <poses>
@@ -946,8 +946,8 @@
             </case>
             <case stage="0">
                 <condition role="opp" character="chun-li" />
-                <condition count="1" filter="r_mika" />
                 <condition role="other" character="cammy_white" />
+                <condition role="opp" character="rainbow_mika" />
                 <state img="#-stripping.png">I'm so excited to show my body to my favorite girls. This will be a night to remember.</state>
                 <state img="#-stripping.png">I hope you girls are excited too. I have so much to show you...</state>
             </case>
@@ -1155,8 +1155,8 @@
             </case>
             <case stage="1">
                 <condition role="opp" character="chun-li" />
-                <condition count="1" filter="r_mika" />
                 <condition role="other" character="cammy_white" />
+                <condition role="opp" character="rainbow_mika" />
                 <state img="#-stripped.png">Hey! Are you two looking at me? Only the airhead is paying attention to me. Is this hell?</state>
                 <state img="#-stripped.png">Hey, girls! Look over here! Why is only the airhead paying attention to me? How cruel can you two be?</state>
             </case>
@@ -3820,7 +3820,7 @@
             </case>
             <case stage="4 6" priority="410">
                 <condition role="target" character="chun-li" saidMarker="juri_attack" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="chun-li" />
@@ -3864,7 +3864,7 @@
             </case>
             <case stage="0-6">
                 <condition role="target" character="cammy_white" saidMarker="juri_help" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="florina" sayingMarker="bee3" />
@@ -3978,7 +3978,7 @@
             </case>
             <case stage="0-6">
                 <condition role="target" character="cammy_white" saidMarker="juri_help" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="florina" saidMarker="bee3" />
@@ -4025,7 +4025,7 @@
         <trigger id="female_large_chest_is_visible">
             <case stage="0-6" priority="410">
                 <condition role="target" character="chun-li" saidMarker="juri_attack" />
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="chun-li" />
@@ -5488,8 +5488,8 @@
                 <state img="#-happy.png">Oh, come on, officer! Admit that you did it on purpose! This was by far the funniest thing I've ever seen.</state>
             </case>
             <case stage="5">
-                <condition count="1" filter="r_mika" />
                 <condition role="other" character="chun-li" stage="8" timeInStage="0" />
+                <condition role="opp" character="rainbow_mika" />
                 <state img="#-horny.png">There's that ass! Why don't you follow the muscle head's example and slap it? I wonder how much it would jiggle...</state>
                 <state img="#-excited.png">Look at that gorgeous ass! Seeing the airhead here makes me wonder how much it would jiggle if you slap it...</state>
             </case>

@@ -1753,6 +1753,12 @@
                 <state img="#-calm.png">8 outta 10. Wait--no, definitely a 8.</state>
             </case>
             <case stage="0-7">
+                <condition role="target" character="rinkah" />
+                <state img="#-shy.png">Oh wow...yer totes darlin's type--he'd never say that, but if he saw this, he'd cream himself on the spot!</state>
+                <state img="#-happy.png">Hubba-hubba! If darlin' were here he woulda flat ran away! He gets so bashful round girls like you.</state>
+                <state img="#-calm.png">Mmhmm! Yer the typa girl darlin trashtalks 'hind her back, but gets super bashful 'bout in person.</state>
+            </case>
+            <case stage="0-7">
                 <state img="#-calm.png">Not bad, girlie. I wouldn't mind inductin' ya into my darlin's fan club.</state>
                 <state img="#-calm.png">Well aren't you a handful!</state>
                 <state img="#-hunt.png">Better cover those nips ~name~, I'm feeling a bit pinchy.</state>
@@ -1760,12 +1766,6 @@
         </trigger>
 
         <trigger id="female_large_chest_is_visible">
-            <case stage="0-7">
-                <condition role="target" character="rinkah" />
-                <state img="#-shy.png">Oh wow...yer totes darlin's type--he'd never say that, but if he saw this, he'd cream himself on the spot!</state>
-                <state img="#-happy.png">Hubba-hubba! If darlin' were here he woulda flat ran away! He gets so bashful round girls like you.</state>
-                <state img="#-calm.png">Mmhmm! Yer the typa girl darlin trashtalks 'hind her back, but gets super bashful 'bout in person.</state>
-            </case>
             <case stage="0-7">
                 <state img="#-calm.png">Not bad, girlie. I wouldn't mind inductin' ya into my darlin's pantry.</state>
                 <state img="#-guess.png">I'd say "don't get fulla yerself," but yer pretty damn full already.</state>

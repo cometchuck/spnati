@@ -528,6 +528,11 @@
                 <state img="#-angry.png">Are you going to shout every time you strip? Because let me tell you, it's getting old &lt;i&gt;fast&lt;/i&gt;.</state>
                 <state img="#-sassy.png">You're getting a little &lt;i&gt;too&lt;/i&gt; excited there, Captain.</state>
             </case>
+            <case stage="0-7">
+                <condition role="target" character="xander" stage="2" />
+                <state img="#-sassy.png">What happened to all that bravado from before, Xand?</state>
+                <state img="#-sassy.png">That's what I thought.</state>
+            </case>
             <case stage="0-1">
                 <state img="#-interested.png">I like your ~clothing~, ~name~.</state>
                 <state img="#-calm.png">You're taking this seriously, ~name~? Good. I'd hate to beat someone who wasn't trying.</state>
@@ -565,6 +570,16 @@
                 <condition role="target" character="captain_falcon" stage="2" />
                 <state img="#-sassy.png">Who wears &lt;i&gt;armor&lt;/i&gt; to a game of strip poker? Compensating for something, Captain?</state>
                 <state img="#-angry.png">After all that shouting, you'd think you'd actually, I don't know, strip something &lt;i&gt;big&lt;/i&gt;.</state>
+            </case>
+            <case stage="0-4">
+                <condition role="target" character="xander" stage="3" />
+                <state img="#-calm.png">Then I guess it's time I did the same!</state>
+                <state img="#-sassy.png">Suuure you weren't, Xand.</state>
+            </case>
+            <case stage="5-7">
+                <condition role="target" character="xander" stage="3" />
+                <state img="#-embarrassed.png">Says the man beating the pants off me? Have you heard of overdoing things, Xand?</state>
+                <state img="#-embarrassed.png">Actually, I wouldn't mind if you kept playing on easy mode, Xand.</state>
             </case>
             <case stage="6-8">
                 <condition filter="blonde" role="target" />
@@ -655,6 +670,11 @@
                 <condition role="target" character="asuna" stage="0" />
                 <state img="#-sassy.png">Prancing boots? I guess that makes mine `ass kicking boots'.</state>
                 <state img="#-sassy.png">And that must be your twirling skirt and sitting stockings, huh?</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="hermione" stage="0" />
+                <state img="#-calm.png">Oh, I've got &lt;i&gt;some&lt;/i&gt; idea. Fighting vamps requires comfortable shoes!</state>
+                <state img="#-calm.png">You might be surprised, Hermione.</state>
             </case>
             <case stage="4-5">
                 <condition filter="single" role="target" />
@@ -756,6 +776,11 @@
                 <state img="#-interested.png">You have &lt;i&gt;no&lt;/i&gt; idea who you're dealing with, do you?</state>
                 <state img="#-sassy.png">Girl, I fight monsters worse than you before breakfast. Sometimes literally.</state>
             </case>
+            <case stage="0-8 10">
+                <condition role="target" character="meg" stage="3" />
+                <state img="#-calm.png">How well you know me, Meg. &lt;i&gt;Not&lt;/i&gt;.</state>
+                <state img="#-angry.png">As a matter of fact, it's making me annoyed.</state>
+            </case>
             <case stage="4-5">
                 <condition filter="blonde" role="target" />
                 <state img="#-happy.png">I'm not even mad. We blondes have to stick together!</state>
@@ -822,11 +847,6 @@
                 <condition role="target" character="xander" stage="0" />
                 <state img="#-interested.png">You think I need a handicap, Xand? You poor sweet idiot.</state>
             </case>
-            <case stage="0-7">
-                <condition role="target" character="xander" stage="2" />
-                <state img="#-sassy.png">What happened to all that bravado from before, Xand?</state>
-                <state img="#-sassy.png">That's what I thought.</state>
-            </case>
             <case stage="3-7">
                 <condition role="target" character="xander" stage="0" />
                 <state img="#-embarrassed.png">Given the way things are going, I'd say that's only fair, Xand.</state>
@@ -887,11 +907,6 @@
                 <state img="#-sassy.png">Actually, it's the way you make me laugh, Xand.</state>
                 <state img="#-sassy.png">I'm going to go with `none of the above'.</state>
             </case>
-            <case stage="0-4">
-                <condition role="target" character="xander" stage="3" />
-                <state img="#-calm.png">Then I guess it's time I did the same!</state>
-                <state img="#-sassy.png">Suuure you weren't, Xand.</state>
-            </case>
             <case stage="0-7">
                 <condition role="target" character="xander" stage="4" />
                 <state img="#-embarrassed.png">I could handle `all that' with my pinky finger. Which, uh, I now realize could be taken in a suggestive way.</state>
@@ -900,11 +915,6 @@
             <case stage="4-7">
                 <condition role="target" character="xander" stage="1" />
                 <state img="#-sassy.png">Let's see if you're this smug when I've got you out of your underwear...</state>
-            </case>
-            <case stage="5-7">
-                <condition role="target" character="xander" stage="3" />
-                <state img="#-embarrassed.png">Says the man beating the pants off me? Have you heard of overdoing things, Xand?</state>
-                <state img="#-embarrassed.png">Actually, I wouldn't mind if you kept playing on easy mode, Xand.</state>
             </case>
             <case stage="0-1">
                 <state img="#-happy.png">You know, I'm having fun!</state>
@@ -943,11 +953,6 @@
             <case stage="0-8 10">
                 <condition role="target" character="april" stage="1" />
                 <state img="#-happy.png">Obviously you've never been to Saks Fifth Avenue during a shoe sale...</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="hermione" stage="0" />
-                <state img="#-calm.png">Oh, I've got &lt;i&gt;some&lt;/i&gt; idea. Fighting vamps requires comfortable shoes!</state>
-                <state img="#-calm.png">You might be surprised, Hermione.</state>
             </case>
             <case stage="0-8">
                 <condition role="target" character="hermione" stage="1" />
@@ -1053,11 +1058,6 @@
                 <condition role="target" character="kyoko" stage="6" />
                 <state img="#-angry.png">That's nothing to be ashamed of! It's a, a badge of honor!</state>
                 <state img="#-shocked.png">Oh, God! That's horrible. You poor thing!</state>
-            </case>
-            <case stage="0-8 10">
-                <condition role="target" character="meg" stage="3" />
-                <state img="#-calm.png">How well you know me, Meg. &lt;i&gt;Not&lt;/i&gt;.</state>
-                <state img="#-angry.png">As a matter of fact, it's making me annoyed.</state>
             </case>
             <case stage="0-8 10">
                 <condition role="target" character="nagisa" stage="2" />
@@ -1326,10 +1326,6 @@
                 <state img="#-happy.png">You struck me as the kind of girl who'd wear white underwear. Good to know my instincts are intact!</state>
             </case>
             <case stage="0-7">
-                <condition role="target" character="april" stage="4" />
-                <state img="#-sassy.png">I've heard &lt;i&gt;that&lt;/i&gt; line before...</state>
-            </case>
-            <case stage="0-7">
                 <condition role="target" character="arwen" stage="4" />
                 <state img="#-sassy.png">Cute panties! Bra... not so much. Are those &lt;i&gt;wrappings&lt;/i&gt;?</state>
                 <state img="#-shocked.png">Okay, &lt;i&gt;now&lt;/i&gt; I believe you're not from around here. Chest wrappings?</state>
@@ -1410,17 +1406,9 @@
                 <state img="#-happy.png">Wow! You've got some serious muscle going on under those clothes!</state>
             </case>
             <case stage="8">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                </alternative>
                 <state img="#-embarrassed.png">Looks like you're going down! Uh, I don't mean that in a gay way. I-I'm good with the gays. Oh, God! I'll just shut up.</state>
             </case>
             <case stage="9-10">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                </alternative>
                 <state img="#-happy.png">~Name~, you are &lt;i&gt;fine&lt;/i&gt;.</state>
                 <state img="#-happy.png">You're so hot right now you're practically on fire!</state>
             </case>
@@ -1832,6 +1820,10 @@
         </trigger>
 
         <trigger id="female_large_chest_is_visible">
+            <case stage="0-7">
+                <condition role="target" character="april" stage="4" />
+                <state img="#-sassy.png">I've heard &lt;i&gt;that&lt;/i&gt; line before...</state>
+            </case>
             <case stage="0-8 10">
                 <condition role="target" character="willow" />
                 <state img="#-shocked.png">I am gonna have to completely revise my opinion of you.</state>

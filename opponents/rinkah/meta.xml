@@ -20,6 +20,6 @@
         <costume folder="opponents/reskins/rinkah_charlotte/" img="0-calm.png" status="offline" label="Rinkah">Charlotte Rinkah</costume>
     </alternates>
     <has_collectibles>true</has_collectibles>
-    <lines>2269</lines>
+    <lines>2268</lines>
     <poses>134</poses>
 </opponent>

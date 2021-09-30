@@ -1181,11 +1181,11 @@
             </case>
             <case stage="8">
                 <condition role="other" character="mahiru" stage="7" />
-                <state img="selfie.png" marker="mahirucheck"></state>
+                <state img="selfie.png" marker="mahirucheck">~blank~</state>
             </case>
             <case stage="8">
                 <condition role="other" character="mahiru" stage="9" />
-                <state img="selfie.png"></state>
+                <state img="selfie.png">~blank~</state>
             </case>
             <case stage="1" totalRounds="1-">
                 <condition role="other" character="natsuki" />
@@ -1548,7 +1548,7 @@
             </case>
             <case stage="0-10">
                 <condition role="target" character="angie" stage="0" />
-                <condition role="other" character="maki" />
+                <condition role="other" character="maki_harukawa" />
                 <state img="#-surprised.png">Oh, Maki? Is this the Ultimate Artist?</state>
             </case>
             <case stage="0-10">
@@ -1806,11 +1806,11 @@
                 <state img="#-embarrassed.png">Looks like you're on your last life now, Mahiru!</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="0" />
+                <condition role="target" character="maki_harukawa" stage="0" />
                 <state img="#-thinking.png">Ultimate Assassin is a bit of a strage talent...</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="1" />
+                <condition role="target" character="maki_harukawa" stage="1" />
                 <state img="#-happy.png">Oh, Maki! I just realized! You never went to Hope's Peak did you?</state>
             </case>
             <case stage="0-6">
@@ -2351,11 +2351,11 @@
                 <state img="#-excited.png">Yeah! Just like that, Mahiru!</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="0" />
+                <condition role="target" character="maki_harukawa" stage="0" />
                 <state img="#-thinking.png">Then again... Fuyuhiko was the Ultimate Yakuza...</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="1" />
+                <condition role="target" character="maki_harukawa" stage="1" />
                 <state img="#-excited.png">Ah! I should totally introduce you to my classmates and Hajime!</state>
             </case>
             <case stage="0-10">
@@ -2414,10 +2414,6 @@
             <case stage="5-8">
                 <condition role="target" character="mahiru" stage="1" />
                 <state img="#-horny.png">Then again, given how badly I'm doing compared to you, feel free to ignore my advice.</state>
-            </case>
-            <case stage="8">
-                <condition role="target" character="mahiru" stage="6" />
-                <state img="#-excited.png">That sounds great, Mahiru!</state>
             </case>
             <case stage="9-10">
                 <condition role="target" character="ibuki" stage="0" />
@@ -2558,11 +2554,11 @@
                 <state img="#-excited.png">Okay, keep giving it all you've got, Mahiru!</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="1" />
+                <condition role="target" character="maki_harukawa" stage="1" />
                 <state img="#-sleepy.png">It makes me tired whenever I think about what should really count as an "Ultimate" talent...</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="maki" stage="2" />
+                <condition role="target" character="maki_harukawa" stage="2" />
                 <state img="#-excited.png">I bet Gundham would go crazy over a talent like yours!</state>
             </case>
             <case stage="0-10">
@@ -2612,10 +2608,6 @@
             <case stage="0-10">
                 <condition role="target" character="vriska" stage="1" />
                 <state img="#-excited.png">This is just like a boss battle!</state>
-            </case>
-            <case stage="8">
-                <condition role="target" character="mahiru" stage="7" />
-                <state>...</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="tifa" />
@@ -3737,6 +3729,10 @@
                 <condition role="self" saidMarker="finalfantasy1" notSaidMarker="finalfantasy2" />
                 <state img="#-excited.png" marker="finalfantasy2">The reason her series is called Final Fantasy is because at the time it was being made, Square Enix was going out of business!</state>
             </case>
+            <case stage="8">
+                <condition role="target" character="mahiru" />
+                <state img="#-excited.png">That sounds great, Mahiru!</state>
+            </case>
             <case stage="0-10">
                 <condition role="target" character="aimee" />
                 <state img="#-happy.png">Well, at least you're giving us a good show.</state>
@@ -3793,7 +3789,7 @@
         <trigger id="female_crotch_is_visible">
             <case stage="8 10" priority="500">
                 <condition role="target" character="mahiru" />
-                <state img="selfie.png" marker="mahirucheck"></state>
+                <state img="selfie.png" marker="mahirucheck">~blank~</state>
             </case>
             <case stage="8 10">
                 <alternative>
@@ -3812,7 +3808,7 @@
                     <condition role="target" character="saki" />
                     <condition role="other" character="mahiru" stage="9" />
                 </alternative>
-                <state></state>
+                <state img="selfie.png">~blank~</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="futaba" saidMarker="chiaki_challenge_loss" />
@@ -3927,10 +3923,6 @@
             <case stage="0-10">
                 <condition role="target" character="kool-aid" />
                 <state img="#-sleepy.png">....</state>
-            </case>
-            <case stage="7-8 10">
-                <condition role="target" character="chihiro" />
-                <state></state>
             </case>
             <case stage="0-3">
                 <state img="#-horny.png">Please don't be angry if I watch...</state>
@@ -4250,8 +4242,6 @@
                 <state img="#-embarrassed.png">Looks like we're gonna be playing a new kind of game together, Mahiru.</state>
             </case>
             <case stage="8">
-                <condition count="1" filter="white" />
-                <condition count="1" filter="oni" />
                 <condition role="other" character="aimee" />
                 <state img="#-thinking.png">Yeah, I think having more than 8 items would make me a bit too OP.</state>
             </case>

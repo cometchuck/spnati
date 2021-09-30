@@ -2819,7 +2819,6 @@
                 <state img="#-stripped1.png">That will be all. I had fun, but I must... oh, if you insist. Another round couldn't hurt.</state>
             </case>
             <case stage="5">
-                <state img="#-possessed.png" marker="possess"></state>
                 <state img="#-possessed.png" marker="possess">...</state>
             </case>
             <case stage="6">
@@ -5226,16 +5225,6 @@
                 <state img="#-horny.png" marker="MP_earlydong">What a surprise. I don't know if it's bravery or... &lt;i&gt;something else&lt;/i&gt;...</state>
             </case>
             <case stage="5-7">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                    <condition role="self" saidMarker="MP_finaldong" notSaidMarker="null_possess" />
-                </alternative>
-                <state img="#-p_grumpy.png">What? What gives? What am I supposed to do with that?</state>
-                <state img="#-p_shocked.png">Huh? What's that? Surely you don't expect...?</state>
-                <state img="#-p_grumpy.png">Don't look at me! Even my magic can only do so much.</state>
-            </case>
-            <case stage="5-7">
                 <alternative>
                     <condition role="target" character="human" />
                     <condition role="self" saidMarker="MP_finaldong" />
@@ -5254,6 +5243,11 @@
                 <condition role="self" saidMarker="v_forfeit" />
                 <state img="#-p_angry.png">&lt;i&gt;Are you --&lt;/i&gt; is this some sort of bad joke?</state>
                 <state img="#-p_calm.png">You must -- oh... &lt;i&gt;Hmm&lt;/i&gt;... well, if &lt;i&gt;that&lt;/i&gt; works for Nayru, then...</state>
+            </case>
+            <case stage="5-7">
+                <state img="#-p_grumpy.png">What? What gives? What am I supposed to do with that?</state>
+                <state img="#-p_shocked.png">Huh? What's that? Surely you don't expect...?</state>
+                <state img="#-p_grumpy.png">Don't look at me! Even my magic can only do so much.</state>
             </case>
             <case stage="0-3">
                 <state img="#-awkward.png">It only - oh. That's only... no, my apologies. Don't mind me.</state>
@@ -5340,16 +5334,6 @@
                 <state img="#-intent.png">O-oh, ~name~. I... ~player~, let me... &lt;i&gt;Ngh&lt;/i&gt;...</state>
             </case>
             <case stage="5-7">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                    <condition role="self" saidMarker="MP_finaldong" notSaidMarker="null_possess" />
-                </alternative>
-                <state img="#-p_happy.png">Ooh! I felt that. Oh, but very well; I suppose I can keep a few secrets. For now.</state>
-                <state img="#-p_interested.png">Even he feels less shame than you, Nayru. This is why you needed me.</state>
-                <state img="#-p_sinister.png">Finally! Don't pretend otherwise, Nayru; this is what you've been awaiting.</state>
-            </case>
-            <case stage="5-7">
                 <alternative>
                     <condition role="self" saidMarker="null_possess" />
                 </alternative>
@@ -5372,6 +5356,11 @@
                 <condition role="self" saidMarker="v_forfeit" />
                 <state img="#-p_spreading.png">Nayru, this body &lt;i&gt;is&lt;/i&gt; yours to use, but... I have a proposition...</state>
                 <state img="#-p_mocking.png">Oh, ~name~... what can I do with &lt;i&gt;that&lt;/i&gt;, I wonder...?</state>
+            </case>
+            <case stage="5-7">
+                <state img="#-p_happy.png">Ooh! I felt that. Oh, but very well; I suppose I can keep a few secrets. For now.</state>
+                <state img="#-p_interested.png">Even he feels less shame than you, Nayru. This is why you needed me.</state>
+                <state img="#-p_sinister.png">Finally! Don't pretend otherwise, Nayru; this is what you've been awaiting.</state>
             </case>
             <case stage="0-3">
                 <state img="#-horny.png">I - oh! P-pardon me, ~name~.</state>
@@ -5459,15 +5448,6 @@
                 <state img="#-grumpy.png" marker="MP_earlydong">&lt;i&gt;Ngh&lt;/i&gt;... W-what do you think you're...? You're supposed to -- oh, never mind.</state>
             </case>
             <case stage="5-7">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                    <condition role="self" saidMarker="MP_finaldong" notSaidMarker="null_possess" />
-                </alternative>
-                <state img="#-p_horny.png">Ohh... you. We simply &lt;i&gt;must&lt;/i&gt; speak after this game is done.</state>
-                <state img="#-p_horny.png">It's about time! The things I could do...</state>
-            </case>
-            <case stage="5-7">
                 <alternative>
                     <condition role="target" character="human" />
                     <condition role="self" saidMarker="MP_finaldong" />
@@ -5486,6 +5466,10 @@
                 <condition role="self" saidMarker="v_forfeit" />
                 <state img="#-p_shocked.png">(&lt;i&gt;Gasp!&lt;/i&gt;) I... Oh, the things I could &lt;i&gt;show you&lt;/i&gt;...</state>
                 <state img="#-p_chatting.png">You know, &lt;i&gt;some&lt;/i&gt; women can't handle something like that. Perhaps I should return... later.</state>
+            </case>
+            <case stage="5-7">
+                <state img="#-p_horny.png">Ohh... you. We simply &lt;i&gt;must&lt;/i&gt; speak after this game is done.</state>
+                <state img="#-p_horny.png">It's about time! The things I could do...</state>
             </case>
             <case stage="0-3">
                 <state img="#-shocked.png">Ngh - Th-that's... I didn't think it'd actually...</state>

@@ -2028,6 +2028,13 @@
                 <state img="#-annoyed.png">Guns.  Good choice.  Enough of that brambling noise.</state>
                 <state img="#-srsly.png">Don't worry, Revy.  Where I'm from, seems only misfortune can come from picking up other people's favorite weapons.</state>
             </case>
+            <case stage="0-7 9">
+                <condition role="target" character="pyrrha" stage="0" />
+                <state img="#-cheerful.png">
+                    <alt-img stage="9">#-embarrassed.png</alt-img>
+                    <text>...and fashionable too!</text>
+                </state>
+            </case>
             <case stage="0-3">
                 <state img="#-srsly.png">Meh!  I was hoping for more.</state>
                 <state img="#-smug.png">A strategy of delay, eh?</state>
@@ -2224,6 +2231,10 @@
                 <condition role="target" character="revy" stage="4" />
                 <state img="#-facepalm.png">So who pays for all the holes in the roof?</state>
                 <state img="#-facepalm.png">I wonder how they pay for all the bullet hole repairs in here?</state>
+            </case>
+            <case stage="0-7 9">
+                <condition role="target" character="pyrrha" stage="1" />
+                <state img="#-srsly.png">(Iops sure love their big red capes...)</state>
             </case>
             <case stage="0-7 9">
                 <condition role="target" character="meia" />
@@ -2443,13 +2454,6 @@
                 <condition role="target" character="kyoko" stage="5" />
                 <state img="#-intense.png">I'm sorry.  There's nothing a forest fears more than fire.</state>
             </case>
-            <case stage="0-7 9">
-                <condition role="target" character="pyrrha" stage="0" />
-                <state img="#-cheerful.png">
-                    <alt-img stage="9">#-embarrassed.png</alt-img>
-                    <text>...and fashionable too!</text>
-                </state>
-            </case>
             <case stage="0-7">
                 <condition role="target" character="rainbow_mika" stage="0" />
                 <state img="#-cheerful.png">You have somebody to take your boots off for you?  Hmm, I should add that to Evangelyne's job description.</state>
@@ -2551,10 +2555,6 @@
                 <condition role="target" character="mei" stage="3" />
                 <state img="#-cheerful.png">That coat did seem a bit much, for this place.</state>
                 <state img="#-haughty.png">That coat was much too warm, anyhow.</state>
-            </case>
-            <case stage="0-7 9">
-                <condition role="target" character="pyrrha" stage="1" />
-                <state img="#-srsly.png">(Iops sure love their big red capes...)</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="rainbow_mika" stage="1" />
@@ -3401,10 +3401,6 @@
                 <state img="#-cower.png">How did you do that without...  the sleeves... &lt;i&gt;Bra magic!&lt;/i&gt;</state>
             </case>
             <case stage="0-3">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="nayru" notSaidMarker="null_possess" />
-                </alternative>
                 <state img="#-smug.png">Fun!</state>
                 <state img="#-smug.png">It was inevitable, really.</state>
             </case>
@@ -4160,21 +4156,17 @@
                 <state img="#-hmmf.png">Wrap it up!</state>
                 <state img="#-hmmf.png">Headlocks seems less impressive when you can do them with your &lt;i&gt;mind&lt;/i&gt;.</state>
             </case>
+            <case stage="7">
+                <condition role="self" timeInStage="0-0" notSaidMarker="grow3" />
+                <state img="#-flustered.png">What a situation for a princess to be in!</state>
+                <state img="#-flustered.png">...</state>
+            </case>
             <case stage="0-3">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="nayru" saidMarker="v_forfeit" notSaidMarker="null_possess" />
-                </alternative>
                 <state img="#-embarrassed.png">That must feel...</state>
                 <state img="#-angry.png">Of course I wasn't watching!</state>
                 <state img="#-embarrassed.png">This part is a bit ridiculous, really.</state>
                 <state img="#-embarrassed.png">You use your &lt;i&gt;fingers?&lt;/i&gt;  Gross.</state>
                 <state img="#-haughty.png">Well &lt;i&gt;I'm&lt;/i&gt; certainly not going to have to do that, right?  How embarrassing.</state>
-            </case>
-            <case stage="7">
-                <condition role="self" timeInStage="0-0" notSaidMarker="grow3" />
-                <state img="#-flustered.png">What a situation for a princess to be in!</state>
-                <state img="#-flustered.png">...</state>
             </case>
             <case stage="0-7 9">
                 <state img="#-embarrassed.png">

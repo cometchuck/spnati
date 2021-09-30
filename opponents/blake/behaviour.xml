@@ -1532,29 +1532,6 @@
                 <state img="#-sad.png">Oh, the way you phrased that...</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="kali" stage="4" saidMarker="dirtytalk" />
-                <state img="#-shocked.png">Mom, NO.</state>
-                <state img="#-shocked.png">Brothers Grimm, I don't like that tone...</state>
-                <state img="#-shocked.png">He better not!</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="5" saidMarker="swinger" />
-                <state img="#-shocked.png">Blocking that one out!</state>
-                <state img="#-shocked.png">HOW DOES THIS REMIND YOU OF THAT!?</state>
-                <state img="#-sad.png">Do I want to know!?</state>
-                <state img="#-sad.png">Oh, my god, MOM!</state>
-                <state img="#-sad.png">Ew.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="6" saidMarker="dirtytalk" />
-                <state img="#-embarrassed.png">Way ahead of you...</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="5" />
-                <state img="#-angry.png">IS IT?</state>
-                <state img="#-angry.png">OH IS IT NOW!?</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="kali" saidMarker="dirtytalk" />
                 <state img="#-shocked.png" oneShotId="3">Believe me, I'm not looking.</state>
             </case>
@@ -1612,27 +1589,6 @@
         </trigger>
 
         <trigger id="female_removed_accessory">
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="5" saidMarker="showoff" />
-                <condition count="1-5" gender="male" />
-                <state img="#-shocked.png">STOP SHOWING OFF LIKE THAT!</state>
-                <state img="#-shocked.png">YOUR DAUGHTER IS RIGHT HERE.</state>
-                <state img="#-shocked.png">YOU WHAT!?</state>
-                <state img="#-shocked.png">You're tell me you do this OFTEN?</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="5" saidMarker="dirtytalk" />
-                <state img="#-angry.png">FEEL VERY BAD.</state>
-                <state img="#-angry.png">THAT'S MY MOM YOU PERVS.</state>
-                <state img="#-angry.png">DON'T ENGENDER THEM.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="kali" stage="6" saidMarker="dirtytalk" />
-                <state img="#-sad.png">Please don't mean that you and dad do this sort of thing together...</state>
-                <state img="#-sad.png">A family that strips together...</state>
-                <state img="#-sad.png">Gross.</state>
-                <state img="#-sad.png">I just heard that.  From my mom.  Ew.</state>
-            </case>
             <case stage="0-10">
                 <condition role="target" character="kali" stage="7" saidMarker="swinger" />
                 <state img="#-shocked.png">Played around!?</state>
@@ -1820,7 +1776,7 @@
             </case>
             <case stage="7">
                 <condition role="target" character="pyrrha" />
-                <state>Don't slow down on my account.</state>
+                <state img="#-annoyed.png">Don't slow down on my account.</state>
             </case>
             <case stage="8">
                 <condition role="target" character="pyrrha" />
@@ -2038,6 +1994,12 @@
                 <condition role="other" character="marinette" />
                 <state img="#-sarcastic.png">Gross.  I'll pass. Like, HARD pass.</state>
             </case>
+            <case stage="0-10">
+                <condition role="target" character="kali" stage="4" saidMarker="dirtytalk" />
+                <state img="#-shocked.png">Mom, NO.</state>
+                <state img="#-shocked.png">Brothers Grimm, I don't like that tone...</state>
+                <state img="#-shocked.png">He better not!</state>
+            </case>
             <case stage="0-5">
                 <condition role="target" character="pyrrha" />
                 <state img="#-interested.png">Well, this will be something at least.</state>
@@ -2186,6 +2148,20 @@
                 <condition role="other" character="pit" />
                 <state img="#-happy.png">Yeah.  What else would BB stand for?</state>
                 <state img="#-sarcastic.png">Well, ACTUALLY it stands for Born Blonde.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="kali" stage="5" saidMarker="showoff" />
+                <condition count="1-5" gender="male" />
+                <state img="#-shocked.png">STOP SHOWING OFF LIKE THAT!</state>
+                <state img="#-shocked.png">YOUR DAUGHTER IS RIGHT HERE.</state>
+                <state img="#-shocked.png">YOU WHAT!?</state>
+                <state img="#-shocked.png">You're tell me you do this OFTEN?</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="kali" stage="5" saidMarker="dirtytalk" />
+                <state img="#-angry.png">FEEL VERY BAD.</state>
+                <state img="#-angry.png">THAT'S MY MOM YOU PERVS.</state>
+                <state img="#-angry.png">DON'T ENGENDER THEM.</state>
             </case>
             <case stage="0">
                 <state img="#-blushing.png">Y'know? Not the worst thing I've seen.</state>
@@ -2497,6 +2473,14 @@
 
         <trigger id="female_chest_will_be_visible">
             <case stage="0-10">
+                <condition role="target" character="kali" saidMarker="swinger" />
+                <state img="#-shocked.png">Blocking that one out!</state>
+                <state img="#-shocked.png">HOW DOES THIS REMIND YOU OF THAT!?</state>
+                <state img="#-sad.png">Do I want to know!?</state>
+                <state img="#-sad.png">Oh, my god, MOM!</state>
+                <state img="#-sad.png">Ew.</state>
+            </case>
+            <case stage="0-10">
                 <condition role="target" character="neo" />
                 <state img="#-shocked.png">Excuse me!?</state>
                 <state img="#-shocked.png">Wait, what are you doing?</state>
@@ -2795,6 +2779,18 @@
         </trigger>
 
         <trigger id="female_medium_chest_is_visible">
+            <case stage="0-10">
+                <condition role="target" character="kali" stage="5" />
+                <state img="#-angry.png">IS IT?</state>
+                <state img="#-angry.png">OH IS IT NOW!?</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="kali" saidMarker="dirtytalk" />
+                <state img="#-sad.png">Please don't mean that you and dad do this sort of thing together...</state>
+                <state img="#-sad.png">A family that strips together...</state>
+                <state img="#-sad.png">Gross.</state>
+                <state img="#-sad.png">I just heard that.  From my mom.  Ew.</state>
+            </case>
             <case stage="0">
                 <condition role="target" character="neo" />
                 <state img="#-embarrassed.png">Oh... That was... her...</state>
@@ -2999,6 +2995,10 @@
             <case stage="0-10">
                 <condition role="target" character="kali" stage="0" saidMarker="blaketease" />
                 <state img="#-embarrassed.png">I'm not a fan of that tone...</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="kali" saidMarker="dirtytalk" />
+                <state img="#-embarrassed.png">Way ahead of you...</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="neo" />
@@ -4233,9 +4233,9 @@
         </trigger>
 
     </behaviour>
-    <epilogue gender="any" version="0">
+    <epilogue gender="any" img="b0.jpg" version="2">
         <title>Side Stories</title>
-        <scene background="b0.jpg" width="672" height="374">
+        <scene name="" background="b0.jpg" x="0" y="0" width="672" height="374">
             <directive type="text" arrow="none" x="11%" y="5%">Menagerie, where there's...</directive>
             <directive type="pause" />
             <directive type="text" arrow="none" x="11%" y="15%">A lot of Faunus.</directive>
@@ -4247,13 +4247,13 @@
             <directive type="text" arrow="none" x="11%" y="45%">Nice nights, though.  Helps you see the forest for the trees.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="B1.jpg" width="2000" height="1500">
+        <scene name="" background="B1.jpg" x="0" y="0" width="2000" height="1500">
             <directive type="text" arrow="none" x="22%" y="5%">What are you even doing out here this late?</directive>
             <directive type="pause" />
             <directive type="text" arrow="none" x="22%" y="15%">Probably not important</directive>
             <directive type="pause" />
         </scene>
-        <scene background="B2.jpg" width="2000" height="1500">
+        <scene name="" background="B2.jpg" x="0" y="0" width="2000" height="1500">
             <directive type="text" width="3%" arrow="none" x="22%" y="5%">Oh?</directive>
             <directive type="pause" />
             <directive type="text" width="10%" arrow="none" x="22%" y="13%">Someone out this late?</directive>
@@ -4261,7 +4261,7 @@
             <directive type="text" arrow="none" x="22%" y="25%">Now, what story have you walked in on here?</directive>
             <directive type="pause" />
         </scene>
-        <scene background="B3.jpg" width="2000" height="1500">
+        <scene name="" background="B3.jpg" x="0" y="0" width="2000" height="1500">
             <directive type="text" width="20%" arrow="none" x="22%" y="5%">It seems she's looking for something.</directive>
             <directive type="pause" />
             <directive type="text" width="8%" arrow="none" x="22%" y="15%">Wonder what it is.</directive>

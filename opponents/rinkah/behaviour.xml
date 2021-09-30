@@ -3416,7 +3416,7 @@
                 <state img="#-happy.png">Looking at you more closely, you've got a pretty good body, ~name~. Maybe we could get a little more... physical some time?</state>
             </case>
             <case stage="0-2">
-                <condition filter="blue" role="target" stage="0" />
+                <condition filter="blue_hair" role="target" stage="0" />
                 <state img="#-calm.png">Blue hair? You wouldn't happen to be royalty would you?</state>
             </case>
             <case stage="0-2">
@@ -3920,6 +3920,10 @@
             <case stage="4-8">
                 <condition role="target" character="athena" stage="0" />
                 <state img="#-sad.png">Of course, given how badly I'm doing, I guess I can't really tease you.</state>
+            </case>
+            <case stage="0-8">
+                <condition role="target" character="pyrrha" stage="0" />
+                <state img="#-calm.png">Do you do a lot of fighting in your world?</state>
             </case>
             <case stage="3">
                 <condition role="other" character="corrin_f" />
@@ -4523,10 +4527,6 @@
                 <state img="#-think.png" marker="oboro">Oboro told me something about socks and sandals, but I can't remember if it was good or not.</state>
             </case>
             <case stage="0-8">
-                <condition role="target" character="pyrrha" stage="0" />
-                <state img="#-calm.png">Do you do a lot of fighting in your world?</state>
-            </case>
-            <case stage="0-8">
                 <condition role="target" character="rainbow_mika" stage="0" />
                 <state img="#-shocked.png">...</state>
             </case>
@@ -4853,10 +4853,6 @@
             <case stage="0-4">
                 <condition role="target" character="aimee" stage="0" />
                 <state img="#-shocked.png">Gods! It's certainly loud!</state>
-            </case>
-            <case stage="0-8">
-                <condition role="target" character="april" stage="3" />
-                <state img="#-proud.png">Although, it didn't really do a great job covering the important stuff anyway.</state>
             </case>
             <case stage="0-8">
                 <condition role="target" character="catria" stage="4" />
@@ -5533,6 +5529,10 @@
 
         <trigger id="female_chest_will_be_visible">
             <case stage="0-8">
+                <condition role="target" character="april" stage="3" />
+                <state img="#-proud.png">Although, it didn't really do a great job covering the important stuff anyway.</state>
+            </case>
+            <case stage="0-8">
                 <condition role="target" character="corrin_f" />
                 <condition role="self" saidMarker="nopants" />
                 <state img="#-think.png" marker="nyx">Come to think of it, Nyx doesn't wear pants either...</state>
@@ -5776,6 +5776,10 @@
                 <condition role="target" character="wiifitfemale" />
                 <state img="#-happy.png">Someone is certainly healthy!</state>
             </case>
+            <case stage="0-8">
+                <condition role="target" character="aella" />
+                <state img="#-proud.png">Hey, you're pretty fit, Aella. Fancy going for a spar later?</state>
+            </case>
             <case stage="0-4 6 8">
                 <state img="#-horny.png" marker="laslow">I like what I'm seeing. And I'm glad that for once Laslow isn't here to ruin the view.</state>
                 <state img="#-proud.png">Looking good, ~name~!</state>
@@ -5809,10 +5813,6 @@
             <case stage="0-8">
                 <condition role="target" character="peach" />
                 <state img="#-horny.png">Reminds me of the peaches we have back at Hoshido.</state>
-            </case>
-            <case stage="0-8">
-                <condition role="target" character="aella" />
-                <state img="#-proud.png">Hey, you're pretty fit, Aella. Fancy going for a spar later?</state>
             </case>
             <case stage="0-8">
                 <condition role="target" character="april" />
@@ -6094,7 +6094,6 @@
             </case>
             <case stage="0-8">
                 <condition role="target" character="moon" />
-                <state img="#-shocked.png"></state>
                 <state img="#-shocked.png">Yeah, that's fine. I wasn't planning on sleeping tonight anyway.</state>
                 <state img="#-shocked.png">That's... Disturbing.</state>
             </case>
@@ -6852,7 +6851,7 @@
         <trigger id="must_masturbate_first">
             <case stage="6">
                 <condition count="4" gender="male" />
-                <state>I feel outnumbered in this fight...</state>
+                <state img="#-embarrassed.png">I feel outnumbered in this fight...</state>
             </case>
             <case stage="6">
                 <state img="#-shocked.png">No way! How did I lose so badly!?</state>

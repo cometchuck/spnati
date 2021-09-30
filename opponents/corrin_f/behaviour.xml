@@ -1338,10 +1338,6 @@
                 <state img="#-humble.png">That is... Oddly normal, but not in a bad way.</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="pyrrha" stage="1" />
-                <state img="#-cheer.png">Your gloves this time? You're well prepared!</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="rinkah" stage="0" />
                 <state img="#-calm.png">How are things at the Flame Tribe?</state>
             </case>
@@ -1383,6 +1379,10 @@
                 <condition role="target" character="shimakaze" stage="3" />
                 <state img="#-unsure.png">Another explosion? ... Are you sure you're going to be ok?</state>
                 <state img="#-unsure.png">Another one? ... I know this isn't as bad as it looks, but I'm still worried...</state>
+            </case>
+            <case stage="0-2">
+                <condition role="target" character="pyrrha" stage="0" />
+                <state img="#-cheer.png">Your belt? That's a good first pick!</state>
             </case>
             <case stage="0-7" priority="100">
                 <condition role="target" character="launch" stage="2" saidMarker="yellow" />
@@ -1508,10 +1508,6 @@
                     <text>Seriously? Are you even playing this game?</text>
                 </state>
             </case>
-            <case stage="0-3">
-                <condition role="target" character="pyrrha" stage="2" />
-                <state img="#-concerned.png">You're removing those as well? Are you sure about that?</state>
-            </case>
             <case stage="0-2">
                 <condition role="target" character="scarlet_witch" stage="1" />
                 <state img="#-cheer.png">Can I touch it? It looks like it's made of the same fabric as mine!</state>
@@ -1548,6 +1544,10 @@
                 <condition role="target" character="shimakaze" stage="4" />
                 <state img="#-concerned.png">You look a bit... dizzy. Are you sure you don't want to sit down for a bit?</state>
                 <state img="#-concerned.png">You don't look too good... Don't you want to sit down for a bit?</state>
+            </case>
+            <case stage="0-2">
+                <condition role="target" character="pyrrha" stage="1" />
+                <state img="#-humble.png">That fabric really suited you! I wish you kept it on a bit longer...</state>
             </case>
             <case stage="0">
                 <state img="#-encourage.png">You have nothing to worry about, ~name~, you still have plenty left!</state>
@@ -1689,6 +1689,10 @@
                 <condition role="other" character="lyn" />
                 <state img="#-awkward.png">Uhm... Alright then...</state>
             </case>
+            <case stage="0-3">
+                <condition role="target" character="pyrrha" stage="1" />
+                <state img="#-cheer.png">Your gloves this time? You're well prepared!</state>
+            </case>
             <case stage="0-9">
                 <condition role="target" character="aimee" stage="1" />
                 <state img="#-shock.png">Please, not like this!</state>
@@ -1713,10 +1717,6 @@
                     <alt-img stage="9">#-unsure.png</alt-img>
                     <text>Really? You count &lt;i&gt;that&lt;/i&gt;? ...</text>
                 </state>
-            </case>
-            <case stage="0-2">
-                <condition role="target" character="pyrrha" stage="0" />
-                <state img="#-cheer.png">Your belt? That's a good first pick!</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="rarity" stage="0" />
@@ -1780,6 +1780,10 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-3">
+                <condition role="target" character="pyrrha" stage="2" />
+                <state img="#-concerned.png">You're removing those as well? Are you sure about that?</state>
+            </case>
             <case stage="0-9">
                 <condition role="target" character="aimee" stage="2" />
                 <state img="#-unsure.png">Well... At least you are a good shot, I guess...</state>
@@ -1809,10 +1813,6 @@
                     <alt-img stage="9">#-sad.png</alt-img>
                     <text>Well... You got a point...</text>
                 </state>
-            </case>
-            <case stage="0-2">
-                <condition role="target" character="pyrrha" stage="1" />
-                <state img="#-humble.png">That fabric really suited you! I wish you kept it on a bit longer...</state>
             </case>
             <case stage="0-5">
                 <condition role="target" character="rarity" stage="1" />
@@ -1947,11 +1947,6 @@
         </trigger>
 
         <trigger id="male_removed_major">
-            <case stage="0-7">
-                <condition role="target" character="9s" stage="3" />
-                <state img="#-concerned.png">A-aren't you supposed to have... nipples...?</state>
-                <state img="#-concerned.png">9S you look... uhm... different... from most guys...</state>
-            </case>
             <case stage="0-7 9">
                 <condition role="target" character="corrin_m" stage="5" />
                 <state img="#-awkward.png">Wait, I can see... No, this isn't right...</state>
@@ -2373,6 +2368,11 @@
             <case stage="0-9">
                 <condition role="target" character="corrin_m" stage="4" />
                 <state img="#-awkward.png">So that's what I would've looked like if I didn't ha- ... No, never mind.</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="9s" />
+                <state img="#-concerned.png">A-aren't you supposed to have... nipples...?</state>
+                <state img="#-concerned.png">9S you look... uhm... different... from most guys...</state>
             </case>
             <case stage="0">
                 <condition role="target" character="link" />

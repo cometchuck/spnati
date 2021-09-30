@@ -1008,7 +1008,7 @@
             </case>
             <case stage="4">
                 <condition role="other" character="mahiru" stage="7-9" sayingMarker="zoneselfie" />
-                <state img="blank.png" marker="mahiruselfie"></state>
+                <state img="blank.png" marker="mahiruselfie">~blank~</state>
             </case>
             <case stage="1">
                 <condition role="other" character="futaba" stage="4-8" />

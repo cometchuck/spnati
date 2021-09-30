@@ -16,7 +16,7 @@
     <wardrobe>
         <clothing name="panties" generic="underwear" position="lower" type="important" plural="true" />
         <clothing name="bra" generic="bra" position="upper" type="important" />
-        <clothing name="dress" generic="dress" position="upper" type="major" />
+        <clothing name="dress" generic="dress" position="both" type="major" />
         <clothing name="stockings" generic="socks" position="legs" type="minor" plural="true" />
         <clothing name="boots" generic="shoes" position="feet" type="extra" plural="true" />
         <clothing name="belt" generic="belt" position="waist" type="extra" />
@@ -508,7 +508,6 @@
                 <state img="#-appreciative.png">Good eye!  Crescent Rose is a High Velocity Sniper Scythe, so you KNOW it's awesome!</state>
                 <state img="#-appreciative.png">Good eye!  Crescent Rose is a High Velocity Sniper Scythe, so you know it's awesome!</state>
                 <state img="#-strip.png">Good eye!  Crescent Rose is a High Velocity Sniper Scythe, so you know it's awesome!</state>
-                <state img="#-appreciative.png"></state>
             </case>
             <case stage="0">
                 <condition role="other" character="pit" />
@@ -1030,6 +1029,21 @@
         </trigger>
 
         <trigger id="male_removing_accessory">
+            <case stage="0-3">
+                <condition role="target" character="9s" stage="0" />
+                <state img="#-interested.png">So... You're some kinda robot, huh?  That's AWESOME!</state>
+                <state img="#-interested.png">Is that some kind of nanotech visor?  I thought those weren't in circulation yet.</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="mettaton" stage="0" />
+                <state img="#-interested.png">So... you're a robot...</state>
+                <state img="#-interested.png">You're a LOT different than the robot I know.</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="pit" stage="0" />
+                <state img="#-interested.png">Cool wings, Pit!  What kind are they?</state>
+                <state img="#-interested.png">I've never met a Faunus with wings before!</state>
+            </case>
             <case stage="0">
                 <state img="#-shocked.png">Not much, huh?</state>
             </case>
@@ -1069,6 +1083,21 @@
         </trigger>
 
         <trigger id="male_removed_accessory">
+            <case stage="0-3">
+                <condition role="target" character="9s" stage="1" />
+                <state img="#-interested.png">I know a certain someone a little like you~</state>
+                <state img="#-interested.png">It's too much to ask if I can take a look at all your circuits and junk, isn't it?</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="mettaton" stage="1" />
+                <state img="#-interested.png">Kinda neat that tech has come this far, though...</state>
+                <state img="#-interested.png">I... think I prefer Penny...</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="pit" stage="1" />
+                <state img="#-interested.png">Is flying as cool as it looks?  I can only jump around with Crescent Rose.</state>
+                <state img="#-interested.png">How high can you go?  How far can you fly?  Wait, those wings are kinda small now that I think about it, can they even lift you?</state>
+            </case>
             <case stage="0">
                 <state img="#-interested.png">But it is early after all!</state>
                 <state img="#-appreciative.png">Good start, ~name~.</state>
@@ -1132,34 +1161,14 @@
                 <state img="#-angry.png">YEAH!  I'VE BEEN TELLING YOU!</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="9s" stage="0" />
-                <state img="#-interested.png">So... You're some kinda robot, huh?  That's AWESOME!</state>
-                <state img="#-interested.png">Is that some kind of nanotech visor?  I thought those weren't in circulation yet.</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="aimee" stage="0" />
-                <state img="#-interested.png">You have to tell me all about that cool gun of yours!</state>
-                <state img="#-interested.png">I'm a bit of a sharpshooter myself, so we gotta talk about shooting after this!</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="elaine" stage="0" />
                 <state img="#-interested.png">Can I see that rapier of yours?  It's super neat!</state>
                 <state img="#-interested.png">I wonder how similar that rapier is to Weiss'...</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="felicia" stage="0" />
-                <state img="#-interested.png">You're... brave!</state>
-                <state img="#-interested.png">I wonder if this is what Faunus dress like in Menagerie...</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="jura" stage="0" />
                 <state img="#-interested.png">Wow!  I'd think that someone of your size would use a bigger weapon...</state>
                 <state img="#-interested.png">Is there something special about that rapier?  I'd love to look at it for a bit.</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="kim" stage="0" />
-                <state img="#-interested.png">Pyrrha, is that you?  Nah, but you remind me of her.</state>
-                <state img="#-interested.png">By any chance do you have a stringy blonde friend?</state>
             </case>
             <case stage="0-3">
                 <condition role="target" character="kyu" stage="0" />
@@ -1190,11 +1199,6 @@
                 <state img="#-interested.png">Your eye looks kinda like something from Atlas.  They have ALL the cool tech stuff!</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="mettaton" stage="0" />
-                <state img="#-interested.png">So... you're a robot...</state>
-                <state img="#-interested.png">You're a LOT different than the robot I know.</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="morrigan" stage="0" />
                 <state img="#-interested.png">(She can't be any sort of Faunus...  They only have one trait, plus the wings wouldn't be there... right?)</state>
                 <state img="#-interested.png">(I wonder why she looks like that.  It's super cool, but I didn't think Faunus worked like that...)</state>
@@ -1203,16 +1207,6 @@
                 <condition role="target" character="palutena" stage="0" />
                 <state img="#-interested.png">You look really pretty, Palutena!</state>
                 <state img="#-interested.png">Your outfit is super neat!  All those cool jewels and junk look really awesome!</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="pit" stage="0" />
-                <state img="#-interested.png">Cool wings, Pit!  What kind are they?</state>
-                <state img="#-interested.png">I've never met a Faunus with wings before!</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="raven" stage="0" />
-                <state img="#-interested.png">Raven, huh...</state>
-                <state img="#-interested.png">I wonder what my dad would think of you.</state>
             </case>
             <case stage="0-3">
                 <condition role="target" character="revy" stage="0" />
@@ -1225,24 +1219,9 @@
                 <state img="#-interested.png">Is anyone else concerned with the fact that she's see through?</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="tifa" stage="0" />
-                <state img="#-interested.png">Are you the girl my sister told me about?  The one from the bar?</state>
-                <state img="#-interested.png">Yang said she fought someone like you a while back.</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="uravity" stage="0" />
                 <state img="#-interested.png">That's such a cool helmet, Uravity!  You gotta show me how it works when we're all done!</state>
                 <state img="#-interested.png">Who designed your outfit?  Was it you?  I'd love to meet them and talk designs and mechanics!</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="wiifitfemale" stage="0" />
-                <state img="#-interested.png">You got a neat look about you!  Kinda reminds me of back when I would roam around downtown and all the people just kinda blended into shadows.</state>
-                <state img="#-interested.png">I'm digging the white skin.  Makes you look super unique!</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="zone-tan" stage="0" />
-                <state img="#-interested.png">I have a weird feeling we should have met a long time ago but didn't.</state>
-                <state img="#-interested.png">Something about you makes me kind of nervous.</state>
             </case>
             <case stage="1-6">
                 <condition role="target" character="launch" stage="1" />
@@ -1296,34 +1275,14 @@
                 <state img="#-appreciative.png">Well, that's awesome!</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="9s" stage="1" />
-                <state img="#-interested.png">I know a certain someone a little like you~</state>
-                <state img="#-interested.png">It's too much to ask if I can take a look at all your circuits and junk, isn't it?</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="aimee" stage="1" />
-                <state img="#-interested.png">Do you wear that hat to keep the sun from getting in your eyes?  I've had problems with that lately.</state>
-                <state img="#-interested.png">My gun is also a scythe!  I'd love to take a look at yours and see what it can do!</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="elaine" stage="1" />
                 <state img="#-interested.png">I'm kind of a weapon connoisseur myself, so I'd love to pour over it a bit.</state>
                 <state img="#-interested.png">ARRGH you gonna be okay with me checking that out?  Hehe...</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="felicia" stage="1" />
-                <state img="#-interested.png">Wait, are those ears real?  Then, is she a Faunus?</state>
-                <state img="#-interested.png">I wonder if Blake would ever... dress? Dress like that.</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="jura" stage="1" />
                 <state img="#-interested.png">I guess I'm mixing you up with that Yatsuhashi guy from back in the day, but your weapon seems small for someone your size.  He was HUGE!  And his sword was HUGE!</state>
                 <state img="#-interested.png">So... can I look at it?</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="kim" stage="1" />
-                <state img="#-interested.png">Maybe it's the hair.  Or maybe the air of being really competent at things...</state>
-                <state img="#-interested.png">You should hang out with Pyrrha sometime.  I feel you'd get along.</state>
             </case>
             <case stage="0-3">
                 <condition role="target" character="kyu" stage="1" />
@@ -1350,11 +1309,6 @@
                 <state img="#-interested.png">I'm really interested in how all your stuff works.  I love tinkering around with machines!</state>
             </case>
             <case stage="0-3">
-                <condition role="target" character="mettaton" stage="1" />
-                <state img="#-interested.png">Kinda neat that tech has come this far, though...</state>
-                <state img="#-interested.png">I... think I prefer Penny...</state>
-            </case>
-            <case stage="0-3">
                 <condition role="target" character="morrigan" stage="1" />
                 <state img="#-interested.png">Uh, I mean, wow, sorry you lost!</state>
                 <state img="#-interested.png">I wasn't whispering to myself or anything!</state>
@@ -1364,16 +1318,6 @@
                 <state img="#-interested.png">You look like a couple of statues I've seen downtown.</state>
                 <state img="#-interested.png">We got all sorts of art filled with women like you back where I'm from!</state>
             </case>
-            <case stage="0-3">
-                <condition role="target" character="pit" stage="1" />
-                <state img="#-interested.png">Is flying as cool as it looks?  I can only jump around with Crescent Rose.</state>
-                <state img="#-interested.png">How high can you go?  How far can you fly?  Wait, those wings are kinda small now that I think about it, can they even lift you?</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="raven" stage="1" />
-                <state img="#-interested.png">My Uncle Qrow might share a kinship with you.</state>
-                <state img="#-interested.png">So do you like... talk to birds?  Cuz I hit one once during training and I'm super sorry.</state>
-            </case>
             <case stage="0">
                 <condition role="target" character="revy" stage="1" />
                 <state img="#-interested.png">They don't even look like they transform, but I feel you do well enough.</state>
@@ -1381,10 +1325,6 @@
             <case stage="0-3">
                 <condition role="target" character="revy" stage="1" />
                 <state img="#-interested.png">Can I look at... You know what, never mind.</state>
-            </case>
-            <case stage="0-8">
-                <condition role="target" character="samus" stage="4" />
-                <state img="#-shocked.png">WAH!  No!  I don't know why she's here!</state>
             </case>
             <case stage="0">
                 <condition role="target" character="spooky" stage="1" />
@@ -1394,48 +1334,20 @@
                 <condition role="target" character="spooky" stage="1" />
                 <state img="#-interested.png">I have a lot of things to think over when I get home.</state>
             </case>
-            <case stage="0">
-                <condition role="target" character="tifa" stage="1" />
-                <state img="#-interested.png">Your neck okay?</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="tifa" stage="1" />
-                <state img="#-interested.png">I hope you two don't hate each other...</state>
-            </case>
             <case stage="0-3">
                 <condition role="target" character="uravity" stage="1" />
                 <state img="#-interested.png">I want to learn as much as I can about all kinds of engineering so I can upgrade Crescent Rose!</state>
                 <state img="#-interested.png">All of your stuff looks super high tech, and also really cute!  Such a friendly design for a hero!</state>
             </case>
-            <case stage="0-3">
-                <condition role="target" character="wiifitfemale" stage="1" />
-                <state img="#-interested.png">And... uh, not in a bad way!</state>
-                <state img="#-interested.png">I mean that in a good way!</state>
-            </case>
-            <case stage="0-3">
-                <condition role="target" character="zone-tan" stage="1" />
-                <state img="#-interested.png">Part of me wants to ask what you do, but the other part of me is scared to know.</state>
-                <state img="#-interested.png">I'm... I don't know, but something feels off about you being here.</state>
-            </case>
             <case stage="1-3">
                 <condition role="target" character="revy" stage="1" />
                 <state img="#-interested.png">Those guns... are... cool don'tkillme...</state>
-            </case>
-            <case stage="1-3">
-                <alternative>
-                    <condition role="target" character="spooky" stage="1" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="tifa" stage="1" />
-                </alternative>
-                <state img="#-interested.png">My friend Sun said he planned on getting a tattoo of some guy that wore all green.</state>
             </case>
             <case stage="0">
                 <condition role="other" character="aimee" stage="0-7" />
                 <state img="#-appreciative.png">I would love to show you how Crescent Rose works later!  I love looking at other weapons!</state>
                 <state img="#-appreciative.png">Yeah, Crescent Rose is a High Velocity Sniper Scythe!  It needs the BEST ammo!</state>
                 <state img="#-appreciative.png">I mainly use high-calibur rounds with Crescent Rose.  When I need to bust out the BIG stuff, I use Dust rounds!</state>
-                <state img="#-appreciative.png"></state>
                 <state img="#-appreciative.png">Yeah, Crescent Rose is a High Velocity Sniper Scythe, so I only use the BEST ammo!</state>
             </case>
             <case stage="0-1">
@@ -1605,6 +1517,26 @@
 
         <trigger id="female_removing_minor">
             <case stage="0-3">
+                <condition role="target" character="kim" stage="0" />
+                <state img="#-interested.png">Pyrrha, is that you?  Nah, but you remind me of her.</state>
+                <state img="#-interested.png">By any chance do you have a stringy blonde friend?</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="raven" stage="0" />
+                <state img="#-interested.png">Raven, huh...</state>
+                <state img="#-interested.png">I wonder what my dad would think of you.</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="tifa" stage="0" />
+                <state img="#-interested.png">Are you the girl my sister told me about?  The one from the bar?</state>
+                <state img="#-interested.png">Yang said she fought someone like you a while back.</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="zone-tan" stage="0" />
+                <state img="#-interested.png">I have a weird feeling we should have met a long time ago but didn't.</state>
+                <state img="#-interested.png">Something about you makes me kind of nervous.</state>
+            </case>
+            <case stage="0-3">
                 <condition role="target" character="blackrose" />
                 <state img="#-interested.png">BlackRose?  Is that your real name?  Cuz I'm Ruby Rose!</state>
                 <state img="#-interested.png">If I have a kid, I should totally name them Black Rose.  Wait, that's not how names work...</state>
@@ -1668,6 +1600,29 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-3">
+                <condition role="target" character="kim" stage="1" />
+                <state img="#-interested.png">Maybe it's the hair.  Or maybe the air of being really competent at things...</state>
+                <state img="#-interested.png">You should hang out with Pyrrha sometime.  I feel you'd get along.</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="raven" stage="1" />
+                <state img="#-interested.png">My Uncle Qrow might share a kinship with you.</state>
+                <state img="#-interested.png">So do you like... talk to birds?  Cuz I hit one once during training and I'm super sorry.</state>
+            </case>
+            <case stage="0">
+                <condition role="target" character="tifa" stage="1" />
+                <state img="#-interested.png">Your neck okay?</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="tifa" stage="1" />
+                <state img="#-interested.png">I hope you two don't hate each other...</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="zone-tan" stage="1" />
+                <state img="#-interested.png">Part of me wants to ask what you do, but the other part of me is scared to know.</state>
+                <state img="#-interested.png">I'm... I don't know, but something feels off about you being here.</state>
+            </case>
             <case stage="0-3">
                 <condition role="target" character="blackrose" />
                 <state img="#-interested.png">Anyway, back to business!</state>
@@ -1866,6 +1821,16 @@
 
         <trigger id="female_removing_major">
             <case stage="0-3">
+                <condition role="target" character="aimee" stage="0" />
+                <state img="#-interested.png">You have to tell me all about that cool gun of yours!</state>
+                <state img="#-interested.png">I'm a bit of a sharpshooter myself, so we gotta talk about shooting after this!</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="wiifitfemale" stage="0" />
+                <state img="#-interested.png">You got a neat look about you!  Kinda reminds me of back when I would roam around downtown and all the people just kinda blended into shadows.</state>
+                <state img="#-interested.png">I'm digging the white skin.  Makes you look super unique!</state>
+            </case>
+            <case stage="0-3">
                 <condition role="target" character="moon" stage="0" />
                 <state img="#-shocked.png">Woah!  You're gonna do that this early!?</state>
                 <state img="#-shocked.png">I can't imagine going around without that here!</state>
@@ -2050,6 +2015,16 @@
         </trigger>
 
         <trigger id="female_removed_major">
+            <case stage="0-3">
+                <condition role="target" character="aimee" stage="1" />
+                <state img="#-interested.png">Do you wear that hat to keep the sun from getting in your eyes?  I've had problems with that lately.</state>
+                <state img="#-interested.png">My gun is also a scythe!  I'd love to take a look at yours and see what it can do!</state>
+            </case>
+            <case stage="0-3">
+                <condition role="target" character="wiifitfemale" stage="1" />
+                <state img="#-interested.png">And... uh, not in a bad way!</state>
+                <state img="#-interested.png">I mean that in a good way!</state>
+            </case>
             <case stage="0-3">
                 <condition role="target" character="moon" stage="1" />
                 <state img="#-shocked.png">Wow...  You're... interesting.</state>
@@ -2380,6 +2355,11 @@
         </trigger>
 
         <trigger id="female_chest_will_be_visible">
+            <case stage="0-3">
+                <condition role="target" character="felicia" />
+                <state img="#-interested.png">You're... brave!</state>
+                <state img="#-interested.png">I wonder if this is what Faunus dress like in Menagerie...</state>
+            </case>
             <case stage="0-6">
                 <condition role="target" character="blake" />
                 <state img="#-shocked.png">
@@ -2586,6 +2566,10 @@
         </trigger>
 
         <trigger id="female_medium_chest_is_visible">
+            <case stage="0-8">
+                <condition role="target" character="samus" stage="4" />
+                <state img="#-shocked.png">WAH!  No!  I don't know why she's here!</state>
+            </case>
             <case stage="0-5">
                 <condition role="target" character="blake" />
                 <state img="#-shocked.png">
@@ -2668,6 +2652,11 @@
         </trigger>
 
         <trigger id="female_large_chest_is_visible">
+            <case stage="0-3">
+                <condition role="target" character="felicia" stage="1" />
+                <state img="#-interested.png">Wait, are those ears real?  Then, is she a Faunus?</state>
+                <state img="#-interested.png">I wonder if Blake would ever... dress? Dress like that.</state>
+            </case>
             <case stage="0-5">
                 <alternative>
                     <condition role="target" character="yang" />
@@ -3015,6 +3004,18 @@
             <case stage="8">
                 <state img="#-happy.png">Still happy to see yours, though!</state>
                 <state img="#-shocked.png">Please don't look at me...</state>
+            </case>
+        </trigger>
+
+        <trigger id="opponent_stripped">
+            <case stage="1-3">
+                <alternative>
+                    <condition role="target" character="spooky" stage="1" />
+                </alternative>
+                <alternative>
+                    <condition role="target" character="tifa" stage="1" />
+                </alternative>
+                <state img="#-interested.png">My friend Sun said he planned on getting a tattoo of some guy that wore all green.</state>
             </case>
         </trigger>
 

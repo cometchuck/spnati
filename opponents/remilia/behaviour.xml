@@ -6679,10 +6679,6 @@
                 <state img="custom:#-questioningcalm">That amanojaku girl? Ah, the one that tried to invite you to a resistance force. "You cannot understand the oppression of the weak", she said.</state>
             </case>
             <case stage="0-6">
-                <condition role="target" character="ryuko" stage="2" />
-                <state img="custom:#-interestedcalm"></state>
-            </case>
-            <case stage="0-6">
                 <condition role="target" character="saki" stage="0" />
                 <state img="custom:#-angryconcerned">Humans are truly disgusting creatures. Absolutely despicable, utterly shameless, barbaric, revolting beings!</state>
             </case>
