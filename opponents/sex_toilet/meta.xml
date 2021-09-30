@@ -12,7 +12,7 @@
     <writer>cavendish89, coolcat001100</writer>
     <artist>coolcat001100</artist>
     <description>"Hey, Viagra was originally invented to treat hypertension. Look how that turned out." -James McGill</description>
-    <epilogue gender="any" hint="Win a game against Tony the Toilet Buddy. Even if it kills you.">The Big Twist</epilogue>
+    <epilogue gender="any" img="/img/backgrounds/showers.png" hint="Win a game against Tony the Toilet Buddy. Even if it kills you.">The Big Twist</epilogue>
     <layers>4</layers>
     <has_collectibles>true</has_collectibles>
     <lines>182</lines>

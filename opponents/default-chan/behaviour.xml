@@ -16,7 +16,7 @@
     <wardrobe>
         <clothing name="end layer" generic="leggings" position="lower" type="important" />
         <clothing name="fifth layer" generic="skirt" position="lower" type="major" />
-        <clothing name="fourth layer" generic="shirt" position="upper" type="important" />
+        <clothing name="fourth layer" generic="shirt" position="upper" type="major" />
         <clothing name="third layer" generic="jacket" position="upper" type="minor" />
         <clothing name="second layer" generic="ribbon" position="neck" type="extra" />
         <clothing name="first layer" generic="shoes" position="feet" type="extra" />

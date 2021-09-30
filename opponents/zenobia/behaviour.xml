@@ -225,7 +225,7 @@
                 <state img="#-strip.png">I'm literal perfection. Surely a little eye candy won't hurt.</state>
             </case>
             <case stage="1">
-                <state img="#-strip.png">&lt;i&gt;Grrr.</state>
+                <state img="#-strip.png">&lt;i&gt;Grrr.&lt;/i&gt;</state>
                 <state img="#-strip.png">I'll crush you for this.</state>
             </case>
         </trigger>

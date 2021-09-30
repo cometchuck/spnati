@@ -737,7 +737,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -752,7 +752,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -767,7 +767,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -782,7 +782,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -797,7 +797,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -812,7 +812,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -827,7 +827,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -842,7 +842,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -857,7 +857,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -872,7 +872,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -887,7 +887,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -902,7 +902,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -917,7 +917,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -932,7 +932,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -947,7 +947,7 @@
                 <state img="custom:#-superangry"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -962,7 +962,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -977,7 +977,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -992,7 +992,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1007,7 +1007,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1022,7 +1022,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1037,7 +1037,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1052,7 +1052,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1067,7 +1067,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1082,7 +1082,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1097,7 +1097,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1112,7 +1112,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1127,7 +1127,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1142,7 +1142,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1157,7 +1157,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1172,7 +1172,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1187,7 +1187,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1202,7 +1202,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1217,7 +1217,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1232,7 +1232,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1247,7 +1247,7 @@
                 <state img="custom:#-alteredannoyed"><script>obfuscate();</script></state>
             </case>
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1291,19 +1291,19 @@
 
         <trigger id="finishing_masturbating">
             <case stage="5">
-                <state img="custom:#-explosion"></state>
+                <state img="custom:#-explosion">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="finished_masturbating">
             <case stage="6" id="4">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="after_masturbating">
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 
@@ -1319,7 +1319,7 @@
 
         <trigger id="game_over_defeat">
             <case stage="6">
-                <state img="blank.png"></state>
+                <state img="blank.png">~blank~</state>
             </case>
         </trigger>
 

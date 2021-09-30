@@ -72,25 +72,25 @@
                 <state img="normal.png">For the start I'll exchange ~cards~ cards.</state>
             </case>
             <case stage="0-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="good_hand">
             <case stage="0-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="okay_hand">
             <case stage="0-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="bad_hand">
             <case stage="0-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
@@ -110,19 +110,19 @@
 
         <trigger id="must_strip_winning">
             <case stage="0-4">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="must_strip_normal">
             <case stage="0-4">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="must_strip_losing">
             <case stage="0-4">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
@@ -132,13 +132,13 @@
                 <state img="custom:goodBye" marker="goodBye">Sorry, if I was disturbing you... I'm leaving. But if you like, pretend I'm still there, okay?</state>
             </case>
             <case stage="0-4" id="8">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="stripped">
             <case stage="1-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
@@ -150,91 +150,91 @@
 
         <trigger id="male_chest_will_be_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_chest_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_crotch_will_be_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_small_crotch_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_medium_crotch_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_large_crotch_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_chest_will_be_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_chest_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_crotch_will_be_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_crotch_is_visible">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
@@ -244,10 +244,10 @@
                 <state img="shocked.png">Eeeeeeeeeeeeeeeeeeeeeh? Did I hear that right? Stripping? This is strip poker!? I didn't sign up for that.</state>
             </case>
             <case stage="0-6" priority="99">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
@@ -257,10 +257,10 @@
                 <state img="custom:goodBye" marker="goodBye">Sorry, if I was disturbing you... I'm leaving. But if you like, pretend I'm still there, okay?</state>
             </case>
             <case stage="0-6" priority="99">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
@@ -270,118 +270,118 @@
                 <state img="custom:goodBye" marker="goodBye">Sorry, if I was disturbing you... I'm leaving. But if you like, pretend I'm still there, okay?</state>
             </case>
             <case stage="0-6" priority="99">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_start_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="male_finished_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_start_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="female_finished_masturbating">
             <case stage="0-6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="must_masturbate_first">
             <case stage="5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="must_masturbate">
             <case stage="5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="start_masturbating">
             <case stage="5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="masturbating">
             <case stage="6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="heavy_masturbating">
             <case stage="6">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="finishing_masturbating">
             <case stage="6">
-                <state img="custom:fall"></state>
+                <state img="custom:fall">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="finished_masturbating">
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="game_over_victory">
             <case stage="0-5">
-                <state img="doll.png"></state>
+                <state img="doll.png">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="game_over_defeat">
             <case stage="7">
-                <state img="custom:fallen"></state>
+                <state img="custom:fallen">~blank~</state>
             </case>
         </trigger>
 

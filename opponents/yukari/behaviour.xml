@@ -368,7 +368,7 @@
                 <state img="#-smug.png">Come on. You're all making this so easy for me!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -394,7 +394,7 @@
                 <state img="#-smug.png">Come on. You're all making this so easy for me!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -406,7 +406,7 @@
                 <state img="#-interested.png">Uwaaaah, a tie..! What a surprise!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -432,7 +432,7 @@
                 <state img="#-confused.png">Everybody here seems kinda calm about this, huh? Is this really going to be scary?</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -458,7 +458,7 @@
                 <state img="#-thinking.png">I mean, I guess you could say this situation is &lt;i&gt;kinda&lt;/i&gt; scary...</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -484,7 +484,7 @@
                 <state img="#-confused.png">Everybody here seems kinda calm about this, huh? Is this really going to be scary?</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -510,7 +510,7 @@
                 <state img="#-thinking.png">I mean, I guess you could say this situation is &lt;i&gt;kinda&lt;/i&gt; scary...</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -536,7 +536,7 @@
                 <state img="#-pout.png">If you're trying to scare someone dressed up in all &lt;i&gt;that&lt;/i&gt;, then you're wasting your time!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -562,7 +562,7 @@
                 <state img="#-interested.png">Oooh, nice choice! You're definitely closer to looking the part now, ~name~!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -588,7 +588,7 @@
                 <state img="#-pout.png">If you're trying to scare someone dressed up in all &lt;i&gt;that&lt;/i&gt;, then you're wasting your time!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -614,7 +614,7 @@
                 <state img="#-interested.png">Oooh, nice choice! You're definitely closer to looking the part now, ~name~!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -640,7 +640,7 @@
                 <state img="#-embarrassed.png">Oh man, something big's going to happen, I can feel it!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -666,7 +666,7 @@
                 <state img="#-thinking.png">Wait, how do I convince people to get into a strip poker game to begin with..?</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -692,7 +692,7 @@
                 <state img="#-embarrassed.png">Oh man, something big's going to happen, I can feel it!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -718,7 +718,7 @@
                 <state img="#-thinking.png">Wait, how do I convince people to get into a strip poker game to begin with..?</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -732,7 +732,7 @@
                 <state img="#-interested.png">I feel like... this is it! This is where the &lt;i&gt;real&lt;/i&gt; scare shows up!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -754,7 +754,7 @@
                 <state img="#-slain.png">Okay, maybe I was expecting too much.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -769,7 +769,7 @@
                 <state img="#-embarrassed.png">I've heard that the mighty "trouser snake" likes to hide underneath men's clothes..!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -783,7 +783,7 @@
                 <state img="#-thinking.png">Um... I admit that I'm surprised, but its not the good kind. Or the scary kind. Just the disappointed kind.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -797,7 +797,7 @@
                 <state img="#-embarrassed.png">Okay, that's... a little intimidating..!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -811,7 +811,7 @@
                 <state img="#-surprised.png">&lt;i&gt;Waah!&lt;/i&gt; A m-m-m-monster actually showed up!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -831,7 +831,7 @@
                 <state img="#-embarrassed.png">I feel like I'm about to see something shocking!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -847,7 +847,7 @@
                 <state img="#-smug.png">Ah, no, turns out there wasn't anything there to begin with.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -863,7 +863,7 @@
                 <state img="#-slain.png">The real scare was that there wasn't anything there after all...</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -879,7 +879,7 @@
                 <state img="#-interested.png">How did you keep those hidden to begin with!? You have to be some kind of hiding master or something!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -898,7 +898,7 @@
                 <state img="#-interested.png">This is the last place for something scary to be hiding! I've got high hopes for this!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -917,7 +917,7 @@
                 <state img="#-laughing.png">~Name~ seems to have no issues with it, though.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
             <case stage="3-5">
                 <state img="#-slain.png">Umm... maybe I was getting my hopes up, but I really was hoping for something shocking under there...</state>
@@ -968,7 +968,7 @@
                 <state img="#-slain.png">You know when you scream at the people in the scary movies to stop being idiots? I totally get it now.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -981,7 +981,7 @@
                 <state img="#-proud.png">You should make sure to enjoy yourself. It's not often you'll be able to have me to watch over you like this.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
             <case stage="3-5">
                 <state img="#-shocked.png">I still think this is a really bad idea though!</state>
@@ -1013,7 +1013,7 @@
                 <state img="#-pout.png">If any of you decide that you want to split up for some "privacy" I'm actually going to kill you all myself.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1027,7 +1027,7 @@
                 <state img="#-surprised.png">&lt;i&gt;W-woah!&lt;/i&gt; T-that surprised me!</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1050,7 +1050,7 @@
                 <state img="#-slain.png">You know when you scream at the people in the scary movies to stop being idiots? I totally get it now.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1069,7 +1069,7 @@
                 <state img="#-slain.png">Just make sure you don't think "I'm so embarrassed I could die!". Because that's 100% a death flag.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1095,7 +1095,7 @@
                 <state img="#-pout.png">If any of you decide that you want to split up for some "privacy" I'm actually going to kill you all myself.</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1113,7 +1113,7 @@
                 <state img="#-surprised.png">&lt;i&gt;I'm only screaming because you're screaming!&lt;/i&gt;</state>
             </case>
             <case stage="6-7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1137,25 +1137,25 @@
 
         <trigger id="masturbating">
             <case stage="6">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="heavy_masturbating">
             <case stage="6">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="finishing_masturbating">
             <case stage="6">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
         <trigger id="finished_masturbating">
             <case stage="7">
-                <state img="custom:#-float"></state>
+                <state img="custom:#-float">~blank~</state>
             </case>
         </trigger>
 
@@ -1170,7 +1170,7 @@
 
         <trigger id="game_over_defeat">
             <case stage="7">
-                <state img="custom:#-float" collectible="kogasa_umbrella"></state>
+                <state img="custom:#-float" collectible="kogasa_umbrella">~blank~</state>
             </case>
         </trigger>
 
