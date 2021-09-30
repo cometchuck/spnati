@@ -482,6 +482,18 @@
                 <condition role="target" character="leela" stage="0" />
                 <state img="#-shocked.png">Does... does that happen often to you, Leela?</state>
             </case>
+            <case stage="0-2">
+                <condition role="target" character="buffy" stage="1" />
+                <state img="#-angry.png">Don't be crude, Buffy!</state>
+            </case>
+            <case stage="0-1">
+                <condition role="target" character="hermione" stage="0" />
+                <state img="#-calm.png">So... you're some kind of magic user, right?</state>
+            </case>
+            <case stage="3-6">
+                <condition role="target" character="buffy" stage="1" />
+                <state img="#-angry.png">Adding insult to injury, Buffy? I won't regret taking you down one bit.</state>
+            </case>
             <case stage="0">
                 <condition filter="princess" role="target" />
                 <state img="#-lost.png">So, ~name~, you're a princess? Doesn't that make you an NPC?</state>
@@ -535,6 +547,10 @@
             <case stage="0-3">
                 <condition role="target" character="lyn" stage="2" />
                 <state img="#-happy.png">Then I'll just have to break through your guard!</state>
+            </case>
+            <case stage="0-1">
+                <condition role="target" character="hermione" stage="1" />
+                <state img="#-interested.png">I've never seen one wearing clothes like yours. Do they give you some kind of bonus?</state>
             </case>
             <case stage="0">
                 <condition role="target" character="mercy" />
@@ -665,14 +681,6 @@
         </trigger>
 
         <trigger id="female_removing_minor">
-            <case stage="0-2">
-                <condition role="target" character="buffy" stage="1" />
-                <state img="#-angry.png">Don't be crude, Buffy!</state>
-            </case>
-            <case stage="0-1">
-                <condition role="target" character="hermione" stage="0" />
-                <state img="#-calm.png">So... you're some kind of magic user, right?</state>
-            </case>
             <case stage="0-1">
                 <condition role="target" character="kim" stage="1" />
                 <state img="#-nervous.png">In... both senses? I'm sorry, Kim - I'm not familiar with that idiom.</state>
@@ -680,10 +688,6 @@
             <case stage="0-10">
                 <condition role="target" character="kyoko" stage="5" />
                 <state img="#-shocked.png">You poor thing!</state>
-            </case>
-            <case stage="3-6">
-                <condition role="target" character="buffy" stage="1" />
-                <state img="#-angry.png">Adding insult to injury, Buffy? I won't regret taking you down one bit.</state>
             </case>
             <case stage="1-2">
                 <condition filter="innocent" role="target" />
@@ -738,10 +742,6 @@
             <case stage="0-4">
                 <condition role="target" character="buffy" stage="1" />
                 <state img="#-sad.png">Sometimes I wish I could be as free as you, Buffy.</state>
-            </case>
-            <case stage="0-1">
-                <condition role="target" character="hermione" stage="1" />
-                <state img="#-interested.png">I've never seen one wearing clothes like yours. Do they give you some kind of bonus?</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="kyoko" stage="6" />

@@ -16,8 +16,8 @@
 
 
     <wardrobe>
-        <clothing name="leotard top" generic="leotard" position="upper" type="important" />
-        <clothing name="leotard bottom" generic="leotard" position="lower" type="important" />
+        <clothing name="leotard top" generic="leotard" position="upper" type="major" />
+        <clothing name="leotard bottom" generic="leotard" position="lower" type="major" />
         <clothing name="boots" generic="shoes" position="feet" type="extra" plural="true" />
         <clothing name="gloves" generic="gloves" position="hands" type="extra" plural="true" />
         <clothing name="hat" generic="hat" position="head" type="extra" />
@@ -1730,7 +1730,6 @@
                 </alternative>
                 <state img="#-stripped_jj.png">Thank you, Uravity. The same goes to you. Your ability is perfect for providing support during a fight.</state>
                 <state img="#-stripped_jj.png">Thank you, Uravity. You just get them out of here. You're helping a lot.</state>
-                <state img="#-stripped_jj.png"></state>
             </case>
             <case stage="4">
                 <alternative>
@@ -1747,7 +1746,6 @@
                 </alternative>
                 <state img="#-stripped_dec.png">That's ok, Uravity! It's doesn't seem they're a threat to the other players, so I'll take care of it.</state>
                 <state img="#-stripped_dec.png">It's ok, Uravity! Don't push yourself too hard. I'll take it from here.</state>
-                <state img="#-stripped_dec.png"></state>
             </case>
             <case stage="5">
                 <alternative>
@@ -1854,7 +1852,7 @@
                 <state img="#-stripped.png">No big deal at all. Let's keep going.</state>
             </case>
             <case stage="2-5">
-                <state>What the character says just after they take their clothes off. Note that this is the start of a new stage.</state>
+                <state img="#-butt.png">This line shouldn't play.</state>
             </case>
         </trigger>
 
@@ -4699,7 +4697,6 @@
                 <state img="#-serious.png">I only get half of what you're saying all the time. I suppose it's not my task to try to understand how an A.I. operates.</state>
                 <state img="#-serious.png">I don't get it...</state>
                 <state img="#-calm.png">What is this "download" for?</state>
-                <state img="#-nervous.png"></state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="morrigan" />
