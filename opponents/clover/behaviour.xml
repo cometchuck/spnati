@@ -4504,6 +4504,10 @@
                 <condition role="target" character="hermione" stage="1" />
                 <state img="#-awkward.png">Can you remove change what happened in the past or is that too much for you?</state>
             </case>
+            <case stage="0-9">
+                <condition role="target" character="asuna" stage="1" />
+                <state img="#-awkward.png">So...you went on a quest...for boots...that prance?</state>
+            </case>
             <case stage="0-3 7-9">
                 <condition role="target" character="cammy" />
                 <state img="#-sad.png">Thank you, Cammy. It's reassuring knowing you're here to protect us.</state>
@@ -4908,6 +4912,18 @@
                 <condition role="target" character="remilia" stage="1" />
                 <state img="#-annoyed.png">Whatever, I can do that, too! Well... sorta.</state>
             </case>
+            <case stage="0-2 7-9">
+                <condition role="target" character="daria" stage="3" />
+                <state img="#-awkward.png">I hope thing turn around for you, Daria. Your whole demeanor on life is... depressing.</state>
+            </case>
+            <case stage="3">
+                <condition role="target" character="daria" stage="3" />
+                <state img="#-awkward.png">I hope thing turn around for you, Daria. Your whole demeanor on life is... depressing.</state>
+            </case>
+            <case stage="4-6">
+                <condition role="target" character="daria" stage="3" />
+                <state img="#-calm.png">Your whole demeanor on life is... depressing. And I should know, I'm constantly fighting depression.</state>
+            </case>
             <case stage="0-6 8-9">
                 <condition role="target" character="elaine" />
                 <state img="#-shocked.png">Does that jacket do anything? It seems like it's there just to cover up something...dangerous.</state>
@@ -4994,15 +5010,6 @@
                 <state img="#-awkward.png">Where do you even find dresses in your size?</state>
             </case>
             <case stage="0-7">
-                <alternative>
-                    <condition role="target" character="aimee" stage="2" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="buffy" stage="2" />
-                </alternative>
-                <state img="#-awkward.png">...</state>
-            </case>
-            <case stage="0-7">
                 <condition role="target" character="aimee" stage="3" />
                 <state img="#-awkward.png">(I don't feel dead...guess she missed?)</state>
             </case>
@@ -5013,10 +5020,6 @@
             <case stage="0-6 8-9">
                 <condition role="target" character="angie" stage="2" />
                 <state img="#-horny.png">(Angie's underskirt is showing...how interesting)</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="asuna" stage="1" />
-                <state img="#-awkward.png">So...you went on a quest...for boots...that prance?</state>
             </case>
             <case stage="0-6 8-9">
                 <condition role="target" character="asuna" stage="2" />
@@ -5189,6 +5192,10 @@
             <case stage="4-6">
                 <condition role="target" character="remilia" stage="2" />
                 <state img="#-calm.png">We'll see about that. You're fucking with an esper now.</state>
+            </case>
+            <case stage="0-9">
+                <condition role="target" character="daria" stage="4" />
+                <state img="#-shocked.png">Two shirts? Isn't that excessive?</state>
             </case>
             <case stage="0-3">
                 <state img="#-horny.png">Have you thought about looking at things through a different angle?</state>
@@ -5448,10 +5455,6 @@
                 <condition role="target" character="daisy" stage="4" />
                 <state img="#-calm.png">The dress was too short for you anyway,</state>
             </case>
-            <case stage="0-2 7-9">
-                <condition role="target" character="daria" stage="3" />
-                <state img="#-awkward.png">I hope thing turn around for you, Daria. Your whole demeanor on life is... depressing.</state>
-            </case>
             <case stage="0-6 8-9">
                 <condition role="target" character="elaine" stage="3" />
                 <state img="#-horny.png">i wonder what kind of underwear a pirate wears.</state>
@@ -5609,10 +5612,6 @@
                 <state img="#-shocked.png">M-malware? Aren't you sponsored by Avast?! What are they doing right now?</state>
             </case>
             <case stage="3">
-                <condition role="target" character="daria" stage="3" />
-                <state img="#-awkward.png">I hope thing turn around for you, Daria. Your whole demeanor on life is... depressing.</state>
-            </case>
-            <case stage="3">
                 <condition role="target" character="elaine" stage="5" />
                 <state img="#-shocked.png">All I see is fire coming out of a monkey's skull and DK beating the shit out of Lil' Mac.</state>
             </case>
@@ -5643,10 +5642,6 @@
             <case stage="4-6">
                 <condition role="target" character="corrin_f" stage="4" />
                 <state img="#-annoyed.png">Great, now we gotta wait another hour for you to take off your pants.</state>
-            </case>
-            <case stage="4-6">
-                <condition role="target" character="daria" stage="3" />
-                <state img="#-calm.png">Your whole demeanor on life is... depressing. And I should know, I'm constantly fighting depression.</state>
             </case>
             <case stage="4-6">
                 <condition role="target" character="elena" stage="3" />
@@ -5830,10 +5825,6 @@
             <case stage="0-6 8-9">
                 <condition role="target" character="daisy" stage="5" />
                 <state img="#-happy.png">Nice, but I expected your skin to be lighter under the dress.</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="daria" stage="4" />
-                <state img="#-shocked.png">Two shirts? Isn't that excessive?</state>
             </case>
             <case stage="0-3 5-7 9">
                 <condition role="target" character="daria" stage="5" />
@@ -6368,6 +6359,10 @@
                 <condition role="target" character="ryuji" />
                 <state img="#-horny.png">You promise to turn around? What if I asked nicely.</state>
             </case>
+            <case stage="4-6">
+                <condition role="target" character="ryuji" />
+                <state img="#-shocked.png">I got it! You use steroids to get those abs and now you're ashamed of the side effect. Short temper and short dick. I bet a 5 year old has a bigger dick.</state>
+            </case>
             <case stage="0-3">
                 <state img="#-calm.png">It's about average... I'm sure Light has a bigger one.</state>
                 <state img="#-shocked.png">... Where were we? I was focusing on a... hose! Yeah! Just a regular hose.</state>
@@ -6407,10 +6402,6 @@
             <case stage="4-6">
                 <condition role="target" character="jin" />
                 <state img="#-annoyed.png">I hate rice crackers, now I hate them even more...</state>
-            </case>
-            <case stage="4-6">
-                <condition role="target" character="ryuji" />
-                <state img="#-shocked.png">I got it! You use steroids to get those abs and now you're ashamed of the side effect. Short temper and short dick. I bet a 5 year old has a bigger dick.</state>
             </case>
             <case stage="8">
                 <condition role="target" character="kira" />
@@ -7427,6 +7418,18 @@
                 <state img="#-shocked.png">It looks so different from mine.</state>
                 <state img="#-awkward.png">I...might pass out... Things are slowing down.</state>
                 <state img="#-happy.png">It looks great. You must take care of it.</state>
+            </case>
+        </trigger>
+
+        <trigger id="opponent_stripped">
+            <case stage="0-7">
+                <alternative>
+                    <condition role="target" character="aimee" stage="2" />
+                </alternative>
+                <alternative>
+                    <condition role="target" character="buffy" stage="2" />
+                </alternative>
+                <state img="#-awkward.png">...</state>
             </case>
         </trigger>
 

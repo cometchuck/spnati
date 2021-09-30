@@ -988,12 +988,9 @@
                 <state img="#-smile.png">They're very cute ~name~.</state>
                 <state img="#-shy.png">There's nothing wrong with small breasts ~name~.</state>
             </case>
-            <case stage="4-6">
+            <case stage="4-8">
                 <state img="#-smile.png">Those are very cute ~name~! I'm sure the boys are all over you!</state>
                 <state img="#-smile.png">You're very cute ~name~, so it makes sense that your breasts are too.</state>
-            </case>
-            <case stage="7-8">
-                <state>What the character says after the female character's chest is visible, and has a size value of "small".</state>
             </case>
             <case stage="9-10">
                 <state img="#-happy.png">They're so cute ~name~!</state>

@@ -341,7 +341,7 @@
         <trigger id="must_strip_normal">
             <case stage="0">
                 <condition count="0" role="opp" character="blake" />
-                <condition count="0" filter="blake_belladonna" />
+                <condition count="0" role="opp" character="blake_belladonna" />
                 <condition role="other" character="coco" />
                 <state img="#-happy.png">It's not the ears, is it?</state>
                 <state img="#-interested.png">Are you a huntress by chance?  I might know why I look familiar.</state>
@@ -633,6 +633,14 @@
         </trigger>
 
         <trigger id="stripping">
+            <case stage="0">
+                <condition count="0" role="opp" character="blake" />
+                <condition count="0" role="opp" character="blake_belladonna" />
+                <condition role="other" character="coco" />
+                <state img="#-happy.png">Oh, you know my daughter?</state>
+                <state img="#-happy.png">Yes, Blake is my daughter.</state>
+                <state img="#-happy.png">Oh, you must know my daughter!</state>
+            </case>
             <case stage="0-6">
                 <condition role="other" character="buffy" stage="4-5" />
                 <state img="#-tease.png">You think I'm being shy?  You have no idea, little miss.</state>
@@ -694,13 +702,6 @@
             <case stage="6">
                 <condition role="other" character="coco" stage="6-8" />
                 <state img="#-show.png">I'm sure my husband and his friends agree.</state>
-            </case>
-            <case stage="0">
-                <condition count="0" filter="0" />
-                <condition role="other" character="coco" />
-                <state img="#-happy.png">Oh, you know my daughter?</state>
-                <state img="#-happy.png">Yes, Blake is my daughter.</state>
-                <state img="#-happy.png">Oh, you must know my daughter!</state>
             </case>
             <case stage="5">
                 <condition role="self" saidMarker="swinger" />
@@ -2404,7 +2405,6 @@
                 <state img="#-tease.png" marker="blaketease">Blake?  Blake!?  I know you're attracted to girls, but please control yourself.</state>
             </case>
             <case stage="0-9">
-                <test expr="~clothing~" />
                 <state img="#-tease.png" oneShotId="120">It's been a while since I wore something like that~</state>
                 <state img="#-tease.png" oneShotId="121">My husband hasn't asked me to wear something like that in a while~</state>
             </case>
@@ -3145,12 +3145,7 @@
                 <state img="#-embarrassed.png">Teams stick together...</state>
             </case>
             <case stage="0-9">
-                <alternative>
-                    <condition filter="fuzzy" role="target" />
-                </alternative>
-                <alternative>
-                    <condition filter="trimmed" role="target" />
-                </alternative>
+                <condition filter="trimmed" role="target" />
                 <state img="#-tease.png">My husband prefers me shaved, though I don't doubt your partner enjoys that.</state>
                 <state img="#-tease.png">A little fuzzy, aren't we?</state>
             </case>

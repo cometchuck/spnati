@@ -1870,11 +1870,6 @@
         </trigger>
 
         <trigger id="male_removed_major">
-            <case stage="0-8">
-                <condition role="target" character="9s" stage="3" />
-                <state img="#-awkward.png">&lt;i&gt;Eeer&lt;/i&gt; ... I'm speechless!</state>
-                <state img="#-awkward.png">That's an odd view. &lt;i&gt;Even for androids!&lt;/i&gt;</state>
-            </case>
             <case stage="0">
                 <state img="#-relaxed.png">There's no shame in admitting I'm enjoying the view...</state>
             </case>
@@ -2177,7 +2172,6 @@
             </case>
             <case stage="5-8">
                 <condition role="target" character="human" />
-                <state img="#-interested.png"></state>
                 <state img="#-embarrassed.png">I'm sure I've seen your bare chest before, ~player~. You've seen all of me now.</state>
                 <state img="#-sad.png">(This isn't how I dreamt seeing ~player~ without his shirt...)</state>
                 <state img="#-embarrassed.png">I hope no word of this comes back to Pelican Town. People were already talking about us when you lived there.</state>
@@ -2239,6 +2233,11 @@
         </trigger>
 
         <trigger id="male_chest_is_visible">
+            <case stage="0-8">
+                <condition role="target" character="9s" />
+                <state img="#-awkward.png">&lt;i&gt;Eeer&lt;/i&gt; ... I'm speechless!</state>
+                <state img="#-awkward.png">That's an odd view. &lt;i&gt;Even for androids!&lt;/i&gt;</state>
+            </case>
             <case stage="0">
                 <state img="#-embarrassed.png">I see you're in good shape, ~name~. That's ...nice.</state>
                 <state img="#-flirting.png">You shouldn't be ashamed, ~name~.  You look nice.</state>

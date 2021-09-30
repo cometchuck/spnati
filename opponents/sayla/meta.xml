@@ -15,6 +15,6 @@
     <epilogue gender="any" img="chair.png">1-900 Artesia</epilogue>
     <layers>6</layers>
     <has_collectibles>false</has_collectibles>
-    <lines>794</lines>
+    <lines>793</lines>
     <poses>79</poses>
 </opponent>

@@ -14,7 +14,7 @@
     <description>A young mutant with the power to stream exploding plasma balls from her hands. Attends Xavier's School for Gifted Youngsters and yearns to be an X-Man.</description>
     <layers>7</layers>
     <has_collectibles>false</has_collectibles>
-    <lines>456</lines>
+    <lines>455</lines>
     <poses>114</poses>
     <has_ending>false</has_ending>
 </opponent>

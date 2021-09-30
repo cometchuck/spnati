@@ -168,6 +168,11 @@
         </trigger>
 
         <trigger id="hand">
+            <case stage="0-7" id="105">
+                <condition count="1" role="other" character="juri" />
+                <condition role="other" character="chun-li" stage="7" timeInStage="0" saidMarker="juri_attack" />
+                <state img="#-embarrassed.png">Do you need a tissue or something? I might have one somewhere here...</state>
+            </case>
             <case stage="0" oneShotId="39" priority="200">
                 <condition role="other" character="pit" />
                 <state img="#-excited.png">Oh? I didn't realize you'd be here, Pit! I've seen you in Smash, getting spammed with Metal Blades from Rock!</state>
@@ -177,11 +182,6 @@
                 <condition role="other" character="panty" stage="0" sayingMarker="panty_tropical_island_paradise" />
                 <test expr="~background~" value="tiki bar" />
                 <state img="#-excited.png">Meet back up with Kalinka and Tempo, maybe grab a jet ski or three, and just race around the island. Hopefully no cruise ships sink this time.</state>
-            </case>
-            <case stage="0-7" id="105">
-                <condition count="1" filter="juri" role="other" />
-                <condition role="other" character="chun-li" stage="7" timeInStage="0" saidMarker="juri_attack" />
-                <state img="#-embarrassed.png">Do you need a tissue or something? I might have one somewhere here...</state>
             </case>
             <case stage="0-7">
                 <condition role="other" character="shimakaze" stage="4" timeInStage="0" saidMarker="japanese" sayingMarker="japend" />

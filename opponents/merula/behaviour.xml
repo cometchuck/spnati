@@ -559,10 +559,6 @@
                 <condition role="target" character="shimakaze" stage="0" />
                 <state img="#-shocked.png">Good lord, Shimakaze! You could've just used your &lt;i&gt;hands...&lt;/i&gt;</state>
             </case>
-            <case stage="0-10">
-                <condition role="target" character="hermione" stage="4" />
-                <state img="#-smug.png">So much for Gryffindor pride, Granger...</state>
-            </case>
             <case stage="0">
                 <condition filter="pink_hair" role="target" />
                 <state img="#-smug.png" oneShotId="3">What &lt;i&gt;is&lt;/i&gt; it with this pink hair fascination!? First that stupid Hufflepuff, now you? You look like a damned Pygmy Puff!</state>
@@ -896,6 +892,10 @@
         </trigger>
 
         <trigger id="female_removing_major">
+            <case stage="0-10">
+                <condition role="target" character="hermione" stage="4" />
+                <state img="#-smug.png">So much for Gryffindor pride, Granger...</state>
+            </case>
             <case stage="0-10">
                 <condition role="target" character="marinette" stage="1" />
                 <state img="#-shocked.png">What the-</state>

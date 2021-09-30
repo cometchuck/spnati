@@ -398,7 +398,7 @@
 
         <trigger id="stripped">
             <case stage="3-4">
-                <condition count="1" filter="meia" role="other" />
+                <condition count="1" role="other" character="meia" />
                 <condition role="other" character="jura" stage="0" />
                 <test expr="~self.tag.athletic~" value="true" />
                 <state img="#-IdleLaughing.png">I'm not exactly muscular, but I appreciate the compliment!</state>

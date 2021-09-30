@@ -30,8 +30,8 @@
     <wardrobe>
         <clothing name="underwear" generic="underwear" position="lower" type="important" />
         <clothing name="gloves" generic="gloves" position="other" type="minor" plural="true" />
-        <clothing name="tights" generic="leggings" position="upper" type="major" plural="true" />
-        <clothing name="shirt" generic="shirt" position="upper" type="important" />
+        <clothing name="tights" generic="leggings" position="lower" type="major" plural="true" />
+        <clothing name="shirt" generic="shirt" position="upper" type="major" />
         <clothing name="pants" generic="pants" position="lower" type="minor" plural="true" />
         <clothing name="fanny pack" generic="bag" position="other" type="extra" />
         <clothing name="boots" generic="shoes" position="feet" type="minor" plural="true" />
@@ -452,7 +452,11 @@
 
         <trigger id="female_removed_accessory">
             <case stage="0-10">
-                <state img="#-graspy.gif">Don't worry, I'll get you out of the rest of your clothes!</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Don't worry, I'll get you out of the rest of your clothes!</text>
+                </state>
                 <state img="#-shrug.png">I guess that's just how it is.</state>
                 <state img="#-fist.png">You're gonna do more next time, right?</state>
             </case>
@@ -521,7 +525,11 @@
 
         <trigger id="female_removed_minor">
             <case stage="0-10">
-                <state img="#-graspy.gif">Lemme touch, please?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Lemme touch, please?</text>
+                </state>
                 <state img="#-thinking.png">Eh, maybe you looked better with it.</state>
                 <state img="#-fist.png">You must be nice and comfy now!</state>
                 <state img="#-fist.png">Wow, you look great without ~clothing~</state>
@@ -561,8 +569,16 @@
         <trigger id="female_removed_major">
             <case stage="0-10">
                 <state img="#-fist.png">Nice!</state>
-                <state img="#-graspy.gif">Oh, can I touch it?</state>
-                <state img="#-graspy.gif">Lemme touch, please?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Oh, can I touch it?</text>
+                </state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Lemme touch, please?</text>
+                </state>
                 <state img="#-fist.png">Don't worry, you look great!</state>
             </case>
             <case stage="0-10">
@@ -652,16 +668,28 @@
                 <state img="#-neutral.png">Let's get you outta that ~clothing~!</state>
                 <state img="#-fist.png">Alright!</state>
                 <state img="#-fist.png">You owe us this!</state>
-                <state img="#-graspy.gif">Booby time!</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Booby time!</text>
+                </state>
             </case>
         </trigger>
 
         <trigger id="female_small_chest_is_visible">
             <case stage="0-10">
                 <state img="#-fist.png">Nice!</state>
-                <state img="#-graspy.gif">OOH, can I touch them?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>OOH, can I touch them?</text>
+                </state>
                 <state img="#-fist.png">Hells yeah!</state>
-                <state img="#-graspy.gif">Lemme touch, please?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Lemme touch, please?</text>
+                </state>
                 <state img="#-fist.png">Now &lt;i&gt;this&lt;/i&gt; is what I'm here for!</state>
             </case>
             <case stage="0-10" priority="0">
@@ -679,10 +707,18 @@
 
         <trigger id="female_medium_chest_is_visible">
             <case stage="0-10">
-                <state img="#-graspy.gif">Lemme touch, please?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Lemme touch, please?</text>
+                </state>
                 <state img="#-neutral.png">Show those babies off!</state>
                 <state img="#-fist.png">Now &lt;i&gt;this&lt;/i&gt; is what I'm here for!</state>
-                <state img="#-graspy.gif">There's a lot to grab there!</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>There's a lot to grab there!</text>
+                </state>
             </case>
             <case stage="0-10" priority="0">
                 <condition filter="confident" role="target" />
@@ -699,7 +735,11 @@
 
         <trigger id="female_large_chest_is_visible">
             <case stage="0-10">
-                <state img="#-graspy.gif">Lemme touch, please?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Lemme touch, please?</text>
+                </state>
                 <state img="#-gasp.png">Woah, that's a handful.</state>
                 <state img="#-gasp.png">Great bountiful bosoms!</state>
                 <state img="#-gasp.png">And I thought they looked big before!</state>
@@ -742,8 +782,16 @@
             <case stage="0-10">
                 <state img="#-thinking.png">I hope you aren't &lt;i&gt;too&lt;/i&gt; ambarrassed, exposing your lady parts to the world and all.</state>
                 <state img="#-fist.png">Nice!</state>
-                <state img="#-graspy.gif">I get to touch that when we are all done, right?</state>
-                <state img="#-graspy.gif">That's nice and all, but it would look nicer with me on it.</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>I get to touch that when we are all done, right?</text>
+                </state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>That's nice and all, but it would look nicer with me on it.</text>
+                </state>
             </case>
             <case stage="0-8">
                 <state img="#-fist.png">And I thought it was great just being one step closer to winning, but BONUS!</state>
@@ -817,7 +865,11 @@
         <trigger id="female_must_masturbate">
             <case stage="0-5 8-10">
                 <state img="#-neutral.png">Hey ~name~, I could lend you a tool if you like.</state>
-                <state img="#-graspy.gif">Need any help?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Need any help?</text>
+                </state>
                 <state img="#-fist.png">Another one bites the dust!</state>
                 <state img="#-fist.png">Yay, the show is about to start!</state>
                 <state img="#-fist.png">Showtime!</state>
@@ -854,7 +906,11 @@
                 <state img="#-fist.png">Hot!</state>
                 <state img="#-fist.png">Nice!</state>
                 <state img="#-shrug.png">At least &lt;i&gt;someone&lt;/i&gt; gets to touch you.</state>
-                <state img="#-graspy.gif">Need a hand?</state>
+                <state>
+                    <alt-img stage="0-8 10">#-graspy.gif</alt-img>
+                    <alt-img stage="9">#-graspy.png</alt-img>
+                    <text>Need a hand?</text>
+                </state>
                 <state img="#-neutral.png">Need a tool?</state>
                 <state img="#-neutral.png">One way or another, I'll be joining you soon.</state>
                 <state img="#-neutral.png">There you are, going all mwah mwah hanky panky.</state>

@@ -1294,12 +1294,7 @@
                 <state img="#-awkwardalt.png">If only Trini was here. I bet she knows sign language... or would have something to for you to write with ~name~.</state>
             </case>
             <case stage="0-4">
-                <alternative>
-                    <condition filter="scantily_clad" role="target" stage="0" />
-                </alternative>
-                <alternative>
-                    <condition filter="scantily-clad" role="target" stage="0" />
-                </alternative>
+                <condition filter="scantily-clad" role="target" stage="0" />
                 <state img="#-awkward.png">Geez ~name~... and Dad thinks &lt;i&gt;I&lt;/i&gt; show too much skin...</state>
             </case>
             <case stage="0-2">
@@ -3781,10 +3776,6 @@
 
         <trigger id="finished_masturbating">
             <case stage="9">
-                <alternative />
-                <alternative>
-                    <condition role="self" notSaidMarker="towlette" />
-                </alternative>
                 <state img="#-finished.png" marker="towlette">That... that felt &lt;i&gt;totally amazing&lt;/i&gt;. Uh, does anyone have, like, a moist towelette?</state>
             </case>
         </trigger>

@@ -48,10 +48,6 @@
 
         <trigger id="good_hand">
             <case stage="0" totalRounds="0">
-                <condition filter="princess" role="target" />
-                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
-            </case>
-            <case stage="0" totalRounds="0">
                 <condition role="other" character="clover" />
                 <state img="#-excited.png">Hehe, I guess I do! I didn't know you were a comedian, Clover!</state>
             </case>
@@ -62,6 +58,10 @@
             <case stage="0" totalRounds="0">
                 <condition role="other" character="joey" />
                 <state img="#-shocked.png">Ears you can wear...? Uh, Joey- Mine are real!</state>
+            </case>
+            <case stage="0" totalRounds="0">
+                <condition filter="princess" role="other" />
+                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
             </case>
             <case stage="0" totalRounds="0">
                 <condition count="5" gender="female" />
@@ -113,10 +113,6 @@
 
         <trigger id="okay_hand">
             <case stage="0" totalRounds="0">
-                <condition filter="princess" role="target" />
-                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
-            </case>
-            <case stage="0" totalRounds="0">
                 <condition role="other" character="clover" />
                 <state img="#-excited.png">Hehe, I guess I do! I didn't know you were a comedian, Clover!</state>
             </case>
@@ -127,6 +123,10 @@
             <case stage="0" totalRounds="0">
                 <condition role="other" character="joey" />
                 <state img="#-shocked.png">Ears you can wear...? Uh, Joey- Mine are real!</state>
+            </case>
+            <case stage="0" totalRounds="0">
+                <condition filter="princess" role="other" />
+                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
             </case>
             <case stage="0" totalRounds="0">
                 <condition count="5" gender="female" />
@@ -186,10 +186,6 @@
 
         <trigger id="bad_hand">
             <case stage="0" totalRounds="0">
-                <condition filter="princess" role="target" />
-                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
-            </case>
-            <case stage="0" totalRounds="0">
                 <condition role="other" character="clover" />
                 <state img="#-excited.png">Hehe, I guess I do! I didn't know you were a comedian, Clover!</state>
             </case>
@@ -200,6 +196,10 @@
             <case stage="0" totalRounds="0">
                 <condition role="other" character="joey" />
                 <state img="#-shocked.png">Ears you can wear...? Uh, Joey- Mine are real!</state>
+            </case>
+            <case stage="0" totalRounds="0">
+                <condition filter="princess" role="other" />
+                <state img="#-horny.png">Is it really okay to play this sort of game with royalty...?</state>
             </case>
             <case stage="0" totalRounds="0">
                 <condition count="5" gender="female" />
@@ -840,20 +840,12 @@
                 <state img="#-excited.png">Oh, a lot of my guests carry weapons like that, too, Jura!</state>
             </case>
             <case stage="0-9">
-                <condition role="target" character="kyoko" stage="5" />
-                <state img="#-excited.png">Haha! And off come the glo-</state>
-            </case>
-            <case stage="0-9">
                 <condition role="target" character="marinette" stage="0" />
                 <state img="#-calm.png">A yo-yo? And that keeps you safe?</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="meia" stage="0" />
                 <state img="#-shocked.png">So, you're like a fighter for everyone's freedom? That's so noble...</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="meia" stage="1" />
-                <state img="#-happy.png">Sounds like the kinda life where you have to be strong... It almost reminds me of the people who explore Yggdrasil.</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="natsuki" stage="0" />
@@ -930,10 +922,6 @@
             <case stage="0-9">
                 <condition role="target" character="jura" stage="1" />
                 <state img="#-happy.png">Granted, it's because the Inn is in the same town as a deadly labyrinth, but...</state>
-            </case>
-            <case stage="0-9">
-                <condition role="target" character="kyoko" stage="6" />
-                <state img="#-sad.png">Oh. &lt;i&gt;Oh.&lt;/i&gt;</state>
             </case>
             <case stage="0-9">
                 <condition role="target" character="marinette" stage="1" />
@@ -1068,6 +1056,14 @@
 
         <trigger id="female_removing_minor">
             <case stage="0-9">
+                <condition role="target" character="kyoko" stage="5" />
+                <state img="#-excited.png">Haha! And off come the glo-</state>
+            </case>
+            <case stage="0-9">
+                <condition role="target" character="meia" stage="1" />
+                <state img="#-happy.png">Sounds like the kinda life where you have to be strong... It almost reminds me of the people who explore Yggdrasil.</state>
+            </case>
+            <case stage="0-9">
                 <condition role="target" character="aimee" stage="1" />
                 <state img="#-duck.png">Eek!</state>
             </case>
@@ -1104,6 +1100,10 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-9">
+                <condition role="target" character="kyoko" stage="6" />
+                <state img="#-sad.png">Oh. &lt;i&gt;Oh.&lt;/i&gt;</state>
+            </case>
             <case stage="0-9">
                 <condition role="target" character="aimee" stage="2" />
                 <state img="#-angry.png">Are you going to do that every time?!</state>

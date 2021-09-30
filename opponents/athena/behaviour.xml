@@ -337,7 +337,7 @@
                 <state img="#-strip wrappings 1.png">They're useless without my shoes, so my wrappings will go.</state>
             </case>
             <case stage="3">
-                <state img="#-strip cuffs 1.png"></state>
+                <state img="#-strip cuffs 1.png">~blank~</state>
             </case>
             <case stage="4">
                 <state img="#-strip sleeve 1.png" marker="athena_sleeveshock">Off goes my sleeve. Shocking, I know.</state>

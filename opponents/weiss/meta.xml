@@ -19,7 +19,7 @@
         <costume folder="opponents/reskins/ghost_bride_weiss/" img="0-calm.png" set="halloween" label="Weiss">Ghost Bride Weiss</costume>
     </alternates>
     <has_collectibles>false</has_collectibles>
-    <lines>1352</lines>
+    <lines>1351</lines>
     <poses>100</poses>
     <release>68</release>
 </opponent>

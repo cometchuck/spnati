@@ -962,9 +962,6 @@
         </trigger>
 
         <trigger id="tie">
-            <case stage="0-6 8">
-                <state img="#-interested.png">A tie! That doesn't happen every day!</state>
-            </case>
             <case stage="0-6">
                 <state img="#-interested.png">Do we both strip now?</state>
             </case>

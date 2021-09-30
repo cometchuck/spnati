@@ -832,65 +832,6 @@
         </trigger>
 
         <trigger id="female_removing_major">
-            <case stage="0-10">
-                <alternative>
-                    <condition role="target" character="alice" stage="2" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="alpha" stage="5" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="amy_rose_classic" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="arwen" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="beatrix" stage="0" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="daisy" stage="4" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="daphne" stage="2" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="elena" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="evie" stage="4" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="florina" stage="5" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="lyn" stage="5" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="peach" stage="4" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="rosalina" stage="2" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="ruby" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="sola" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="spooky" stage="1" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="weiss" stage="3" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="zelda" stage="4" />
-                </alternative>
-                <state img="#-bad.png" marker="aiyana_dress_dislike">I don't know how you can stand wearing a dress anyway, ~name~. They're so flappy and restrictive.</state>
-                <state img="#-supportive.png" marker="aiyana_dress_dislike">Bet it feels good to get that dress off, ~name~! I hate the things!</state>
-                <state img="#-good.png" marker="aiyana_dress_dislike">Don't you feel like a dress restricts your movements? I can't stand them. You'll be better off without it, ~name~.</state>
-            </case>
             <case stage="0-2">
                 <condition role="target" character="jasmine" stage="1" />
                 <state img="#-good.png">I bet you're glad to get that off. I mean, it looks like it's made out of an actual potato sack.</state>
@@ -1427,6 +1368,15 @@
                 <state img="#-horny.png">Now that is a nice pussy. I'd love to get to know it better.</state>
                 <state img="#-confident.png">Looks delicious! Swap you taste tests later?</state>
                 <state img="#-ready.png">Nice! I hope I get to see you play with it soon.</state>
+            </case>
+        </trigger>
+
+        <trigger id="opponent_stripping">
+            <case stage="0-10">
+                <test expr="~clothing.generic~" value="dress" />
+                <state img="#-bad.png" marker="aiyana_dress_dislike">I don't know how you can stand wearing a dress anyway, ~name~. They're so flappy and restrictive.</state>
+                <state img="#-supportive.png" marker="aiyana_dress_dislike">Bet it feels good to get that dress off, ~name~! I hate the things!</state>
+                <state img="#-good.png" marker="aiyana_dress_dislike">Don't you feel like a dress restricts your movements? I can't stand them. You'll be better off without it, ~name~.</state>
             </case>
         </trigger>
 

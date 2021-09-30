@@ -211,8 +211,8 @@
                 <state img="#-thinking.png" marker="Faris">I'm starting to... understand why Faris suggested I come to this place.</state>
             </case>
             <case stage="6">
-                <condition count="0-" status="masturbating" />
-                <condition count="0-" status="finished" />
+                <condition count="0" status="masturbating" />
+                <condition count="0" status="finished" />
                 <state img="#-awkward.png">I don't have anything else to lose, so... it's not like my hand matters, right?</state>
                 <state img="#-awkward.png">Should I even look at my hand? I've already... lost.</state>
                 <state img="#-upset.png">Why do I have to keep playing? I just want to get dressed already!</state>

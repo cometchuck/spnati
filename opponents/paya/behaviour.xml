@@ -164,7 +164,7 @@
                 <state img="#-embarrassed.png">At least I'm not the first...</state>
             </case>
             <case stage="6-7">
-                <state img="#-embarrassed.png"></state>
+                <state img="#-embarrassed.png">...</state>
             </case>
         </trigger>
 
@@ -188,7 +188,7 @@
                 <state img="#-embarrassed.png">I can't believe this...</state>
             </case>
             <case stage="6-7">
-                <state img="#-embarrassed.png"></state>
+                <state img="#-embarrassed.png">...</state>
             </case>
         </trigger>
 
@@ -212,7 +212,7 @@
                 <state img="#-embarrassed.png">I can't believe this...</state>
             </case>
             <case stage="6-7">
-                <state img="#-embarrassed.png"></state>
+                <state img="#-embarrassed.png">...</state>
             </case>
         </trigger>
 
@@ -239,7 +239,7 @@
                 <state img="#-strip.png">Please!</state>
             </case>
             <case stage="6">
-                <state img="#-strip.png"></state>
+                <state img="#-strip.png">...</state>
             </case>
             <case stage="7">
                 <state img="#-strip.png">Nobody has ever seen me naked before!</state>

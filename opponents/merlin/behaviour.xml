@@ -128,7 +128,7 @@
             <case stage="0-6" id="64">
                 <condition role="other" character="aella" stage="0-1" sayingMarker="AellaAdventures" />
                 <alternative totalRounds="2">
-                    <condition count="1" filter="pinkie_pie" role="other" />
+                    <condition count="1" role="other" character="pinkie_pie" />
                     <condition role="other" character="aella" stage="0-1" />
                 </alternative>
                 <alternative totalRounds="1">
@@ -628,6 +628,12 @@
                 <condition role="target" character="arash" stage="5" />
                 <state img="#-Thinking.png">Shenanigans that aren't my fault. It's a weird feeling.</state>
             </case>
+            <case stage="0-8" id="60">
+                <condition role="target" character="arash" stage="3" />
+                <state img="#-Neutral.png">He's like that. It's honestly sweet.</state>
+                <state img="#-Thinking.png">Yeah, I'm poker buddies with a snuggler.</state>
+                <state img="#-Smug.png">Pretty sure hugs are the only thing Arash likes more than hummus.</state>
+            </case>
             <case stage="0-8">
                 <state img="#-Disappoint.png">Whatever. Let's get on with it.</state>
             </case>
@@ -660,12 +666,6 @@
         </trigger>
 
         <trigger id="male_removed_major">
-            <case stage="0-8" id="60">
-                <condition role="target" character="arash" stage="3" />
-                <state img="#-Neutral.png">He's like that. It's honestly sweet.</state>
-                <state img="#-Thinking.png">Yeah, I'm poker buddies with a snuggler.</state>
-                <state img="#-Smug.png">Pretty sure hugs are the only thing Arash likes more than hummus.</state>
-            </case>
             <case stage="0-8">
                 <state img="#-Mischief.png">This is getting good.</state>
             </case>
@@ -1146,7 +1146,7 @@
 
         <trigger id="female_finished_masturbating">
             <case stage="0-8">
-                <condition count="0" filter="nagisa_valentine" />
+                <condition count="0" filter="nagisa_maid_cafe" />
                 <condition role="target" character="nagisa" sayingMarker="nagisa_finished_1" />
                 <state img="#-Horny.png" collectible="merlin_tildes" collectible-value="+1">Can't promise to forget~ But I'm not going to tell anyone.</state>
             </case>

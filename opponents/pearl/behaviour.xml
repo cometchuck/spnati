@@ -1116,19 +1116,6 @@
                 </state>
             </case>
             <case stage="0-6">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="arwen" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="leela" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="marceline" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="zelda" />
-                </alternative>
                 <state img="#-thinking.png">Oh, so that's when you stop?</state>
                 <state img="#-concerned.png">Look at you go! It's everywhere!</state>
             </case>

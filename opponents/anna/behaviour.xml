@@ -3089,7 +3089,7 @@
                 <alternative>
                     <test expr="~player~" value="ReformCopyright" />
                 </alternative>
-                <state img="custom:#-grantMembership" marker="AnnaGaveSecretShopItem1" collectible="money1">Well Member ~name~, looks like you have enough gold to buy my first item! It's a pink heart with a &lt;i&gt;1&lt;/i&gt; on it. Here you go! I'll have more collectibles to sell you later once my creator works on me some more. Anyway, let's play!</state>
+                <state img="custom:#-grantMembership" marker="AnnaGaveSecretShopItem1" collectible="money1">Well Member ~player~, looks like you have enough gold to buy my first item! It's a pink heart with a &lt;i&gt;1&lt;/i&gt; on it. Here you go! I'll have more collectibles to sell you later once my creator works on me some more. Anyway, let's play!</state>
             </case>
             <case stage="0" id="215" oneShotId="35" priority="100">
                 <test expr="~self.collectible.member card~" value="true" />
@@ -3425,7 +3425,7 @@
             <case stage="7" id="210" oneShotId="24" priority="999">
                 <condition role="self" saidMarker="AnnaStripsTharjaReacts21" />
                 <condition role="other" character="tharja" stage="5-7" />
-                <state img="blank.png" marker="AnnaTakesPictureOfTharjaNaked"></state>
+                <state img="blank.png" marker="AnnaTakesPictureOfTharjaNaked">~blank~</state>
             </case>
             <case stage="0-7" id="330" oneShotId="95" priority="999">
                 <condition role="self" saidMarker="AnnaDisasterColors2" />

@@ -2095,12 +2095,12 @@
                 <state img="custom:confused_chat" marker="birthdayResponse" location="20%">Oh, a birthday! Brilliant. I've never had one of those. Have you? You had any... any birthdays? I swear I heard something about one, and you &lt;i&gt;were&lt;/i&gt; the only human, er, still... &lt;i&gt;alive&lt;/i&gt;--left alive.</state>
             </case>
             <case stage="0-5">
-                <condition count="1" filter="amalia" role="other" character="amalia" stage="0-7" />
+                <condition count="1" role="other" character="amalia" stage="0-7" />
                 <condition role="other" character="jura" stage="4-6" />
                 <state img="custom:amused_chat" marker="flowerResponse" location="20%">Better watch out for those two, eh? Might be working together. Conspiring against us and all.</state>
             </case>
             <case stage="0-5">
-                <condition count="1" filter="amalia" role="other" character="amalia" stage="0-9" />
+                <condition count="1" role="other" character="amalia" stage="0-9" />
                 <condition role="other" character="jura" stage="4-6" />
                 <state img="custom:amused_chat" marker="flowerResponse" location="20%">Better watch out for those two, eh? Might be working together. Conspiring against us and all.</state>
             </case>
@@ -2369,36 +2369,6 @@
                 <condition role="other" character="emi" sayingMarker="emi_hero" notSaidMarker="pirate" />
                 <state img="custom:confident_happy" marker="heroResponse" location="20%">You'll never believe this: that's the human that took &lt;i&gt;her&lt;/i&gt; down! Yeah! I mean, she came back, but now we're fighting her together! As a team! I mean, I'm helping.</state>
             </case>
-            <case stage="0">
-                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip0a" />
-                <test expr="~month.number~" value="2" />
-                <test expr="~day.number~" value="31" />
-                <state marker="Chell&amp;Wheatley_strip0b" location="20%" font-size="smaller">I am real, yes. Not just... metal. And lights. What, you think a &lt;i&gt;human&lt;/i&gt; could keep up with all these--all my thoughts? All the things I have to keep track of? Like... Like what an adjutant is! I bet you've forgotten already, whereas me: I know &lt;i&gt;exactly&lt;/i&gt; what it is! Oh, I can't wait to hear you, all embarrassed at--at not knowing. Go on, then. Why don't you tell me what it is? You know, so I can... get confirmation. On being... being better. And all that.</state>
-            </case>
-            <case stage="1">
-                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip1a" />
-                <test expr="~month.number~" value="2" />
-                <test expr="~day.number~" value="31" />
-                <state marker="Chell&amp;Wheatley_strip1b" location="20%" font-size="small">"Do"? Well, we, uh... Well she was testing, just earlier, before that she was asleep... and now we're escaping. That's it, really. Escaping from... from a murderous AI in control of the whole facility. You know, now that I think about it, that's probably worth mentioning as well. There &lt;i&gt;is&lt;/i&gt; a massive bloody robot trying to kill us.</state>
-            </case>
-            <case stage="2">
-                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip2a" />
-                <test expr="~month.number~" value="2" />
-                <test expr="~day.number~" value="31" />
-                <state marker="Chell&amp;Wheatley_strip2b" location="20%">You know what, you're right, that &lt;i&gt;is&lt;/i&gt; a bit misleading. It's not every human that's dead! Just the scientists! We still have test subjects, so we can still test and all that. Er, well, we could. The test subjects did kind of... die... as well. Power outage. &lt;i&gt;Absolutely&lt;/i&gt; nothing to do with it, not my fault in the slightest. But this one survived! That's a--a plus!</state>
-            </case>
-            <case stage="3">
-                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip3a" />
-                <test expr="~month.number~" value="2" />
-                <test expr="~day.number~" value="31" />
-                <state marker="Chell&amp;Wheatley_strip3b" location="20%">Hmm... That's a tricky one, that is. &lt;i&gt;Mainly&lt;/i&gt;, I'm just the one who, you know, takes care of all the humans. Not exactly a scientist, really. That lot must be &lt;i&gt;miserable!&lt;/i&gt; Still, er... well she was testing the portal device, wasn't she? You know, making sure it's--it's &lt;i&gt;safe&lt;/i&gt;, and... and doesn't kill you. Oh! And it has to be easy to use, doesn't it? &lt;i&gt;Intuitive&lt;/i&gt;, and all that. Probably tested for that, as well.</state>
-            </case>
-            <case stage="4">
-                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip4a" />
-                <test expr="~month.number~" value="2" />
-                <test expr="~day.number~" value="31" />
-                <state marker="Chell&amp;Wheatley_strip4b" location="20%">Good question, yeah. Let's see... I mean, it's been a few hours, mainly. There was a &lt;i&gt;bit&lt;/i&gt; of a hiccup, that AI woke up, banged me up pretty good, and sort of, er, captured her. But I rescued her! Took me a bit, she had to do some--some testing. With &lt;i&gt;her&lt;/i&gt;. But I did it! Mounted an escape, and now we're on our way to confront her!</state>
-            </case>
             <case stage="0-4">
                 <condition role="other" character="meia" stage="1" saying="hard to read" />
                 <state img="custom:neutral_chat" marker="readwomenResponse" location="20%">Huh. That's... worrying. I figured you'd have an advantage, you know, not saying anything. We &lt;i&gt;may&lt;/i&gt; have to be a bit more, er, tactical... with how we go about this.</state>
@@ -2463,6 +2433,36 @@
             </case>
             <case stage="0">
                 <state img="custom:shut_dammit" location="20%" weight="2">Wh--Don't look at me like it's &lt;i&gt;my&lt;/i&gt; fault! You didn't &lt;i&gt;have&lt;/i&gt; to listen to me!&lt;br&gt;Fine then! If you're &lt;i&gt;so unsatisfied&lt;/i&gt;, why don't you just &lt;i&gt;stop&lt;/i&gt; listening to me? See how that pans out! See how well you do on your own!</state>
+            </case>
+            <case stage="0" hidden="1">
+                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip0a" />
+                <test expr="~month.number~" value="2" />
+                <test expr="~day.number~" value="31" />
+                <state marker="Chell&amp;Wheatley_strip0b" location="20%" font-size="smaller">I am real, yes. Not just... metal. And lights. What, you think a &lt;i&gt;human&lt;/i&gt; could keep up with all these--all my thoughts? All the things I have to keep track of? Like... Like what an adjutant is! I bet you've forgotten already, whereas me: I know &lt;i&gt;exactly&lt;/i&gt; what it is! Oh, I can't wait to hear you, all embarrassed at--at not knowing. Go on, then. Why don't you tell me what it is? You know, so I can... get confirmation. On being... being better. And all that.</state>
+            </case>
+            <case stage="1" hidden="1">
+                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip1a" />
+                <test expr="~month.number~" value="2" />
+                <test expr="~day.number~" value="31" />
+                <state marker="Chell&amp;Wheatley_strip1b" location="20%" font-size="small">"Do"? Well, we, uh... Well she was testing, just earlier, before that she was asleep... and now we're escaping. That's it, really. Escaping from... from a murderous AI in control of the whole facility. You know, now that I think about it, that's probably worth mentioning as well. There &lt;i&gt;is&lt;/i&gt; a massive bloody robot trying to kill us.</state>
+            </case>
+            <case stage="2" hidden="1">
+                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip2a" />
+                <test expr="~month.number~" value="2" />
+                <test expr="~day.number~" value="31" />
+                <state marker="Chell&amp;Wheatley_strip2b" location="20%">You know what, you're right, that &lt;i&gt;is&lt;/i&gt; a bit misleading. It's not every human that's dead! Just the scientists! We still have test subjects, so we can still test and all that. Er, well, we could. The test subjects did kind of... die... as well. Power outage. &lt;i&gt;Absolutely&lt;/i&gt; nothing to do with it, not my fault in the slightest. But this one survived! That's a--a plus!</state>
+            </case>
+            <case stage="3" hidden="1">
+                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip3a" />
+                <test expr="~month.number~" value="2" />
+                <test expr="~day.number~" value="31" />
+                <state marker="Chell&amp;Wheatley_strip3b" location="20%">Hmm... That's a tricky one, that is. &lt;i&gt;Mainly&lt;/i&gt;, I'm just the one who, you know, takes care of all the humans. Not exactly a scientist, really. That lot must be &lt;i&gt;miserable!&lt;/i&gt; Still, er... well she was testing the portal device, wasn't she? You know, making sure it's--it's &lt;i&gt;safe&lt;/i&gt;, and... and doesn't kill you. Oh! And it has to be easy to use, doesn't it? &lt;i&gt;Intuitive&lt;/i&gt;, and all that. Probably tested for that, as well.</state>
+            </case>
+            <case stage="4" hidden="1">
+                <condition role="other" character="jim" sayingMarker="Chell&amp;Wheatley_strip4a" />
+                <test expr="~month.number~" value="2" />
+                <test expr="~day.number~" value="31" />
+                <state marker="Chell&amp;Wheatley_strip4b" location="20%">Good question, yeah. Let's see... I mean, it's been a few hours, mainly. There was a &lt;i&gt;bit&lt;/i&gt; of a hiccup, that AI woke up, banged me up pretty good, and sort of, er, captured her. But I rescued her! Took me a bit, she had to do some--some testing. With &lt;i&gt;her&lt;/i&gt;. But I did it! Mounted an escape, and now we're on our way to confront her!</state>
             </case>
         </trigger>
 

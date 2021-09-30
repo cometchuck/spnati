@@ -551,7 +551,6 @@
         <trigger id="male_removing_minor">
             <case stage="0-7">
                 <state img="#-calm.png">Can you take off something bigger this time, ~name~?</state>
-                <state img="#-excited.png"></state>
             </case>
             <case stage="8">
                 <state img="#-calm.png">You could skip the small items and show me a big one.</state>

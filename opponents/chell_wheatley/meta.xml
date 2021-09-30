@@ -18,6 +18,6 @@ Weighted Storage Cube drawn by Nomelet.</description>
     <epilogue gender="any" img="imgs/Motel_room_study_Pre_Release_Portal_2.jpg" hint="Win a game against Chell.">Continue Testing (Storyboard)</epilogue>
     <layers>5</layers>
     <has_collectibles>true</has_collectibles>
-    <lines>579</lines>
+    <lines>574</lines>
     <poses>219</poses>
 </opponent>

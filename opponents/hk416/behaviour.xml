@@ -170,8 +170,8 @@
                 <state img="#-disappointed.png">...Well.</state>
             </case>
             <case stage="5-7">
-                <state img="#-angry.png">&lt;/i&gt;Ach, scheiße...&lt;/i&gt;</state>
-                <state img="#-angry.png">&lt;/i&gt;Scheiße!&lt;/i&gt;</state>
+                <state img="#-angry.png">&lt;i&gt;Ach, scheiße...&lt;/i&gt;</state>
+                <state img="#-angry.png">&lt;i&gt;Scheiße!&lt;/i&gt;</state>
                 <state img="#-angry.png">Dealer. I may not fully armed or clothed at the moment... but I can exert a maximum grip force of up to two hundred Newtons. I urge you to be careful, &lt;i&gt;ja?&lt;/i&gt;</state>
                 <state img="#-angry.png">Dealer... I may not be armed, but I assure you, I can still kill you with my hands. Or legs.</state>
                 <state img="#-angry.png">Dealer... I can kill you in over a dozen ways with my legs alone. Do not test me.</state>
@@ -1316,7 +1316,6 @@
                 <state img="#-satisfied1.png">I usually only cause &lt;i&gt;this&lt;/i&gt; much devastation with my grenades.</state>
                 <state img="#-question.png">As an operator, I've seen many impressively built male physiques. Let's see how you stack up, &lt;i&gt;ja&lt;/i&gt;?</state>
                 <state img="#-question.png">I've seen a lot of impressive physiques as an operator. I wonder how you'll compare.</state>
-                <state img="#-question.png"></state>
             </case>
             <case stage="4-7">
                 <state img="#-headtilt.png">You're on your last layers, hm?</state>
@@ -1356,7 +1355,6 @@
                 <state img="#-idle.png">I guess you're... okay-looking. A bit average, maybe.</state>
                 <state img="#-idle.png">You look... okay, I guess...</state>
                 <state img="#-idle.png">Hm... not particularly noteworthy, but... still okay, I guess...</state>
-                <state img="#-idle.png"></state>
             </case>
             <case stage="8-9">
                 <state img="#-headtilt.png">Hm. Not bad, I suppose.</state>

@@ -1785,12 +1785,12 @@
 
         <trigger id="female_finished_masturbating">
             <case stage="0-8">
-                <condition count="0" filter="nagisa_valentine" />
+                <condition count="0" filter="nagisa_maid_cafe" />
                 <condition role="target" character="nagisa" saidMarker="nagisa_play" sayingMarker="nagisa_finished_1" />
                 <state img="#-confused.png">Okay...? I just don't get you, Nagisa...</state>
             </case>
             <case stage="10">
-                <condition count="0" filter="nagisa_valentine" />
+                <condition count="0" filter="nagisa_maid_cafe" />
                 <condition role="target" character="nagisa" saidMarker="nagisa_play" sayingMarker="nagisa_finished_1" />
                 <state img="#-finishconfused.png">I think the play talk kinda helped, don'tcha think?</state>
             </case>

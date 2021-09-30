@@ -688,7 +688,6 @@
                 <state img="#-lifting.png">Too fucking horny to be mad.</state>
             </case>
             <case stage="9">
-                <state img="#-shocked.png"></state>
                 <state img="#-bitchy.png">For real, though. Come the fuck on.</state>
                 <state img="#-ass.png">I'm pretty sure I gave the invitation earlier.</state>
             </case>
@@ -950,7 +949,7 @@
                 <state img="#-embarrassed.png">If you're gonna embarrass me, just get it the fuck over with.</state>
             </case>
             <case stage="8">
-                <condition filter="busty" role="target" />
+                <condition filter="large_breasts" role="target" />
                 <state img="#-nipples.png">They're gonna be huge, aren't they? Pre-emptive "fuck you."</state>
             </case>
             <case stage="0-7">

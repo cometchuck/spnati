@@ -2009,6 +2009,15 @@
                 <condition role="target" character="asuna" stage="0" />
                 <state img="#-gloating.png">&lt;i&gt;Those&lt;/i&gt; are your boots?</state>
             </case>
+            <case stage="0-7">
+                <condition role="target" character="aiyana" stage="0" />
+                <state img="#-appreciative.png">Losing your hat?</state>
+                <state img="#-gloating.png">Just don't spin it around backwards like a total tool.</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="annie_leonhart" stage="2" />
+                <state img="#-bored.png">A sash shouldn't count.</state>
+            </case>
             <case stage="0">
                 <condition role="self" notSaidMarker="not_first_person_to_lose_to_me_2" />
                 <state img="#-confident.png" marker="not_first_person_to_lose_to_me_1">~Name~, you aren't anywhere near  the first person to lose  to me.</state>
@@ -2822,10 +2831,6 @@
                 <state img="#-loss.png">Dammit. I was hoping you'd keep those on until through your forfeit.</state>
             </case>
             <case stage="0-7">
-                <condition role="target" character="alice" stage="4" />
-                <state img="#-awkward.png">I like girls in stockings. Don't judge me.</state>
-            </case>
-            <case stage="0-7">
                 <condition role="target" character="aella" stage="2" />
                 <state img="#-appreciative.png">I'd love a dress like that for myself.</state>
             </case>
@@ -2836,11 +2841,6 @@
             <case stage="0-7">
                 <condition role="target" character="aimee" stage="2" />
                 <state img="#-awkward.png">Tell my band I loved them if I die...</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="aiyana" stage="0" />
-                <state img="#-appreciative.png">Losing your hat?</state>
-                <state img="#-gloating.png">Just don't spin it around backwards like a total tool.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="alice_mgq" stage="0" />
@@ -2881,10 +2881,6 @@
             <case stage="0-7">
                 <condition role="target" character="angie" stage="2" />
                 <state img="#-relaxed.png">Nice to see your stuffy-looking jacket come off.</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="annie_leonhart" stage="2" />
-                <state img="#-bored.png">A sash shouldn't count.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="annie_leonhart" stage="3" />
@@ -2945,6 +2941,10 @@
             <case stage="0-7">
                 <condition role="target" character="zizou" stage="4" />
                 <state img="#-horny.png">So... Are you a top or a bottom?</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="annie_leonhart" stage="3" />
+                <state img="#-relaxed.png">At least you lost, I guess.</state>
             </case>
             <case stage="0">
                 <condition role="self" notSaidMarker="dont_feel_too_bad_you_cant_win_em_all_2" />
@@ -3149,10 +3149,6 @@
             <case stage="0-7">
                 <condition role="target" character="angie" stage="3" />
                 <state img="#-confident.png">Embla Academy should get cooler colors. Like purple and blue.</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="annie_leonhart" stage="3" />
-                <state img="#-relaxed.png">At least you lost, I guess.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="annie_leonhart" stage="4" />
@@ -3773,10 +3769,6 @@
                 <state img="#-happy.png">Cute hoodie. Too bad it's white.</state>
             </case>
             <case stage="0-7">
-                <condition role="target" character="april" stage="3" />
-                <state img="#-gloating.png">Finally, we get to see your bare tits.</state>
-            </case>
-            <case stage="0-7">
                 <condition role="target" character="april" stage="4" />
                 <state img="#-excited.png">Please go command. Please go commando.</state>
             </case>
@@ -4075,10 +4067,6 @@
             <case stage="0-7">
                 <condition role="target" character="annie_leonhart" stage="6" />
                 <state img="#-gloating.png">With a boring bra underneath. Damn, girl, wear something colorful.</state>
-            </case>
-            <case stage="0-7">
-                <condition role="target" character="april" stage="4" />
-                <state img="#-happy.png">And they're not bad.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="april" stage="5" />
@@ -4458,6 +4446,10 @@
 
         <trigger id="female_chest_will_be_visible">
             <case stage="0-7">
+                <condition role="target" character="april" stage="3" />
+                <state img="#-gloating.png">Finally, we get to see your bare tits.</state>
+            </case>
+            <case stage="0-7">
                 <condition role="target" character="amalia" stage="3" />
                 <state img="#-appreciative.png">Show everyone your "nature's bounty."</state>
             </case>
@@ -4480,6 +4472,10 @@
             <case stage="0-7">
                 <condition role="target" character="mae" sayingMarker="bulliable" />
                 <state img="#-excited.png">Oh, come on! Show off your tits with pride! It's your body! Own it!</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="alice" />
+                <state img="#-awkward.png">I like girls in stockings. Don't judge me.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="aella" />
@@ -4719,6 +4715,10 @@
         </trigger>
 
         <trigger id="female_large_chest_is_visible">
+            <case stage="0-7">
+                <condition role="target" character="april" stage="4" />
+                <state img="#-happy.png">And they're not bad.</state>
+            </case>
             <case stage="0-7">
                 <condition role="target" character="mavis" />
                 <state img="#-horny.png">And those are just making me hornier.</state>

@@ -1047,7 +1047,7 @@
                 <state img="#-happy.png">I've fought and won in less! You should take off more!</state>
             </case>
             <case stage="6">
-                <condition role="target" character="captain falcon" />
+                <condition role="target" character="captain_falcon" />
                 <state img="#-happy.png">Will I lose this match? No.</state>
             </case>
             <case stage="7">
@@ -1190,10 +1190,6 @@
 
         <trigger id="male_medium_crotch_is_visible">
             <case stage="4">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="human" />
-                </alternative>
                 <state img="#-excited.png">Well maybe I can give you a shot...</state>
             </case>
             <case stage="0">
@@ -1792,7 +1788,7 @@
                 <state img="#-interested.png">The bounty huntress isn't invincible after all!</state>
             </case>
             <case stage="0-8">
-                <condition role="target" character="zonetan" />
+                <condition role="target" character="zone-tan" />
                 <state img="#-interested.png">Lets face it ~name~... you were not going to see me masturbate...</state>
             </case>
             <case stage="0">
@@ -1844,7 +1840,7 @@
                 <state img="#-happy.png">I never in a million years expected to see the great Samus Aran reduced to this!</state>
             </case>
             <case stage="0-8">
-                <condition role="target" character="zonetan" />
+                <condition role="target" character="zone-tan" />
                 <state img="#-happy.png">But that doesn't mean, I can't help you!</state>
             </case>
             <case stage="0">
@@ -1932,7 +1928,7 @@
                 <state img="#-excited.png">I beat you at the card game, I'll beat you in the bedroom... except this match will be 1 on 1!</state>
             </case>
             <case stage="0-8">
-                <condition role="target" character="zonetan" />
+                <condition role="target" character="zone-tan" />
                 <state img="#-excited.png">Wow, that looked fun... care to teach me?</state>
             </case>
             <case stage="0 9">

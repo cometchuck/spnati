@@ -209,14 +209,14 @@
                 <state img="#-BulmaAnnoyed.png">I spend most of my time running a billion zeni company. I don't have time for sports. </state>
             </case>
             <case stage="0-5" id="24" oneShotId="14">
-                <condition filter="videl" role="opp" character="videl" var="target" />
+                <condition role="opp" character="videl" />
                 <state img="#-BulmaBlushOpen.png" marker="BulmaPhoneTrunksCandy">Videl! I haven't seen you in so long!</state>
                 <state img="#-BulmaBlushOpen.png">Oh my gosh! Videl I haven't seen you in years!</state>
                 <state img="#-BulmaBlushOpen.png">Videl! Its been so long, did you do something to your skin?</state>
                 <state img="#-BulmaShock.png">Videl!? I didn't think I'd see you here. You look... different. Did you do something with your hair?</state>
             </case>
             <case stage="0-5" id="25" oneShotId="15">
-                <condition filter="caulifla" role="opp" character="caulifla" var="target" />
+                <condition role="opp" character="caulifla" />
                 <state img="#-BulmaConfused.png" marker="BulmaPhoneTrunksCandy">Hey Caulifla, something about your hair reminds me of my husband...</state>
             </case>
             <case stage="0-5" id="19" oneShotId="9">

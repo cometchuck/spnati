@@ -327,6 +327,19 @@
                 <state img="#-stressed.png">I hope she don't try this again</state>
                 <state img="#-angry_exp.png">Shit, this is fucked up</state>
             </case>
+            <case stage="0-7" id="17" oneShotId="23">
+                <condition role="self" notSaidMarker="LeoAdventures" />
+                <condition role="other" character="aella" stage="0-1" sayingMarker="AellaAdventures" />
+                <alternative totalRounds="2">
+                    <condition count="1" role="other" character="pinkie_pie" />
+                    <condition role="other" character="aella" stage="0-1" />
+                </alternative>
+                <alternative totalRounds="1">
+                    <condition role="other" character="aella" stage="0-1" />
+                </alternative>
+                <state img="#-explaining.png" marker="WarehouseRaid" font-size="small">I raided a warehouse from The Project, strangely some students where guarding it, nothing that a blowtorch and some acid bottles couldn't handle. After I killed everyone, I just loot some meds and a laser gun, I tried to use it but is heavy as hell and overheats very easily and takes fucking days to load the battery of that thing </state>
+                <state img="#-explaining.png" marker="WeddingMission" font-size="small">When I worked for the government, there was one time we had to crash a wedding because the groom was a terrorist who put explosives on a high school. Imagine this, a bride in the altar crying with blood stains in her dress, a guy in tuxedo on the floor with his brains all over a wall, bullet shells and a M60 on the floor. My partners and I we were waiting outside for extraction while eating cake. That was a helluva night</state>
+            </case>
             <case stage="0-7" id="88">
                 <condition count="4-5" status="lost_some" />
                 <condition role="other" character="maki" stage="0-4" sayingMarker="makicall" />
@@ -337,19 +350,6 @@
                 </alternative>
                 <state img="#-laughing.png">Shit, you're so fucking sweet I'm getting diabetes.</state>
                 <state img="#-laughing.png">Maki, you're killing me, no, seriously you're fucking killing me!</state>
-            </case>
-            <case stage="0-7" id="17" oneShotId="23">
-                <condition role="self" notSaidMarker="LeoAdventures" />
-                <condition role="other" character="aella" stage="0-1" sayingMarker="AellaAdventures" />
-                <alternative totalRounds="2">
-                    <condition count="1" filter="pinkie_pie" role="other" />
-                    <condition role="other" character="aella" stage="0-1" />
-                </alternative>
-                <alternative totalRounds="1">
-                    <condition role="other" character="aella" stage="0-1" />
-                </alternative>
-                <state img="#-explaining.png" marker="WarehouseRaid" font-size="small">I raided a warehouse from The Project, strangely some students where guarding it, nothing that a blowtorch and some acid bottles couldn't handle. After I killed everyone, I just loot some meds and a laser gun, I tried to use it but is heavy as hell and overheats very easily and takes fucking days to load the battery of that thing </state>
-                <state img="#-explaining.png" marker="WeddingMission" font-size="small">When I worked for the government, there was one time we had to crash a wedding because the groom was a terrorist who put explosives on a high school. Imagine this, a bride in the altar crying with blood stains in her dress, a guy in tuxedo on the floor with his brains all over a wall, bullet shells and a M60 on the floor. My partners and I we were waiting outside for extraction while eating cake. That was a helluva night</state>
             </case>
             <case stage="0-7" id="45" oneShotId="24" priority="282">
                 <condition role="other" character="tharja" stage="5" saidMarker="TharjaJuraBoob3" />
@@ -1939,7 +1939,7 @@
                 <state img="#-impressed.png">You got the spirit, ~name~, keep it up!</state>
             </case>
             <case stage="0-3">
-                <state img="#-impressed.png">&lt;i&gt;(This a good chance to get a one-night stand, a good chance!)</state>
+                <state img="#-impressed.png">&lt;i&gt;(This a good chance to get a one-night stand, a good chance!)&lt;/i&gt;</state>
                 <state img="#-conceited.png">Hey if you need some companion after the game just holla, alright?</state>
                 <state img="#-explaining.png">Getting almost killed in the way here worth it.</state>
                 <state img="#-explaining.png">You showing how naughty a girl can be. I love it!</state>
@@ -2004,7 +2004,7 @@
                 <state img="#-impressed.png">You really inspire me ~name~, really have.</state>
                 <state img="#-explaining.png">You wanna work for me, ~name~?</state>
                 <state img="#-thinking.png">You like hurting other people?</state>
-                <state oneShotId="1" set-gender="female">Miss ~name~ it is a pleasure to be playing with such talent.</state>
+                <state img="#-impressed.png" oneShotId="1" set-gender="female">Miss ~name~ it is a pleasure to be playing with such talent.</state>
             </case>
             <case stage="0-6">
                 <condition filter="cheater" role="target" />

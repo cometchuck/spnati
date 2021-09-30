@@ -14,8 +14,8 @@
 
 
     <wardrobe>
-        <clothing name="bottom" position="lower" type="important" />
-        <clothing name="top" position="upper" type="important" />
+        <clothing name="bottom" position="lower" type="major" />
+        <clothing name="top" position="upper" type="major" />
         <clothing name="legs" position="legs" type="minor" plural="true" />
         <clothing name="arms" position="arms" type="minor" plural="true" />
         <clothing name="bib" generic="apron" position="upper" type="minor" />

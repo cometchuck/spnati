@@ -16,7 +16,7 @@
     <wardrobe>
         <clothing name="pants" generic="pants" position="lower" type="important" />
         <clothing name="gauntlets" generic="armor" position="hands" type="extra" plural="true" />
-        <clothing name="bodice" generic="armor" position="upper" type="important" />
+        <clothing name="bodice" generic="armor" position="upper" type="major" />
         <clothing name="boots" generic="shoes" position="feet" type="minor" plural="true" />
         <clothing name="skirt" generic="skirt" position="lower" type="major" />
     </wardrobe>

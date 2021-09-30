@@ -16,7 +16,7 @@
     <wardrobe>
         <clothing name="shorts" generic="shorts" position="lower" type="important" plural="true" />
         <clothing name="top" generic="shirt" position="upper" type="important" />
-        <clothing name="skirt" generic="skirt" position="waist" type="major" />
+        <clothing name="skirt" generic="skirt" position="lower" type="major" />
         <clothing name="jacket" generic="jacket" position="upper" type="major" />
         <clothing name="gauntlets" generic="gloves" position="hands" type="extra" plural="true" />
         <clothing name="socks" generic="socks" position="feet" type="extra" plural="true" />
@@ -4009,7 +4009,7 @@
         <trigger id="must_masturbate_first">
             <case stage="8">
                 <condition count="3-" filter="rwby" gender="female" />
-                <state>Damn. I didn't expect to be the first member of team RWBY to fall.</state>
+                <state img="#-loss.png">Damn. I didn't expect to be the first member of team RWBY to fall.</state>
             </case>
             <case stage="8">
                 <state img="#-loss.png">Dammit... This didn't go as I expected at all.</state>
@@ -4022,7 +4022,7 @@
         <trigger id="must_masturbate">
             <case stage="8">
                 <condition count="3-" filter="rwby" status="alive" />
-                <state>How can team RWBY fall like this. This shouldn't be happning.</state>
+                <state img="#-loss.png">How can team RWBY fall like this. This shouldn't be happning.</state>
             </case>
             <case stage="8">
                 <state img="#-loss.png">I lost? Dammit, this wasn't my plan at all.</state>

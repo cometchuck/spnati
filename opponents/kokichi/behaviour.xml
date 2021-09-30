@@ -266,7 +266,7 @@
             </case>
             <case stage="8" id="28" priority="102">
                 <condition role="other" character="arash" saidMarker="martha" sayingMarker="question-martha" />
-                <state>...Not disclosing anything of that nature. I don't have it in me to.</state>
+                <state img="#-neutral.png">...Not disclosing anything of that nature. I don't have it in me to.</state>
             </case>
             <case stage="0-8" id="1">
                 <condition role="other" character="mary" sayingMarker="imnotlooking" />
@@ -1545,7 +1545,7 @@
         <trigger id="global">
             <case stage="0-10" priority="10000">
                 <condition role="self" saidMarker="leave" />
-                <state img="custom:left"></state>
+                <state img="custom:left">~blank~</state>
             </case>
             <case stage="10" priority="9998">
                 <condition role="self" saidMarker="bitter" />
