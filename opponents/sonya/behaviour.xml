@@ -15,7 +15,7 @@
 
     <wardrobe>
         <clothing name="panties" generic="underwear" position="lower" type="important" plural="true" />
-        <clothing name="top" generic="shirt" position="upper" type="important" />
+        <clothing name="top" generic="shirt" position="upper" type="major" />
         <clothing name="headband" generic="headband" position="head" type="minor" />
         <clothing name="tights" generic="leggings" position="lower" type="major" plural="true" />
         <clothing name="shorts" generic="shorts" position="lower" type="extra" plural="true" />
@@ -1000,6 +1000,10 @@
                 <state img="#-angry.png">You think an attack of bad cards is a terrible thing?  Try to fight hundreds of Outworld's soldiers at once.</state>
             </case>
             <case stage="0-8 10">
+                <condition role="target" character="buffy" stage="1" />
+                <state img="#-angry.png">What do ya think?</state>
+            </case>
+            <case stage="0-8 10">
                 <condition role="target" character="florina" />
                 <state img="#-shocked.png">Where are you going?</state>
             </case>
@@ -1065,7 +1069,7 @@
                 <state img="#-angry.png">I'll destroy you after I'm done here...</state>
             </case>
             <case stage="10">
-                <state>You don't know what you're missing, ~name~.</state>
+                <state img="#-confident.png">You don't know what you're missing, ~name~.</state>
             </case>
             <case stage="0-8 10" id="2" hidden="1">
                 <condition role="target" character="mia" stage="2" />
@@ -1149,7 +1153,11 @@
             </case>
             <case stage="0-10">
                 <condition role="target" character="revy" stage="4" />
-                <state img="#-guns.png" marker="revy_guns">Yeah? Whatcha gonna do about it, bitch?</state>
+                <state marker="revy_guns">
+                    <alt-img stage="0-8 10">#-guns.png</alt-img>
+                    <alt-img stage="9">#-angry.png</alt-img>
+                    <text>Yeah? Whatcha gonna do about it, bitch?</text>
+                </state>
             </case>
             <case stage="0-3 5-10">
                 <condition role="target" character="rosalina" stage="2" />
@@ -1158,10 +1166,6 @@
             <case stage="0-8 10">
                 <condition role="target" character="shantae_classic" stage="1" />
                 <state img="#-happy.png">I agree!</state>
-            </case>
-            <case stage="0-8 10">
-                <condition role="target" character="sola" stage="3" />
-                <state img="#-calm.png">Yes, it's legal. It's also legal on Outworld, the Netherrealm and even Edenia.</state>
             </case>
             <case stage="0-8 10">
                 <condition role="target" character="twilight" stage="4" />
@@ -1174,6 +1178,14 @@
             <case stage="0-8 10">
                 <condition role="target" character="yang" stage="1" />
                 <state img="#-horny.png">Look at this blonde bombshell. What's your name, sweetheart?</state>
+            </case>
+            <case stage="0-7">
+                <condition role="target" character="elizabeth" stage="1" />
+                <state img="#-calm.png">Look, Elizabeth. As long you behave, and play according to the regulations you'll be fine. Try cheating and your pretty blue dress will turn out red.</state>
+            </case>
+            <case stage="0-8 10">
+                <condition role="target" character="raven" stage="2" />
+                <state img="#-calm.png">OH! so you're the sarcastic type. Let me give you a piece of advice: If you want to keep your teeth at the end of the game you'll keep your witty observations to yourself.</state>
             </case>
             <case stage="0-8 10">
                 <condition role="target" character="florina" />
@@ -1403,10 +1415,6 @@
                 <state img="#-calm.png" marker="gunslinger">God, you're good!</state>
             </case>
             <case stage="0-8 10">
-                <condition role="target" character="buffy" stage="1" />
-                <state img="#-angry.png">What do ya think?</state>
-            </case>
-            <case stage="0-8 10">
                 <condition role="target" character="kyoko" stage="5" />
                 <state img="#-calm.png">So? Are you going somewhere with this?</state>
             </case>
@@ -1492,10 +1500,6 @@
                 <condition role="target" character="buffy" stage="1" />
                 <state img="#-calm.png">You may also die today. Specially if you keep wasting my time.</state>
             </case>
-            <case stage="0-7">
-                <condition role="target" character="elizabeth" stage="1" />
-                <state img="#-calm.png">Look, Elizabeth. As long you behave, and play according to the regulations you'll be fine. Try cheating and your pretty blue dress will turn out red.</state>
-            </case>
             <case stage="0-8 10">
                 <condition role="target" character="gogo" stage="3" />
                 <state img="#-calm.png">Nope. Gettin' bored.</state>
@@ -1507,10 +1511,6 @@
             <case stage="0-8 10">
                 <condition role="target" character="nugi-chan" stage="3" />
                 <state img="#-angry.png">Aren't you forgetting something? Like saying please!</state>
-            </case>
-            <case stage="0-8 10">
-                <condition role="target" character="raven" stage="2" />
-                <state img="#-calm.png">OH! so you're the sarcastic type. Let me give you a piece of advice: If you want to keep your teeth at the end of the game you'll keep your witty observations to yourself.</state>
             </case>
             <case stage="0-7">
                 <condition role="target" character="shego" stage="2" />
@@ -1795,6 +1795,10 @@
         </trigger>
 
         <trigger id="female_removed_major">
+            <case stage="0-8 10">
+                <condition role="target" character="sola" stage="3" />
+                <state img="#-calm.png">Yes, it's legal. It's also legal on Outworld, the Netherrealm and even Edenia.</state>
+            </case>
             <case stage="0-10">
                 <condition role="target" character="aimee" stage="1" />
                 <state img="#-calm.png" marker="gunslinger">Impressive, Gunslinger!</state>
@@ -2533,6 +2537,10 @@
         </trigger>
 
         <trigger id="female_crotch_will_be_visible">
+            <case stage="0">
+                <condition role="target" character="twilight" stage="0" />
+                <state img="#-interested.png">Interesting development.</state>
+            </case>
             <case stage="0-10">
                 <condition role="target" character="aimee" />
                 <state img="#-nervous.png" marker="gunslinger">... OH SHIT... Even I can't watch that!</state>
@@ -2548,13 +2556,6 @@
             <case stage="0-10">
                 <condition role="target" character="wiifitfemale" />
                 <state img="#-excited.png">I exercise nude every morning, actually. It's much more comfortable than doing it clothed!</state>
-            </case>
-            <case stage="0">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="twilight" stage="0" />
-                </alternative>
-                <state img="#-interested.png">Interesting development.</state>
             </case>
             <case stage="0-8 10">
                 <condition filter="blonde" role="target" />

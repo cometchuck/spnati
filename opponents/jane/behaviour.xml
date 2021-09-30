@@ -455,10 +455,6 @@
         </trigger>
 
         <trigger id="female_removed_accessory">
-            <case stage="0-7">
-                <condition role="target" character="daria" stage="1" />
-                <state img="#-calm.png">You're getting soft around the edges, Morgendorffer.</state>
-            </case>
             <case stage="0-3 7">
                 <condition role="target" character="daria" stage="2" />
                 <state img="#-calm.png">Say Daria, can I have your boots?</state>
@@ -470,14 +466,6 @@
             <case stage="0-7 9">
                 <condition role="target" character="zelda" stage="1" />
                 <state img="#-interested.png">You're Zelda? Nice to know you and all, but I was pulling for Ganondorf.</state>
-            </case>
-            <case stage="4">
-                <condition role="target" character="daria" stage="4" />
-                <state img="#-calm.png">Say Daria, can I have your boots?</state>
-            </case>
-            <case stage="5">
-                <condition role="target" character="daria" stage="5" />
-                <state img="#-calm.png">Say Daria, can I have your boots?</state>
             </case>
             <case stage="6">
                 <condition role="target" character="daria" stage="6" />
@@ -587,6 +575,14 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-7">
+                <condition role="target" character="daria" stage="1" />
+                <state img="#-calm.png">You're getting soft around the edges, Morgendorffer.</state>
+            </case>
+            <case stage="4">
+                <condition role="target" character="daria" stage="4" />
+                <state img="#-calm.png">Say Daria, can I have your boots?</state>
+            </case>
             <case stage="0-1">
                 <condition role="target" character="zoey" stage="2" />
                 <state img="#-interested.png">So, you were haunted by zombies, huh? I can't help but wonder what zombies would eat back at Lawndale... They'd probably starve to death.</state>
@@ -677,6 +673,10 @@
         </trigger>
 
         <trigger id="female_removed_major">
+            <case stage="5">
+                <condition role="target" character="daria" stage="5" />
+                <state img="#-calm.png">Say Daria, can I have your boots?</state>
+            </case>
             <case stage="0 7">
                 <state img="#-happy.png">Yeah, I'm pretty happy with this outcome.</state>
             </case>
@@ -717,7 +717,6 @@
                     <alt-img stage="9">#-interested.png</alt-img>
                     <text>Your blushing makes it better.</text>
                 </state>
-                <state img="#-snarky.png">Your blushing makes it better.</state>
             </case>
             <case stage="1 4">
                 <state img="#-snarky.png">I'm guessing yours wasn't the chest you were expecting to see when we started this.</state>

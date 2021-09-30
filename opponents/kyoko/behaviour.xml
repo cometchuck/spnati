@@ -1153,15 +1153,12 @@
                 <state img="#-smug.png">I wonder how this will go...</state>
                 <state img="#-smug.png">This should be... entertaining.</state>
             </case>
-            <case stage="0-6 8">
+            <case stage="0-8">
                 <state img="#-smug.png">
-                    <alt-img stage="3-4 6 8">#-calm.png</alt-img>
+                    <alt-img stage="3-4 6-8">#-calm.png</alt-img>
                     <alt-img stage="5">#-thinking.png</alt-img>
                     <text>...</text>
                 </state>
-            </case>
-            <case stage="7">
-                <state img="#-calm.png"></state>
             </case>
             <case stage="9">
                 <state img="#-masturbate_a.png">Mmm, oh... oh...</state>

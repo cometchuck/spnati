@@ -17,7 +17,7 @@
         <clothing name="underwear" generic="underwear" position="lower" type="important" />
         <clothing name="headband" generic="headband" position="head" type="extra" />
         <clothing name="pants" generic="pants" position="lower" type="major" plural="true" />
-        <clothing name="jacket" generic="jacket" position="upper" type="important" />
+        <clothing name="jacket" generic="jacket" position="upper" type="major" />
         <clothing name="belt" generic="belt" position="waist" type="extra" />
         <clothing name="gloves" generic="gloves" position="hands" type="extra" plural="true" />
     </wardrobe>

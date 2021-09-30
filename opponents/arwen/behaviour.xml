@@ -692,6 +692,10 @@
                 <condition role="target" character="nugi-chan" stage="1" />
                 <state img="#-interested.png">Pardon me, my lady. Do I know you?</state>
             </case>
+            <case stage="0-6 8">
+                <condition role="target" character="nugi-chan" stage="2" />
+                <state img="#-interested.png">I'm positive I've seen you before.</state>
+            </case>
             <case stage="8">
                 <condition role="target" character="nugi-chan" />
                 <state img="#-interested.png">Pardon me, my lady. Do I know you?</state>
@@ -856,10 +860,6 @@
         </trigger>
 
         <trigger id="female_removing_major">
-            <case stage="0-6 8">
-                <condition role="target" character="nugi-chan" stage="2" />
-                <state img="#-interested.png">I'm positive I've seen you before.</state>
-            </case>
             <case stage="0-6 8">
                 <condition role="target" character="nugi-chan" stage="3" />
                 <state img="#-interested.png">Oooh... Aren't you Miss Nugi-chan? The woman who made me fill out an application to apply to play here?</state>

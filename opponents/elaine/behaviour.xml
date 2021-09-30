@@ -408,7 +408,7 @@
             </case>
             <case stage="3">
                 <condition role="other" character="chun-li" />
-                <state>I don't need them all miss Li but thats only because kisekae don't have and flintlock pistols.</state>
+                <state img="#-stripped.png">I don't need them all miss Li but thats only because kisekae don't have and flintlock pistols.</state>
             </case>
             <case stage="1">
                 <state img="#-stripped.png">I just want to make sure you aren't taking your anger out on me.</state>
@@ -1129,10 +1129,6 @@
                 <state img="#-interested.png">Not to rub it in but you are aware that Ace is the highest card in poker right?</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="alice" stage="3" />
-                <state img="#-interested.png">What a shame, those stocking looked good on you.</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="annie" stage="0" />
                 <state img="#-interested.png">Dosen't matter, anyone is welcome at the inventory.</state>
             </case>
@@ -1240,6 +1236,10 @@
                 <condition role="target" character="yang" stage="3" />
                 <state img="#-interested.png">Wait are those gauntlets also guns?</state>
             </case>
+            <case stage="0-10">
+                <condition role="target" character="elizabeth" stage="0" />
+                <state img="#-interested.png">It's not everyday I am in this fine company, I hope my manners are proper.</state>
+            </case>
             <case stage="0-1">
                 <state img="#-disappointed.png">Your ~clothing~ wouldn't even be worth a glass of rum.</state>
                 <state img="#-interested.png">Taking off your ~clothing~, are you?</state>
@@ -1291,10 +1291,6 @@
             <case stage="0 2-10">
                 <condition role="target" character="alice" stage="2" />
                 <state img="#-excited.png">I'm just messing with you!</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="alice" stage="4" />
-                <state img="#-excited.png">This is a lovely way to spend an evening don't you agree, Alice?</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="annie" stage="1" />
@@ -1407,6 +1403,10 @@
             <case stage="10">
                 <condition role="target" character="morrigan" stage="1" />
                 <state img="#-angry.png">Not that I am scared or anything ,I just want to make sure that Winslow won't have to kick you out.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="elizabeth" stage="1" />
+                <state img="#-excited.png">But then again, I guess proper manners really don't matter in a game like this.</state>
             </case>
             <case stage="0-1">
                 <state img="#-interested.png">
@@ -1547,16 +1547,16 @@
 
         <trigger id="female_removing_minor">
             <case stage="0-10">
+                <condition role="target" character="alice" stage="3" />
+                <state img="#-interested.png">What a shame, those stocking looked good on you.</state>
+            </case>
+            <case stage="0-10">
                 <condition role="target" character="black_canary" stage="3" />
                 <state img="#-interested.png">You sure you don't have some extra clothes in your Sea Rover?</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="black_canary" stage="5" />
                 <state img="#-interested.png">What's with the stockings, don't you normally wear fishnet stockings?</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="elizabeth" stage="0" />
-                <state img="#-interested.png">It's not everyday I am in this fine company, I hope my manners are proper.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="elizabeth" stage="5" />
@@ -1585,6 +1585,14 @@
             <case stage="0-10">
                 <condition role="target" character="yang" stage="4" />
                 <state img="#-interested.png">Perhaps this will be easier for you after a mug of grog.</state>
+            </case>
+            <case stage="0 3-4 6-10">
+                <condition role="target" character="elizabeth" stage="1" />
+                <state img="#-interested.png">Usually the ladies I come across won't wear pink in fear of looking immature.</state>
+            </case>
+            <case stage="1-2 5">
+                <condition role="target" character="elizabeth" stage="1" />
+                <state img="#-interested.png">Usually the ladies I come across won't wear pink in fear of looking  immature.</state>
             </case>
             <case stage="0-1">
                 <state img="#-interested.png">One step closer to the treasure.</state>
@@ -1626,16 +1634,16 @@
 
         <trigger id="female_removed_minor">
             <case stage="0-10">
+                <condition role="target" character="alice" stage="4" />
+                <state img="#-excited.png">This is a lovely way to spend an evening don't you agree, Alice?</state>
+            </case>
+            <case stage="0-10">
                 <condition role="target" character="black_canary" stage="4" />
                 <state img="#-interested.png">Because ye sure is losing smartly.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="black_canary" stage="6" />
                 <state img="#-interested.png">X always marks the spot.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="elizabeth" stage="1" />
-                <state img="#-excited.png">But then again, I guess proper manners really don't matter in a game like this.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="elizabeth" stage="6" />
@@ -1822,10 +1830,6 @@
                 <condition role="target" character="black_canary" stage="4" />
                 <state img="#-interested.png">This is why i don't use leotards.</state>
             </case>
-            <case stage="0 3-4 6-10">
-                <condition role="target" character="elizabeth" stage="1" />
-                <state img="#-interested.png">Usually the ladies I come across won't wear pink in fear of looking immature.</state>
-            </case>
             <case stage="0-10">
                 <condition role="target" character="elizabeth" stage="2" />
                 <state img="#-excited.png">I know I am excited to see you undress.</state>
@@ -1882,13 +1886,13 @@
                 <condition role="target" character="yang" stage="5" />
                 <state img="#-interested.png">You know a woman's choice of underwear can say a lot about a lady.</state>
             </case>
-            <case stage="1-2 5">
-                <condition role="target" character="elizabeth" stage="1" />
-                <state img="#-interested.png">Usually the ladies I come across won't wear pink in fear of looking  immature.</state>
-            </case>
             <case stage="3-7">
                 <condition role="target" character="meia" stage="2" />
                 <state img="#-interested.png">You are a pirate, the best possible profession. What do you have to complain  about?</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="elizabeth" stage="2" />
+                <state img="#-excited.png">But I guess you are no ordinary lady.</state>
             </case>
             <case stage="0-1">
                 <state img="#-interested.png">Remind me to buy you a root beer sometime, ~name~.</state>
@@ -1951,10 +1955,6 @@
             <case stage="0-10">
                 <condition role="target" character="black_canary" stage="5" />
                 <state img="#-interested.png">Perhaps I should start using a bra like that. Looks very comfortable.</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="elizabeth" stage="2" />
-                <state img="#-excited.png">But I guess you are no ordinary lady.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="elizabeth" stage="3" />

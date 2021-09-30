@@ -93,10 +93,6 @@
                 <state img="#-embarrassed.png">You're still coming to our party, right Elena?</state>
             </case>
             <case stage="2-5">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="elena" />
-                </alternative>
                 <state img="#-calm.png">I know what I'm doing! I've seen the guards playing cards before...</state>
                 <state img="#-calm.png">I can do this! I think.</state>
             </case>

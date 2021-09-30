@@ -485,6 +485,13 @@
         </trigger>
 
         <trigger id="female_removed_accessory">
+            <case stage="6-8">
+                <condition role="target" character="jasmine" stage="3" />
+                <state img="#-smug.png" marker="harley_jasmine_necklace">
+                    <alt-img stage="8">#-angry.png</alt-img>
+                    <text>That necklace looks valuable! I wish I still had pockets...</text>
+                </state>
+            </case>
             <case stage="0">
                 <state img="#-calm.png">Just give it time ~name~...</state>
             </case>
@@ -551,13 +558,6 @@
         </trigger>
 
         <trigger id="female_removed_minor">
-            <case stage="6-8">
-                <condition role="target" character="jasmine" stage="3" />
-                <state img="#-smug.png" marker="harley_jasmine_necklace">
-                    <alt-img stage="8">#-angry.png</alt-img>
-                    <text>That necklace looks valuable! I wish I still had pockets...</text>
-                </state>
-            </case>
             <case stage="0-7">
                 <state img="#-happy.png">Yay! We're moving to the big leagues, ha!</state>
             </case>

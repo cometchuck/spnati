@@ -209,7 +209,7 @@
             </case>
             <case stage="6-7">
                 <condition role="other" character="pyrrha" />
-                <state img="#-whatever.png"></state>
+                <state img="#-whatever.png">...</state>
             </case>
             <case stage="1-7">
                 <state img="#-stripped.png">!!! !!! !!!</state>
@@ -416,13 +416,13 @@
 
         <trigger id="male_medium_crotch_is_visible">
             <case stage="0-9">
-                <state img="#-horny.png"></state>
+                <state img="#-horny.png">...</state>
             </case>
         </trigger>
 
         <trigger id="male_large_crotch_is_visible">
             <case stage="0-9">
-                <state img="#-horny.png"></state>
+                <state img="#-horny.png">...</state>
             </case>
         </trigger>
 
@@ -526,31 +526,31 @@
 
         <trigger id="female_crotch_is_visible">
             <case stage="0-9">
-                <state img="#-interested.png"></state>
+                <state img="#-interested.png">...</state>
             </case>
         </trigger>
 
         <trigger id="male_must_masturbate">
             <case stage="0-9">
-                <state img="#-sadistic.png"></state>
+                <state img="#-sadistic.png">...</state>
             </case>
         </trigger>
 
         <trigger id="male_start_masturbating">
             <case stage="0-9">
-                <state img="#-excited.png"></state>
+                <state img="#-excited.png">...</state>
             </case>
         </trigger>
 
         <trigger id="male_masturbating">
             <case stage="0-9">
-                <state img="#-horny.png"></state>
+                <state img="#-horny.png">...</state>
             </case>
         </trigger>
 
         <trigger id="male_finished_masturbating">
             <case stage="0-9">
-                <state img="#-approval.png"></state>
+                <state img="#-approval.png">...</state>
             </case>
         </trigger>
 

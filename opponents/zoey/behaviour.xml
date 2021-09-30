@@ -412,10 +412,6 @@
         </trigger>
 
         <trigger id="male_removed_accessory">
-            <case stage="0-10">
-                <condition role="target" character="xander" stage="2" />
-                <state img="#-sad.png">Aw, you're no fun anymore.</state>
-            </case>
             <case stage="0-1">
                 <state img="#-sad.png">Does that even count?</state>
             </case>
@@ -564,6 +560,10 @@
                 <condition role="target" character="buffy" stage="2" />
                 <state img="#-sassy.png">Aww, you're no fun, Buffy!</state>
             </case>
+            <case stage="0-5">
+                <condition role="target" character="asuna" stage="1" />
+                <state img="#-angry.png">Or you could, I don't know, GO TO THE STORE like a regular person.</state>
+            </case>
             <case stage="0-6">
                 <condition role="target" character="hermione" />
                 <state img="#-sassy.png">You're wound really tight, aren't you? I bet you're a total freak in bed.</state>
@@ -651,6 +651,10 @@
         </trigger>
 
         <trigger id="male_removed_minor">
+            <case stage="0-10">
+                <condition role="target" character="xander" stage="2" />
+                <state img="#-sad.png">Aw, you're no fun anymore.</state>
+            </case>
             <case stage="0-3">
                 <condition role="target" character="xander" stage="1" />
                 <state img="#-sassy.png">Confidence is sexy! Overconfidence is a mood killer, though.</state>
@@ -724,10 +728,6 @@
             <case stage="0-4">
                 <condition role="target" character="meg" stage="4" />
                 <state img="#-angry.png">T.M.I., Meg.</state>
-            </case>
-            <case stage="0-5">
-                <condition role="target" character="asuna" stage="1" />
-                <state img="#-angry.png">Or you could, I don't know, GO TO THE STORE like a regular person.</state>
             </case>
             <case stage="0-5">
                 <condition role="target" character="hermione" stage="3" />
@@ -1412,10 +1412,6 @@
                 <state img="#-horny.png">You'd better stop staring at me while you do that or I'll tell your girlfriend!</state>
             </case>
             <case stage="0-10">
-                <alternative />
-                <alternative>
-                    <condition filter="taken" role="target" />
-                </alternative>
                 <state img="#-horny.png">Are you moaning? It &lt;i&gt;sounds&lt;/i&gt; like you're moaning.</state>
                 <state img="#-horny.png">Holy shit, you must fuck like a champ!</state>
             </case>

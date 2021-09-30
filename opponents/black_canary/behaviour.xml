@@ -21,7 +21,7 @@
         <clothing name="panties" generic="underwear" position="lower" type="important" plural="true" />
         <clothing name="bra" generic="bra" position="upper" type="important" />
         <clothing name="stockings" generic="leggings" position="legs" type="minor" plural="true" />
-        <clothing name="leotard" generic="leotard" position="upper" type="major" />
+        <clothing name="leotard" generic="leotard" position="both" type="major" />
         <clothing name="jacket" generic="jacket" position="upper" type="minor" />
         <clothing name="boots" generic="shoes" position="feet" type="extra" plural="true" />
         <clothing name="gloves" generic="gloves" position="hands" type="extra" plural="true" />
@@ -1374,10 +1374,6 @@
                 <state img="#-interested.png">You're cuter than I expected.</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="korra" stage="1" />
-                <state img="#-disappointed.png">Just your socks, really?</state>
-            </case>
-            <case stage="0-10">
                 <condition role="target" character="korra" stage="2" />
                 <state img="#-calm.png">I think if I could pick one element to bend... I'd choose water!</state>
             </case>
@@ -1474,6 +1470,14 @@
                 <condition role="target" character="tracer" stage="0" />
                 <state img="#-calm.png">You'll be fine without your gloves, just look at me.</state>
             </case>
+            <case stage="0-10">
+                <condition role="target" character="korra" stage="2" />
+                <state img="#-excited.png">Your bending's not gonna help you here!</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="hermione" stage="0" />
+                <state img="#-happy.png">No, you're more of a sexy magician like my friend Zatanna!</state>
+            </case>
             <case stage="5-9">
                 <condition role="target" character="harley" />
                 <state img="#-angry.png">I refuse to be beaten by a maniac like you.</state>
@@ -1541,10 +1545,6 @@
             <case stage="0-10">
                 <condition role="target" character="korra" stage="1" />
                 <state img="#-excited.png">And you're so buff! We should arm wrestle later... or just wrestle...</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="korra" stage="2" />
-                <state img="#-excited.png">Your bending's not gonna help you here!</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="korra" stage="3" />
@@ -1727,12 +1727,12 @@
 
         <trigger id="female_removing_minor">
             <case stage="0-10">
-                <condition role="target" character="elaine" stage="2" />
-                <state img="#-excited.png">I wear Ollie's jackets around the house sometimes, but I need my purple one for my crime-fighting uniform.</state>
+                <condition role="target" character="korra" stage="1" />
+                <state img="#-disappointed.png">Just your socks, really?</state>
             </case>
             <case stage="0-10">
-                <condition role="target" character="hermione" stage="0" />
-                <state img="#-happy.png">No, you're more of a sexy magician like my friend Zatanna!</state>
+                <condition role="target" character="elaine" stage="2" />
+                <state img="#-excited.png">I wear Ollie's jackets around the house sometimes, but I need my purple one for my crime-fighting uniform.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="hermione" stage="1" />
@@ -1765,6 +1765,10 @@
             <case stage="0-10">
                 <condition role="target" character="zelda" stage="3" />
                 <state img="#-interested.png">I suppose, but I'd still rather see what's under that dress.</state>
+            </case>
+            <case stage="0-10">
+                <condition role="target" character="hermione" stage="1" />
+                <state img="#-shocked.png">Wow so you can just wave your wand to magic those shoes off of your feet! I bet that does feel nice!</state>
             </case>
             <case stage="0-3">
                 <state img="#-interested.png">Now we're getting somewhere.</state>
@@ -1801,10 +1805,6 @@
             <case stage="0-10">
                 <condition role="target" character="elaine" stage="3" />
                 <state img="#-shocked.png">Do you just bring four guns with you everywhere? Even to strip poker?</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="hermione" stage="1" />
-                <state img="#-shocked.png">Wow so you can just wave your wand to magic those shoes off of your feet! I bet that does feel nice!</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="hermione" stage="2" />
@@ -2476,6 +2476,10 @@
                 <condition role="target" character="misty" />
                 <state img="#-excited.png">Now that's a cute pair! Do you rub them like a Pikachu's cheeks?</state>
             </case>
+            <case stage="0-10">
+                <condition role="target" character="rosalina" />
+                <state img="#-interested.png">That's a cute pair! You look so bare with them out, in a good way.</state>
+            </case>
             <case stage="0">
                 <state img="#-interested.png">Those would fit right in with the Teen Titans!</state>
             </case>
@@ -2531,10 +2535,6 @@
             <case stage="0-8">
                 <condition role="target" character="lyn" />
                 <state img="#-excited.png">You are a pretty little bird, aren't you?</state>
-            </case>
-            <case stage="0-10">
-                <condition role="target" character="rosalina" />
-                <state img="#-interested.png">That's a cute pair! You look so bare with them out, in a good way.</state>
             </case>
             <case stage="0-10">
                 <condition role="target" character="samus" />

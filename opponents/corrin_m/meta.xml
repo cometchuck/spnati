@@ -19,6 +19,6 @@
         <costume folder="opponents/reskins/corrin_m_valentine/" img="0-calm.png" set="valentines" label="Corrin">Camilla's armor</costume>
     </alternates>
     <has_collectibles>false</has_collectibles>
-    <lines>2581</lines>
-    <poses>137</poses>
+    <lines>2580</lines>
+    <poses>135</poses>
 </opponent>

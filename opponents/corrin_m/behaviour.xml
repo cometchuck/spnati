@@ -18,7 +18,7 @@
     <wardrobe>
         <clothing name="panties" generic="underwear" position="lower" type="important" plural="true" />
         <clothing name="tights" position="lower" type="major" plural="true" />
-        <clothing name="armor" generic="armor" position="upper" type="important" />
+        <clothing name="armor" generic="armor" position="upper" type="major" />
         <clothing name="pants" generic="pants" position="lower" type="minor" plural="true" />
         <clothing name="gloves" generic="gloves" position="hands" type="extra" plural="true" />
         <clothing name="cape" generic="cape" position="other" type="extra" />
@@ -436,10 +436,6 @@
                 <state img="#-embarrassed.png">I'm still ahead... I can still beat a goddess...</state>
             </case>
             <case stage="0">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="corrin_f" />
-                </alternative>
                 <state img="#-loss.png">Not my cape...</state>
                 <state img="#-embarrassed.png">I may be winning, but I'll miss my cape.</state>
                 <state img="#-shy.png">I'm still in the lead though...</state>
@@ -1476,7 +1472,6 @@
                 <state img="#-excited.png">Soon YOU will be naked as well, ~name~.</state>
                 <state img="#-excited.png">Enjoy undressing for soon you will join me in nudity!</state>
                 <state img="#-angry.png">How could you possibly still be undressing if I'm naked? Is your luck just that good, ~name~?</state>
-                <state img="#-happy.png"></state>
             </case>
             <case stage="7">
                 <state img="#-interested.png">Hah... Hah... Yeah...</state>
@@ -2645,6 +2640,11 @@
                 <state img="#-calm.png">We're half dragon on our father's side.</state>
             </case>
             <case stage="0-8">
+                <condition role="target" character="mahiru" stage="3" />
+                <condition count="4" gender="male" />
+                <state img="#-shy.png">A guy can just like seeing guys and girls undress?</state>
+            </case>
+            <case stage="0-8">
                 <condition role="target" character="aimee" stage="2" />
                 <state img="#-angry.png">Don't kill anyone!</state>
             </case>
@@ -3091,11 +3091,6 @@
                 <state img="#-interested.png">Rinkah is super cute.</state>
             </case>
             <case stage="0-8">
-                <condition role="target" character="mahiru" stage="3" />
-                <condition count="4" gender="male" />
-                <state img="#-shy.png">A guy can just like seeing guys and girls undress?</state>
-            </case>
-            <case stage="0-8">
                 <condition role="target" character="aimee" stage="1" />
                 <state img="#-angry.png">How could you be so careless?</state>
             </case>
@@ -3255,7 +3250,6 @@
                 <state img="#-interested.png">I... Like how you look... ~name~...</state>
                 <state img="#-happy.png">You're beautiful, ~name~.</state>
                 <state img="#-shy.png">I can't measure up to that...</state>
-                <state img="#-loss.png">I can't measure up to that...</state>
                 <state img="#-appreciative.png">Wow... You're well built, ~name~.</state>
                 <state img="#-appreciative.png">You're really cute like that, ~name~.</state>
                 <state img="#-happy.png">You did very well, ~name~.</state>
@@ -3742,6 +3736,10 @@
                 <state img="#-interested.png">Your bosoms are v-very nice... You should be very proud...</state>
             </case>
             <case stage="0-8">
+                <condition role="target" character="rinkah" stage="5" />
+                <state img="#-interested.png">They look really good without the bandages, Rinkah.</state>
+            </case>
+            <case stage="0-8">
                 <condition role="target" character="aimee" />
                 <state img="#-angry.png">If you die, it's your fault.</state>
             </case>
@@ -3778,10 +3776,6 @@
                 <state img="#-tandemhappy.png">I didn't know they could g-grow that big...</state>
                 <state img="#-tandemshy.png">I-AH! I don't know what to say to those...</state>
                 <state img="#-tandemappreciative.png">Th-Those remind me of my w-wife.</state>
-            </case>
-            <case stage="0-8">
-                <condition role="target" character="rinkah" stage="5" />
-                <state img="#-interested.png">They look really good without the bandages, Rinkah.</state>
             </case>
             <case stage="0-8">
                 <condition filter="huge_breasts" role="target" />
@@ -4712,29 +4706,29 @@
         </trigger>
 
     </behaviour>
-    <epilogue gender="any" version="0">
+    <epilogue gender="any" img="epilogue1.jpg" version="2">
         <title>Nohrian Reward</title>
-        <scene background="epilogue1.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue1.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="0%" y="10%">Since you defeated our brother, Corrin. Elise and I think you deserve a reward, ~name~.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="epilogue1.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue1.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="80%" y="10%">Yeah. Camilla and I want you to try out our new maid. Speaking of which...</directive>
             <directive type="pause" />
         </scene>
-        <scene background="epilogue2.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue2.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="40%" y="10%">Yes, mistresses? Oh. Hello, ~name~.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="epilogue2.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue2.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="0%" y="10%">Alright, maid. Show ~name~ what you're hiding under your skirt.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="epilogue2.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue2.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="80%" y="10%">Hint. "She's" not wearing anything underneath.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="epilogue3.jpg" width="2352" height="1756">
+        <scene name="" background="epilogue3.jpg" x="0" y="0" width="2352" height="1756">
             <directive type="text" arrow="none" x="40%" y="10%">EEEP!</directive>
             <directive type="pause" />
         </scene>
@@ -4749,9 +4743,9 @@
 
     </epilogue>
 
-    <epilogue hint="Play with Rinkah to unlock this epilogue." gender="male" alsoPlaying="rinkah" version="0">
+    <epilogue hint="Play with Rinkah to unlock this epilogue." gender="male" alsoPlaying="rinkah" img="tandemepilogue1.png" version="2">
         <title>Punishment or Reward (Extreme Femdom)</title>
-        <scene background="tandemepilogue1.png" width="800" height="600">
+        <scene name="" background="tandemepilogue1.png" x="0" y="0" width="800" height="600">
             <directive type="text" width="20%" arrow="up" x="25%" y="25%">So, my sweet, little Corrin lost...</directive>
             <directive type="pause" />
         </scene>
@@ -4759,17 +4753,17 @@
             <directive type="text" width="20%" arrow="up" x="36%" y="30%">And ~name~ here won.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="tandemepilogue1.png" width="800" height="600">
+        <scene name="" background="tandemepilogue1.png" x="0" y="0" width="800" height="600">
             <directive type="text" width="20%" arrow="up" x="25%" y="25%">So you know what that means, darling? You get a special punishment.</directive>
             <directive type="pause" />
             <directive type="text" width="20%" arrow="down" x="37%" y="5%">And you get a special reward, ~name~.</directive>
             <directive type="pause" />
         </scene>
-        <scene background="tandemepilogue1.png" width="800" height="600">
+        <scene name="" background="tandemepilogue1.png" x="0" y="0" width="800" height="600">
             <directive type="text" width="10%" arrow="up" x="36%" y="25%">        STRIP!		        STRIP!</directive>
             <directive type="pause" />
         </scene>
-        <scene background="tandemepilogue2.png" width="800" height="600">
+        <scene name="" background="tandemepilogue2.png" x="0" y="0" width="800" height="600">
             <directive type="text" width="15%" arrow="up" x="20%" y="30%">Y-Yes, Mistress...</directive>
             <directive type="pause" />
             <directive type="text" width="15%" arrow="up" x="38%" y="30%">You too, ~name~.</directive>

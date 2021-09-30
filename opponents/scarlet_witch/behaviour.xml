@@ -15,8 +15,8 @@
 
     <wardrobe>
         <clothing name="thong" generic="underwear" position="lower" type="important" />
-        <clothing name="leotard" generic="leotard" position="upper" type="important" />
-        <clothing name="socks" generic="socks" position="lower" type="major" plural="true" />
+        <clothing name="leotard" generic="leotard" position="both" type="major" />
+        <clothing name="socks" generic="socks" position="feet" type="major" plural="true" />
         <clothing name="gloves" generic="gloves" position="hands" type="major" plural="true" />
         <clothing name="boots" generic="shoes" position="feet" type="minor" plural="true" />
         <clothing name="helmet" generic="helmet" position="head" type="extra" />

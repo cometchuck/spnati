@@ -325,10 +325,6 @@
                 <state img="#-calm.png">♫ I'm picking up good vibrations. ♫</state>
             </case>
             <case stage="0-5">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="ayano" />
-                </alternative>
                 <state img="#-calm.png">♫ Hey Macarena! ♫</state>
                 <state img="#-singing.png">♫ I'm not afraid to take a stand. ♫</state>
                 <state img="#-awkward.png">Gosh, it's weird not being around all the crowds and fans.</state>
@@ -346,17 +342,9 @@
                 <state img="#-singing.png">♫ I'm a survivor, I'm not gon' give up, I'm not gon' stop, I'm gon' work harder! ♫</state>
             </case>
             <case stage="1-5">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="mettaton" />
-                </alternative>
                 <state img="#-singing.png">♫ We all live in a yellow submarine. ♫</state>
             </case>
             <case stage="4-5">
-                <alternative />
-                <alternative>
-                    <condition role="other" character="mettaton" />
-                </alternative>
                 <state img="#-singing.png">♫ You may say I'm a dreamer, but I'm not the only one. ♫</state>
             </case>
             <case stage="0" priority="0">
@@ -1011,10 +999,6 @@
                 <state img="#-singing.png">♫ Goodness gracious, great balls of fire! ♫</state>
             </case>
             <case stage="0-6">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="nagisa" />
-                </alternative>
                 <state img="#-interested.png">♫ Take it off now, girl!  Take it off now, girl! ♫</state>
                 <state img="#-singing.png">♫ Won't you let me, see beneath you're beautiful! ♫</state>
                 <state img="#-calm.png">Let me know if you have a request for a song, ~name~.</state>
@@ -1026,10 +1010,6 @@
                 <state img="#-singing.png">♫ We don't have to take our clothes off... to have a good time... Oh no! ♫</state>
             </case>
             <case stage="10">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="jasmine" />
-                </alternative>
                 <state img="#-awkward.png">My hands are shaking!</state>
                 <state img="#-awkward.png">It's so weird being corporeal now!</state>
                 <state img="#-sensible.png">Can't argue with results like that!</state>
@@ -1136,17 +1116,13 @@
                 <condition role="target" character="captain_falcon" stage="7" />
                 <state img="#-shocked.png">I've never seen you without your helmet on, Captain Falcon!  You're kinda cute!</state>
             </case>
-            <case stage="10">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="captain_falcon" stage="7" />
-                </alternative>
-                <state img="#-happy.png">This is fun!</state>
-                <state img="#-horny.png">Hug time!  Hug me, ~name~!</state>
-            </case>
             <case stage="2 4-5">
                 <condition role="other" character="jane" />
                 <state img="#-singing.png">♫ Come as you are, as you were, as I want you to be! ♫</state>
+            </case>
+            <case stage="10">
+                <state img="#-happy.png">This is fun!</state>
+                <state img="#-horny.png">Hug time!  Hug me, ~name~!</state>
             </case>
             <case stage="0-8">
                 <state img="#-sensible.png">I can't interact with your ~clothing~ due to me being a synthetic automaton.</state>
@@ -1450,61 +1426,29 @@
                 <state img="#-interested.png">...</state>
             </case>
             <case stage="0-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-calm.png">Removing your ~clothing~ correlates with my expectation subroutine.</state>
                 <state img="#-sensible.png">~name~, you need a hug!  What a shame I'm a hologram!</state>
             </case>
             <case stage="1-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-shocked.png">Gosh!</state>
             </case>
             <case stage="2-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-sensible.png">At least your ~clothing~, not artificial like all of mine.</state>
             </case>
             <case stage="3-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-calm.png">You need to hope our internet connection slows down!</state>
             </case>
             <case stage="4-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-sensible.png">Don't be grouchy, ~name~.  Think about rainbows and the stars.</state>
             </case>
             <case stage="6-8">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-sensible.png">We need to remove our angst subroutines, ~name~.</state>
                 <state img="#-awkward.png">I may have survived that round, but this is still a very difficult evening for me.</state>
             </case>
             <case stage="7-8">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-awkward.png">Oh gosh!  This whole game is making me feel very strange.</state>
             </case>
             <case stage="10">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kurumu" stage="2" />
-                </alternative>
                 <state img="#-happy.png">I love all body types!</state>
                 <state img="#-interested.png">That's nice, ~name~!</state>
             </case>
@@ -1527,17 +1471,13 @@
                 <condition role="target" character="kim" stage="1" />
                 <state img="#-shocked.png">Your boots &lt;i&gt;and&lt;/i&gt;  your socks!  Are you crazy?  Tee hee!</state>
             </case>
-            <case stage="0-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="kim" stage="1" />
-                </alternative>
-                <state img="#-happy.png">Well done for uninstalling your ~clothing~!  Tee hee!</state>
-                <state img="#-happy.png">*giggle* This sure is fun!</state>
-            </case>
             <case stage="1 3">
                 <condition role="other" character="jane" />
                 <state img="#-singing.png">♫ Come as you are, as you were, as I want you to be! ♫</state>
+            </case>
+            <case stage="0-5">
+                <state img="#-happy.png">Well done for uninstalling your ~clothing~!  Tee hee!</state>
+                <state img="#-happy.png">*giggle* This sure is fun!</state>
             </case>
             <case stage="1-5">
                 <state img="#-sensible.png">I need to update my social media empire about this happening.</state>
@@ -1758,82 +1698,38 @@
                 <state img="#-awkward.png">We are both in similar sorts of trouble now!</state>
                 <state img="#-calm.png">Have a chat with the programmers to see if they can upload a new one for you.</state>
             </case>
+            <case stage="3 5">
+                <condition role="other" character="jane" />
+                <state img="#-singing.png">♫ Come as you are, as you were, as I want you to be! ♫</state>
+            </case>
             <case stage="0-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="alice" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="ann" stage="2" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-happy.png">♫ All you need is love... ♫ and a decent lithium battery.</state>
                 <state img="#-sensible.png">Show patience and forgiveness, ~name~.</state>
                 <state img="#-happy.png">Ha ha ha!  Sorry, I get carried away sometimes.</state>
             </case>
             <case stage="7-8">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="alice" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-sensible.png">You'll be in the same condition as me if your luck doesn't change.</state>
             </case>
             <case stage="10">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="alice" />
-                </alternative>
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-shocked.png">Watch this! If I blow air through my hands, it sounds like a fart!</state>
                 <state img="#-shocked.png">I need ice cream!</state>
                 <state img="#-interested.png">Tonight has been so extraordinary!</state>
             </case>
             <case stage="1-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-awkward.gif">I can feel myself glitching.</state>
             </case>
             <case stage="2-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-happy.png">And you really rocked the ~clothing~.</state>
             </case>
             <case stage="3-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-awkward.png">I think I'm gonna pass out!</state>
             </case>
             <case stage="4-5">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-calm.png">Try to reboot yourself.  It works for me.</state>
             </case>
             <case stage="6-8">
-                <alternative />
-                <alternative>
-                    <condition role="target" character="harley" />
-                </alternative>
                 <state img="#-awkward.png">We are both in similar sorts of trouble now!</state>
                 <state img="#-calm.png">Have a chat with the programmers to see if they can upload a new one for you.</state>
-            </case>
-            <case stage="3 5">
-                <condition role="other" character="jane" />
-                <state img="#-singing.png">♫ Come as you are, as you were, as I want you to be! ♫</state>
             </case>
             <case stage="9">
                 <state img="#-awkward.png">Oh geez!</state>

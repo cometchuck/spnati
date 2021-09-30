@@ -520,13 +520,6 @@
         </trigger>
 
         <trigger id="female_removing_accessory">
-            <case stage="0-8 10">
-                <condition role="target" character="alice" stage="3" />
-                <state img="#-uneasy.png">
-                    <alt-img stage="10">#-finished.png</alt-img>
-                    <text>Pity about your socks, Alice.</text>
-                </state>
-            </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="3" />
                 <state img="#-embarrassed.png">Just... forget I asked?</state>
@@ -546,6 +539,10 @@
             <case stage="0-4">
                 <condition role="target" character="lilith" stage="1" />
                 <state img="#-calm.png">Lilith, I heard you were a siren... or part-siren, maybe?</state>
+            </case>
+            <case stage="0-6">
+                <condition role="target" character="buffy" stage="1" />
+                <state img="#-uneasy.png">I was kidding!</state>
             </case>
             <case stage="0-1 4">
                 <state img="#-unimpressed.png">Even Outer Moka would've chosen something more interesting.</state>
@@ -580,10 +577,6 @@
         </trigger>
 
         <trigger id="female_removed_accessory">
-            <case stage="0-8 10">
-                <condition role="target" character="alice" stage="4" />
-                <state img="#-nonchalant.png">I really liked them! They reminded me of Mizore's!</state>
-            </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="4" />
                 <state img="#-embarrassed.png">I wish I could hate her sometimes, but... I'm not that kind of person.</state>
@@ -606,6 +599,10 @@
             <case stage="0-4">
                 <condition role="target" character="lilith" stage="2" />
                 <state img="#-calm.png">If so, you should apply for Yokai Academy, a school for monsters! Maybe even join the Newspaper Club!</state>
+            </case>
+            <case stage="0-6">
+                <condition role="target" character="buffy" stage="2" />
+                <state img="#-uneasy.png">Moka's actually one of my dearest friends, even if she's also my main rival for Tsukune's love.</state>
             </case>
             <case stage="0-6 9">
                 <state img="#-calm.png">
@@ -713,13 +710,16 @@
         </trigger>
 
         <trigger id="female_removing_minor">
+            <case stage="0-8 10">
+                <condition role="target" character="alice" stage="3" />
+                <state img="#-uneasy.png">
+                    <alt-img stage="10">#-finished.png</alt-img>
+                    <text>Pity about your socks, Alice.</text>
+                </state>
+            </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="0" />
                 <state img="#-calm.png">You're the "vampire slayer," right?</state>
-            </case>
-            <case stage="0-6">
-                <condition role="target" character="buffy" stage="1" />
-                <state img="#-uneasy.png">I was kidding!</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="2" />
@@ -754,13 +754,13 @@
         </trigger>
 
         <trigger id="female_removed_minor">
+            <case stage="0-8 10">
+                <condition role="target" character="alice" stage="4" />
+                <state img="#-nonchalant.png">I really liked them! They reminded me of Mizore's!</state>
+            </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="1" />
                 <state img="#-nonchalant.png">There's a vampire standing between me and my Destined Mate. Would you...?</state>
-            </case>
-            <case stage="0-6">
-                <condition role="target" character="buffy" stage="2" />
-                <state img="#-uneasy.png">Moka's actually one of my dearest friends, even if she's also my main rival for Tsukune's love.</state>
             </case>
             <case stage="0-6">
                 <condition role="target" character="buffy" stage="3" />

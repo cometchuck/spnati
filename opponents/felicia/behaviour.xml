@@ -217,7 +217,7 @@
                 <alternative>
                     <condition role="other" character="mahiru" stage="9" />
                 </alternative>
-                <state img="#-blank.png"></state>
+                <state img="#-blank.png">~blank~</state>
             </case>
             <case stage="1">
                 <condition role="other" character="kyu" />
