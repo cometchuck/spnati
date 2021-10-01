@@ -2217,7 +2217,7 @@
                 <state img="#-woe.png">N-Nice to meet you too Jura. &lt;i&gt;(Fucking blonde bitch.)&lt;/i&gt;</state>
             </case>
             <case stage="0">
-                <condition role="other" character="revy" saying="did you lose your mom" />
+                <condition role="other" character="revy" saying="Did you lose your mom" />
                 <state img="#-angery.png" oneShotId="663" marker="revy_momlose">And when did your mom abandon you, Miss Edge? !</state>
             </case>
             <case stage="0">
@@ -3002,7 +3002,7 @@
                 <state img="#-angery.png" marker="natsuki_shavehere">What?! You want me to shave right here Natsuki?! I'll fucking do it!</state>
             </case>
             <case stage="4">
-                <condition role="other" character="amy" saying="Okay, okay, you're definitely not &lt;i&gt;that&lt;/i&gt; freaky. I'm sure we all do strange things in our free time. I have this fear someone'll borrow my phone and they'll look at all the weird porn I watched last night or something." />
+                <condition role="other" character="amy" saying="Okay, okay, you're definitely not &lt;i&gt;that&lt;/i&gt; freaky. I'm sure we all do strange things in our free time. I have this fear someone'll borrow my phone and they'll look at... um..." />
                 <state img="#-angery.png">Imagine that… but it’s your teacher and they are showing your search history to the entire class. Yeah, my life fucking sucks sometimes...</state>
             </case>
             <case stage="1">

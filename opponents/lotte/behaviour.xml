@@ -526,7 +526,7 @@
                 <state img="#-embarrassed.png">W-well, yes, my name is Lotte... Umm, a-and I suppose I'll answer whatever questions you want...</state>
             </case>
             <case stage="0-4" totalRounds="4">
-                <condition role="other" character="sayaka" saying="Not all witches are bad? Of course all witches are bad. You’re all gross and slimy and evil. Offense intended." />
+                <condition role="other" character="sayaka" saying="Not all witches are bad? Of course all witches are bad. You’re all gross and slimy and evil! Offense intended." />
                 <state img="#-worried.png">O-oh... U-umm... I-I'm sorry you've had bad experiences with witches in the past... B-but, I know plenty that are really nice!</state>
             </case>
             <case stage="3">
